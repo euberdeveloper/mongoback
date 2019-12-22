@@ -1,0 +1,5 @@
+node_modules
+dist
+src_backup
+config.ts
+exported.json

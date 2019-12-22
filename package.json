@@ -1,0 +1,29 @@
+{
+  "name": "mongoexporter",
+  "version": "1.0.0",
+  "description": "An npm command line program to easily extract data from mongodb",
+  "main": "dist/index.js",
+  "scripts": {
+    "transpile": "tsc",
+    "start": "node dist/index",
+    "serve": "npm run transpile && npm run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-exists": "^1.2.8",
+    "inquirer": "^7.0.0",
+    "inquirer-checkbox-plus-prompt": "^1.0.1",
+    "is-valid-path": "^0.1.1",
+    "mongodb": "^3.3.4",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "@types/command-exists": "^1.2.0",
+    "@types/inquirer": "^6.5.0",
+    "@types/is-valid-path": "^0.1.0",
+    "@types/mongodb": "^3.3.11",
+    "@types/shelljs": "^0.8.6",
+    "typescript": "^3.7.2"
+  }
+}
