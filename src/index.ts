@@ -3,17 +3,18 @@ import { mongoexportInstalled } from './utils/checkMongoexportInstalled';
 import { mergeOptions, getUriFromOptions } from './utils/options';
 import { getParsedCollections } from './utils/getParsedCollections';
 import { exportCollections } from './utils/exportCollections';
-import * as database from './utils/database';
+import { Database } from './utils/database';
 
 export async function mongoExport(options?: Options): Promise<void> {
     if (mongoexportInstalled) {
         options =  mergeOptions(options || { });
         const uri = getUriFromOptions(options);
         try {
-            await database.connect(uri);
-            const parsedCollections = await getParsedCollections(options);
-            await exportCollections(parsedCollections, options);
+            const database = new Database(uri);
+            await database.connect();
+            const parsedCollections = await getParsedCollections(options, database);
             await database.disconnect();
+            await exportCollections(parsedCollections, options);
         }
         catch (error) {
             console.error(`Error in connecting to database (uri = ${uri}): `, error);
