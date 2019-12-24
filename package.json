@@ -6,7 +6,8 @@
   "scripts": {
     "transpile": "tsc",
     "start": "node dist/index",
-    "serve": "npm run transpile && npm run start"
+    "serve": "npm run transpile && npm run start",
+    "commit": "git-cz"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +25,13 @@
     "@types/is-valid-path": "^0.1.0",
     "@types/mongodb": "^3.3.11",
     "@types/shelljs": "^0.8.6",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "typescript": "^3.7.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
