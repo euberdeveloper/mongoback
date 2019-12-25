@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"animals._goats_"}],"uuid":"809df86b1aca4872b5ae0605e1beef0d"}
