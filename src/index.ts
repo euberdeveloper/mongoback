@@ -1,16 +1,17 @@
-import { Options, ExportingType } from './interfaces/options';
+import { Options } from './interfaces/options';
 import { mongoexportInstalled } from './utils/checkMongoexportInstalled';
-import { mergeOptions, getUriFromOptions } from './utils/options';
+import { mergeOptions } from './utils/options';
 import { getParsedCollections } from './utils/getParsedCollections';
 import { exportCollections } from './utils/exportCollections';
 import { Database } from './utils/database';
+import { getMongoConnectionFromOptions } from './utils/connection';
 
 export async function mongoExport(options?: Options): Promise<void> {
     if (mongoexportInstalled) {
         options =  mergeOptions(options || { });
-        const uri = getUriFromOptions(options);
+        const { uri, options: connectionOptions } = await getMongoConnectionFromOptions(options);
         try {
-            const database = new Database(uri);
+            const database = new Database(uri, connectionOptions);
             await database.connect();
             const parsedCollections = await getParsedCollections(options, database);
             await database.disconnect();
@@ -28,19 +29,7 @@ export async function mongoExport(options?: Options): Promise<void> {
 mongoExport({
     uri: 'mongodb://localhost:27017',
     
-    collections: [
-        {
-            log_volante_round_1_e_2: [
-                'log_01911_2005',
-                'log_21911_1001',
-                {
-                    name: 'log_31911_1321',
-                    type: ExportingType.CSV,
-                    fields: 'timestamp'
-                }
-            ]
-        }
-    ],
+    databases: ['prova'],
     jsonArray: true,
     pretty: true,
 

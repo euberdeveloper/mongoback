@@ -6,5 +6,13 @@ export function mergeOptions(options: Options): Options {
     for (const key in DEFAULT_OPTIONS) {
         mergedOptions[key] = (options[key] === undefined ? DEFAULT_OPTIONS[key] : options[key]);
     }
+    if (mergedOptions.uri) {
+        mergedOptions.host = undefined;
+        mergedOptions.port = undefined;
+        mergedOptions.username = undefined;
+        mergedOptions.password = undefined;
+        mergedOptions.authenticationDatabase = undefined;
+        mergedOptions.authenticationMechanism = undefined;
+    }
     return mergedOptions;
 }

@@ -77,6 +77,7 @@ function getPath(db: string, collection: ParsedCollection, options: Options): st
 async function exportCollection(db: string, collection: ParsedCollection, options: Options): Promise<void> {
     const outPath = getPath(db, collection, options);
     const command = getCommand(db, collection, options, outPath);
+    console.log(command)
     const result = await execAsync(command);
     console.log(result);
 }

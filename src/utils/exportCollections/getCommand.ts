@@ -1,6 +1,38 @@
 import { ParsedCollection } from "../../interfaces/parsedCollections";
 import { Options, ExportingOptions } from "../../interfaces/options";
 
+function parseUri(options: Options, db: string): string {
+    let result = '';
+    
+    if (options.uri) {
+        const lastSlash = options.uri.lastIndexOf('/');
+        const protocolSlash = options.uri.indexOf('//') + 1;
+        const dbSlash = lastSlash > protocolSlash ? lastSlash : -1;
+        if (dbSlash === -1) {
+            result = ` --uri=${options.uri}/${db}`;
+        }
+        else {
+            const pre = options.uri.slice(0, dbSlash);
+            const optionsIndex = options.uri.indexOf('?');
+            const post = optionsIndex === -1 ? '' : options.uri.slice(optionsIndex);
+            result = ` --uri=${pre}/${db}${post}`;
+        }
+    }
+
+    return result;
+}
+function parseHost(options: Options): string {
+    return !options.uri && options.host ? ` --host=${options.host}` : '';
+}
+function parsePort(options: Options): string {
+    return !options.uri && options.port ? ` --port=${options.port}` : '';
+}
+function parseUsername(options: Options): string {
+    return !options.uri && options.username ? ` --username=${options.username}` : '';
+}
+function parsePassword(options: Options): string {
+    return !options.uri && options.password ? ` --password=${options.password}` : '';
+}
 function parseSslCAFile(options: Options): string {
     return options.sslCAFile ? ` --sslCAFile=${options.sslCAFile}` : '';
 }
@@ -117,11 +149,14 @@ function parseSort(options: ExportingOptions): string {
 }
 
 export function getCommand(database: string, parsedCollection: ParsedCollection, options: Options, outPath: string): string {
-    const db = ` --db=${database}`;
+    const db = options.uri ? '' : ` --db=${database}`;
     const collection = ` --collection=${parsedCollection.name}`;
 
-    const host = ` --host=localhost`;
-    const port = ` --port=27017`;
+    const uri = parseUri(options, database);
+    const host = parseHost(options);
+    const port = parsePort(options);
+    const username = parseUsername(options);
+    const password = parsePassword(options);
 
     const ssl = options.ssl ? ' --ssl' : '';
     const sslCAFile = parseSslCAFile(options);
@@ -155,6 +190,6 @@ export function getCommand(database: string, parsedCollection: ParsedCollection,
 
     const out = ` --out=${outPath}`;
 
-    let command = `mongoexport${host}${port}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${forceTableScan}${skip}${limit}${sort}${out}`;
+    let command = `mongoexport${uri}${host}${port}${username}${password}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${forceTableScan}${skip}${limit}${sort}${out}`;
     return command;
 }

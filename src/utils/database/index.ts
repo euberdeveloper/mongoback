@@ -4,10 +4,14 @@ export class Database {
 
     private uri: string;
     private connection: MongoClient = null;
-    private options: MongoClientOptions = { useUnifiedTopology: true };
+    private options: MongoClientOptions = { 
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+    };
 
-    public constructor(uri: string) {
+    public constructor(uri: string, options: MongoClientOptions) {
         this.uri = uri;
+        this.options = { ...options, ...this.options };
     }
 
     public async connect(): Promise<void> {
