@@ -42,7 +42,7 @@ const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
     skip: undefined,
     limit: undefined,
     sort: undefined,
-    prependDbName: false,
+    prependDbName: undefined,
     fileName: undefined,
     filePath: undefined,
     absolutePath: false

@@ -2,7 +2,7 @@ import { join } from 'path';
 import { exec } from 'shelljs';
 
 import { ParsedCollections, ParsedCollection } from "../../interfaces/parsedCollections";
-import { Options } from "../../interfaces/options";
+import { Options, OutType } from "../../interfaces/options";
 import { getCommand } from './getCommand';
 
 interface CommandResult {
@@ -62,7 +62,7 @@ function getPath(db: string, collection: ParsedCollection, options: Options): st
         }
     }
     else {
-        if (collection.prependDbName) {
+        if (collection.prependDbName || (options.outType === OutType.FLAT && collection.prependDbName !== false)) {
             result = join(result, `${db}_${collection.name}`);
         }
         else {

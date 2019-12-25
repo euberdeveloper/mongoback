@@ -26,7 +26,7 @@ export async function mongoExport(options?: Options): Promise<void> {
     }
 }
 
-mongoExport({
+/* mongoExport({
     uri: 'mongodb://localhost:27017',
     
     databases: ['prova'],
@@ -34,4 +34,4 @@ mongoExport({
     pretty: true,
 
     outDir: './exported'
-});
+}); */

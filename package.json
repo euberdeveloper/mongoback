@@ -7,7 +7,10 @@
     "transpile": "tsc",
     "start": "node dist/index",
     "serve": "npm run transpile && npm run start",
-    "cleandb": "node test/cleanDB",
+    "db:clean": "node test/cleanDB",
+    "db:restore": "mongorestore test/mock",
+    "db:populate": "npm run db:clean && npm run db:restore",
+    "test": "mocha --reporter spec",
     "commit": "git-cz"
   },
   "author": "",
@@ -27,9 +30,12 @@
     "@types/mongodb": "^3.3.11",
     "@types/shelljs": "^0.8.6",
     "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
+    "dree": "^2.4.6",
     "mocha": "^6.2.2",
+    "rimraf": "^3.0.0",
     "typescript": "^3.7.2"
   },
   "config": {
