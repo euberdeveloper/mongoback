@@ -22,16 +22,16 @@ function parseUri(options: Options, db: string): string {
     return result;
 }
 function parseHost(options: Options): string {
-    return !options.uri && options.host ? ` --host=${options.host}` : '';
+    return options.host ? ` --host=${options.host}` : '';
 }
 function parsePort(options: Options): string {
-    return !options.uri && options.port ? ` --port=${options.port}` : '';
+    return options.port ? ` --port=${options.port}` : '';
 }
 function parseUsername(options: Options): string {
-    return !options.uri && options.username ? ` --username=${options.username}` : '';
+    return options.username ? ` --username=${options.username}` : '';
 }
 function parsePassword(options: Options): string {
-    return !options.uri && options.password ? ` --password=${options.password}` : '';
+    return options.password ? ` --password=${options.password}` : '';
 }
 function parseSslCAFile(options: Options): string {
     return options.sslCAFile ? ` --sslCAFile=${options.sslCAFile}` : '';
