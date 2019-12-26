@@ -1,4 +1,4 @@
-import { ConnectionOptions, ExportingOptions, ExportedOptions, OutOptions, Options, OutType, ExportingType } from '../../interfaces/options';
+import { ConnectionOptions, ExportingOptions, ExportedOptions, OutOptions, Options, LogOptions } from '../../interfaces/options';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,
@@ -8,7 +8,6 @@ const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     password: undefined,
     authenticationDatabase: undefined,
     replicaSetName: undefined,
-    connectionOptions: undefined,
     srv: false,
     ssl: false,
     sslCAFile: undefined,
@@ -31,7 +30,7 @@ const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
 const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
     quiet: false,
     verbose: false,
-    type: ExportingType.JSON,
+    type: 'json',
     jsonFormat: undefined,
     jsonArray: false,
     pretty: false,
@@ -48,20 +47,28 @@ const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
     absolutePath: false
 };
 
-const DEFAULT_COLLECTIONS_OPTIONS: ExportedOptions = {
+const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
     all: false,
     databases: [],
-    collections: []
+    collections: [],
+    systemCollections: false
 };
+
+const DEFAULT_LOG_OPTIONS: LogOptions = {
+    silent: false,
+    log: 'base'
+};
+
 
 const DEFAULT_OUT_OPTIONS: OutOptions = {
     outDir: './exported',
-    outType: OutType.DEEP
+    outType: 'deep'
 };
 
 export const DEFAULT_OPTIONS: Options = { 
     ...DEFAULT_CONNECTION_OPTIONS, 
     ...DEFAULT_EXPORTING_OPTIONS, 
-    ...DEFAULT_COLLECTIONS_OPTIONS, 
+    ...DEFAULT_EXPORTED_OPTIONS, 
+    ...DEFAULT_LOG_OPTIONS,
     ...DEFAULT_OUT_OPTIONS 
 };

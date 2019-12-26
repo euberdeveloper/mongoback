@@ -8,8 +8,6 @@ exported
  │   ├── one.json
  │   ├── second.json
  │   └── two.json
- ├─> admin
- │   └── system.version.json
  ├─> animals
  │   ├── cats.json
  │   ├── dogs.json
@@ -21,8 +19,6 @@ exported
  │   ├── _cows.json
  │   ├── _goats_.json
  │   └── _pigs.json
- ├─> config
- │   └── system.sessions.json
  ├─> database
  │   ├── collection.json
  │   ├── collection1.json

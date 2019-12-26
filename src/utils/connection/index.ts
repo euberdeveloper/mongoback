@@ -1,16 +1,16 @@
-import { readFile } from 'fs';
-import { promisify } from 'util';
 import { MongoClientOptions } from "mongodb";
 
 import { ConnectionOptions } from "../../interfaces/options";
 import { ConnectionParameters } from '../../interfaces/connection';
 
-const readFileAsync = promisify(readFile);
-
 async function getMongoConnectionOptions(options: ConnectionOptions): Promise<MongoClientOptions> {
     const result: MongoClientOptions = {};
 
-    (result as any).replicaSet = options.replicaSetName;
+    result.replicaSet = options.replicaSetName;
+    result.authSource = options.authenticationDatabase;
+    result.authMechanism = options.authenticationMechanism;
+    result.ssl = options.ssl;
+    /* (result as any).replicaSet = options.replicaSetName;
     (result as any).authSource = options.authenticationDatabase;
     (result as any).authMechanism = options.authenticationMechanism;
     (result as any).tls = options.ssl;
@@ -19,7 +19,7 @@ async function getMongoConnectionOptions(options: ConnectionOptions): Promise<Mo
     (result as any).tlsCertificateKeyFilePassword = options.sslPEMKeyPassword;
     (result as any).tlsAllowInvalidCertificates = options.sslAllowInvalidCertificates;
     (result as any).tlsAllowInvalidHostnames = options.sslAllowInvalidHostnames;
-    (result as any).gssapiServiceName = options.gssapiServiceName;
+    (result as any).gssapiServiceName = options.gssapiServiceName; */
 
     return result;
 }

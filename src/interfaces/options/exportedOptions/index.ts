@@ -10,4 +10,5 @@ export interface ExportedOptions {
     all?: boolean;
     databases?: ExportedDatabases;
     collections?: ExportedCollections;
+    systemCollections?: boolean;
 };

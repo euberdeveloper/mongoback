@@ -1,18 +1,8 @@
-export enum ExportingType {
-    JSON = 'json',
-    CSV = 'csv'
-};
-
-export enum ExportingJsonFormat {
-    RELAXED = 'relaxed',
-    CANONICAL = 'canonical'
-}
-
 export interface StandardExportingOptions {
     quiet?: boolean;
     verbose?: boolean | number;
-    type?: ExportingType;
-    jsonFormat?: ExportingJsonFormat;
+    type?: 'json' | 'csv';
+    jsonFormat?: 'realaxed | canonical';
     jsonArray?: boolean;
     pretty?: boolean;
     query?: string | any;

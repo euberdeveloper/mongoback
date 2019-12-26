@@ -21,7 +21,6 @@ export interface ConnectionOptions {
     authenticationDatabase?: string;
     authenticationMechanism?: AuthenticationMechanism;
     replicaSetName?: string;
-    connectionOptions?: string | object;
     srv?: boolean;
     ssl?: boolean;
     sslCAFile?: string;

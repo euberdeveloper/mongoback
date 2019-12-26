@@ -2,7 +2,9 @@ import { join } from 'path';
 import { exec } from 'shelljs';
 
 import { ParsedCollections, ParsedCollection } from "../../interfaces/parsedCollections";
-import { Options, OutType } from "../../interfaces/options";
+import { Options } from "../../interfaces/options";
+
+import { Logger } from '../logger';
 import { getCommand } from './getCommand';
 
 interface CommandResult {
@@ -36,14 +38,14 @@ function getPath(db: string, collection: ParsedCollection, options: Options): st
             result = collection.absolutePath ? join(collection.filePath) : join(options.outDir, collection.filePath);
         }
         else {
-            const filePath = collection.filePath(db, collection.name, options.outDir);
+            const filePath = collection.filePath(db, collection.name, collection.type, options.outDir);
             if (collection.fileName) {
                 let fileName = '';
                 if (typeof collection.fileName === 'string') {
                     fileName = collection.fileName;
                 }
                 else {
-                    fileName = collection.fileName(db, collection.name);
+                    fileName = collection.fileName(db, collection.name, collection.type);
                 }
                 result = collection.absolutePath ? join(filePath, fileName) : join(options.outDir, filePath, fileName);
             }
@@ -57,12 +59,12 @@ function getPath(db: string, collection: ParsedCollection, options: Options): st
             result = join(result, collection.fileName);
         }
         else {
-            const filename = collection.fileName(db, collection.name);
+            const filename = collection.fileName(db, collection.name, collection.type);
             result = join(result, filename);
         }
     }
     else {
-        if (collection.prependDbName || (options.outType === OutType.FLAT && collection.prependDbName !== false)) {
+        if (collection.prependDbName || (options.outType === 'flat' && collection.prependDbName !== false)) {
             result = join(result, `${db}_${collection.name}`);
         }
         else {
@@ -74,22 +76,26 @@ function getPath(db: string, collection: ParsedCollection, options: Options): st
     return result;
 }
 
-async function exportCollection(db: string, collection: ParsedCollection, options: Options): Promise<void> {
+async function exportCollection(db: string, collection: ParsedCollection, options: Options, logger: Logger): Promise<void> {
     const outPath = getPath(db, collection, options);
     const command = getCommand(db, collection, options, outPath);
-    console.log(command)
-    const result = await execAsync(command);
-    console.log(result);
+    logger.printCommand(command);
+    logger.exportingCollectionStart(db, collection.name);
+    const commandResult = await execAsync(command);
+    logger.printMongoexport(commandResult.stderr);
+    const success = (commandResult.code === 0);
+    logger.exportingCollectionStop(db, collection.name, success);
 }
 
-async function exportDatabase(db: string, collections: ParsedCollection[], options: Options): Promise<void> {
+async function exportDatabase(db: string, collections: ParsedCollection[], options: Options, logger: Logger): Promise<void> {
+    logger.exportingDatabase(db);
     for (const collection of collections) {
-        await exportCollection(db, collection, options);
+        await exportCollection(db, collection, options, logger);
     }
 }
 
-export async function exportCollections(parsedCollections: ParsedCollections, options: Options): Promise<void> {
+export async function exportCollections(parsedCollections: ParsedCollections, options: Options, logger: Logger): Promise<void> {
     for (const db in parsedCollections) {
-        await exportDatabase(db, parsedCollections[db], options);
+        await exportDatabase(db, parsedCollections[db], options, logger);
     }
 }

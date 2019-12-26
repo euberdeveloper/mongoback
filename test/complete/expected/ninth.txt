@@ -7,7 +7,6 @@ exported
  ├── 12345_one.json
  ├── 12345_second.json
  ├── 12345_two.json
- ├── admin_system.version.json
  ├─> animals
  │   ├── cats.json
  │   ├── dogs.json
@@ -19,7 +18,6 @@ exported
  │   ├── _cows.json
  │   ├── _goats_.json
  │   └── _pigs.json
- ├── config_system.sessions.json
  ├── database_bis_collection.json
  ├── database_bis_collection_1.json
  ├── database_bis_collection_2.json

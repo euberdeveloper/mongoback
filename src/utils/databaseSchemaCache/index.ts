@@ -5,9 +5,11 @@ export class DatabaseSchemaCache {
 
     private database: Database;
     private schema: DatabaseSchema = { collections: { } };
+    private systemCollections: boolean;
 
-    constructor(database: Database) {
+    constructor(database: Database, systemCollections: boolean) {
         this.database = database;
+        this.systemCollections = systemCollections;
     }
 
     public async getDatabases(): Promise<string[]> {
@@ -19,7 +21,10 @@ export class DatabaseSchemaCache {
 
     public async getCollections(db: string): Promise<string[]> {
         if (!this.schema.collections[db]) {
-            this.schema.collections[db] = await this.database.listCollections(db);
+            const collections = await this.database.listCollections(db);
+            this.schema.collections[db] = this.systemCollections
+                ? collections
+                : collections.filter(collection => !(/^system./.test(collection)));
         }
         return this.schema.collections[db];
     }

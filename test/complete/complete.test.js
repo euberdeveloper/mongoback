@@ -24,7 +24,8 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             const options = {
                 all: true,
-                outDir: EXPORTED_PATH
+                outDir: EXPORTED_PATH,
+                log: ['base', 'commandd']
             };
 
             await mongoback.mongoExport(options);
@@ -127,7 +128,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
                         name: '_db',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random'],
-                        filePath: (db, collection) => path.join(db, `${collection}_special.csv`) 
+                        filePath: (db, collection, type) => path.join(db, `${collection}_special.${type}`) 
                     }
                 ],
                 outDir: EXPORTED_PATH
@@ -147,7 +148,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
                 databases: [
                     {
                         name: 'animals',
-                        filePath: (db, collection, outDir) => path.join(outDir, db, `${collection}.json`),
+                        filePath: (db, collection, type, outDir) => path.join(outDir, db, `${collection}.${type}`),
                         absolutePath: true
                     }
                 ],
@@ -159,6 +160,20 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
             const result = getResult();
             const expected = getExpected('ninth.txt');
             expect(result).to.equal(expected);
+
+        });
+
+        it(`Should export also the admin database`, async function () {
+
+            const options = {
+                databases: ['admin'],
+                systemCollections: true,
+                outDir: EXPORTED_PATH
+            };
+
+            await mongoback.mongoExport(options);
+            const result = fs.readdirSync(EXPORTED_PATH);
+            expect(result).to.include('admin');
 
         });
 
