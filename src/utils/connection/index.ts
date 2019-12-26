@@ -1,6 +1,5 @@
 import { readFile } from 'fs';
 import { promisify } from 'util';
-import { join } from 'path';
 import { MongoClientOptions } from "mongodb";
 
 import { ConnectionOptions } from "../../interfaces/options";
@@ -11,27 +10,16 @@ const readFileAsync = promisify(readFile);
 async function getMongoConnectionOptions(options: ConnectionOptions): Promise<MongoClientOptions> {
     const result: MongoClientOptions = {};
 
-    if (options.username) {
-        result.auth = {
-            user: options.username,
-            password: options.password
-        };
-    }
-    if (options.sslCAFile) {
-        result.sslCA = await readFileAsync(join(process.cwd(), options.sslCAFile)) as any;
-    }
-    if (options.sslCRLFile) {
-        result.sslCRL = await readFileAsync(join(process.cwd(), options.sslCRLFile)) as any;
-    }
-    if (options.sslPEMKeyFile) {
-        result.sslKey = await readFileAsync(join(process.cwd(), options.sslPEMKeyFile));
-    }
-    if (options.sslPEMKeyPassword) {
-        result.sslPass = await readFileAsync(join(process.cwd(), options.sslPEMKeyFile));
-    }
-    result.replicaSet = options.replicaSetName;
-    result.ssl = options.ssl;
-    result.authMechanism = options.authenticationMechanism;
+    (result as any).replicaSet = options.replicaSetName;
+    (result as any).authSource = options.authenticationDatabase;
+    (result as any).authMechanism = options.authenticationMechanism;
+    (result as any).tls = options.ssl;
+    (result as any).tlsCAFile = options.sslCAFile;
+    (result as any).tlsCertificateKeyFile = options.sslPEMKeyFile;
+    (result as any).tlsCertificateKeyFilePassword = options.sslPEMKeyPassword;
+    (result as any).tlsAllowInvalidCertificates = options.sslAllowInvalidCertificates;
+    (result as any).tlsAllowInvalidHostnames = options.sslAllowInvalidHostnames;
+    (result as any).gssapiServiceName = options.gssapiServiceName;
 
     return result;
 }
@@ -44,7 +32,12 @@ function getMongoConnectionUri(options: ConnectionOptions): string {
         const host = (Array.isArray(options.host)
             ? `${options.host.map(({host, port}) => `${host}:${port}`, '').join(',')}`
             : `${options.host}:${options.port}`);
-        uri = `${protocol}://${host}`;
+        const auth = options.username
+            ? (options.password
+                ? `${options.username}@`
+                : `${options.username}:${options.password}@`)
+            : '';
+        uri = `${protocol}://${auth}${host}`;
     }
 
     return uri;

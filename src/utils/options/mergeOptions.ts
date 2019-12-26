@@ -14,5 +14,11 @@ export function mergeOptions(options: Options): Options {
         mergedOptions.authenticationDatabase = undefined;
         mergedOptions.authenticationMechanism = undefined;
     }
+    else {
+        if (mergedOptions.username)
+            mergedOptions.username = encodeURIComponent(mergedOptions.username);
+        if (mergedOptions.password)
+            mergedOptions.password = encodeURIComponent(mergedOptions.password);
+    }
     return mergedOptions;
 }
