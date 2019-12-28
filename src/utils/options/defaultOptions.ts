@@ -53,7 +53,9 @@ const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
     collections: [],
     systemCollections: false,
     throwIfLackOfPermissions: false,
-    throwIfOneFails: false
+    warnIfLackOfPermissions: false,
+    throwIfOneFails: false,
+    warnIfOneFails: false
 };
 
 const DEFAULT_LOG_OPTIONS: LogOptions = {

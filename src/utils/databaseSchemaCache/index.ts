@@ -1,19 +1,19 @@
 import { DatabaseSchema } from '../../interfaces/databaseCache';
-import { Database } from '../database';
 import { ListDatabasesError, ListCollectionsError } from '../../errors';
+import { Database } from '../database';
+import { Logger } from '../logger';
 
 export class DatabaseSchemaCache {
 
-    private database: Database;
     private schema: DatabaseSchema = { collections: { } };
-    private systemCollections: boolean;
-    private throwIfLackOfPermissions: boolean;
 
-    constructor(database: Database, systemCollections: boolean, throwIfLackOfPermissions: boolean) {
-        this.database = database;
-        this.systemCollections = systemCollections;
-        this.throwIfLackOfPermissions = throwIfLackOfPermissions;
-    }
+    constructor(
+        private database: Database,
+        private systemCollections: boolean, 
+        private throwIfLackOfPermissions: boolean, 
+        private warnIfLackOfPermissions: boolean, 
+        private logger: Logger
+    ) { }
 
     public async getDatabases(): Promise<string[]> {
         if (!this.schema.databases) {
@@ -24,9 +24,10 @@ export class DatabaseSchemaCache {
                 if (this.throwIfLackOfPermissions) {
                     throw new ListDatabasesError(null, error);
                 }
-                else {
-                    return [];
+                else if (this.warnIfLackOfPermissions) {
+                    this.logger.warn('MongoBack: cannot list databases', error);
                 }
+                return [];
             }
         }
         return this.schema.databases;
@@ -44,9 +45,10 @@ export class DatabaseSchemaCache {
                 if (this.throwIfLackOfPermissions) {
                     throw new ListCollectionsError(null, db, error);
                 }
-                else {
-                    return [];
+                else if (this.warnIfLackOfPermissions) {
+                    this.logger.warn('MongoBack: cannot list collections of ' + db, error);
                 }
+                return [];
             }
         }
         return this.schema.collections[db];

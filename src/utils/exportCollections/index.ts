@@ -41,6 +41,9 @@ async function exportCollection(db: string, collection: ParsedCollection, option
     }
     else {
         const exportingError = new ExportingError(null, db, collection.name, command, commandResult.stderr);
+        if (options.warnIfOneFails) {
+            logger.warn(`MongoBack: error in exporting collection ${collection.name} of db ${db}`, commandResult.stderr);
+        }
         if (options.throwIfOneFails) {
             throw exportingError;
         }

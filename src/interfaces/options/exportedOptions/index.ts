@@ -12,5 +12,7 @@ export interface ExportedOptions {
     collections?: ExportedCollections;
     systemCollections?: boolean;
     throwIfLackOfPermissions?: boolean;
+    warnIfLackOfPermissions?: boolean;
     throwIfOneFails?: boolean;
+    warnIfOneFails?: boolean;
 };

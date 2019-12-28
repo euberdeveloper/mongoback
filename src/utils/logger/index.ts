@@ -86,4 +86,10 @@ export class Logger {
         }
     }
 
+    public warn(message: string, error: any): void {
+        const tag = chalk.keyword('yellow')('[WANING]');
+        const text = chalk.keyword('orange')(message);
+        console.log(`${tag} ${text}`, error);
+    }
+
 }

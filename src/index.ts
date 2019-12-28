@@ -21,7 +21,7 @@ export async function mongoExport(options?: Options): Promise<void> {
     // Open database connection
     await Database.connectDatabase(database);
     // Get parsed collections
-    const parsedCollections = await getParsedCollections(options, database);
+    const parsedCollections = await getParsedCollections(options, database, logger);
     // Log collections expected to be exported
     const expectedCollections = purgeParsedCollections(parsedCollections);
     logger.printExpectedCollections(expectedCollections);

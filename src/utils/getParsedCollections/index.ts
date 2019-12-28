@@ -2,6 +2,7 @@ import { Options } from "../../interfaces/options";
 import { ParsedCollections, CollectionsSchema } from "../../interfaces/parsedCollections";
 
 import { Database } from "../database";
+import { Logger } from "../logger";
 import { DatabaseSchemaCache } from "../databaseSchemaCache";
 
 import { purgeExportingOptions } from "./purgeExportingOptions";
@@ -11,9 +12,9 @@ import { parseIndipendentCollections } from "./parseIndipendentCollections";
 import { parseExportedDatabases } from "./parseExportedDatabases";
 import { parseAll } from "./parseAll";
 
-export async function getParsedCollections(options: Options, database: Database): Promise<ParsedCollections> {
+export async function getParsedCollections(options: Options, database: Database, logger: Logger): Promise<ParsedCollections> {
     const parsedCollections: ParsedCollections = {};
-    const dbSchema = new DatabaseSchemaCache(database, options.systemCollections, options.throwIfLackOfPermissions);
+    const dbSchema = new DatabaseSchemaCache(database, options.systemCollections, options.throwIfLackOfPermissions, options.warnIfLackOfPermissions, logger);
 
     const rootOptions = purgeExportingOptions(options);
     const { withDatabase, indipendent } = divideExportedCollections(options.collections);
