@@ -1,34 +1,36 @@
 {
-  "name": "mongoexporter",
-  "version": "1.0.0",
-  "description": "An npm command line program to easily extract data from mongodb",
+  "name": "mongoback",
+  "version": "0.0.2",
+  "description": "An npm module to easily export your MongoDB",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "transpile": "tsc",
-    "start": "node dist/index",
-    "serve": "npm run transpile && npm run start",
     "db:clean": "node test/cleanDB",
     "db:restore": "mongorestore test/mock",
     "db:populate": "npm run db:clean && npm run db:restore",
     "test": "mocha --reporter spec",
     "commit": "git-cz"
   },
-  "author": "",
+  "author": "Eugenio Vinicio Berretta <euberdeveloper@gmail.com>",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euberdeveloper/mongoback.git"
+  },
+  "bugs": {
+    "url": "https://github.com/euberdeveloper/mongoback/issues"
+  },
+  "homepage": "https://github.com/euberdeveloper/mongoback",
   "dependencies": {
     "chalk": "^3.0.0",
     "command-exists": "^1.2.8",
-    "inquirer": "^7.0.0",
-    "inquirer-checkbox-plus-prompt": "^1.0.1",
-    "is-valid-path": "^0.1.1",
     "mongodb": "^3.3.4",
     "ora": "^4.0.3",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "@types/command-exists": "^1.2.0",
-    "@types/inquirer": "^6.5.0",
-    "@types/is-valid-path": "^0.1.0",
     "@types/mongodb": "^3.3.14",
     "@types/shelljs": "^0.8.6",
     "chai": "^4.2.0",
