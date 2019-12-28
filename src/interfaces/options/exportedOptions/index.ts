@@ -11,4 +11,6 @@ export interface ExportedOptions {
     databases?: ExportedDatabases;
     collections?: ExportedCollections;
     systemCollections?: boolean;
+    throwIfLackOfPermissions?: boolean;
+    throwIfOneFails?: boolean;
 };

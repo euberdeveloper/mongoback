@@ -3,6 +3,7 @@ import { exec } from 'shelljs';
 import { ParsedCollections, ParsedCollection } from "../../interfaces/parsedCollections";
 import { Options } from "../../interfaces/options";
 import { CommandResult } from '../../interfaces/exportCollections';
+import { ExportingError } from '../../errors';
 
 import { Logger } from '../logger';
 import { getCommand } from './getCommand';
@@ -37,6 +38,12 @@ async function exportCollection(db: string, collection: ParsedCollection, option
 
     if (success) {
         addExported(exportedCollections, db, collection);
+    }
+    else {
+        const exportingError = new ExportingError(null, db, collection.name, command, commandResult.stderr);
+        if (options.throwIfOneFails) {
+            throw exportingError;
+        }
     }
 }
 

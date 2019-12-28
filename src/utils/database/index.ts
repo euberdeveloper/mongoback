@@ -1,10 +1,11 @@
 import { MongoClient, MongoClientOptions } from 'mongodb';
+import { ConnectionError } from '../../errors';
 
 export class Database {
 
-    private uri: string;
-    private connection: MongoClient = null;
-    private options: MongoClientOptions = { 
+    protected uri: string;
+    protected connection: MongoClient = null;
+    protected options: MongoClientOptions = { 
         useUnifiedTopology: true,
         useNewUrlParser: true
     };
@@ -30,6 +31,24 @@ export class Database {
     
     public async disconnect(): Promise<void> {
         await this.connection.close();
+    }
+
+    public static async connectDatabase(database: Database): Promise<void> {
+        try {
+            await database.connect();
+        }
+        catch (error) {
+            throw new ConnectionError(null, database.uri, database.options, error);
+        }
+    }
+
+    public static async disconnectDatabase(database: Database): Promise<void> {
+        try {
+            await database.disconnect();
+        }
+        catch (error) {
+            throw new DisconnectionError(null, database.uri, database.options, error);
+        }
     }
 
 }

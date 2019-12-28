@@ -29,6 +29,7 @@
     "@types/command-exists": "^1.2.0",
     "@types/inquirer": "^6.5.0",
     "@types/is-valid-path": "^0.1.0",
+    "@types/mongodb": "^3.3.14",
     "@types/shelljs": "^0.8.6",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",

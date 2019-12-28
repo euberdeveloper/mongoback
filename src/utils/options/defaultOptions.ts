@@ -51,7 +51,9 @@ const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
     all: false,
     databases: [],
     collections: [],
-    systemCollections: false
+    systemCollections: false,
+    throwIfLackOfPermissions: false,
+    throwIfOneFails: false
 };
 
 const DEFAULT_LOG_OPTIONS: LogOptions = {
