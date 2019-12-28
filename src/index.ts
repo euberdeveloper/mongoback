@@ -19,7 +19,9 @@ export async function mongoExport(options?: Options): Promise<void> {
             const expectedCollections = purgeParsedCollections(parsedCollections);
             logger.printExpectedCollections(expectedCollections);
             await database.disconnect();
-            await exportCollections(parsedCollections, options, logger);
+            const exportedCollections = await exportCollections(parsedCollections, options, logger);
+            const actualCollections = purgeParsedCollections(exportedCollections);
+            logger.printExportedCollections(actualCollections);
         }
         catch (error) {
             console.error(`Error in connecting to database (uri = ${uri}): `, error);

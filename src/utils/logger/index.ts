@@ -72,7 +72,7 @@ export class Logger {
 
     public printExpectedCollections(expected: CollectionsSchema): void {
         if (this.expectedCollections) {
-            const tag = chalk.yellow('[COLLECTIONS TO EXPORT]');
+            const tag = chalk.keyword('yellow')('[COLLECTIONS TO EXPORT]');
             const text = JSON.stringify(expected, null, 2);
             console.log(`${tag}\n${text}`);
         }
@@ -80,7 +80,7 @@ export class Logger {
 
     public printExportedCollections(actual: CollectionsSchema): void {
         if (this.actualCollections) {
-            const tag = chalk.yellow('[COLLECTIONS EXPORTED]');
+            const tag = chalk.keyword('yellow')('[COLLECTIONS EXPORTED]');
             const text = JSON.stringify(actual, null, 2);
             console.log(`${tag}\n${text}`);
         }

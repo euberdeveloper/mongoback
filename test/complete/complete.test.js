@@ -25,7 +25,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
             const options = {
                 all: true,
                 outDir: EXPORTED_PATH,
-                log: ['base', /* 'mongoexport', 'command',  */'expectedCollections']
+                log: ['expectedCollections', 'actualCollections']
             };
 
             await mongoback.mongoExport(options);
