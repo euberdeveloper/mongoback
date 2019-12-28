@@ -24,6 +24,9 @@ export class DatabaseSchemaCache {
                 if (this.throwIfLackOfPermissions) {
                     throw new ListDatabasesError(null, error);
                 }
+                else {
+                    return [];
+                }
             }
         }
         return this.schema.databases;
@@ -40,6 +43,9 @@ export class DatabaseSchemaCache {
             catch (error) {
                 if (this.throwIfLackOfPermissions) {
                     throw new ListCollectionsError(null, db, error);
+                }
+                else {
+                    return [];
                 }
             }
         }

@@ -1,5 +1,5 @@
 import { MongoClient, MongoClientOptions } from 'mongodb';
-import { ConnectionError } from '../../errors';
+import { ConnectionError, DisconnectionError } from '../../errors';
 
 export class Database {
 

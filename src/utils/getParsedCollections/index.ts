@@ -13,7 +13,7 @@ import { parseAll } from "./parseAll";
 
 export async function getParsedCollections(options: Options, database: Database): Promise<ParsedCollections> {
     const parsedCollections: ParsedCollections = {};
-    const dbSchema = new DatabaseSchemaCache(database, options.systemCollections);
+    const dbSchema = new DatabaseSchemaCache(database, options.systemCollections, options.throwIfLackOfPermissions);
 
     const rootOptions = purgeExportingOptions(options);
     const { withDatabase, indipendent } = divideExportedCollections(options.collections);
