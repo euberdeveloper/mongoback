@@ -3,15 +3,10 @@ import { exec } from 'shelljs';
 
 import { ParsedCollections, ParsedCollection } from "../../interfaces/parsedCollections";
 import { Options } from "../../interfaces/options";
+import { CommandResult } from '../../interfaces/exportCollections';
 
 import { Logger } from '../logger';
 import { getCommand } from './getCommand';
-
-interface CommandResult {
-    code: number;
-    stdout: string;
-    stderr: string;
-}
 
 async function execAsync(command: string): Promise<CommandResult> {
     return new Promise<CommandResult>((resolve, _reject) => {
@@ -82,9 +77,9 @@ async function exportCollection(db: string, collection: ParsedCollection, option
     logger.printCommand(command);
     logger.exportingCollectionStart(db, collection.name);
     const commandResult = await execAsync(command);
-    logger.printMongoexport(commandResult.stderr);
     const success = (commandResult.code === 0);
     logger.exportingCollectionStop(db, collection.name, success);
+    logger.printMongoexport(commandResult.stderr, success);
 }
 
 async function exportDatabase(db: string, collections: ParsedCollection[], options: Options, logger: Logger): Promise<void> {

@@ -3,7 +3,7 @@ import { Database } from './utils/database';
 import { Logger } from './utils/logger';
 import { mongoexportInstalled } from './utils/checkMongoexportInstalled';
 import { mergeOptions } from './utils/options';
-import { getParsedCollections } from './utils/getParsedCollections';
+import { getParsedCollections, purgeParsedCollections } from './utils/getParsedCollections';
 import { exportCollections } from './utils/exportCollections';
 import { getMongoConnectionFromOptions } from './utils/connection';
 
@@ -16,6 +16,8 @@ export async function mongoExport(options?: Options): Promise<void> {
             const database = new Database(uri, connectionOptions);
             await database.connect();
             const parsedCollections = await getParsedCollections(options, database);
+            const expectedCollections = purgeParsedCollections(parsedCollections);
+            logger.printExpectedCollections(expectedCollections);
             await database.disconnect();
             await exportCollections(parsedCollections, options, logger);
         }

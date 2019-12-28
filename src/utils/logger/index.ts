@@ -1,6 +1,7 @@
 import ora from 'ora';
 import chalk from 'chalk';
 import { LogOptions } from "../../interfaces/options";
+import { CollectionsSchema } from '../../interfaces/parsedCollections';
 
 export class Logger {
 
@@ -13,6 +14,9 @@ export class Logger {
 
     constructor(options: LogOptions) {
         if (!options.silent) {
+            if (typeof options.log === "string") {
+                options.log = [options.log];
+            }
             this.base = options.log.includes('base');
             this.command = options.log.includes('command');
             this.mongoexport = options.log.includes('mongoexport');
@@ -22,13 +26,13 @@ export class Logger {
     }
 
     public exportingDatabase(db: string): void {
-        if (this.base && !this.mongoexport) {
+        if (this.base) {
             console.log(chalk.white(db));
         }
     }
 
     public exportingCollectionStart(db: string, collection: string): void {
-        if (this.base && !this.mongoexport) {
+        if (this.base) {
             const spinner = ora({
                 text: chalk.grey(collection),
                 indent: 2,
@@ -39,7 +43,7 @@ export class Logger {
     }
 
     public exportingCollectionStop(db: string, collection: string, succeded: boolean): void {
-        if (this.base && !this.mongoexport) {
+        if (this.base) {
             const spinner = this.spinners[`${db}${collection}`];
             if (succeded) {
                 spinner.succeed();
@@ -50,15 +54,35 @@ export class Logger {
         }
     }
 
-    public printCommand(text: string): void {
+    public printCommand(cmd: string): void {
         if (this.command) {
-            console.log(text);
+            const tag = chalk.keyword('darkturquoise')('[COMMAND]');
+            const text = chalk.keyword('lightslategray')(cmd); 
+            console.log(`${tag} ${text}`);
         }
     }
 
-    public printMongoexport(text: string): void {
+    public printMongoexport(log: string, success: boolean): void {
         if (this.mongoexport) {
-            console.log(text);
+            const tag = success ? chalk.keyword('limegreen')('[SUCCESS]') : chalk.keyword('orange')('[ERROR]');
+            const text = chalk.white(log); 
+            console.log(`${tag}\n${text}`);
+        }
+    }
+
+    public printExpectedCollections(expected: CollectionsSchema): void {
+        if (this.expectedCollections) {
+            const tag = chalk.yellow('[COLLECTIONS TO EXPORT]');
+            const text = JSON.stringify(expected, null, 2);
+            console.log(`${tag}\n${text}`);
+        }
+    }
+
+    public printExportedCollections(actual: CollectionsSchema): void {
+        if (this.actualCollections) {
+            const tag = chalk.yellow('[COLLECTIONS EXPORTED]');
+            const text = JSON.stringify(actual, null, 2);
+            console.log(`${tag}\n${text}`);
         }
     }
 

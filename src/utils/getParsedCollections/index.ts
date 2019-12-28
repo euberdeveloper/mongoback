@@ -1,5 +1,5 @@
 import { Options } from "../../interfaces/options";
-import { ParsedCollections } from "../../interfaces/parsedCollections";
+import { ParsedCollections, CollectionsSchema } from "../../interfaces/parsedCollections";
 
 import { Database } from "../database";
 import { DatabaseSchemaCache } from "../databaseSchemaCache";
@@ -26,4 +26,15 @@ export async function getParsedCollections(options: Options, database: Database)
     await parseAll(rootOptions, all, parsedCollections, dbSchema);
 
     return parsedCollections;
+}
+
+export function purgeParsedCollections(parsedCollections: ParsedCollections): CollectionsSchema {
+    const purged: CollectionsSchema = {};
+
+    for (const db in parsedCollections) {
+        const collections = parsedCollections[db].map(collection => collection.name);
+        purged[db] = collections;
+    }
+
+    return purged;
 }
