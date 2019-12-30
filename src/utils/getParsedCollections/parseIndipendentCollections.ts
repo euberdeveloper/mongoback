@@ -1,7 +1,8 @@
+import { MongoScanner } from 'mongo-scanner';
+
 import { ExportingOptions, OptionedExportedIndipendentCollection, LambdaExportedIndipendentCollection, ExportedIndipendentCollection, instanceOfLambdaExportedIndipendentCollection, ExportedIndipendentCollections } from "../../interfaces/options";
 import { ParsedCollections } from "../../interfaces/parsedCollections";
 
-import { DatabaseSchemaCache } from "../databaseSchemaCache";
 import { purgeExportingOptions } from "./purgeExportingOptions";
 import { parseCollection } from "./parseCollection";
 
@@ -50,8 +51,8 @@ function parseIndipendentCollectionsLambda(rootOptions: ExportingOptions, db: st
     }
 }
 
-export async function parseIndipendentCollection(rootOptions: ExportingOptions, db: string, collection: ExportedIndipendentCollection, parsed: ParsedCollections, dbSchema: DatabaseSchemaCache): Promise<void> {
-    const actualCollections: string[] = await dbSchema.getCollections(db);
+export async function parseIndipendentCollection(rootOptions: ExportingOptions, db: string, collection: ExportedIndipendentCollection, parsed: ParsedCollections, mongoScanner: MongoScanner): Promise<void> {
+    const actualCollections: string[] = await mongoScanner.listCollections(db);
 
     if (typeof collection === 'string') {
         parseIndipendentCollectionsString(rootOptions, db, collection, actualCollections, parsed);
@@ -67,13 +68,13 @@ export async function parseIndipendentCollection(rootOptions: ExportingOptions, 
     }
 }
 
-export async function parseIndipendentCollections(rootOptions: ExportingOptions, collections: ExportedIndipendentCollections, parsed: ParsedCollections, dbSchema: DatabaseSchemaCache): Promise<void> {
+export async function parseIndipendentCollections(rootOptions: ExportingOptions, collections: ExportedIndipendentCollections, parsed: ParsedCollections, mongoScanner: MongoScanner): Promise<void> {
     if (collections.length) {
-        const databases = await dbSchema.getDatabases();
+        const databases = await mongoScanner.listDatabases();
 
         for (const collection of collections) {
             for (const db of databases) {
-                await parseIndipendentCollection(rootOptions, db, collection, parsed, dbSchema);
+                await parseIndipendentCollection(rootOptions, db, collection, parsed, mongoScanner);
             }
         }
     }
