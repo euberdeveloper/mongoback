@@ -3,9 +3,9 @@ import { ConnectionError, DisconnectionError } from '../../errors';
 
 export class Database {
 
-    protected uri: string;
-    protected connection: MongoClient = null;
-    protected options: MongoClientOptions = { 
+    private uri: string;
+    private connection: MongoClient = null;
+    private options: MongoClientOptions = { 
         useUnifiedTopology: true,
         useNewUrlParser: true
     };
