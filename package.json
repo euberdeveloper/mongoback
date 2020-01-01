@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "transpile": "tsc",
-    "db:clean": "node test/cleanDB",
+    "db:clean": "mongo-cleaner clean -y",
     "db:restore": "mongorestore test/mock",
     "db:populate": "npm run db:clean && npm run db:restore",
     "test": "mocha --reporter spec",
@@ -39,7 +39,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "dree": "^2.4.6",
     "mocha": "^6.2.2",
-    "mongo-cleaner": "^1.0.0",
+    "mongo-cleaner": "^1.1.1",
     "rimraf": "^3.0.0",
     "typescript": "^3.7.2"
   },
