@@ -9,7 +9,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
             return dree.parse(EXPORTED_PATH);
         }
         function getExpected(name) {
-            return fs.readFileSync(path.join(EXPECTED_PATH, name), { encoding: 'utf8' });
+            return require(path.join(EXPECTED_PATH, name));
         }
 
         this.timeout(0);
@@ -30,7 +30,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('first.txt');
+            const expected = getExpected('first');
             expect(result).to.equal(expected);
 
         });
@@ -44,7 +44,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('second.txt');
+            const expected = getExpected('second');
             expect(result).to.equal(expected);
 
         });
@@ -58,7 +58,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('third.txt');
+            const expected = getExpected('third');
             expect(result).to.equal(expected);
 
         });
@@ -72,7 +72,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('fourth.txt');
+            const expected = getExpected('fourth');
             expect(result).to.equal(expected);
 
         });
@@ -86,7 +86,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('fifth.txt');
+            const expected = getExpected('fifth');
             expect(result).to.equal(expected);
 
         });
@@ -100,7 +100,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('sixth.txt');
+            const expected = getExpected('sixth');
             expect(result).to.equal(expected);
 
         });
@@ -114,7 +114,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('seventh.txt');
+            const expected = getExpected('seventh');
             expect(result).to.equal(expected);
 
         });
@@ -136,7 +136,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('eight.txt');
+            const expected = getExpected('eight');
             expect(result).to.equal(expected);
 
         });
@@ -158,7 +158,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
             await mongoback.mongoExport(options);
             const result = getResult();
-            const expected = getExpected('ninth.txt');
+            const expected = getExpected('ninth');
             expect(result).to.equal(expected);
 
         });

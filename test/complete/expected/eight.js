@@ -1,4 +1,4 @@
-exported
+module.exports = `exported
  ├─> _DATABASE
  │   ├── COLLECTION.json
  │   ├── COLLECTION1.json
@@ -9,4 +9,4 @@ exported
      ├── collection_a_special.csv
      ├── collection_b_special.csv
      ├── collection_c_special.csv
-     └── collection_d_special.csv
+     └── collection_d_special.csv`;

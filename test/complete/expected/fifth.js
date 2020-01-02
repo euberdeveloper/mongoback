@@ -1,4 +1,9 @@
-exported
+module.exports = `exported
+ ├─> DB
+ │   ├── COLLECTIONA.json
+ │   ├── COLLECTIONB.json
+ │   ├── COLLECTION_C.json
+ │   └── COLLECTION_D.json
  ├─> _12345
  │   ├── fourth.json
  │   └── third.json
@@ -12,4 +17,4 @@ exported
      ├── collection_a.json
      ├── collection_b.json
      ├── collection_c.json
-     └── collection_d.json
+     └── collection_d.json`;

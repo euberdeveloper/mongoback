@@ -1,4 +1,4 @@
-exported
+module.exports = `exported
  └─> animals
      ├── cats.json
      ├── dogs.json
@@ -9,4 +9,4 @@ exported
      ├── wombats.json
      ├── _cows.json
      ├── _goats_.json
-     └── _pigs.json
+     └── _pigs.json`;
