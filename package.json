@@ -2,13 +2,15 @@
   "name": "mongoback",
   "version": "0.0.7",
   "description": "An npm module to easily export your MongoDB",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "scripts": {
     "transpile": "tsc",
     "db:clean": "mongo-cleaner clean -y",
-    "db:restore": "mongorestore test/mock",
+    "db:restore": "mongorestore test/mock --quiet",
     "db:populate": "npm run db:clean && npm run db:restore",
+    "lint": "tslint --project tsconfig.json --config tslint.json",
+    "lint:fix": "tslint --project tsconfig.json --config tslint.json --fix",
     "test": "mocha --reporter spec",
     "commit": "git-cz"
   },
@@ -25,7 +27,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "command-exists": "^1.2.8",
-    "mongo-scanner": "^1.3.0",
+    "mongo-scanner": "^1.4.4",
     "ora": "^4.0.3",
     "shelljs": "^0.8.3"
   },
@@ -39,8 +41,9 @@
     "cz-conventional-changelog": "^3.0.2",
     "dree": "^2.4.6",
     "mocha": "^6.2.2",
-    "mongo-cleaner": "^2.0.0",
+    "mongo-cleaner": "^3.0.5",
     "rimraf": "^3.0.0",
+    "tslint": "^5.20.1",
     "typescript": "^3.7.4"
   },
   "config": {

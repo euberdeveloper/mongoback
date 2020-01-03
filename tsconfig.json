@@ -1,18 +1,13 @@
 {
-    "compilerOptions": {
-      "moduleResolution": "node",
-      "module": "commonjs",
-      "target": "es5",
-      "lib": [
-        "es2015",
-        "dom"
-      ],
-      "outDir": "dist",
-      "sourceMap": true,
-      "declaration": true,
-      "esModuleInterop": true
-    },
-    "include": [
-      "src"
-    ]
-  }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [ "es2015" ],
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "esModuleInterop": true
+  },
+  "include": [ "source" ]
+}
