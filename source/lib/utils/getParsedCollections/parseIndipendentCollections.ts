@@ -31,15 +31,17 @@ function parseIndipendentCollectionsObject(rootOptions: ExportingOptions, db: st
 }
 
 function parseIndipendentCollectionsLambda(rootOptions: ExportingOptions, db: string, lambda: LambdaExportedIndipendentCollection, actualCollections: string[], parsed: ParsedCollections): void {
-    const collections = actualCollections.map(collection => {
-        const result = lambda(db, collection);
-        if (result === true) {
-            return collection;
-        }
-        else if (result) {
-            return { ...result, name: collection } as OptionedExportedIndipendentCollection;
-        }
-    });
+    const collections = actualCollections
+        .map(collection => {
+            const result = lambda(db, collection);
+            if (result === true) {
+                return collection;
+            }
+            else if (result) {
+                return { ...result, name: collection } as OptionedExportedIndipendentCollection;
+            }
+        })
+        .filter(collection => collection);
 
     for (const collection of collections) {
         if (typeof collection === 'string') {

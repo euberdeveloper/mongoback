@@ -41,7 +41,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "dree": "^2.4.6",
     "mocha": "^6.2.2",
-    "mongo-cleaner": "^3.0.5",
+    "mongo-cleaner": "^3.2.0",
     "rimraf": "^3.0.0",
     "tslint": "^5.20.1",
     "typescript": "^3.7.4"

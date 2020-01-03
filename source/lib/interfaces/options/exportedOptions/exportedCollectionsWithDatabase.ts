@@ -12,6 +12,7 @@ export interface ExportedCollectionsWithDatabase {
 export function instanceOfExportedCollectionsWithDatabase(obj: ExportedCollection): obj is ExportedCollectionsWithDatabase {
     return (
         typeof obj === 'object'
+        && !(obj instanceof RegExp)
         &&  (
             !('name' in obj)
             || (Array.isArray(obj.name))

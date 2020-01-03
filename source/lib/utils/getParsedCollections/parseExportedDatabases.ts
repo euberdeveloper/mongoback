@@ -41,15 +41,17 @@ async function parseExportedDatabaseObject(rootOptions: ExportingOptions, db: Op
 }
 
 async function parseExportedDatabaseLambda(rootOptions: ExportingOptions, lambda: LambdaExportedDatabase, actualDatabases: string[], parsed: ParsedCollections, mongoScanner: MongoScanner): Promise<void> {
-    const databases = actualDatabases.map(db => {
-        const result = lambda(db);
-        if (result === true) {
-            return db;
-        }
-        else if (result) {
-            return { ...result, name: db } as OptionedExportedDatabase;
-        }
-    });
+    const databases = actualDatabases
+        .map(db => {
+            const result = lambda(db);
+            if (result === true) {
+                return db;
+            }
+            else if (result) {
+                return { ...result, name: db } as OptionedExportedDatabase;
+            }
+        })
+        .filter(db => db !== undefined);
 
     for (const db of databases) {
         if (typeof db === 'string') {
