@@ -1,7 +1,9 @@
 node_modules
-src
+source
 test
 .gitignore
 tsconfig.json
 .nyc_output
 coverage
+tslint.json
+dist/test
