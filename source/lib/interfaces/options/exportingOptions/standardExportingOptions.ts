@@ -2,7 +2,7 @@ export interface StandardExportingOptions {
     quiet?: boolean;
     verbose?: boolean | number;
     type?: 'json' | 'csv';
-    jsonFormat?: 'realaxed | canonical';
+    jsonFormat?: 'realaxed' | 'canonical';
     jsonArray?: boolean;
     pretty?: boolean;
     query?: string | any;

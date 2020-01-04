@@ -8,7 +8,10 @@ import sinon from 'sinon';
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
 import { removeExported } from '../../utils';
-declare const console: { log: sinon.SinonStub<string[], void> };
+declare const console: {
+    log: sinon.SinonStub<string[], void>,
+    warn: sinon.SinonStub<any[], void>
+};
 
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 
@@ -20,9 +23,11 @@ export default function () {
         this.beforeEach(function () {
             removeExported(EXPORTED_PATH);
             sinon.stub(console, 'log');
+            sinon.stub(console, 'warn');
         });
-        this.afterEach(function() {
+        this.afterEach(function () {
             console.log.restore();
+            console.warn.restore();
         });
         this.afterAll(function () {
             removeExported(EXPORTED_PATH);
@@ -38,7 +43,7 @@ export default function () {
                 silent: true
             };
             await mongoExport(options);
-            
+
             expect(console.log.notCalled).to.be.true;
 
         });
@@ -83,7 +88,7 @@ export default function () {
 
             await mongoExport(options);
             expect(console.log.calledThrice).to.be.true;
-            expect(console.log.calledWith(sinon.match(/COMMAND/))).to.be.true;
+            expect(console.log.calledWithExactly(sinon.match(/COMMAND/))).to.be.true;
 
         });
 
@@ -97,7 +102,7 @@ export default function () {
 
             await mongoExport(options);
             expect(console.log.calledThrice).to.be.true;
-            expect(console.log.calledWith(sinon.match(/SUCCESS/))).to.be.true;
+            expect(console.log.calledWithExactly(sinon.match(/SUCCESS/))).to.be.true;
 
         });
 
@@ -112,11 +117,11 @@ export default function () {
 
             await mongoExport(options);
             expect(console.log.calledThrice).to.be.true;
-            expect(console.log.calledWith(sinon.match(/ERROR/))).to.be.true;
+            expect(console.log.calledWithExactly(sinon.match(/ERROR/))).to.be.true;
 
         });
 
-        it(`Should export the "dogs", "tigers", "lions" collections and log mongoexports (error)`, async function () {
+        it(`Should export the "dogs", "tigers", "lions" collections and log both mongoexport and command`, async function () {
 
             const options: Options = {
                 collections: ['dogs', 'tigers', 'lions'],
@@ -126,7 +131,7 @@ export default function () {
 
             await mongoExport(options);
             expect(console.log.callCount).to.equal(6);
-            expect(console.log.calledWith(sinon.match(/SUCCESS|COMMAND/))).to.be.true;
+            expect(console.log.calledWithExactly(sinon.match(/SUCCESS|COMMAND/))).to.be.true;
 
         });
 
@@ -140,7 +145,22 @@ export default function () {
 
             await mongoExport(options);
             expect(console.log.calledTwice).to.be.true;
-            expect(console.log.calledWith(sinon.match(/TO EXPORT|EXPORTED/))).to.be.true;
+            expect(console.log.calledWithExactly(sinon.match(/TO EXPORT|EXPORTED/))).to.be.true;
+
+        });
+
+        it(`Should export the "dogs", "tigers", "lions" collections and warn when they fail`, async function () {
+
+            const options: Options = {
+                collections: ['dogs', 'tigers', 'lions'],
+                warnIfOneFails: true,
+                type: 'csv',
+                outDir: EXPORTED_PATH
+            };
+
+            await mongoExport(options);
+            expect(console.warn.calledThrice).to.be.true;
+            expect(console.warn.calledWithExactly(sinon.match.string, sinon.match.any)).to.be.true;
 
         });
 
