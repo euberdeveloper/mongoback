@@ -80,6 +80,37 @@ export default function () {
 
         });
 
+        it(`Should return a command with host (replicaset)`, function () {
+
+            const database = 'cars';
+            const collection: ParsedCollection = {
+                name: 'Ferrari'
+            };
+            const options: ConnectionOptions = {
+                host: [
+                    {
+                        host: 'localhost',
+                        port: 27017
+                    },
+                    {
+                        host: 'localhost',
+                        port: 8080
+                    },
+                    {
+                        host: 'euber',
+                        port: 2323
+                    }
+                ],
+                replicaSetName: 'replicas'
+            };
+            const outPath = './exported';
+
+            const expected = 'mongoexport --host=replicas/localhost:27017,localhost:8080,euber:2323 --db=cars --collection=Ferrari --out=./exported';
+            const result = getCommand(database, collection, options, outPath);
+            expect(result).to.equal(expected);
+
+        });
+
         it(`Should return a command with username and password`, function () {
 
             const database = 'cars';
