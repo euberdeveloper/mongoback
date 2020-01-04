@@ -9,5 +9,5 @@
         "declaration": true,
         "esModuleInterop": true
     },
-    "include": [ "index.ts" ]
+    "include": [ "bin", "lib" ]
 }

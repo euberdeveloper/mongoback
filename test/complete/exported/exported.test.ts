@@ -1,28 +1,35 @@
-module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
+import { mongoExport, Options } from '../../../source/lib/index';
+
+import * as path from 'path';
+import * as chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+
+chai.use(chaiAsPromised);
+import { expect } from 'chai';
+import { getResult, removeExported } from '../../utils';
+
+const EXPORTED_PATH = path.join(__dirname, 'exported');
+const EXPECTED_PATH = path.join(__dirname, 'expected');
+
+export default function () {
 
     describe('Test: various exported properties', function () {
 
-        const EXPORTED_PATH = path.join(__dirname, 'exported');
-        const EXPECTED_PATH = path.join(__dirname, 'expected');
-
-        function getResult() {
-            return dree.parse(EXPORTED_PATH);
-        }
         function getExpected(name) {
             return require(path.join(EXPECTED_PATH, name));
         }
 
         this.timeout(0);
         this.beforeEach(function () {
-            rimraf.sync(EXPORTED_PATH);
+            removeExported(EXPORTED_PATH);
         });
         this.afterAll(function () {
-            rimraf.sync(EXPORTED_PATH);
+            removeExported(EXPORTED_PATH);
         });
 
         it(`Should export everything as csv, but database animals with dbName prepended and collections /collection/i as csv`, async function () {
 
-            const options = {
+            const options: Options = {
                 all: true,
                 databases: [{
                     name: 'animals',
@@ -38,8 +45,8 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
                 outDir: EXPORTED_PATH
             };
 
-            await mongoback.mongoExport(options);
-            const result = getResult();
+            await mongoExport(options);
+            const result = getResult(EXPORTED_PATH);
             const expected = getExpected('first');
             expect(result).to.equal(expected);
 
@@ -47,7 +54,7 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
         it(`Should export everything, including system collections, database animals prepended except for /^_.*_$/ and /^_/ as csv, collections of 12345 whose name is a number greater than 323 will be prepended with N_ and in no folder and collections /collection_[a-z]/i as csv`, async function () {
 
-            const options = {
+            const options: Options = {
                 all: true,
                 systemCollections: true,
                 databases: [{
@@ -90,9 +97,8 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
                 outDir: EXPORTED_PATH
             };
 
-            await mongoback.mongoExport(options);
-            const result = getResult();
-            fs.writeFileSync(path.join(EXPECTED_PATH, 'second.js'), 'module.exports = `' + result + '`;')
+            await mongoExport(options);
+            const result = getResult(EXPORTED_PATH);
             const expected = getExpected('second');
             expect(result).to.equal(expected);
 
