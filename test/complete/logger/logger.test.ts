@@ -66,6 +66,7 @@ export default function () {
         it(`Should export the "dogs", "tigers", "lions" collections and log nothing (log: null)`, async function () {
 
             const options: Options = {
+                uri: 'mongodb://localhost:27017',
                 collections: {
                     animals: ['dogs', 'tigers', 'lions']
                 },

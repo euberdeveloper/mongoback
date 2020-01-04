@@ -15,7 +15,7 @@ export interface ReplicaSet {
 export interface ConnectionOptions {
     uri?: string;
     host?: string | ReplicaSet[];
-    port?: number;
+    port?: string | number;
     username?: string;
     password?: string;
     authenticationDatabase?: string;

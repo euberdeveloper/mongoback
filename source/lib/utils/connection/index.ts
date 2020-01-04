@@ -34,8 +34,8 @@ function getMongoConnectionUri(options: ConnectionOptions): string {
             : `${options.host}:${options.port}`);
         const auth = options.username
             ? (options.password
-                ? `${options.username}@`
-                : `${options.username}:${options.password}@`)
+                ? `${options.username}:${options.password}@`
+                : `${options.username}@`)
             : '';
         uri = `${protocol}://${auth}${host}`;
     }
