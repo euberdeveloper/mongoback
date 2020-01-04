@@ -27,8 +27,6 @@ module.exports = `exported
  │   ├── collection_b.csv
  │   ├── collection_c.csv
  │   └── collection_d.csv
- ├─> admin
- │   └── system.version.json
  ├─> animals
  │   ├── _goats_.json
  │   ├── animals__cows.csv

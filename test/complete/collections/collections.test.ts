@@ -221,10 +221,10 @@ export default function () {
 
         });
 
-        it(`Should export system collections and collection "one"`, async function () {
+        it(`Should export system collection "system.version" and collection "one"`, async function () {
 
             const options: Options = {
-                collections: ['one', /system/],
+                collections: ['one', /system.version/],
                 systemCollections: true,
                 outDir: EXPORTED_PATH,
                 silent: true

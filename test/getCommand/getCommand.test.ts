@@ -7,7 +7,6 @@ import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
 
-
 export default function () {
 
     describe('Test: getCommand auxiliary function', function () {
@@ -27,7 +26,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a simple command but with different db from uri`, function () {
@@ -45,7 +43,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a simple command but with different db from uri and with options`, function () {
@@ -63,7 +60,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with host and port`, function () {
@@ -82,7 +78,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with username and password`, function () {
@@ -103,7 +98,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with ssl parameters`, function () {
@@ -130,7 +124,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with ssl parameters`, function () {
@@ -157,7 +150,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with authentication mechanism and database`, function () {
@@ -178,7 +170,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with kerberos parameters`, function () {
@@ -199,7 +190,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with readPreference (secondary)`, function () {
@@ -219,7 +209,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with readPreference (object)`, function () {
@@ -231,7 +220,7 @@ export default function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
-                readPreference: {mode: "secondary", tagSets: [ { "region": "east" } ], maxStalenessSeconds: 120}
+                readPreference: {mode: 'secondary', tagSets: [ { 'region': 'east' } ], maxStalenessSeconds: 120}
             };
             const outPath = './exported';
 
@@ -239,7 +228,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (boolean)`, function () {
@@ -259,7 +247,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (two v)`, function () {
@@ -279,7 +266,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (five v)`, function () {
@@ -299,7 +285,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (sanitize more than five v)`, function () {
@@ -319,7 +304,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (zero v case)`, function () {
@@ -339,7 +323,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with verbose (negative v case)`, function () {
@@ -359,7 +342,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with quiet and ipv6`, function () {
@@ -380,7 +362,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with fields (string)`, function () {
@@ -400,7 +381,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with fields (array)`, function () {
@@ -420,7 +400,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with fieldFile`, function () {
@@ -440,7 +419,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with limit and skip`, function () {
@@ -461,7 +439,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with query (string)`, function () {
@@ -481,7 +458,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with query (json)`, function () {
@@ -501,7 +477,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with type csv`, function () {
@@ -509,7 +484,7 @@ export default function () {
             const database = 'cars';
             const collection: ParsedCollection = {
                 name: 'Ferrari',
-                type: "csv"
+                type: 'csv'
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
@@ -521,7 +496,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with jsonArray, pretty, noHeaderLine, slaveOk, forceTableScan`, function () {
@@ -545,7 +519,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with jsonFormat canonical`, function () {
@@ -565,7 +538,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with sort (string)`, function () {
@@ -585,7 +557,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
         it(`Should return a command with sort (json)`, function () {
@@ -593,7 +564,7 @@ export default function () {
             const database = 'cars';
             const collection: ParsedCollection = {
                 name: 'Ferrari',
-                sort: {"timestamp": 1}
+                sort: {'timestamp': 1}
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
@@ -605,7 +576,6 @@ export default function () {
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
 
-            
         });
 
     });

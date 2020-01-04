@@ -15,7 +15,7 @@ export default function () {
 
     describe('Test: various exported properties', function () {
 
-        function getExpected(name) {
+        function getExpected(name: string): string {
             return require(path.join(EXPECTED_PATH, name));
         }
 
@@ -52,11 +52,10 @@ export default function () {
 
         });
 
-        it(`Should export everything, including system collections, database animals prepended except for /^_.*_$/ and /^_/ as csv, collections of 12345 whose name is a number greater than 323 will be prepended with N_ and in no folder and collections /collection_[a-z]/i as csv`, async function () {
+        it(`Should export everything, database animals prepended except for /^_.*_$/ and /^_/ as csv, collections of 12345 whose name is a number greater than 323 will be prepended with N_ and in no folder and collections /collection_[a-z]/i as csv`, async function () {
 
             const options: Options = {
                 all: true,
-                systemCollections: true,
                 databases: [{
                     name: 'animals',
                     prependDbName: true
@@ -92,8 +91,7 @@ export default function () {
                         fields: ['timestamps']
                     }
                 ],
-                //silent: true,
-                log: ['expectedCollections', 'base'],
+                silent: true,
                 outDir: EXPORTED_PATH
             };
 
