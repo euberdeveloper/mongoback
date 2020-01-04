@@ -30,7 +30,7 @@ const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
 const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
     quiet: false,
     verbose: false,
-    type: 'json',
+    type: undefined,
     jsonFormat: undefined,
     jsonArray: false,
     pretty: false,

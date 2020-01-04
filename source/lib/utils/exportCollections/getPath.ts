@@ -6,6 +6,7 @@ import { Options } from '../../interfaces/options';
 export function getPath(db: string, collection: ParsedCollection, options: Options): string {
     let result = '';
 
+    const extension = collection.type || 'json';
     switch (options.outType) {
         case 'deep':
             result = join(options.outDir, db);
@@ -20,14 +21,14 @@ export function getPath(db: string, collection: ParsedCollection, options: Optio
             result = collection.absolutePath ? join(collection.filePath) : join(options.outDir, collection.filePath);
         }
         else {
-            const filePath = collection.filePath(db, collection.name, collection.type, options.outDir);
+            const filePath = collection.filePath(db, collection.name, extension, options.outDir);
             if (collection.fileName) {
                 let fileName = '';
                 if (typeof collection.fileName === 'string') {
                     fileName = collection.fileName;
                 }
                 else {
-                    fileName = collection.fileName(db, collection.name, collection.type);
+                    fileName = collection.fileName(db, collection.name, extension);
                 }
                 result = collection.absolutePath ? join(filePath, fileName) : join(options.outDir, filePath, fileName);
             }
@@ -41,7 +42,7 @@ export function getPath(db: string, collection: ParsedCollection, options: Optio
             result = join(result, collection.fileName);
         }
         else {
-            const filename = collection.fileName(db, collection.name, collection.type);
+            const filename = collection.fileName(db, collection.name, extension);
             result = join(result, filename);
         }
     }
@@ -52,7 +53,7 @@ export function getPath(db: string, collection: ParsedCollection, options: Optio
         else {
             result = join(result, collection.name);
         }
-        result += `.${collection.type}`;
+        result += `.${extension}`;
     }
 
     return result;

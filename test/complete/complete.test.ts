@@ -3,6 +3,7 @@ import collections from './collections/collections.test';
 import collectionsWithDatabases from './collectionsWithDatabases/collectionsWithDatabases.test';
 import exported from './exported/exported.test';
 import logger from './logger/logger.test';
+import result from './result/result.test';
 
 export default function () {
     
@@ -13,6 +14,7 @@ export default function () {
         collectionsWithDatabases();
         exported();
         logger();
+        result();
 
     });
 
