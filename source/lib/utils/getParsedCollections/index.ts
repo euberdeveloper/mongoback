@@ -2,7 +2,7 @@ import { MongoScanner, ScanOptions, MongoScannerError, ListDatabasesError, ListC
 
 import { Options } from '../../interfaces/options';
 import { ConnectionParameters } from '../../interfaces/connection';
-import { ParsedCollections, CollectionsSchema } from '../../interfaces/parsedCollections';
+import { ParsedCollections, CollectionsSchema, ParsedCollection } from '../../interfaces/parsedCollections';
 import { DatabaseError } from '../../errors';
 
 import { Logger } from '../logger';
@@ -38,7 +38,7 @@ export async function getParsedCollections(options: Options, dbParams: Connectio
     const mongoScanner = new MongoScanner(dbParams.uri, dbParams.options, mongoScannerOptions);
 
     const rootOptions = purgeExportingOptions(options);
-    const { withDatabase, indipendent } = divideExportedCollections(options.collections);
+    const { withDatabase, indipendent } = divideExportedCollections(options.collections as ParsedCollection[]);
     const exportedDatabases = options.databases;
     const all = options.all;
 

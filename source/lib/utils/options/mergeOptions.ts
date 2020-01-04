@@ -6,6 +6,9 @@ export function mergeOptions(options: Options = {}): Options {
     for (const key in DEFAULT_OPTIONS) {
         mergedOptions[key] = (options[key] === undefined ? DEFAULT_OPTIONS[key] : options[key]);
     }
+    if (!Array.isArray(mergedOptions.collections)) {
+        mergedOptions.collections = mergedOptions.collections ? [mergedOptions.collections] : [];
+    }
     if (mergedOptions.uri) {
         mergedOptions.host = undefined;
         mergedOptions.port = undefined;

@@ -1,7 +1,7 @@
-import { ExportingOptions, ExportedCollections, ExportedIndipendentCollections, ExportedCollectionsWithDatabase, instanceOfExportedCollectionsWithDatabase } from '../../interfaces/options';
+import { ExportingOptions, ExportedIndipendentCollections, ExportedCollectionsWithDatabase, instanceOfExportedCollectionsWithDatabase, ExportedCollection } from '../../interfaces/options';
 import { ParsedCollections } from '../../interfaces/parsedCollections';
 
-export function divideExportedCollections(collections: ExportedCollections): { indipendent: ExportedIndipendentCollections, withDatabase: ExportedCollectionsWithDatabase[] } {
+export function divideExportedCollections(collections: ExportedCollection[]): { indipendent: ExportedIndipendentCollections, withDatabase: ExportedCollectionsWithDatabase[] } {
     const withDatabase: ExportedCollectionsWithDatabase[] = [];
     const indipendent: ExportedIndipendentCollections = [];
 
