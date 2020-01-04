@@ -13,7 +13,7 @@ export class Logger {
     private spinners = {};
 
     constructor(options: LogOptions) {
-        if (!options.silent) {
+        if (!options.silent && options.log) {
             if (typeof options.log === 'string') {
                 options.log = [options.log];
             }
@@ -89,7 +89,7 @@ export class Logger {
     public warn(message: string, error: any): void {
         const tag = chalk.keyword('yellow')('[WANING]');
         const text = chalk.keyword('orange')(message);
-        console.log(`${tag} ${text}`, error);
+        console.warn(`${tag} ${text}`, error);
     }
 
 }
