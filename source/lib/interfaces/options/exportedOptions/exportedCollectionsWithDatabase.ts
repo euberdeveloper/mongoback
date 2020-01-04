@@ -15,8 +15,7 @@ export function instanceOfExportedCollectionsWithDatabase(obj: ExportedCollectio
         && !(obj instanceof RegExp)
         &&  (
             !('name' in obj)
-            || (Array.isArray(obj.name))
-            || ('collections' in (obj.name as any))
+            || !(typeof obj.name === 'string' || obj.name instanceof RegExp)
         )
     );
 }

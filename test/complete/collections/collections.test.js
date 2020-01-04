@@ -125,6 +125,133 @@ module.exports = (expect, fs, path, rimraf, dree, mongoback) => {
 
         });
 
+        it(`Should export collection "horses" as json and "lions" as csv`, async function () {
+
+            const options = {
+                collections: [
+                    'horses', 
+                    {
+                        name: 'lions',
+                        type: 'csv',
+                        fields: ['timestamp', 'cpuUsage', 'random']
+                    }
+                ],
+                outDir: EXPORTED_PATH,
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            const expected = getExpected('eight');
+            expect(result).to.equal(expected);
+
+        });
+
+        it(`Should export collection "horses" as json and "lions" and matching "_*_" as csv`, async function () {
+
+            const options = {
+                collections: [
+                    'horses', 
+                    {
+                        name: 'lions',
+                        type: 'csv',
+                        fields: ['timestamp', 'cpuUsage', 'random']
+                    },
+                    {
+                        name: /^_.*_/,
+                        type: 'csv',
+                        fields: ['timestamp', 'cpuUsage', 'random']
+                    },
+                ],
+                outDir: EXPORTED_PATH,
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            fs.writeFileSync(path.join(EXPECTED_PATH, 'ninth.js'), 'module.exports = `' + result + '`;');
+            const expected = getExpected('ninth');
+            expect(result).to.equal(expected);
+
+        });
+
+        it(`Should export collection containing "collection" and matching "_*_" as json and "lions" and containing "_" as csv`, async function () {
+
+            const options = {
+                collections: [
+                    (_db, collection) => /^_.*_$/.test(collection) ? { type: 'json' } : false, 
+                    {
+                        name: /collection/,
+                        type: 'json'
+                    },
+                    /_/
+                ],
+                outDir: EXPORTED_PATH,
+                type: 'csv',
+                fields: ['timestamp'],
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            const expected = getExpected('tenth');
+            expect(result).to.equal(expected);
+
+        });
+
+        it(`Should not export system collections and collection "one"`, async function () {
+
+            const options = {
+                collections: ['one', /system/],
+                systemCollections: false,
+                outDir: EXPORTED_PATH,
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            const expected = getExpected('eleventh');
+            expect(result).to.equal(expected);
+
+        });
+
+        it(`Should export system collections and collection "one"`, async function () {
+
+            const options = {
+                collections: ['one', /system/],
+                systemCollections: true,
+                outDir: EXPORTED_PATH,
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            fs.writeFileSync(path.join(EXPECTED_PATH, 'twelfth.js'), 'module.exports = `' + result + '`;');
+            const expected = getExpected('twelfth');
+            expect(result).to.equal(expected);
+
+        });
+
+        it(`Should export collections ending with "_n" prepending the db name and appending .kebab after their name`, async function () {
+
+            const options = {
+                collections: [ {
+                    name: /_[\d]$/,
+                    prependDbName: true,
+                    fileName: (_db, collection, type) => `${collection}.kebab.${type}`
+                }],
+                systemCollections: true,
+                outDir: EXPORTED_PATH,
+                silent: true
+            };
+
+            await mongoback.mongoExport(options);
+            const result = getResult();
+            const expected = getExpected('thirteenth');
+            expect(result).to.equal(expected);
+
+        });
+
     });
 
 }
