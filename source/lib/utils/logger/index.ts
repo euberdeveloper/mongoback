@@ -1,7 +1,8 @@
 import ora from 'ora';
 import chalk from 'chalk';
+
 import { LogOptions } from '../../interfaces/options';
-import { CollectionsSchema } from '../../interfaces/parsedCollections';
+import { ExportSchema } from '../../interfaces/result';
 
 export class Logger {
 
@@ -70,7 +71,7 @@ export class Logger {
         }
     }
 
-    public printExpectedCollections(expected: CollectionsSchema): void {
+    public printExpectedCollections(expected: ExportSchema): void {
         if (this.expectedCollections) {
             const tag = chalk.keyword('yellow')('[COLLECTIONS TO EXPORT]');
             const text = JSON.stringify(expected, null, 2);
@@ -78,7 +79,7 @@ export class Logger {
         }
     }
 
-    public printExportedCollections(actual: CollectionsSchema): void {
+    public printExportedCollections(actual: ExportSchema): void {
         if (this.actualCollections) {
             const tag = chalk.keyword('yellow')('[COLLECTIONS EXPORTED]');
             const text = JSON.stringify(actual, null, 2);

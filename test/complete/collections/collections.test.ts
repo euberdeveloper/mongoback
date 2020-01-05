@@ -30,7 +30,7 @@ export default function () {
         it(`Should export the "dogs" collections`, async function () {
 
             const options: Options = {
-                collections: ['dogs'],
+                collections: 'dogs',
                 outDir: EXPORTED_PATH,
                 silent: true
             };
@@ -75,7 +75,7 @@ export default function () {
         it(`Should export all collections containing "collection"`, async function () {
 
             const options: Options = {
-                collections: [/collection/],
+                collections: /collection/,
                 outDir: EXPORTED_PATH,
                 silent: true
             };
@@ -138,7 +138,7 @@ export default function () {
                 collections: [
                     'horses', 
                     {
-                        name: 'lions',
+                        collections: 'lions',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     }
@@ -160,12 +160,12 @@ export default function () {
                 collections: [
                     'horses', 
                     {
-                        name: 'lions',
+                        collections: 'lions',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     },
                     {
-                        name: /^_.*_/,
+                        collections: /^_.*_/,
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     },
@@ -187,7 +187,7 @@ export default function () {
                 collections: [
                     (_db, collection) => /^_.*_$/.test(collection) ? { type: 'json' } : false, 
                     {
-                        name: /collection/,
+                        collections: /collection/,
                         type: 'json'
                     },
                     /_/
@@ -240,11 +240,11 @@ export default function () {
         it(`Should export collections ending with "_n" prepending the db name and appending .kebab after their name`, async function () {
 
             const options: Options = {
-                collections: [ {
-                    name: /_[\d]$/,
+                collections: {
+                    collections: /_[\d]$/,
                     prependDbName: true,
                     fileName: (_db, collection, type) => `${collection}.kebab.${type}`
-                }],
+                },
                 systemCollections: true,
                 outDir: EXPORTED_PATH,
                 silent: true

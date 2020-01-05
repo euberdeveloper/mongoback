@@ -2,15 +2,15 @@ import { MongoScanner, ScanOptions, MongoScannerError, ListDatabasesError, ListC
 
 import { Options } from '../../interfaces/options';
 import { ConnectionParameters } from '../../interfaces/connection';
-import { ParsedCollections, CollectionsSchema, ParsedCollection } from '../../interfaces/parsedCollections';
+import { ExportSchema, DetailedExportSchema } from '../../interfaces/result';
 import { DatabaseError } from '../../errors';
 
 import { Logger } from '../logger';
 import { purgeExportingOptions } from './purgeExportingOptions';
-import { divideExportedCollections } from './parseCollection';
-import { parseCollectionsWithDatabase } from './parseCollectionsWithDatabase';
-import { parseIndipendentCollections } from './parseIndipendentCollections';
-import { parseExportedDatabases } from './parseExportedDatabases';
+import { divideCollections } from './parseCollection';
+import { parseSpecificCollections } from './parseSpecificCollections';
+import { parseGeneralCollections } from './parseGeneralCollections';
+import { parseDatabases } from './parseDatabases';
 import { parseAll } from './parseAll';
 
 function getWarnMessage(options: Options, logger: Logger) {
@@ -27,8 +27,8 @@ function getWarnMessage(options: Options, logger: Logger) {
     }
 }
 
-export async function getParsedCollections(options: Options, dbParams: ConnectionParameters, logger: Logger): Promise<ParsedCollections> {
-    const parsedCollections: ParsedCollections = {};
+export async function getParsedCollections(options: Options, dbParams: ConnectionParameters, logger: Logger): Promise<DetailedExportSchema> {
+    const result: DetailedExportSchema = {};
     const mongoScannerOptions: ScanOptions = {
         useCache: true, 
         excludeSystem: !options.systemCollections,
@@ -38,16 +38,17 @@ export async function getParsedCollections(options: Options, dbParams: Connectio
     const mongoScanner = new MongoScanner(dbParams.uri, dbParams.options, mongoScannerOptions);
 
     const rootOptions = purgeExportingOptions(options);
-    const { withDatabase, indipendent } = divideExportedCollections(options.collections as ParsedCollection[]);
-    const exportedDatabases = options.databases;
+    const collections = Array.isArray(options.collections) ? options.collections : [options.collections];
+    const { specific, general } = divideCollections(collections);
+    const databases = Array.isArray(options.databases) ? options.databases : [options.databases];
     const all = options.all;
 
     try {
         await mongoScanner.startConnection();
-        await parseCollectionsWithDatabase(rootOptions, withDatabase, parsedCollections, mongoScanner);
-        await parseIndipendentCollections(rootOptions, indipendent, parsedCollections, mongoScanner);
-        await parseExportedDatabases(rootOptions, exportedDatabases, parsedCollections, mongoScanner);
-        await parseAll(rootOptions, all, parsedCollections, mongoScanner);
+        await parseSpecificCollections(rootOptions, specific, result, mongoScanner);
+        await parseGeneralCollections(rootOptions, general, result, mongoScanner);
+        await parseDatabases(rootOptions, databases, result, mongoScanner);
+        await parseAll(rootOptions, all, result, mongoScanner);
         await mongoScanner.endConnection();
     }
     catch (error) {
@@ -59,14 +60,14 @@ export async function getParsedCollections(options: Options, dbParams: Connectio
         }
     }
 
-    return parsedCollections;
+    return result;
 }
 
-export function purgeParsedCollections(parsedCollections: ParsedCollections): CollectionsSchema {
-    const purged: CollectionsSchema = {};
+export function removeSchemaDetails(detailedExportSchema: DetailedExportSchema): ExportSchema {
+    const purged: ExportSchema = {};
 
-    for (const db in parsedCollections) {
-        const collections = parsedCollections[db].map(collection => collection.name);
+    for (const db in detailedExportSchema) {
+        const collections = detailedExportSchema[db].map(collection => collection.name);
         purged[db] = collections;
     }
 

@@ -61,7 +61,7 @@ export default function () {
         it(`Should export the DB database`, async function () {
 
             const options: Options = {
-                databases: ['DB'],
+                databases: 'DB',
                 outDir: EXPORTED_PATH,
                 silent: true
             };
@@ -76,7 +76,7 @@ export default function () {
         it(`Should export databases beginning with underscore`, async function () {
 
             const options: Options = {
-                databases: [/^_/],
+                databases: /^_/,
                 outDir: EXPORTED_PATH,
                 silent: true
             };
@@ -132,17 +132,17 @@ export default function () {
             expect(result).to.equal(expected);
 
         });
-        
+
         it(`Should export databases _DATABASE and _db with the name of the last appended with '_special'`, async function () {
 
             const options: Options = {
                 databases: [
-                    '_DATABASE', 
+                    '_DATABASE',
                     {
-                        name: '_db',
+                        databases: '_db',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random'],
-                        filePath: (db, collection, type) => path.join(db, `${collection}_special.${type}`) 
+                        filePath: (db, collection, type) => path.join(db, `${collection}_special.${type}`)
                     }
                 ],
                 outDir: EXPORTED_PATH,
@@ -160,13 +160,11 @@ export default function () {
 
             const options: Options = {
                 all: true,
-                databases: [
-                    {
-                        name: 'animals',
-                        filePath: (db, collection, type, outDir) => path.join(outDir, db, `${collection}.${type}`),
-                        absolutePath: true
-                    }
-                ],
+                databases: {
+                    databases: 'animals',
+                    filePath: (db, collection, type, outDir) => path.join(outDir, db, `${collection}.${type}`),
+                    absolutePath: true
+                },
                 outType: 'flat',
                 outDir: EXPORTED_PATH,
                 silent: true

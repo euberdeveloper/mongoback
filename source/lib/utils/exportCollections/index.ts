@@ -1,6 +1,6 @@
 import { exec } from 'shelljs';
 
-import { ParsedCollections, ParsedCollection, CollectionsSchema } from '../../interfaces/parsedCollections';
+import { DetailedExportSchema, ExportingCollection } from '../../interfaces/result';
 import { Options } from '../../interfaces/options';
 import { CommandResult } from '../../interfaces/exportCollections';
 import { ExportingError } from '../../errors';
@@ -10,7 +10,7 @@ import { getCommand } from './getCommand';
 import { getPath } from './getPath';
 import { ExportResultCode } from '../../interfaces/result';
 
-function addExported(exportedCollections: ParsedCollections, db: string, collection: ParsedCollection): void {
+function addExported(exportedCollections: DetailedExportSchema, db: string, collection: ExportingCollection): void {
     if (exportedCollections[db]) {
         exportedCollections[db].push(collection);
     }
@@ -27,7 +27,7 @@ async function execAsync(command: string): Promise<CommandResult> {
     });
 }
 
-async function exportCollection(db: string, collection: ParsedCollection, options: Options, exportedCollections: ParsedCollections, logger: Logger): Promise<boolean> {
+async function exportCollection(db: string, collection: ExportingCollection, options: Options, exportedCollections: DetailedExportSchema, logger: Logger): Promise<boolean> {
     let total: boolean;
     
     const outPath = getPath(db, collection, options);
@@ -57,7 +57,7 @@ async function exportCollection(db: string, collection: ParsedCollection, option
     return total;
 }
 
-async function exportDatabase(db: string, collections: ParsedCollection[], options: Options, exportedCollections: ParsedCollections, logger: Logger): Promise<boolean> {
+async function exportDatabase(db: string, collections: ExportingCollection[], options: Options, exportedCollections: DetailedExportSchema, logger: Logger): Promise<boolean> {
     let total = true;
 
     logger.exportingDatabase(db);
@@ -68,12 +68,12 @@ async function exportDatabase(db: string, collections: ParsedCollection[], optio
     return total;
 }
 
-export async function exportCollections(parsedCollections: ParsedCollections, options: Options, logger: Logger): Promise<{ exportedCollections: ParsedCollections, code: ExportResultCode }> {
-    const exportedCollections: ParsedCollections = {};
+export async function exportCollections(schema: DetailedExportSchema, options: Options, logger: Logger): Promise<{ exportedCollections: DetailedExportSchema, code: ExportResultCode }> {
+    const exportedCollections: DetailedExportSchema = {};
     let code = ExportResultCode.TOTAL;
 
-    for (const db in parsedCollections) {
-        code = await exportDatabase(db, parsedCollections[db], options, exportedCollections, logger) ? code : ExportResultCode.PARTIAL;
+    for (const db in schema) {
+        code = await exportDatabase(db, schema[db], options, exportedCollections, logger) ? code : ExportResultCode.PARTIAL;
     }
 
     return { exportedCollections, code };

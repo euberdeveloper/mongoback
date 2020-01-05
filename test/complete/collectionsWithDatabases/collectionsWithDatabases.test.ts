@@ -69,7 +69,7 @@ export default function () {
                     12345: {
                         collections: [
                             {
-                                name: /^\d+$/,
+                                collections: /^\d+$/,
                                 type: 'json'
                             },
                             (_db, collection) => collection[0] === 'o'
@@ -78,7 +78,7 @@ export default function () {
                     },
                     _12345: [
                         {
-                            name: 'third',
+                            collections: 'third',
                             type: 'csv',
                             fields: ['timestamp', 'n']
                         }
@@ -86,7 +86,7 @@ export default function () {
                     database: [
                         'collection',
                         {
-                            name: /collection[\d]/,
+                            collections: /collection[\d]/,
                             type: 'csv',
                             fields: ['timestamp', 'domain']
                         }

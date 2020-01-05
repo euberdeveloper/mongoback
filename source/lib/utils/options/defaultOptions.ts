@@ -1,4 +1,4 @@
-import { ConnectionOptions, ExportingOptions, ExportedOptions, OutOptions, Options, LogOptions } from '../../interfaces/options';
+import { Options, ConnectionOptions, ExportingOptions, ExportedOptions, LogOptions, OutOptions } from '../../interfaces/options';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,
@@ -48,7 +48,7 @@ const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
 };
 
 const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
-    all: false,
+    all: true,
     databases: [],
     collections: [],
     systemCollections: false,

@@ -31,14 +31,14 @@ export default function () {
 
             const options: Options = {
                 all: true,
-                databases: [{
-                    name: 'animals',
+                databases: {
+                    databases: 'animals',
                     prependDbName: true
-                }],
-                collections: [{
-                    name: /collection/i,
+                },
+                collections: {
+                    collections: /collection/i,
                     type: 'json'
-                }],
+                },
                 silent: true,
                 type: 'csv',
                 fields: ['timestamp'],
@@ -56,16 +56,16 @@ export default function () {
 
             const options: Options = {
                 all: true,
-                databases: [{
-                    name: 'animals',
+                databases: {
+                    databases: 'animals',
                     prependDbName: true
-                }],
+                },
                 collections: [
                     {
                         animals: {
                             collections: [
                                 {
-                                    name: /^_.*_$/,
+                                    collections: /^_.*_$/,
                                     prependDbName: false,
                                     type: 'json'
                                 },
@@ -86,7 +86,7 @@ export default function () {
                         ]
                     },
                     {
-                        name: /collection_[a-z]/i,
+                        collections: /collection_[a-z]/i,
                         type: 'csv',
                         fields: ['timestamps']
                     }

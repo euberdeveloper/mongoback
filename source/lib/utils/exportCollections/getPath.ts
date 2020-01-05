@@ -1,9 +1,9 @@
 import { join } from 'path';
 
-import { ParsedCollection } from '../../interfaces/parsedCollections';
+import { ExportingCollection } from '../../interfaces/result';
 import { Options } from '../../interfaces/options';
 
-export function getPath(db: string, collection: ParsedCollection, options: Options): string {
+export function getPath(db: string, collection: ExportingCollection, options: Options): string {
     let result = '';
 
     const extension = collection.type || 'json';

@@ -51,7 +51,7 @@ export default function () {
 
             const options: Options = {
                 collections: {
-                    animals: ['dogs', 'tigers', { name: 'lions', type: 'csv' }]
+                    animals: ['dogs', 'tigers', { collections: 'lions', type: 'csv' }]
                 },
                 outDir: EXPORTED_PATH,
                 silent: true

@@ -6,10 +6,8 @@ export function mergeOptions(options: Options = {}): Options {
     for (const key in DEFAULT_OPTIONS) {
         mergedOptions[key] = (options[key] === undefined ? DEFAULT_OPTIONS[key] : options[key]);
     }
-    if (!Array.isArray(mergedOptions.collections)) {
-        mergedOptions.collections = mergedOptions.collections ? [mergedOptions.collections] : [];
-    }
     if (mergedOptions.uri) {
+        mergedOptions.srv = undefined;
         mergedOptions.host = undefined;
         mergedOptions.port = undefined;
         mergedOptions.username = undefined;
@@ -22,8 +20,6 @@ export function mergeOptions(options: Options = {}): Options {
             mergedOptions.username = encodeURIComponent(mergedOptions.username);
         if (mergedOptions.password)
             mergedOptions.password = encodeURIComponent(mergedOptions.password);
-        if (mergedOptions.port && typeof mergedOptions.port === 'string')
-            mergedOptions.port = +mergedOptions.port;
     }
     return mergedOptions;
 }
