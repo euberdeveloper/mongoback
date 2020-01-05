@@ -5,7 +5,7 @@
 [![dependencies Status](https://david-dm.org/euberdeveloper/mongoback/status.svg)](https://david-dm.org/euberdeveloper/mongoback)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![GitHub issues](https://img.shields.io/github/issues/euberdeveloper/mongoback.svg)](https://github.com/euberdeveloper/mongoback/issues)
-[![License](https://img.shields.io/npm/l/mongoback.svg?color=blue)](https://github.com/euberdeveloper/mongoback/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/mongoback.svg?color=blue)](https://github.com/euberdeveloper/mongoback/raw/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/euberdeveloper/mongoback.svg)](https://github.com/euberdeveloper/mongoback/stargazers)
 ![npm](https://img.shields.io/npm/v/mongoback.svg)
 
@@ -44,7 +44,7 @@ Will result in this:
 
 
 <p align="center">
-  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/assets/mongoback_base_log.gif">
+  <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_base_log.gif">
 </p>
 
 
@@ -681,7 +681,7 @@ The log will be similar to this:
 
 
 <p align="center">
-  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/assets/mongoback_mongoexport_log.gif">
+  <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_mongoexport_log.gif">
 </p>
 
 
@@ -701,7 +701,7 @@ The log will be similar to this:
 
 
 <p align="center">
-  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/assets/mongoback_exported_log.gif">
+  <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_exported_log.gif">
 </p>
 
 
