@@ -8,3 +8,4 @@ coverage
 tslint.json
 dist/test
 docs
+.travis.yml

@@ -1,0 +1,17 @@
+language : node_js
+services:
+ - mongodb
+node_js:
+ - node
+os:
+ - linux
+install:
+ - npm install
+before_script:
+ - npm run transpile
+script:
+ - npm run lint
+ - npm run db:populate
+ - npm run nyc
+after_script:
+ - npm run cover

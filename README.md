@@ -86,7 +86,7 @@ To learn well to use the module, it is suggested to see the examples below befor
 
 ### Specify the mongodb connection
 
-This will export all the collections in `mongodb://myhost:27017`:
+*This will export all the collections in `mongodb://myhost:27017`.*
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -98,7 +98,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections in `mongodb://myhost:8080`:
+*This will export all the collections in `mongodb://myhost:8080`*
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -769,8 +769,6 @@ The `source` folder will be compiled in the `dist` folder.
 
 ## Dev
 
-**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it.**
-
 Make sure you have the dev dependencies installed.
 
 To lint the code go to the package root in your CLI and run
@@ -784,3 +782,5 @@ To run tests go to the package root in your CLI and run
 ```bash
 $ npm test
 ```
+
+**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it.**

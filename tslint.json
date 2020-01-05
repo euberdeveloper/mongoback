@@ -1,11 +1,14 @@
 {
+    "linterOptions": {
+        "format": "codeFrame"
+    },
     "rules": {
         "max-line-length": [true, 320],
         "no-consecutive-blank-lines": true,
         "quotemark": [true, "single"],
         "semicolon": [true, "always"]
     },
-    "linterOptions": {
-        "format": "codeFrame"
+    "jsRules": {
+        "semicolon": [true, "always"]
     }
 }
