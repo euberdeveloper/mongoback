@@ -76,7 +76,7 @@ function parseReadPreference(options: ConnectionOptions): string {
 
     if (options.readPreference) {
         if (typeof options.readPreference === 'string') {
-            result = ` --readPreference='${options.readPreference}'`;
+            result = ` --readPreference=${options.readPreference}`;
         }
         else {
             result = ` --readPreference='${JSON.stringify(options.readPreference)}'`;

@@ -48,7 +48,7 @@ const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
 };
 
 const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
-    all: true,
+    all: false,
     databases: [],
     collections: [],
     systemCollections: false,

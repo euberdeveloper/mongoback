@@ -13,7 +13,7 @@ export interface ExportedOptions {
     /**
      * If all the collections of every database will be exported.
      * 
-     * Default: true
+     * Default: false
      */
     all?: boolean;
     /**
