@@ -1,9 +1,9 @@
 {
   "name": "mongoback",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "An npm module to easily export your MongoDB",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "dist/source/index.js",
+  "types": "dist/source/index.d.ts",
   "scripts": {
     "transpile:source": "tsc --project source",
     "transpile:test": "tsc --project test",
