@@ -42,7 +42,9 @@ await mongoExport(options);
 
 Will result in this:
 
-...video...
+<p align="center">
+  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/mongoback_base_log.gif">
+</p>
 
 And the created exported directory will be like this:
 
@@ -675,7 +677,9 @@ await mongoExport(options);
 
 The log will be similar to this:
 
-// VIDEO
+<p align="center">
+  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/mongoback_mongoexport_log.gif">
+</p>
 
 #### This will export all the collections of the database. Instead of the default `base` log, the fetched collections and the correctly exported collections are logged.
 
@@ -691,7 +695,9 @@ await mongoExport(options);
 
 The log will be similar to this:
 
-// VIDEO 
+<p align="center">
+  <img src="https://github.com/euberdeveloper/mongoback/blob/master/docs/mongoback_exported_log.gif">
+</p>
 
 ## Project structure
 
