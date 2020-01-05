@@ -1,0 +1,28 @@
+mongoback
+ ├─> source
+ │   ├─> bin
+ │   ├─> lib
+ │   │   ├─> errors
+ │   │   ├── index.ts
+ │   │   ├─> interfaces
+ │   │   └─> utils
+ │   └── tsconfig.json
+ ├─> test
+ │   ├─> complete
+ │   ├─> getCommand
+ │   ├─> getMongoConnection
+ │   ├─> mock
+ │   ├── test.ts
+ │   ├── tsconfig.json
+ │   └─> utils
+ ├─> dist
+ │   ├─> source
+ │   └─> test
+ ├─> docs
+ │   ├─> assets
+ │   └─> tree
+ │       ├── dree.config.json
+ │       └── tree.txt
+ ├── package-lock.json
+ ├── package.json
+ └── tslint.json

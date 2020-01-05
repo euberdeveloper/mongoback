@@ -1,0 +1,18 @@
+{
+    "exclude": [
+        "node_modules",
+        "coverage",
+        "docs/assets/",
+        "dist/source/",
+        "dist/test/",
+        "source/lib/errors/",
+        "source/lib/interfaces/",
+        "source/lib/utils/",
+        "test/complete/",
+        "test/mock/",
+        "test/utils/",
+        "test/getCommand/",
+        "test/getMongoConnection/"
+    ],
+    "showHidden": false
+}

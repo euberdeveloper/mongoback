@@ -1,7 +1,7 @@
 {
   "name": "mongoback",
   "version": "0.1.0",
-  "description": "An npm module to easily export your MongoDB",
+  "description": "The most powerful npm module to export your MongoDB",
   "main": "dist/source/index.js",
   "types": "dist/source/index.d.ts",
   "scripts": {
@@ -35,6 +35,16 @@
     "url": "https://github.com/euberdeveloper/mongoback/issues"
   },
   "homepage": "https://github.com/euberdeveloper/mongoback",
+  "keywords": [
+    "mongoback",
+    "mongo",
+    "mongodb",
+    "mongo-backup",
+    "backup",
+    "mongoexport",
+    "export",
+    "mongodb-backup"
+  ],
   "dependencies": {
     "chalk": "^3.0.0",
     "command-exists": "^1.2.8",
