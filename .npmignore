@@ -7,3 +7,4 @@ tsconfig.json
 coverage
 tslint.json
 dist/test
+docs
