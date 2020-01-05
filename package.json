@@ -69,6 +69,7 @@
     "cz-conventional-changelog": "^3.0.2",
     "dree": "^2.4.10",
     "mocha": "^6.2.2",
+    "mongo-cleaner": "^3.2.0",
     "nyc": "^15.0.0",
     "rimraf": "^3.0.0",
     "sinon": "^8.0.2",
