@@ -86,7 +86,8 @@ To learn well to use the module, it is suggested to see the examples below befor
 
 ### Specify the mongodb connection
 
-*This will export all the collections in `mongodb://myhost:27017`.*
+
+#### This will export all the collections in `mongodb://myhost:27017`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -98,7 +99,7 @@ const options = {
 await mongoExport(options);
 ```
 
-*This will export all the collections in `mongodb://myhost:8080`*
+#### This will export all the collections in `mongodb://myhost:8080`
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -111,7 +112,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will add username and password:
+#### This will add username and password:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -127,7 +128,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will add srv (`mongodb+srv//myhost:8080`):
+#### This will add srv (`mongodb+srv//myhost:8080`):
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -141,7 +142,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will use a replica set connection:
+#### This will use a replica set connection:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -159,7 +160,7 @@ await mongoExport(options);
 
 ### Specify what is to be exported
 
-This will export all the collections in `mongodb://localhost:27017`:
+#### This will export all the collections in `mongodb://localhost:27017`:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -168,7 +169,7 @@ const options = { all: true };
 await mongoExport(options);
 ```
 
-This will export all the collections of database `animals`:
+#### This will export all the collections of database `animals`:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -181,7 +182,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the databases beginning with `test`:
+#### This will export all the databases beginning with `test`:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -194,7 +195,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the `animals` database and the ones beginning with `test`:
+#### This will export the `animals` database and the ones beginning with `test`:
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -207,7 +208,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the databases beginning with `test`. Every exported collection will have also the `--jsonArray` mongoexport option.
+#### This will export all the databases beginning with `test`. Every exported collection will have also the `--jsonArray` mongoexport option.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -223,7 +224,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the `animals` database and the ones beginning with `test`. All collections exported by the animals database will have also the `--jsonArray` mongoexport option.
+#### This will export the `animals` database and the ones beginning with `test`. All collections exported by the animals database will have also the `--jsonArray` mongoexport option.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -239,7 +240,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the database `animals` and all the databases whose length is `4` 
+#### This will export the database `animals` and all the databases whose length is `4` 
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -255,7 +256,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the databases whose length is `4`, adding the `--pretty` and `--limit=5` mongoexport options to each of them. 
+#### This will export all the databases whose length is `4`, adding the `--pretty` and `--limit=5` mongoexport options to each of them. 
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -275,8 +276,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. The ones of the database `animals` will be the
-only one to be of type `json`. This is because the exporting options specified inside databases overwrite the general ones.
+#### This will export all the collections. The ones of the database `animals` will be the only one to be of type `json`. This is because the exporting options specified inside databases overwrite the general ones.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -294,7 +294,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections (in any database) whose name is `kebab`
+#### This will export all the collections (in any database) whose name is `kebab`
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -307,7 +307,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections (in any database) whose name is `kebab` or that begin with `test`
+#### This will export all the collections (in any database) whose name is `kebab` or that begin with `test`
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -320,7 +320,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections whose database begins with `a` and whose name is of length greater than `5`. All these collections will have also the `--pretty` mongoexport option.
+#### This will export all the collections whose database begins with `a` and whose name is of length greater than `5`. All these collections will have also the `--pretty` mongoexport option.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -339,7 +339,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections in database `animals` and all the collections beginning with `a` or `b`. All the collections have the `--pretty` option. The collections of database `animals` will have the `--jsonFormat=canonical` option. The collections beginning with `a` will have the `--jsonFormat=relaxed` option, even if they are in the database animals. This is because the collections exporting options overwrite the database ones.
+#### This will export all the collections in database `animals` and all the collections beginning with `a` or `b`. All the collections have the `--pretty` option. The collections of database `animals` will have the `--jsonFormat=canonical` option. The collections beginning with `a` will have the `--jsonFormat=relaxed` option, even if they are in the database animals. This is because the collections exporting options overwrite the database ones.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -363,7 +363,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the collections `tiger` and the ones beginning with `c` or `C` of the database `animals`, the collections `students` and `teachers` of the database `people` and the collection `valdagno` of the database `cities`.
+#### This will export the collections `tiger` and the ones beginning with `c` or `C` of the database `animals`, the collections `students` and `teachers` of the database `people` and the collection `valdagno` of the database `cities`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -380,7 +380,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the collections `wombats` and the ones whose name length is lower than `5` of the database `animals`.
+#### This will export the collections `wombats` and the ones whose name length is lower than `5` of the database `animals`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -398,7 +398,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the collections `tigers`, `pinguins` and `bears` of the database `animals` and the collection `students` of the database `people`. Almost all collections will have the ``--pretty` option. All the collections of `animals` will not have the `--jsonArray` option. All the collections of `animals` will have the `--pretty` option, except for `bears`. This is because the exporting options specified in a collection overwrite the ones specified in a database that overwrite the ones specified in the options.
+#### This will export the collections `tigers`, `pinguins` and `bears` of the database `animals` and the collection `students` of the database `people`. Almost all collections will have the ``--pretty` option. All the collections of `animals` will not have the `--jsonArray` option. All the collections of `animals` will have the `--pretty` option, except for `bears`. This is because the exporting options specified in a collection overwrite the ones specified in a database that overwrite the ones specified in the options.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -425,7 +425,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections of the database `animals`. All the collections will have the `--jsonArray` options, except for the `tigers` and `pinguins` that will have the `--pretty` option instead. 
+#### This will export all the collections of the database `animals`. All the collections will have the `--jsonArray` options, except for the `tigers` and `pinguins` that will have the `--pretty` option instead. 
 
 This is because order of which the collections are exported is:
 
@@ -456,7 +456,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export the collections `tigers` and `lions` of the database `animals`, the collection `students` and all the collections beginning with `p` or `s` of the database `people` and all the collections whose database name length is greater than `6` and whose name begins with `t`. All the collections beginning with `p` or `s` of the database `people` will be exported as csv and the `students` one will also have the `--noHeaderLine` option. All the collections whose database name length is greater than `5` and whose collection name begins with `t` will have the `--skip=20` option, except for `tigers` that is already exported without that option.
+#### This will export the collections `tigers` and `lions` of the database `animals`, the collection `students` and all the collections beginning with `p` or `s` of the database `people` and all the collections whose database name length is greater than `6` and whose name begins with `t`. All the collections beginning with `p` or `s` of the database `people` will be exported as csv and the `students` one will also have the `--noHeaderLine` option. All the collections whose database name length is greater than `5` and whose collection name begins with `t` will have the `--skip=20` option, except for `tigers` that is already exported without that option.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -491,7 +491,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection `students` of the database `people` will not have the `--noHeaderLine` option. This is because the order of the elements of an array matters for the `mongoExport` function. I this case, the object containing `noHeaderLine` and bound to the collection `students` of the database `people` comes after the RegExp `/^s/`. Matching that RegExp, `students` will be already exported when the object containing `noHeaderLine` will be considered, hence the object will be ignored. 
+#### This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection `students` of the database `people` will not have the `--noHeaderLine` option. This is because the order of the elements of an array matters for the `mongoExport` function. I this case, the object containing `noHeaderLine` and bound to the collection `students` of the database `people` comes after the RegExp `/^s/`. Matching that RegExp, `students` will be already exported when the object containing `noHeaderLine` will be considered, hence the object will be ignored. 
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -526,7 +526,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection `students` of the database `people` will not have the `--noHeaderLine` option. This is because the order of the elements of an array matters for the `mongoExport` function. I this case, the object containing `noHeaderLine` and bound to the collection `students` of the database `people` comes after the RegExp `/^s/`. Matching that RegExp, `students` will be already exported when the object containing `noHeaderLine` will be considered, hence the object will be ignored. 
+#### This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection `students` of the database `people` will not have the `--noHeaderLine` option. This is because the order of the elements of an array matters for the `mongoExport` function. I this case, the object containing `noHeaderLine` and bound to the collection `students` of the database `people` comes after the RegExp `/^s/`. Matching that RegExp, `students` will be already exported when the object containing `noHeaderLine` will be considered, hence the object will be ignored. 
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -573,7 +573,9 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. An error will be thrown wether it was not possible (probably for lack of permissions) to list the databases or the collections of a database. Usually, when this happens, those collections are ignored and all what could be fetched are exported.
+### Specify errors and warning options
+
+#### This will export all the collections. An error will be thrown wether it was not possible (probably for lack of permissions) to list the databases or the collections of a database. Usually, when this happens, those collections are ignored and all what could be fetched are exported.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -585,7 +587,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. An error will be thrown wether there was an error in one of the mongoexport executions. Usually, when this happens, the error is ignored and the result code will be PARTIAL (1) instead of TOTAL (0).
+#### This will export all the collections. An error will be thrown wether there was an error in one of the mongoexport executions. Usually, when this happens, the error is ignored and the result code will be PARTIAL (1) instead of TOTAL (0).
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -597,7 +599,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. A warning message is logged wether there was a lack of permissions error or a mongoexport error.
+#### This will export all the collections. A warning message is logged wether there was a lack of permissions error or a mongoexport error.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -610,7 +612,9 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. The result files will be saved in the directory `./backup` and not in the path `./exported` as per default. Per default, a folder will be created for each database and for every exported collection the file name will be the collection name and location in the folder bound to its database name.
+### Specifying were will the files be saved
+
+#### This will export all the collections. The result files will be saved in the directory `./backup` and not in the path `./exported` as per default. Per default, a folder will be created for each database and for every exported collection the file name will be the collection name and location in the folder bound to its database name.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -622,7 +626,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections. Instead of creating a folder for each database, the collections files will be saved directly in the `backup` folder and the file name will be `database_collection.extension`.
+#### This will export all the collections. Instead of creating a folder for each database, the collections files will be saved directly in the `backup` folder and the file name will be `database_collection.extension`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -635,7 +639,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections of `animals` and `people`. The files of the collections `students` and `teacher` of the database `people` will be prepended by the database name. The file of the `tigers` collection of the database `animals` will be `tigri.json`. The file of the `pinguins` collection of the database `animals` will be `pinguins.animals.json`.
+#### This will export all the collections of `animals` and `people`. The files of the collections `students` and `teacher` of the database `people` will be prepended by the database name. The file of the `tigers` collection of the database `animals` will be `tigri.json`. The file of the `pinguins` collection of the database `animals` will be `pinguins.animals.json`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -664,7 +668,7 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections of `animals` and `people`. The files of the collections `students` and `teacher` of database `people` will be in a path `./database/collection/collection.json`, relative to the `outDir` folder. The file of the `tigers` collection of the database `animals` will be saved in the `Desktop`.
+#### This will export all the collections of `animals` and `people`. The files of the collections `students` and `teacher` of database `people` will be in a path `./database/collection/collection.json`, relative to the `outDir` folder. The file of the `tigers` collection of the database `animals` will be saved in the `Desktop`.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -690,7 +694,9 @@ const options = {
 await mongoExport(options);
 ```
 
-This will export all the collections of the database. Instead of the default `base` log, the mongoexport commands and the mongoexport logs will be logged.
+### Specifying what is to be logged by the function
+
+#### This will export all the collections of the database. Instead of the default `base` log, the mongoexport commands and the mongoexport logs will be logged.
 
 ```js
 const { mongoExport } = require('mongoback');
@@ -706,7 +712,7 @@ The log will be similar to this:
 
 // VIDEO
 
-This will export all the collections of the database. Instead of the default `base` log, the fetched collections and the correctly exported collections are logged.
+#### This will export all the collections of the database. Instead of the default `base` log, the fetched collections and the correctly exported collections are logged.
 
 ```js
 const { mongoExport } = require('mongoback');
