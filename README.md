@@ -526,42 +526,7 @@ const options = {
 await mongoExport(options);
 ```
 
-#### This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection `students` of the database `people` will not have the `--noHeaderLine` option. This is because the order of the elements of an array matters for the `mongoExport` function. I this case, the object containing `noHeaderLine` and bound to the collection `students` of the database `people` comes after the RegExp `/^s/`. Matching that RegExp, `students` will be already exported when the object containing `noHeaderLine` will be considered, hence the object will be ignored. 
-
-```js
-const { mongoExport } = require('mongoback');
-const options = { 
-    host: 'myhost',
-    port: 8080,
-    pretty: true,
-    collections: [
-        {
-            animals: ['tigers', 'lions'], 
-            people: {
-                collections: [
-                    /^p/, 
-                    /^s/,
-                    {
-                        collections: 'students',
-                        noHeaderLine: true
-                    }
-                ],
-                type: 'csv',
-                fields: 'timestamp'
-            }
-        },
-        (db, collection) => {
-            if (db.length > 5 && collection[0] === 't') {
-                return { skip: 20 };
-            }
-        }
-    ]
-};
-
-await mongoExport(options);
-```
-
-This will export all the collections, including even the system collections.
+#### This will export all the collections, including even the system collections.
 
 ```js
 const { mongoExport } = require('mongoback');
