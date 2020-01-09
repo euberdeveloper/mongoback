@@ -1,5 +1,5 @@
 /**
- * The function type of that can be used as value of the "fileName" option.
+ * The function type that can be used as value of the "fileName" option.
  * @param db The database of the collection that will be exported
  * @param collection The the collection that will be exported
  * @param type The type of the collection that will be exported

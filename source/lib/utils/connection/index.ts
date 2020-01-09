@@ -6,20 +6,18 @@ import { ConnectionParameters } from '../../interfaces/connection';
 async function getMongoConnectionOptions(options: ConnectionOptions): Promise<MongoClientOptions> {
     const result: MongoClientOptions = {};
 
-    result.replicaSet = options.replicaSetName;
-    result.authSource = options.authenticationDatabase;
-    result.authMechanism = options.authenticationMechanism;
-    result.ssl = options.ssl;
-    /* (result as any).replicaSet = options.replicaSetName;
-    (result as any).authSource = options.authenticationDatabase;
-    (result as any).authMechanism = options.authenticationMechanism;
-    (result as any).tls = options.ssl;
-    (result as any).tlsCAFile = options.sslCAFile;
-    (result as any).tlsCertificateKeyFile = options.sslPEMKeyFile;
-    (result as any).tlsCertificateKeyFilePassword = options.sslPEMKeyPassword;
-    (result as any).tlsAllowInvalidCertificates = options.sslAllowInvalidCertificates;
-    (result as any).tlsAllowInvalidHostnames = options.sslAllowInvalidHostnames;
-    (result as any).gssapiServiceName = options.gssapiServiceName; */
+    if (options.replicaSetName) {
+        result.replicaSet = options.replicaSetName;
+    }
+    if (options.authenticationDatabase) {
+        result.authSource = options.authenticationDatabase;
+    }
+    if (options.authenticationMechanism) {
+        result.authMechanism = options.authenticationMechanism;
+    }
+    if (options.ssl) {
+        result.ssl = options.ssl;
+    }
 
     return result;
 }
