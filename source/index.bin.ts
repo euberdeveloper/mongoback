@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as yargs from 'yargs';
 import { Options } from './index';
+import { mongoExportCli } from './utils/bin';
 
 yargs
 .scriptName('mongoback')
@@ -10,7 +11,7 @@ yargs
     () => {
         return {};
     }, 
-    argv => {
+    async argv => {
         const args: any = argv;
         const options: Options = {
             uri: args.uri,
@@ -72,7 +73,7 @@ yargs
         const askUri = args.askUri;
         const askCollections = args.askCollections;
         const askDestination = args.askDestination;
-        //execute
+        await mongoExportCli(options, { askUri, askCollections, askDestination });
     }
 )
 .demandCommand(1, 'You must prompt the export command')
