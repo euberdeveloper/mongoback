@@ -1,4 +1,4 @@
-import { mongoExport, Options, ExportResultCode, ExportResult, ExportingOptions } from '../../../source/lib/index';
+import { mongoExport, Options, ExportResultCode, ExportResult, ExportingOptions } from '../../../source/index';
 
 import * as path from 'path';
 import * as chai from 'chai';

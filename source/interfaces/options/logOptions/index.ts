@@ -18,7 +18,7 @@ export interface LogOptions {
      */
     silent?: boolean;
     /**
-     * The log modes. If there are more than on modes, they must be specified in an array.
+     * The log modes. If there is more than a mode, they must be specified in an array.
      * 
      * Possible values:
      * - 'base': During exporting, the databases and collections are shown with a spinner.

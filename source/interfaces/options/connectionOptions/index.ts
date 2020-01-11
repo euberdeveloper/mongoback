@@ -56,7 +56,7 @@ export interface ConnectionOptions {
      * - authenticationDatabase
      * will be set to undefined and ignored.
      * 
-     * Default: undefind
+     * Default: undefined
      */
     uri?: string;
     /**
@@ -124,13 +124,12 @@ export interface ConnectionOptions {
      */
     ssl?: boolean;
     /**
-     * Enables connection to a mongod or mongos that has TLS/SSL support enabled.
+     * Specifies the .pem file that contains both the TLS/SSL certificate and key. 
      * 
      * Default: undefined
      */
     sslCAFile?: string;
     /**
-     * Specifies the .pem file that contains both the TLS/SSL certificate and key. 
      * Specify the file name of the .pem file using relative or absolute paths.
      * 
      * Default: undefined

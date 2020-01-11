@@ -8,6 +8,5 @@
         "sourceMap": true,
         "declaration": true,
         "esModuleInterop": true
-    },
-    "include": [ "bin", "lib" ]
+    }
 }

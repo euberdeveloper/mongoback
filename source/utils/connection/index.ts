@@ -9,17 +9,24 @@ async function getMongoConnectionOptions(options: ConnectionOptions): Promise<Mo
     if (options.replicaSetName) {
         result.replicaSet = options.replicaSetName;
     }
-    if (options.authenticationDatabase) {
-        result.authSource = options.authenticationDatabase;
-    }
-    if (options.authenticationMechanism) {
-        result.authMechanism = options.authenticationMechanism;
-    }
     if (options.ssl) {
         result.ssl = options.ssl;
     }
 
     return result;
+}
+
+function getOptionsString(options: ConnectionOptions): string {
+    const pairs = [];
+
+    if (options.authenticationDatabase) {
+        pairs.push(`authSource=${options.authenticationDatabase}`);
+    }
+    if (options.authenticationDatabase) {
+        pairs.push(`authMechanism=${options.authenticationMechanism}`);
+    }
+
+    return pairs.length ? `/?${pairs.join('&')}` : '';
 }
 
 function getMongoConnectionUri(options: ConnectionOptions): string {
@@ -35,7 +42,8 @@ function getMongoConnectionUri(options: ConnectionOptions): string {
                 ? `${options.username}:${options.password}@`
                 : `${options.username}@`)
             : '';
-        uri = `${protocol}://${auth}${host}`;
+        const opt = getOptionsString(options);
+        uri = `${protocol}://${auth}${host}${opt}`;
     }
 
     return uri;

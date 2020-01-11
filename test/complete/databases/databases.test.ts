@@ -1,4 +1,4 @@
-import { mongoExport, Options } from '../../../source/lib/index';
+import { mongoExport, Options } from '../../../source/index';
 
 import * as fs from 'fs';
 import * as path from 'path';

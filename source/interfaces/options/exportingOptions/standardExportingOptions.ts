@@ -132,7 +132,7 @@ export interface StandardExportingOptions {
      * not exist that can support the sort operation, the results 
      * must be less than 32 megabytes.
      * 
-     * You can pass either a string ora an array of strings. The fields are automatically
+     * You can pass either a string or an array of strings. The fields are automatically
      * included in quotes to support whitespaces
      * 
      * Default: undefined

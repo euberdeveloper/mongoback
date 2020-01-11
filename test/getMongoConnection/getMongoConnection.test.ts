@@ -1,5 +1,5 @@
-import { ConnectionOptions } from '../../source/lib/index';
-import { getMongoConnectionFromOptions } from '../../source/lib/utils/connection/index';
+import { ConnectionOptions, AuthenticationMechanism } from '../../source/index';
+import { getMongoConnectionFromOptions } from '../../source/utils/connection/index';
 
 import * as chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
@@ -99,6 +99,63 @@ export default function () {
             };
 
             const expected = 'mongodb+srv://localhost:27017';
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+
+        });
+
+        it(`Should return a uri with authentication database`, async function () {
+
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27017,
+                authenticationDatabase: 'users'
+            };
+
+            const expected = 'mongodb://localhost:27017/?authSource=users';
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+
+        });
+
+        it(`Should return a uri with authentication mechanism`, async function () {
+
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27017,
+                authenticationMechanism: AuthenticationMechanism.PLAIN
+            };
+
+            const expected = 'mongodb://localhost:27017/?authMechanism=PLAIN';
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+
+        });
+
+        it(`Should return a uri with authentication database`, async function () {
+
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27017,
+                authenticationDatabase: 'users'
+            };
+
+            const expected = 'mongodb://localhost:27017/?authSource=users';
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+
+        });
+
+        it(`Should return a uri with both authentication database and mechanism`, async function () {
+
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27017,
+                authenticationDatabase: 'users',
+                authenticationMechanism: AuthenticationMechanism.PLAIN
+            };
+
+            const expected = 'mongodb://localhost:27017/?authDatabase=users&authMechanism=PLAIN';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
 
