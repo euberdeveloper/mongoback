@@ -1,6 +1,6 @@
 {
   "name": "mongoback",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "The most powerful npm module to export your MongoDB",
   "main": "dist/source/index.js",
   "types": "dist/source/index.d.ts",

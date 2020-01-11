@@ -138,7 +138,7 @@ export default function () {
                 collections: [
                     'horses', 
                     {
-                        collections: 'lions',
+                        match: 'lions',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     }
@@ -160,12 +160,12 @@ export default function () {
                 collections: [
                     'horses', 
                     {
-                        collections: 'lions',
+                        match: 'lions',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     },
                     {
-                        collections: /^_.*_/,
+                        match: /^_.*_/,
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random']
                     },
@@ -187,7 +187,7 @@ export default function () {
                 collections: [
                     (_db, collection) => /^_.*_$/.test(collection) ? { type: 'json' } : false, 
                     {
-                        collections: /collection/,
+                        match: /collection/,
                         type: 'json'
                     },
                     /_/
@@ -241,7 +241,7 @@ export default function () {
 
             const options: Options = {
                 collections: {
-                    collections: /_[\d]$/,
+                    match: /_[\d]$/,
                     prependDbName: true,
                     fileName: (_db, collection, type) => `${collection}.kebab.${type}`
                 },

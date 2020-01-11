@@ -139,7 +139,7 @@ export default function () {
                 databases: [
                     '_DATABASE',
                     {
-                        databases: '_db',
+                        match: '_db',
                         type: 'csv',
                         fields: ['timestamp', 'cpuUsage', 'random'],
                         filePath: (db, collection, type) => path.join(db, `${collection}_special.${type}`)
@@ -161,7 +161,7 @@ export default function () {
             const options: Options = {
                 all: true,
                 databases: {
-                    databases: 'animals',
+                    match: 'animals',
                     filePath: (db, collection, type, outDir) => path.join(outDir, db, `${collection}.${type}`),
                     absolutePath: true
                 },

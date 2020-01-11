@@ -22,7 +22,7 @@ function parseDetailedCollection(rootOptions: ExportingOptions, db: string, coll
     const collectionsOptions = purgeExportingOptions(collection);
     const exportingOptions = { ...rootOptions, ...collectionsOptions };
 
-    const collections = collection.collections;
+    const collections = collection.match;
     if (typeof collections === 'string') {
         parseStringCollection(exportingOptions, db, collections, actualCollections, result);
     }
@@ -39,7 +39,7 @@ function parseLambdaCollection(rootOptions: ExportingOptions, db: string, lambda
                 return collection;
             }
             else if (result) {
-                return { ...result, collections: collection } as DetailedCollection;
+                return { ...result, match: collection } as DetailedCollection;
             }
         })
         .filter(collection => collection);

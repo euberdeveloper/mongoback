@@ -48,7 +48,7 @@ export default function () {
 
             const options: Options = {
                 collections: {
-                    _DATABASE: [/collection[a-z]/i],
+                    _DATABASE: /collection[a-z]/i,
                     DB: [/collection_[a-z]/i]
                 },
                 outDir: EXPORTED_PATH,
@@ -69,24 +69,22 @@ export default function () {
                     12345: {
                         collections: [
                             {
-                                collections: /^\d+$/,
+                                match: /^\d+$/,
                                 type: 'json'
                             },
                             (_db, collection) => collection[0] === 'o'
                         ],
                         type: 'csv'
                     },
-                    _12345: [
-                        {
-                            collections: 'third',
-                            type: 'csv',
-                            fields: ['timestamp', 'n']
-                        }
-                    ],
+                    _12345: {
+                        match: 'third',
+                        type: 'csv',
+                        fields: ['timestamp', 'n']
+                    },
                     database: [
                         'collection',
                         {
-                            collections: /collection[\d]/,
+                            match: /collection[\d]/,
                             type: 'csv',
                             fields: ['timestamp', 'domain']
                         }

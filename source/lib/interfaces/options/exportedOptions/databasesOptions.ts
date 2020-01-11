@@ -14,7 +14,7 @@ export type LambdaDatabase = ((db: string) => (boolean | ExportingOptions));
 
 /**
  * An object whose instances can be in the "databases" option.
- * The property "databases" must be specified. If it is a string, all databases equals to
+ * The property "match" must be specified. If it is a string, all databases equals to
  * that string will be exported. If it is a RegExp, all databases matching that RegExp
  * will be exported. The other properties are the [[ExportingOptions]] exporting options 
  * that overwrite the default ones.
@@ -23,7 +23,7 @@ export type DetailedDatabase = {
     /**
      * The databases to export as a string or RegExp.
      */
-    databases: (string | RegExp) 
+    match: (string | RegExp) 
 } & ExportingOptions;
 
 /**

@@ -220,7 +220,7 @@ const options = {
     host: 'myhost',
     port: 8080,
     databases: { 
-        databases: /^test/, 
+        match: /^test/, 
         jsonArray: true 
     }
 };
@@ -237,7 +237,7 @@ const options = {
     port: 8080,
     databases: [
         /^test/,
-        { databases: 'animals', jsonArray: true }
+        { match: 'animals', jsonArray: true }
     ]
 };
 
@@ -290,7 +290,7 @@ const options = {
     type: 'csv',
     fields: ['timestamp', 'name'],
     databases: {
-        databases: 'animals',
+        match: 'animals',
         type: 'json'
     }
 };
@@ -352,12 +352,12 @@ const options = {
     port: 8080,
     pretty: true,
     databases: {
-        databases: 'animals',
+        match: 'animals',
         jsonFormat: 'canonical'
     },
     collections: [
         {
-            collections: /^a/,
+            match: /^a/,
             jsonFormat: 'relaxed'
         },
         /^b/
@@ -416,7 +416,7 @@ const options = {
                 'tigers',
                 'pinguins',
                 {
-                    collections: 'bears',
+                    match: 'bears',
                     pretty: true
                 }
             ],
@@ -446,7 +446,7 @@ const options = {
     host: 'myhost',
     port: 8080,
     databases: {
-        databases: 'animals',
+        match: 'animals',
         jsonArray: true
     },
     collections: {
@@ -474,7 +474,7 @@ const options = {
             people: {
                 collections: [
                     {
-                        collections: 'students',
+                        match: 'students',
                         noHeaderLine: true
                     },
                     /^p/, 
@@ -511,7 +511,7 @@ const options = {
                     /^p/, 
                     /^s/,
                     {
-                        collections: 'students',
+                        match: 'students',
                         noHeaderLine: true
                     }
                 ],
@@ -618,11 +618,11 @@ const options = {
     collections: {
         animals: [
             {
-                collections: 'tigers',
+                match: 'tigers',
                 fileName: 'tigri'
             },
             {
-                collections: 'pinguins',
+                match: 'pinguins',
                 fileName: (db, collection, type) => `${collection}.${db}.${type}`
             }
         ],

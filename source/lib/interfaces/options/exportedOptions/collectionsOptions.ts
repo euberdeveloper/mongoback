@@ -15,7 +15,7 @@ export type LambdaCollection = ((db: string, collection: string) => (boolean | E
 
 /**
  * An object whose instances can be in the "collections" option.
- * The property "collections" must be specified. If it is a string, all collections equals to
+ * The property "match" must be specified. If it is a string, all collections equals to
  * that string will be exported. If it is a RegExp, all collections matching that RegExp
  * will be exported. The other properties are the [[ExportingOptions]] exporting options 
  * that overwrite the default ones.
@@ -24,7 +24,7 @@ export type DetailedCollection = {
     /**
      * The collections to export as a string or RegExp.
      */
-    collections: (string | RegExp) 
+    match: (string | RegExp) 
 } & ExportingOptions;
 
 /**
@@ -109,10 +109,10 @@ export function instanceOfGeneralCollection(obj: Collection): obj is GeneralColl
         || isFunction(obj)
         || (
             typeof obj === 'object'
-            && 'collections' in obj
+            && 'match' in obj
             && (
-                typeof obj.collections === 'string'
-                || obj.collections instanceof RegExp 
+                typeof obj.match === 'string'
+                || obj.match instanceof RegExp 
             )
         )
     );

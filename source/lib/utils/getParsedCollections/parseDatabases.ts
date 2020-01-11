@@ -33,7 +33,7 @@ async function parseDetailedDatabase(rootOptions: ExportingOptions, db: Detailed
     const dbOptions = purgeExportingOptions(db);
     const exportingOptions = { ...rootOptions, ...dbOptions };
 
-    const databases = db.databases;
+    const databases = db.match;
     if (typeof databases === 'string') {
         await parseStringDatabase(exportingOptions, databases, actualDatabases, result, mongoScanner);
     }
@@ -50,7 +50,7 @@ async function parseLambdaDatabase(rootOptions: ExportingOptions, lambda: Lambda
                 return db;
             }
             else if (result) {
-                return { ...result, databases: db } as DetailedDatabase;
+                return { ...result, match: db } as DetailedDatabase;
             }
         })
         .filter(db => db !== undefined);
