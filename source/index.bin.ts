@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import * as yargs from 'yargs';
+import yargs from 'yargs';
 import { Options } from './index';
 import { mongoExportCli } from './utils/bin';
 
 yargs
 .scriptName('mongoback')
 .command(
-    'export <source>', 
+    'export', 
     'Export your database with a powered mongoexport', 
     () => {
         return {};
@@ -348,9 +348,10 @@ yargs
         group: 'Exporting options'
     },
     'fields': {
-        default: undefined,
+        default: [],
         describe: 'Specifies a field or fields to include in the export.',
         type: 'array',
+        coerce: value => value && value.length ? value : undefined,
         group: 'Exporting options'
     },
     'fieldFile': {
@@ -379,8 +380,8 @@ yargs
     },
     'sort': {
         default: undefined,
-        describe: 'Specifies an ordering for exported results. If an index does not exist that can support the sort operation, the results must be less than 32 megabytes. You can pass either a string or an array of strings. The fields are automatically included in quotes to support whitespaces',
-        type: 'array',
+        describe: 'You can pass the argument either as a string (it will automatically be included in apixes) or as an object (only config file).',
+        type: 'string',
         group: 'Exporting options'
     },
     'forceTableScan': {
@@ -390,7 +391,7 @@ yargs
         group: 'Exporting options'
     },
     'prependDbName': {
-        default: false,
+        default: undefined,
         describe: 'If the file name will be prepended by the database of the collection. The format is: "database_filename.extension".',
         type: 'boolean',
         group: 'Exporting options'

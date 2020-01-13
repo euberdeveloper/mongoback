@@ -132,8 +132,8 @@ export interface StandardExportingOptions {
      * not exist that can support the sort operation, the results 
      * must be less than 32 megabytes.
      * 
-     * You can pass either a string or an array of strings. The fields are automatically
-     * included in quotes to support whitespaces
+     * You can pass the argument either as a string (it will automatically be included
+     * in apixes) or as an object.
      * 
      * Default: undefined
      */
