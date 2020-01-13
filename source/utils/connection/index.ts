@@ -22,7 +22,7 @@ function getOptionsString(options: ConnectionOptions): string {
     if (options.authenticationDatabase) {
         pairs.push(`authSource=${options.authenticationDatabase}`);
     }
-    if (options.authenticationDatabase) {
+    if (options.authenticationMechanism) {
         pairs.push(`authMechanism=${options.authenticationMechanism}`);
     }
 
