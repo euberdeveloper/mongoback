@@ -21,8 +21,6 @@ export async function askUri(options: ConnectionOptions, defaultUri: string, ask
         options.authenticationMechanism = undefined;
         options.srv = undefined;
     }
-
-    console.log(uri);
-
+    
     return uri;
 }
