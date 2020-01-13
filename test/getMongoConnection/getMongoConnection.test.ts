@@ -155,7 +155,7 @@ export default function () {
                 authenticationMechanism: AuthenticationMechanism.PLAIN
             };
 
-            const expected = 'mongodb://localhost:27017/?authDatabase=users&authMechanism=PLAIN';
+            const expected = 'mongodb://localhost:27017/?authSource=users&authMechanism=PLAIN';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
 
