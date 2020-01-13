@@ -1,16 +1,16 @@
-import { Options } from "../../interfaces/options";
-import { CliOptions } from "../../interfaces/bin";
+import { Options } from '../../interfaces/options';
+import { CliOptions } from '../../interfaces/bin';
 
-import { checkMongoexportInstalled } from "../checkMongoexportInstalled";
-import { mergeOptions } from "../options";
-import { Logger } from "../logger";
-import { getMongoConnectionFromOptions } from "../connection";
-import { getParsedCollections, removeSchemaDetails } from "../getParsedCollections";
-import { exportCollections } from "../exportCollections";
+import { checkMongoexportInstalled } from '../checkMongoexportInstalled';
+import { mergeOptions } from '../options';
+import { Logger } from '../logger';
+import { getMongoConnectionFromOptions } from '../connection';
+import { getParsedCollections, removeSchemaDetails } from '../getParsedCollections';
+import { exportCollections } from '../exportCollections';
 
-import { askUri } from "./askUri";
-import { askDestination } from "./askDestination";
-import { askCollections } from "./askCollections";
+import { askUri } from './askUri';
+import { askDestination } from './askDestination';
+import { askCollections } from './askCollections';
 
 export async function mongoExportCli(options: Options, cliOptions: CliOptions): Promise<void> {
     // Check that mongoexport is installed

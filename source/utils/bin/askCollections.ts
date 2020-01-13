@@ -2,8 +2,8 @@ import enquirer from 'enquirer';
 import { ScanOptions, MongoScanner, ListDatabasesError, ListCollectionsError } from 'mongo-scanner';
 
 import { ExportedOptions } from '../../interfaces/options';
-import { DetailedExportSchema } from "../../interfaces/result";
-import { ConnectionParameters } from "../../interfaces/connection";
+import { DetailedExportSchema } from '../../interfaces/result';
+import { ConnectionParameters } from '../../interfaces/connection';
 import { Logger } from '../logger';
 import { purgeExportingOptions } from '../getParsedCollections/purgeExportingOptions';
 
