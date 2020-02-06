@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/euberdeveloper/mongoback.svg?branch=master)](https://travis-ci.org/euberdeveloper/mongoback)
 [![Coverage Status](https://coveralls.io/repos/github/euberdeveloper/mongoback/badge.svg?branch=master)](https://coveralls.io/github/euberdeveloper/mongoback?branch=master)
 [![Codecov Status](https://codecov.io/gh/euberdeveloper/mongoback/branch/master/graph/badge.svg)](https://codecov.io/gh/euberdeveloper/mongoback)
-[![Types](https://img.shields.io/npm/types/dree.svg)](https://www.npmjs.com/package/dree)
+[![Types](https://img.shields.io/npm/types/mongoback.svg)](https://www.npmjs.com/package/mongoback)
 [![Known Vulnerabilities](https://snyk.io/test/github/euberdeveloper/mongoback/badge.svg?targetFile=package.json)](https://snyk.io/test/github/euberdeveloper/mongoback?targetFile=package.json)
 [![dependencies Status](https://david-dm.org/euberdeveloper/mongoback/status.svg)](https://david-dm.org/euberdeveloper/mongoback)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
