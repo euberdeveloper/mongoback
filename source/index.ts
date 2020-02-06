@@ -12,6 +12,11 @@ import { getParsedCollections, removeSchemaDetails } from './utils/getParsedColl
 import { exportCollections } from './utils/exportCollections';
 import { getMongoConnectionFromOptions } from './utils/connection';
 
+/**
+ * The function to export collections from a mongodb. You can specify the mongodb collection,
+ * the collections that will be exported, how they will be exported and where.
+ * @param options The options to specify how, where and what will be exported.
+ */
 export async function mongoExport(options?: Options): Promise<ExportResult> {
     // Check that mongoexport is installed
     checkMongoexportInstalled();

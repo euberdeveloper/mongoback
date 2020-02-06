@@ -261,9 +261,9 @@ yargs
         group: 'Exported options'
     },
     'databases': {
-        default: [],
+        default: undefined,
         describe: 'The databases that will be exported. All the collections of a database will be exported. Eventual exporting options passed to this option will overwrite the default ones. Note: on the cli, only strings are allowed.',
-        type: 'array',
+        type: 'string',
         group: 'Exported options'
     },
     'collections': {
@@ -443,10 +443,11 @@ yargs
         group: 'Out options'
     },
     // Config file
-    'config': {
+    'options': {
         alias: 'o',
         describe: 'A path to a json config file. If an option is both on the file and in the command, the command one will be considered',
-        config: true
+        config: true,
+        configParser: (path: string) => require(path)
     }
 })
 .epilogue('For more information, find our manual at https://github.com/euberdeveloper/mongoback#readme')

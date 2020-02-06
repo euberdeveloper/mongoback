@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/euberdeveloper/mongoback.svg?branch=master)](https://travis-ci.org/euberdeveloper/mongoback)
 [![Coverage Status](https://coveralls.io/repos/github/euberdeveloper/mongoback/badge.svg?branch=master)](https://coveralls.io/github/euberdeveloper/mongoback?branch=master)
 [![Codecov Status](https://codecov.io/gh/euberdeveloper/mongoback/branch/master/graph/badge.svg)](https://codecov.io/gh/euberdeveloper/mongoback)
+[![Types](https://img.shields.io/npm/types/dree.svg)](https://www.npmjs.com/package/dree)
 [![Known Vulnerabilities](https://snyk.io/test/github/euberdeveloper/mongoback/badge.svg?targetFile=package.json)](https://snyk.io/test/github/euberdeveloper/mongoback?targetFile=package.json)
 [![dependencies Status](https://david-dm.org/euberdeveloper/mongoback/status.svg)](https://david-dm.org/euberdeveloper/mongoback)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -704,6 +705,55 @@ The log will be similar to this:
   <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_exported_log.gif">
 </p>
 
+## Api
+
+### mongoExport
+
+**Syntax:**
+
+`mongoback.mongoExport(options)`
+
+**Description:**
+
+The function to export collections from a mongodb. You can specify the mongodb collection, the collections that will be exported, how they will be exported and where. To understand well how to use it, it is recommended reading the __Examples__ above.
+
+**Parameters**:
+
+* __options__: The options object of the mongoExport function.
+
+**Options parameters:**
+
+The Options object is the merge of other more-specific options objects, defined below.
+
+**ConnectionOptions parameters:**
+
+The MongoDB connection options. They will define both the options of the mongoexport command and the uri/MongoClientOptions of the connection used to list databases and collections. Most of the properties are exactly the same of the mongoexport options. Some are  slightly modified to allow a more confortable usage, without changing what will be passed as a mongoexport option. The default value of the option does not corrispond with the mongoexport one. When there is a value set to false or undefined, it means that the option is not added to the mongoexport command, not that it is the default value of mongoexport. To support the old versions of mongoexport, there are also the deprecated options.
+
+* __uri__: Default value: `undefined`. The uri of the MongoDB connection. If it is specified, the options host, port, password, username, srv, authenticationMechanism, authenticationDatabase will be set to undefined and ignored.
+* __host__: Default value: `localhost`. The host of the MongoDB connection. It can be a string or an array of ReplicaSet, objects with host and port keys. The property differs from the mongoexport one in which also an array of replica sets can be passed.
+* __port__: Default value: `27017`. The port of the MongoDB connection.
+* __username__: Default value: `undefined`. The username of the MongoDB connection.
+* __password__: Default value: `undefined`. The password of the MongoDB connection.
+* __authenticationDatabase__: Default value: `undefined`. The authenticationDatabase of the MongoDB connection.
+* __authenticationMechanism__: Default value: `undefined`. The authenticationMechanism of the MongoDB connection.
+* __srv__: Default value: `false`. If the connection  If the MongoDB connection uri is an srv. This property is not  present in the mongoexport options, where the "+srv" can be added manually in the host option.
+* __replicaSetName__: Default value: `undefined`. The replicaSetName of the MongoDB connection. This property is not present in the mongoexport options, where the replica set name is passed in the uri options or in the host option.
+* __ssl__: Default value: `false`. If the MongoDB connection uses ssl or tls.
+* __sslCAFile__: Default value: `undefined`. Specifies the .pem file that contains both the TLS/SSL certificate and key.
+* __sslPEMKeyFile__: Default value: `undefined`. Specify the file name of the .pem file using relative or absolute paths.
+* __sslPEMKeyPassword__: Default value: `undefined`. Specifies the password to de-crypt the certificate-key file (i.e. --sslPEMKeyFile). Use the --sslPEMKeyPassword option only if the certificate-key file is encrypted. In all cases, the mongoexport will redact the password from all logging and reporting output.
+* __sslCRLFile__: Default value: `undefined`. Specifies the .pem file that contains the Certificate Revocation List. Specify the file name of the .pem file using relative or absolute paths.
+* __sslFIPSMode__: Default value: `false`. Directs the mongoexport to use the FIPS mode of the installed OpenSSL library. Your system must have a FIPS compliant OpenSSL library to use the --sslFIPSMode option. NB: Deprecated option of mongoexport.
+* __sslAllowInvalidCertificates__: Default value: `false`. Bypasses the validation checks for server certificates and allows the use of invalid certificates. When using the allowInvalidCertificates setting, MongoDB logs as a warning the use of the invalid certificate.
+* __sslAllowInvalidHostnames__: Default value: `false`. Disables the validation of the hostnames in TLS/SSL certificates. Allows mongoexport to connect to MongoDB instances even if the hostname in their certificates do not match the specified hostname.
+* __gssapiServiceName__: Default value: `undefined`. Specify the name of the service using GSSAPI/Kerberos. Only required if the service does not use the default name of mongodb.
+* __gssapiHostName__: Default value: `undefined`. Specify the hostname of a service using GSSAPI/Kerberos. Only required  if the hostname of a machine does not match the hostname resolved by DNS.
+* __slaveOk__: Default value: `false`. Sets the Read Preference to nearest, allowing mongoexport to read data from secondary replica set members. NB: Deprecated option of mongoexport
+* __readPreference__: Default value: `undefined`. Specify the read preference for mongoexport. It can be a string such as 'primary' or 'secondary' or an object. If you want to pass the json object as a string, you must manually include it in apixes.
+* __journal__: Default value: `false`. Allows mongoexport operations to access the durability journal to ensure that the export is in a valid state. This option is only relevant when specifying the --dbpath option. NB: Deprecated option of mongoexport
+* __ipv6__: Default value: `false`. Enables IPv6 support that allows mongoexport to connect to the MongoDB instance using an IPv6 network. All MongoDB programs and processes, including mongoexport, disable IPv6 support by default. NB: Deprecated option of mongoexport
+* __dbpath__: Default value: `undefined`. Specifies the directory of the MongoDB data files. If used, the --dbpath option enables mongoexport to attach directly to local data files and insert the data without the mongod. To run with --dbpath, mongoexport needs to lock access to the data directory: as a result, no mongod can access the same path while the process runs. NB: Deprecated option of mongoexport
+* __directoryperdb__: Default value: `false`. Use the --directoryperdb in conjunction with the corresponding option to mongod, which allows mongoexport to export data from MongoDB instances that have every database’s files saved in discrete directories on the disk. This option is only relevant when specifying the --dbpath option. NB: Deprecated option of mongoexport.
 
 ## Project structure
 

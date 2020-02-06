@@ -103,7 +103,7 @@ export interface ConnectionOptions {
      * If the MongoDB connection uri is an srv.
      * 
      * This property is not present in the mongoexport options, where
-     * the "+srv" is added manually in the host option.
+     * the "+srv" can be added manually in the host option.
      * 
      * Default: false;
      */
