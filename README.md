@@ -705,7 +705,7 @@ The log will be similar to this:
   <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_exported_log.gif">
 </p>
 
-## Api
+## API
 
 ### mongoExport
 
