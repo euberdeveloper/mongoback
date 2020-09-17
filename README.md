@@ -873,6 +873,7 @@ $ npm run lint
 To run tests go to the package root in your CLI and run
 
 ```bash
+$ npm run db:populate
 $ npm test
 ```
 
