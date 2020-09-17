@@ -800,6 +800,20 @@ The exporting options regarding the mongoexport command. Most of the properties 
 * __sort__: Default value: `undefined`. Specifies an ordering for exported results. If an index does  not exist that can support the sort operation, the results  must be less than 32 megabytes.  You can pass the argument either as a string (it will automatically be included in apixes) or as an object.
 * __forceTableScan__: Default value: `false`. Forces mongoexport to scan the data store directly instead of traversing the _id field index. Use --forceTableScan to skip the index.
 
+**LogOptions parameters:**
+
+The options about what will be logged during the function execution
+
+* __silent__: Default value: `false`. If nothing will be logged.
+* __log__: Default value: `['base']`. The log modes. If there is more than a mode, they must be specified in an array.Possible values: `base`: During exporting, the databases and collections are shown with a spinner, `command`: Logs the mongoexport command, `mongoexport`: Logs the mongoexport log, `expectedCollections`: Logs the object containing the collections expected to be exported, `actualCollections`: Logs the object containing the collections that have actually been exported
+
+**OutOptions parameters:**
+
+The options about the output location and the result of the function
+
+* __outDir__: Default value: `'./exported'`. The path were the exported collections will be saved.
+* __outType__: Default value: `'deep'`. The type of the saving location. It can be: 'deep': A folder will be created for each database. Each folder contains the  exported collections of that database with the collection name as file name 'flat': No folder will be created for each database. A file whose name is the  exported collection name prepended by its database name (if prependDBName is not false)  will be created for each exported collection
+* __detailedResult__: Default value: `false`. If the result will contain also the exporting options of the expected/actual collections.
 
 ## Project structure
 
