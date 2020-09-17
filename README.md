@@ -755,6 +755,21 @@ The MongoDB connection options. They will define both the options of the mongoex
 * __dbpath__: Default value: `undefined`. Specifies the directory of the MongoDB data files. If used, the --dbpath option enables mongoexport to attach directly to local data files and insert the data without the mongod. To run with --dbpath, mongoexport needs to lock access to the data directory: as a result, no mongod can access the same path while the process runs. NB: Deprecated option of mongoexport
 * __directoryperdb__: Default value: `false`. Use the --directoryperdb in conjunction with the corresponding option to mongod, which allows mongoexport to export data from MongoDB instances that have every database’s files saved in discrete directories on the disk. This option is only relevant when specifying the --dbpath option. NB: Deprecated option of mongoexport.
 
+**ExportedOptions parameters:**
+
+The exported options interface. It contains the options about what should be exported and what to do if it is not exported correctly.
+
+* __all__: Default value: `false`. If all the collections of every database will be exported.
+* __databases__: Default value: `[]`. The databases that will be exported. All the collections of a database will be exported. Eventual exporting options passed to this option will overwrite the default ones.
+* __collections__: Default value: `[]`. The collections that will be exported. Eventual exporting options passed to this option will overwrite the default ones and the ones in the "database" option.
+* __systemCollections__: Default value: `false`. If also system collections will be exported.
+* __throwIfLackOfPermissions__: Default value: `false`. If for permissions causes there is an error while listing databases or collections of the MongoDB, an error will be thrown. If the value is false, the databases and collections that cannot be listed will be ignored and not be exported. NB: Actually all the errors that happen while listing databases or collections, not only the permission ones, will be thrown.
+* __warnIfLackOfPermissions__: Default value: `false`. If for permissions causes there is an error while listing databases or collections of the MongoDB, a warning message will be logged. NB: Actually all the errors that happen while listing databases or collections, not only the permission ones, will be warned.
+* __throwIfOneFails__: Default value: `false`. If the mongoexport of a collection fails, an error will be thrown. If the  value is false, the result of the function will have code PARTIAL(= 1), specifying that not all the expected collections were exported.
+* __warnIfOneFails__: Default value: `false`. If the mongoexport of a collection fails, a warning will be logged.
+
+
+
 ## Project structure
 
 Made with **[dree](https://www.npmjs.com/package/dree)**.
