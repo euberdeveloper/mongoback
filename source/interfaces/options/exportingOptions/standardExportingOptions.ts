@@ -1,5 +1,5 @@
 /**
- * The exporting options reguarding the mongoexport command.
+ * The exporting options regarding the mongoexport command.
  * 
  * Most of the properties are exactly the same of the mongoexport options. Some are 
  * slightly modified to allow a more confortable usage, without changing what will

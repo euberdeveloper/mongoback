@@ -6,7 +6,7 @@ import { ExtendedExportingOptions } from './extendedExportingOptions';
 
 /**
  * The options about how the collections will be exported. They will define both 
- * the options of the mongoexport command and others not reguarding it.
+ * the options of the mongoexport command and others not regarding it.
  * 
  * See the mongoexport official documentation to further information.
  * 
