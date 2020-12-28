@@ -10,6 +10,7 @@ install:
 before_script:
  - npm run transpile
 script:
+ - npm run lint
  - npm run db:populate
  - npm run nyc
 after_script:
