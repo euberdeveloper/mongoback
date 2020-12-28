@@ -64,7 +64,7 @@ export default function (): void {
                     animals: ['dogs', 'tigers', 'lions']
                 },
                 outDir: EXPORTED_PATH,
-                log: undefined
+                log: null as any
             };
 
             await mongoExport(options);
