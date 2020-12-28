@@ -1,7 +1,7 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '../../interfaces/options';
-import { DetailedExportSchema } from '../../interfaces/result';
+import { ExportingOptions } from '@/interfaces/options';
+import { DetailedExportSchema } from '@/interfaces/result';
 
 import { parseCollection } from './parseCollection';
 

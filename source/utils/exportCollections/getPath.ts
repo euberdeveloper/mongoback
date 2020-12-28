@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/switch-exhaustiveness-check */
 import { join } from 'path';
 
-import { ExportingCollection } from '../../interfaces/result';
-import { Options } from '../../interfaces/options';
+import { ExportingCollection } from '@/interfaces/result';
+import { Options } from '@/interfaces/options';
 
 export function getPath(db: string, collection: ExportingCollection, options: Options): string {
     let result = '';

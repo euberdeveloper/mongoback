@@ -1,4 +1,4 @@
-import { ExportingOptions } from '../../interfaces/options';
+import { ExportingOptions } from '@/interfaces/options';
 
 const KEYS = [
     'quiet',

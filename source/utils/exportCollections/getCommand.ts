@@ -1,5 +1,5 @@
-import { ExportingCollection } from '../../interfaces/result';
-import { ConnectionOptions, ExportingOptions } from '../../interfaces/options';
+import { ExportingCollection } from '@/interfaces/result';
+import { ConnectionOptions, ExportingOptions } from '@/interfaces/options';
 
 function parseUri(options: ConnectionOptions, db: string): string {
     let result = '';

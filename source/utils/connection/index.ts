@@ -1,7 +1,7 @@
 import { MongoClientOptions } from 'mongodb';
 
-import { ConnectionOptions } from '../../interfaces/options';
-import { ConnectionParameters } from '../../interfaces/connection';
+import { ConnectionOptions } from '@/interfaces/options';
+import { ConnectionParameters } from '@/interfaces/connection';
 
 async function getMongoConnectionOptions(options: ConnectionOptions): Promise<MongoClientOptions> {
     const result: MongoClientOptions = {};

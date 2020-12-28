@@ -1,14 +1,15 @@
 import { exec } from 'shelljs';
 
-import { DetailedExportSchema, ExportingCollection } from '../../interfaces/result';
-import { Options } from '../../interfaces/options';
-import { CommandResult } from '../../interfaces/exportCollections';
-import { ExportingError } from '../../errors';
+import { ExportingError } from '@/errors';
+import { DetailedExportSchema, ExportingCollection } from '@/interfaces/result';
+import { Options } from '@/interfaces/options';
+import { CommandResult } from '@/interfaces/exportCollections';
+import { ExportResultCode } from '@/interfaces/result';
 
-import { Logger } from '../logger';
+import { Logger } from '@/utils/logger';
+
 import { getCommand } from './getCommand';
 import { getPath } from './getPath';
-import { ExportResultCode } from '../../interfaces/result';
 
 function addExported(exportedCollections: DetailedExportSchema, db: string, collection: ExportingCollection): void {
     if (exportedCollections[db]) {

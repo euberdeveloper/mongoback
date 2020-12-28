@@ -1,4 +1,4 @@
-import { mongoExport, Options, ExportResultCode, ExportResult, ExportingOptions } from '../../../source/index';
+import { mongoExport, Options, ExportResultCode, ExportResult, ExportingOptions } from '@/index';
 
 import * as path from 'path';
 import * as chai from 'chai';
@@ -6,7 +6,7 @@ import chaiAsPromised from 'chai-as-promised';
 
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
-import { removeExported } from '../../utils';
+import { removeExported } from '@test/utils';
 
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 

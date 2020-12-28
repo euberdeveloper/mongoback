@@ -1,12 +1,12 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '../../interfaces/options/exportingOptions';
+import { ExportingOptions } from '@/interfaces/options/exportingOptions';
 import {
     SpecificCollections,
     instanceOfGeneralCollection,
     GeneralCollection
-} from '../../interfaces/options/exportedOptions';
-import { DetailedExportSchema } from '../../interfaces/result';
+} from '@/interfaces/options/exportedOptions';
+import { DetailedExportSchema } from '@/interfaces/result';
 
 import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseGeneralCollection } from './parseGeneralCollections';

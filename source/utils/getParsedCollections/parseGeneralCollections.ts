@@ -1,13 +1,13 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '../../interfaces/options/exportingOptions';
+import { ExportingOptions } from '@/interfaces/options/exportingOptions';
 import {
     GeneralCollection,
     instanceofLambdaCollection,
     LambdaCollection,
     DetailedCollection
-} from '../../interfaces/options/exportedOptions';
-import { DetailedExportSchema } from '../../interfaces/result';
+} from '@/interfaces/options/exportedOptions';
+import { DetailedExportSchema } from '@/interfaces/result';
 
 import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseCollection } from './parseCollection';
@@ -75,7 +75,7 @@ function parseLambdaCollection(
         if (typeof collection === 'string') {
             parseStringCollection(rootOptions, db, collection, actualCollections, result);
         } else {
-            parseDetailedCollection(rootOptions, db, collection, actualCollections, result);
+            parseDetailedCollection(rootOptions, db, collection as any, actualCollections, result);
         }
     }
 }

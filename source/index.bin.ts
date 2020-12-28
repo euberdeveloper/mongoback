@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 import yargs from 'yargs';
-import { Options } from './index';
-import { mongoExportCli } from './utils/bin';
+import { Options } from '@/index';
+import { mongoExportCli } from '@/utils/bin';
 
 yargs
     .scriptName('mongoback')

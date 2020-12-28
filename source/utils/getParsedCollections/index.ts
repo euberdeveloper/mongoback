@@ -1,11 +1,12 @@
 import { MongoScanner, ScanOptions, MongoScannerError, ListDatabasesError, ListCollectionsError } from 'mongo-scanner';
 
-import { Options } from '../../interfaces/options';
-import { ConnectionParameters } from '../../interfaces/connection';
-import { ExportSchema, DetailedExportSchema } from '../../interfaces/result';
-import { DatabaseError } from '../../errors';
+import { Options } from '@/interfaces/options';
+import { ConnectionParameters } from '@/interfaces/connection';
+import { ExportSchema, DetailedExportSchema } from '@/interfaces/result';
+import { DatabaseError } from '@/errors';
 
-import { Logger } from '../logger';
+import { Logger } from '@/utils/logger';
+
 import { purgeExportingOptions } from './purgeExportingOptions';
 import { divideCollections } from './parseCollection';
 import { parseSpecificCollections } from './parseSpecificCollections';

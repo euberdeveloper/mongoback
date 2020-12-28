@@ -1,4 +1,4 @@
-import { mongoExport, Options } from '../../../source/index';
+import { mongoExport, Options } from '@/index';
 
 import * as path from 'path';
 import * as chai from 'chai';
@@ -7,7 +7,7 @@ import sinon from 'sinon';
 
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
-import { removeExported } from '../../utils';
+import { removeExported } from '@test/utils';
 declare const console: {
     log: sinon.SinonStub<string[], void>;
     warn: sinon.SinonStub<any[], void>;
@@ -64,7 +64,7 @@ export default function (): void {
                     animals: ['dogs', 'tigers', 'lions']
                 },
                 outDir: EXPORTED_PATH,
-                log: null
+                log: undefined
             };
 
             await mongoExport(options);

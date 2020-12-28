@@ -5,7 +5,7 @@ import {
     ExportedOptions,
     LogOptions,
     OutOptions
-} from '../../interfaces/options';
+} from '@/interfaces/options';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,

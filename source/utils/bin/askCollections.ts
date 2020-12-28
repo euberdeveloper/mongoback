@@ -1,11 +1,12 @@
 import enquirer from 'enquirer';
 import { ScanOptions, MongoScanner, ListDatabasesError, ListCollectionsError } from 'mongo-scanner';
 
-import { ExportedOptions } from '../../interfaces/options';
-import { DetailedExportSchema } from '../../interfaces/result';
-import { ConnectionParameters } from '../../interfaces/connection';
-import { Logger } from '../logger';
-import { purgeExportingOptions } from '../getParsedCollections/purgeExportingOptions';
+import { ExportedOptions } from '@/interfaces/options';
+import { DetailedExportSchema } from '@/interfaces/result';
+import { ConnectionParameters } from '@/interfaces/connection';
+
+import { Logger } from '@/utils/logger';
+import { purgeExportingOptions } from '@/utils/getParsedCollections/purgeExportingOptions';
 
 function getWarnMessage(options: ExportedOptions, logger: Logger) {
     if (options.warnIfLackOfPermissions) {

@@ -1,13 +1,13 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '../../interfaces/options/exportingOptions';
+import { ExportingOptions } from '@/interfaces/options/exportingOptions';
 import {
     Database,
     instanceOfLambdaDatabase,
     LambdaDatabase,
     DetailedDatabase
-} from '../../interfaces/options/exportedOptions';
-import { DetailedExportSchema } from '../../interfaces/result';
+} from '@/interfaces/options/exportedOptions';
+import { DetailedExportSchema } from '@/interfaces/result';
 
 import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseCollection } from './parseCollection';

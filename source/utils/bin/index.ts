@@ -1,12 +1,12 @@
-import { Options } from '../../interfaces/options';
-import { CliOptions } from '../../interfaces/bin';
+import { Options } from '@/interfaces/options';
+import { CliOptions } from '@/interfaces/bin';
 
-import { checkMongoexportInstalled } from '../checkMongoexportInstalled';
-import { mergeOptions } from '../options';
-import { Logger } from '../logger';
-import { getMongoConnectionFromOptions } from '../connection';
-import { getParsedCollections, removeSchemaDetails } from '../getParsedCollections';
-import { exportCollections } from '../exportCollections';
+import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
+import { mergeOptions } from '@/utils/options';
+import { Logger } from '@/utils/logger';
+import { getMongoConnectionFromOptions } from '@/utils/connection';
+import { getParsedCollections, removeSchemaDetails } from '@/utils/getParsedCollections';
+import { exportCollections } from '@/utils/exportCollections';
 
 import { askUri } from './askUri';
 import { askDestination } from './askDestination';

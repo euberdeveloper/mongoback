@@ -1,4 +1,4 @@
-import { mongoExport, Options } from '../../../source/index';
+import { mongoExport, Options } from '@/index';
 
 import * as path from 'path';
 import * as chai from 'chai';
@@ -6,7 +6,7 @@ import chaiAsPromised from 'chai-as-promised';
 
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
-import { getResult, removeExported } from '../../utils';
+import { getResult, removeExported } from '@test/utils';
 
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 const EXPECTED_PATH = path.join(__dirname, 'expected');
@@ -79,7 +79,7 @@ export default function (): void {
                                           prependDbName: false
                                       }
                                     : null
-                        ]
+                        ] as any
                     },
                     {
                         match: /collection_[a-z]/i,

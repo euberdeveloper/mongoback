@@ -1,5 +1,5 @@
-import { ConnectionOptions, AuthenticationMechanism } from '../../source/index';
-import { getMongoConnectionFromOptions } from '../../source/utils/connection/index';
+import { ConnectionOptions, AuthenticationMechanism } from '@/index';
+import { getMongoConnectionFromOptions } from '@/utils/connection/index';
 
 import * as chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';

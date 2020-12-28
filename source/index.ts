@@ -1,16 +1,16 @@
-export * from './errors';
-export * from './interfaces/options';
-export * from './interfaces/result';
+export * from '@/errors';
+export * from '@/interfaces/options';
+export * from '@/interfaces/result';
 
-import { Options } from './interfaces/options';
-import { ExportResult } from './interfaces/result';
+import { Options } from '@/interfaces/options';
+import { ExportResult } from '@/interfaces/result';
 
-import { checkMongoexportInstalled } from './utils/checkMongoexportInstalled';
-import { Logger } from './utils/logger';
-import { mergeOptions } from './utils/options';
-import { getParsedCollections, removeSchemaDetails } from './utils/getParsedCollections';
-import { exportCollections } from './utils/exportCollections';
-import { getMongoConnectionFromOptions } from './utils/connection';
+import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
+import { Logger } from '@/utils/logger';
+import { mergeOptions } from '@/utils/options';
+import { getParsedCollections, removeSchemaDetails } from '@/utils/getParsedCollections';
+import { exportCollections } from '@/utils/exportCollections';
+import { getMongoConnectionFromOptions } from '@/utils/connection';
 
 /**
  * The function to export collections from a mongodb. You can specify the mongodb collection,

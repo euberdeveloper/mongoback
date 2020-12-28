@@ -1,6 +1,6 @@
-import complete from './complete/complete.test';
-import getCommand from './getCommand/getCommand.test';
-import getMongoConnection from './getMongoConnection/getMongoConnection.test';
+import complete from '@test/complete/complete.test';
+import getCommand from '@test/getCommand/getCommand.test';
+import getMongoConnection from '@test/getMongoConnection/getMongoConnection.test';
 
 describe('MongoBack module tests', function () {
     complete();

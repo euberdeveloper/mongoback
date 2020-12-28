@@ -1,11 +1,11 @@
-import { ExportingOptions } from '../../interfaces/options/exportingOptions';
+import { ExportingOptions } from '@/interfaces/options/exportingOptions';
 import {
     Collection,
     SpecificCollections,
     instanceOfGeneralCollection,
     GeneralCollection
-} from '../../interfaces/options/exportedOptions';
-import { DetailedExportSchema } from '../../interfaces/result';
+} from '@/interfaces/options/exportedOptions';
+import { DetailedExportSchema } from '@/interfaces/result';
 
 export function divideCollections(
     collections: Collection[]

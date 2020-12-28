@@ -1,5 +1,5 @@
-import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '../../source/index';
-import { getCommand } from '../../source/utils/exportCollections/getCommand';
+import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '@/index';
+import { getCommand } from '@/utils/exportCollections/getCommand';
 
 import * as chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
