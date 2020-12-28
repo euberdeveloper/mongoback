@@ -5,6 +5,12 @@
   "main": "dist/source/index.js",
   "bin": "dist/source/index.bin.js",
   "types": "dist/source/index.d.ts",
+  "files": [
+    "package.json",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "transpile:source": "tsc --project source",
     "transpile:test": "tsc --project test",
