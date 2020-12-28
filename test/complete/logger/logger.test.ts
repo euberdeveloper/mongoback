@@ -15,7 +15,7 @@ declare const console: {
 
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 
-export default function () {
+export default function (): void {
     describe('Test: log property', function () {
         this.timeout(0);
         this.beforeEach(function () {

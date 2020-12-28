@@ -5,7 +5,7 @@ import exported from './exported/exported.test';
 import logger from './logger/logger.test';
 import result from './result/result.test';
 
-export default function () {
+export default function (): void {
     describe('Test: mongoExport function', function () {
         databases();
         collections();

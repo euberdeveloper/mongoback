@@ -11,7 +11,7 @@ import { getResult, removeExported } from '../../utils';
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 const EXPECTED_PATH = path.join(__dirname, 'expected');
 
-export default function () {
+export default function (): void {
     describe('Test: collections property (with databases)', function () {
         function getExpected(name: string): string {
             return require(path.join(EXPECTED_PATH, name));

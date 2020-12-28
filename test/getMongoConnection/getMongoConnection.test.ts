@@ -7,8 +7,8 @@ import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
 
-export default function () {
-    describe('Test: getMongoConnectionFromOptions auxiliary function', async function () {
+export default function (): void {
+    describe('Test: getMongoConnectionFromOptions auxiliary function', function () {
         it(`Should return a simple uri`, async function () {
             const options: ConnectionOptions = {
                 uri: 'mongodb://localhost:27017'

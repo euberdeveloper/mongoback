@@ -7,7 +7,7 @@ import chaiAsPromised from 'chai-as-promised';
 chai.use(chaiAsPromised);
 import { expect } from 'chai';
 
-export default function () {
+export default function (): void {
     describe('Test: getCommand auxiliary function', function () {
         it(`Should return a simple command`, function () {
             const database = 'cars';
