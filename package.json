@@ -1,6 +1,6 @@
 {
   "name": "mongoback",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "The most powerful npm module to export your MongoDB",
   "main": "dist/source/index.js",
   "bin": "dist/source/index.bin.js",
@@ -47,13 +47,13 @@
     "mongodb-backup"
   ],
   "dependencies": {
-    "chalk": "^3.0.0",
-    "command-exists": "^1.2.8",
-    "enquirer": "^2.3.2",
+    "chalk": "^4.1.0",
+    "command-exists": "^1.2.9",
+    "enquirer": "^2.3.6",
     "mongo-scanner": "^2.0.5",
-    "ora": "^4.0.3",
-    "shelljs": "^0.8.3",
-    "yargs": "^15.1.0"
+    "ora": "^5.1.0",
+    "shelljs": "^0.8.4",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.7",
