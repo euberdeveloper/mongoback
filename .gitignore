@@ -1,5 +1,6 @@
 node_modules
 dist
+bundled
 src_backup
 config.ts
 exported.json

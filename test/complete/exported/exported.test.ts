@@ -74,7 +74,8 @@ export default function (): void {
                             (_db, collection) =>
                                 +collection > 323
                                     ? {
-                                          fileName: (_db, collection, type) => `N_${collection}.${type}`,
+                                          fileName: (_db: string, collection: string, type: string) =>
+                                              `N_${collection}.${type}`,
                                           filePath: () => ``,
                                           prependDbName: false
                                       }
