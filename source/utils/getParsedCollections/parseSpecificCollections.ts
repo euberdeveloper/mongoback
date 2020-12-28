@@ -19,7 +19,7 @@ export async function parseSpecificCollections(rootOptions: ExportingOptions, sp
             let dbOptions: ExportingOptions = {};
             let colls: GeneralCollection[];
 
-            const dbInfo = collections[db];
+            const dbInfo: any = collections[db];
             if (Array.isArray(dbInfo)) {
                 colls = dbInfo;
             }
