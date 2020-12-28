@@ -16,21 +16,25 @@ import { parseAll } from './parseAll';
 function getWarnMessage(options: Options, logger: Logger) {
     if (options.warnIfLackOfPermissions) {
         return (db: string, error: ListDatabasesError | ListCollectionsError) => {
-            let message = error instanceof ListCollectionsError 
-                ? `MongoBack: cannot list collections of ${db}`
-                : 'MongoBack: cannot list databases';
+            let message =
+                error instanceof ListCollectionsError
+                    ? `MongoBack: cannot list collections of ${db}`
+                    : 'MongoBack: cannot list databases';
             logger.warn(message, error);
         };
-    }
-    else {
+    } else {
         return undefined;
     }
 }
 
-export async function getParsedCollections(options: Options, dbParams: ConnectionParameters, logger: Logger): Promise<DetailedExportSchema> {
+export async function getParsedCollections(
+    options: Options,
+    dbParams: ConnectionParameters,
+    logger: Logger
+): Promise<DetailedExportSchema> {
     const result: DetailedExportSchema = {};
     const mongoScannerOptions: ScanOptions = {
-        useCache: true, 
+        useCache: true,
         excludeSystem: !options.systemCollections,
         ignoreLackOfPermissions: !options.throwIfLackOfPermissions,
         onLackOfPermissions: getWarnMessage(options, logger)
@@ -39,7 +43,7 @@ export async function getParsedCollections(options: Options, dbParams: Connectio
 
     const rootOptions = purgeExportingOptions(options);
     const collections = Array.isArray(options.collections) ? options.collections : [options.collections];
-    const { specific, general } = divideCollections(collections);
+    const { specific, general } = divideCollections(collections as any);
     const databases = Array.isArray(options.databases) ? options.databases : [options.databases];
     const all = options.all;
 
@@ -47,15 +51,13 @@ export async function getParsedCollections(options: Options, dbParams: Connectio
         await mongoScanner.startConnection();
         await parseSpecificCollections(rootOptions, specific, result, mongoScanner);
         await parseGeneralCollections(rootOptions, general, result, mongoScanner);
-        await parseDatabases(rootOptions, databases, result, mongoScanner);
-        await parseAll(rootOptions, all, result, mongoScanner);
+        await parseDatabases(rootOptions, databases as any, result, mongoScanner);
+        await parseAll(rootOptions, all as any, result, mongoScanner);
         await mongoScanner.endConnection();
-    }
-    catch (error) {
+    } catch (error) {
         if (error instanceof MongoScannerError) {
-            throw new DatabaseError(null, error);
-        }
-        else {
+            throw new DatabaseError(undefined, error);
+        } else {
             throw error;
         }
     }

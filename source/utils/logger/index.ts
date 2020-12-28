@@ -5,15 +5,14 @@ import { LogOptions } from '../../interfaces/options';
 import { ExportSchema } from '../../interfaces/result';
 
 export class Logger {
-
-    private base: boolean;
-    private command: boolean;
-    private mongoexport: boolean;
-    private expectedCollections: boolean;
-    private actualCollections: boolean;
+    private readonly base: boolean;
+    private readonly command: boolean;
+    private readonly mongoexport: boolean;
+    private readonly expectedCollections: boolean;
+    private readonly actualCollections: boolean;
     private spinners = {};
 
-    constructor(options: LogOptions) {
+    public constructor(options: LogOptions) {
         if (!options.silent && options.log) {
             if (typeof options.log === 'string') {
                 options.log = [options.log];
@@ -48,8 +47,7 @@ export class Logger {
             const spinner = this.spinners[`${db}${collection}`];
             if (succeded) {
                 spinner.succeed();
-            }
-            else {
+            } else {
                 spinner.fail();
             }
         }
@@ -58,7 +56,7 @@ export class Logger {
     public printCommand(cmd: string): void {
         if (this.command) {
             const tag = chalk.keyword('darkturquoise')('[COMMAND]');
-            const text = chalk.keyword('lightslategray')(cmd); 
+            const text = chalk.keyword('lightslategray')(cmd);
             console.log(`${tag} ${text}`);
         }
     }
@@ -66,7 +64,7 @@ export class Logger {
     public printMongoexport(log: string, success: boolean): void {
         if (this.mongoexport) {
             const tag = success ? chalk.keyword('limegreen')('[SUCCESS]') : chalk.keyword('orange')('[ERROR]');
-            const text = chalk.white(log); 
+            const text = chalk.white(log);
             console.log(`${tag}\n${text}`);
         }
     }
@@ -92,5 +90,4 @@ export class Logger {
         const text = chalk.keyword('orange')(message);
         console.warn(`${tag} ${text}`, error);
     }
-
 }

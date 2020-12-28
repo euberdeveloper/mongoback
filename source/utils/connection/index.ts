@@ -17,7 +17,7 @@ async function getMongoConnectionOptions(options: ConnectionOptions): Promise<Mo
 }
 
 function getOptionsString(options: ConnectionOptions): string {
-    const pairs = [];
+    const pairs: string[] = [];
 
     if (options.authenticationDatabase) {
         pairs.push(`authSource=${options.authenticationDatabase}`);
@@ -34,13 +34,13 @@ function getMongoConnectionUri(options: ConnectionOptions): string {
 
     if (!uri) {
         const protocol = options.srv ? 'mongodb+srv' : 'mongodb';
-        const host = (Array.isArray(options.host)
-            ? `${options.host.map(({host, port}) => `${host}:${port}`, '').join(',')}`
-            : `${options.host}:${options.port}`);
+        const host = Array.isArray(options.host)
+            ? `${options.host.map(({ host, port }) => `${host}:${port}`, '').join(',')}`
+            : `${options.host ?? ''}:${options.port ?? ''}`;
         const auth = options.username
-            ? (options.password
+            ? options.password
                 ? `${options.username}:${options.password}@`
-                : `${options.username}@`)
+                : `${options.username}@`
             : '';
         const opt = getOptionsString(options);
         uri = `${protocol}://${auth}${host}${opt}`;

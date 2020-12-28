@@ -3,14 +3,15 @@ import { ConnectionOptions } from '../../interfaces/options';
 
 export async function askUri(options: ConnectionOptions, defaultUri: string, askUri: boolean): Promise<string> {
     let uri = defaultUri;
-    
+
     if (askUri || (askUri === undefined && !options.uri)) {
-        uri = (await enquirer.prompt({
+        const enquirerResult: any = await enquirer.prompt({
             type: 'input',
             name: 'uri',
             message: 'Enter the connection uri:',
             initial: defaultUri
-        }))['uri'];
+        });
+        uri = enquirerResult.uri;
 
         options.uri = uri;
         options.host = undefined;
@@ -21,6 +22,6 @@ export async function askUri(options: ConnectionOptions, defaultUri: string, ask
         options.authenticationMechanism = undefined;
         options.srv = undefined;
     }
-    
+
     return uri;
 }

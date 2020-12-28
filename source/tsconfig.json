@@ -3,10 +3,26 @@
         "moduleResolution": "node",
         "module": "commonjs",
         "target": "es5",
-        "lib": [ "es2015" ],
-        "outDir": "../dist/source",
+        "lib": [
+            "es2015"
+        ],
+        "resolveJsonModule": true,
+        "strictNullChecks": true,
+        "esModuleInterop": true,
         "sourceMap": true,
         "declaration": true,
-        "esModuleInterop": true
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./*"
+            ],
+        },
+        "outDir": "../dist",
+        "plugins": [
+            {
+                "transform": "typescript-transform-paths",
+                "afterDeclarations": true
+            }
+        ]
     }
 }

@@ -12,9 +12,7 @@ const EXPORTED_PATH = path.join(__dirname, 'exported');
 const EXPECTED_PATH = path.join(__dirname, 'expected');
 
 export default function () {
-
     describe('Test: collections property (with databases)', function () {
-
         function getExpected(name: string): string {
             return require(path.join(EXPECTED_PATH, name));
         }
@@ -28,7 +26,6 @@ export default function () {
         });
 
         it(`Should export the collection "tigers" and the ones beginning with "_" of the database animals`, async function () {
-
             const options: Options = {
                 collections: {
                     animals: ['tigers', /^_/]
@@ -41,11 +38,9 @@ export default function () {
             const result = getResult(EXPORTED_PATH);
             const expected = getExpected('first');
             expect(result).to.equal(expected);
-
         });
 
         it(`Should export the collections matching /collection[a-z]/i of _DATABASE and matching /collection_[a-z]/i of DB`, async function () {
-
             const options: Options = {
                 collections: {
                     _DATABASE: /collection[a-z]/i,
@@ -59,11 +54,9 @@ export default function () {
             const result = getResult(EXPORTED_PATH);
             const expected = getExpected('second');
             expect(result).to.equal(expected);
-
         });
 
         it(`Should export collections of 12345 containing only numbers as json or beginning with 'o' as csv, collection "third" of _12345 as csv, "database/collection" as json and "database/collection'n'" as csv`, async function () {
-
             const options: Options = {
                 collections: {
                     12345: {
@@ -72,7 +65,7 @@ export default function () {
                                 match: /^\d+$/,
                                 type: 'json'
                             },
-                            (_db, collection) => collection[0] === 'o'
+                            (_db, collection) => collection.startsWith('o')
                         ],
                         type: 'csv'
                     },
@@ -99,9 +92,6 @@ export default function () {
             const result = getResult(EXPORTED_PATH);
             const expected = getExpected('third');
             expect(result).to.equal(expected);
-
         });
-
     });
-
 }

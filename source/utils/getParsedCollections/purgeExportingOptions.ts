@@ -23,7 +23,7 @@ const KEYS = [
 
 export function purgeExportingOptions(obj: any): ExportingOptions {
     const purged = { ...obj };
-    
+
     for (const key in purged) {
         if (!KEYS.includes(key)) {
             delete purged[key];

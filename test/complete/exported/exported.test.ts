@@ -12,9 +12,7 @@ const EXPORTED_PATH = path.join(__dirname, 'exported');
 const EXPECTED_PATH = path.join(__dirname, 'expected');
 
 export default function () {
-
     describe('Test: various exported properties', function () {
-
         function getExpected(name: string): string {
             return require(path.join(EXPECTED_PATH, name));
         }
@@ -28,7 +26,6 @@ export default function () {
         });
 
         it(`Should export everything as csv, but database animals with dbName prepended and collections /collection/i as csv`, async function () {
-
             const options: Options = {
                 all: true,
                 databases: {
@@ -49,11 +46,9 @@ export default function () {
             const result = getResult(EXPORTED_PATH);
             const expected = getExpected('first');
             expect(result).to.equal(expected);
-
         });
 
         it(`Should export everything, database animals prepended except for /^_.*_$/ and /^_/ as csv, collections of 12345 whose name is a number greater than 323 will be prepended with N_ and in no folder and collections /collection_[a-z]/i as csv`, async function () {
-
             const options: Options = {
                 all: true,
                 databases: {
@@ -76,13 +71,14 @@ export default function () {
                             prependDbName: true
                         },
                         12345: [
-                            (_db, collection) => +collection > 323
-                                ? { 
-                                    fileName: (_db, collection, type) => `N_${collection}.${type}`,
-                                    filePath: () => ``,
-                                    prependDbName: false
-                                }
-                                : null
+                            (_db, collection) =>
+                                +collection > 323
+                                    ? {
+                                          fileName: (_db, collection, type) => `N_${collection}.${type}`,
+                                          filePath: () => ``,
+                                          prependDbName: false
+                                      }
+                                    : null
                         ]
                     },
                     {
@@ -99,9 +95,6 @@ export default function () {
             const result = getResult(EXPORTED_PATH);
             const expected = getExpected('second');
             expect(result).to.equal(expected);
-
         });
-
     });
-
 }

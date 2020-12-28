@@ -11,9 +11,7 @@ import { removeExported } from '../../utils';
 const EXPORTED_PATH = path.join(__dirname, 'exported');
 
 export default function () {
-
     describe('Test: result of the function', function () {
-
         this.timeout(0);
         this.beforeEach(function () {
             removeExported(EXPORTED_PATH);
@@ -23,7 +21,6 @@ export default function () {
         });
 
         it(`Should result in TOTAL`, async function () {
-
             const options: Options = {
                 collections: {
                     animals: ['dogs', 'tigers', 'lions']
@@ -44,11 +41,9 @@ export default function () {
             };
 
             expect(result).to.deep.equal(expected);
-
         });
 
         it(`Should result in PARTIAL`, async function () {
-
             const options: Options = {
                 collections: {
                     animals: ['dogs', 'tigers', { match: 'lions', type: 'csv' }]
@@ -69,11 +64,9 @@ export default function () {
             };
 
             expect(result).to.deep.equal(expected);
-
         });
 
         it(`Should have a detailed result`, async function () {
-
             const options: Options = {
                 collections: {
                     animals: ['dogs', 'tigers', 'lions']
@@ -103,7 +96,7 @@ export default function () {
                 type: undefined,
                 verbose: false
             };
-            
+
             const expected: ExportResult = {
                 code: ExportResultCode.TOTAL,
                 expected: {
@@ -123,9 +116,6 @@ export default function () {
             };
 
             expect(result).to.deep.equal(expected);
-
         });
-
     });
-
 }

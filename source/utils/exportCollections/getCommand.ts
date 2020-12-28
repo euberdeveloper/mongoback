@@ -10,8 +10,7 @@ function parseUri(options: ConnectionOptions, db: string): string {
         const dbSlash = lastSlash > protocolSlash ? lastSlash : -1;
         if (dbSlash === -1) {
             result = ` --uri=${options.uri}/${db}`;
-        }
-        else {
+        } else {
             const pre = options.uri.slice(0, dbSlash);
             const optionsIndex = options.uri.indexOf('?');
             const post = optionsIndex === -1 ? '' : options.uri.slice(optionsIndex);
@@ -27,12 +26,9 @@ function parseHost(options: ConnectionOptions): string {
     if (options.host) {
         if (typeof options.host === 'string') {
             result = ` --host=${options.host}`;
-        }
-        else {
-            const hosts = options.host
-                .map(h => `${h.host}:${h.port}`)
-                .join(',');
-            result = ` --host=${options.replicaSetName}/${hosts}`;
+        } else {
+            const hosts = options.host.map(h => `${h.host}:${h.port}`).join(',');
+            result = ` --host=${options.replicaSetName ?? ''}/${hosts}`;
         }
     }
 
@@ -77,8 +73,7 @@ function parseReadPreference(options: ConnectionOptions): string {
     if (options.readPreference) {
         if (typeof options.readPreference === 'string') {
             result = ` --readPreference=${options.readPreference}`;
-        }
-        else {
+        } else {
             result = ` --readPreference='${JSON.stringify(options.readPreference)}'`;
         }
     }
@@ -101,8 +96,7 @@ function parseVerbose(options: ExportingOptions): string {
                 }
                 result = ' -' + result;
             }
-        }
-        else {
+        } else {
             result = ' --verbose';
         }
     }
@@ -115,8 +109,7 @@ function parseFields(options: ExportingOptions): string {
     if (options.fields) {
         if (typeof options.fields === 'string') {
             result = ` --fields="${options.fields}"`;
-        }
-        else if (options.fields.length) {
+        } else if (options.fields.length) {
             result = ` --fields="${options.fields.join(',')}"`;
         }
     }
@@ -132,8 +125,7 @@ function parseQuery(options: ExportingOptions): string {
     if (options.query) {
         if (typeof options.query === 'string') {
             result = ` --query='${options.query}'`;
-        }
-        else {
+        } else {
             result = ` --query='${JSON.stringify(options.query)}'`;
         }
     }
@@ -158,8 +150,7 @@ function parseSort(options: ExportingOptions): string {
     if (options.sort) {
         if (typeof options.sort === 'string') {
             result = ` --sort='${options.sort}'`;
-        }
-        else {
+        } else {
             result = ` --sort='${JSON.stringify(options.sort)}'`;
         }
     }
@@ -167,7 +158,12 @@ function parseSort(options: ExportingOptions): string {
     return result;
 }
 
-export function getCommand(database: string, parsedCollection: ExportingCollection, options: ConnectionOptions, outPath: string): string {
+export function getCommand(
+    database: string,
+    parsedCollection: ExportingCollection,
+    options: ConnectionOptions,
+    outPath: string
+): string {
     const db = options.uri ? '' : ` --db=${database}`;
     const collection = ` --collection=${parsedCollection.name}`;
 

@@ -26,14 +26,20 @@ export async function mongoExportCli(options: Options, cliOptions: CliOptions): 
     // Get default collections
     const defaultCollections = await getParsedCollections(options, { uri, options: connectionOptions }, logger);
     // Get parsed collections
-    const parsedCollections = await askCollections(options, { uri, options: connectionOptions }, defaultCollections, logger, cliOptions.askCollections);
+    const parsedCollections = await askCollections(
+        options,
+        { uri, options: connectionOptions },
+        defaultCollections,
+        logger,
+        cliOptions.askCollections
+    );
     // Log collections expected to be exported
     const expectedCollections = removeSchemaDetails(parsedCollections);
     logger.printExpectedCollections(expectedCollections);
     // Ask destination path
     await askDestination(options, cliOptions.askDestination);
     // Export collections with mongoexport and get the ones succesfully exported
-    const { exportedCollections, code } = await exportCollections(parsedCollections, options, logger);
+    const { exportedCollections } = await exportCollections(parsedCollections, options, logger);
     // Log collections succesfully exported
     const actualCollections = removeSchemaDetails(exportedCollections);
     logger.printExportedCollections(actualCollections);

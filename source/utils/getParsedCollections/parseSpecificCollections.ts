@@ -1,19 +1,34 @@
 import { MongoScanner } from 'mongo-scanner';
 
 import { ExportingOptions } from '../../interfaces/options/exportingOptions';
-import { SpecificCollections, instanceOfGeneralCollection, GeneralCollection } from '../../interfaces/options/exportedOptions';
+import {
+    SpecificCollections,
+    instanceOfGeneralCollection,
+    GeneralCollection
+} from '../../interfaces/options/exportedOptions';
 import { DetailedExportSchema } from '../../interfaces/result';
 
 import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseGeneralCollection } from './parseGeneralCollections';
 
-async function parseGeneralCollectionsInDb(rootOptions: ExportingOptions, db: string, collections: GeneralCollection[], result: DetailedExportSchema, mongoScanner: MongoScanner): Promise<void> {
+async function parseGeneralCollectionsInDb(
+    rootOptions: ExportingOptions,
+    db: string,
+    collections: GeneralCollection[],
+    result: DetailedExportSchema,
+    mongoScanner: MongoScanner
+): Promise<void> {
     for (const collection of collections) {
         await parseGeneralCollection(rootOptions, db, collection, result, mongoScanner);
     }
 }
 
-export async function parseSpecificCollections(rootOptions: ExportingOptions, specific: SpecificCollections[], result: DetailedExportSchema, mongoScanner: MongoScanner): Promise<void> {
+export async function parseSpecificCollections(
+    rootOptions: ExportingOptions,
+    specific: SpecificCollections[],
+    result: DetailedExportSchema,
+    mongoScanner: MongoScanner
+): Promise<void> {
     for (const collections of specific) {
         for (const db in collections) {
             let dbOptions: ExportingOptions = {};
@@ -22,11 +37,9 @@ export async function parseSpecificCollections(rootOptions: ExportingOptions, sp
             const dbInfo: any = collections[db];
             if (Array.isArray(dbInfo)) {
                 colls = dbInfo;
-            }
-            else if (instanceOfGeneralCollection(dbInfo)) {
+            } else if (instanceOfGeneralCollection(dbInfo)) {
                 colls = [dbInfo];
-            }
-            else {
+            } else {
                 dbOptions = purgeExportingOptions(dbInfo);
                 colls = dbInfo.collections;
             }

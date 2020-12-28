@@ -8,11 +8,8 @@ chai.use(chaiAsPromised);
 import { expect } from 'chai';
 
 export default function () {
-
     describe('Test: getMongoConnectionFromOptions auxiliary function', async function () {
-
         it(`Should return a simple uri`, async function () {
-
             const options: ConnectionOptions = {
                 uri: 'mongodb://localhost:27017'
             };
@@ -20,11 +17,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a simple uri with host and port`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017
@@ -33,11 +28,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a simple uri with host replicaset`, async function () {
-
             const options: ConnectionOptions = {
                 host: [
                     {
@@ -58,11 +51,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017,localhost:8080,euber:2323';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with username`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -72,11 +63,9 @@ export default function () {
             const expected = 'mongodb://euber@localhost:27017';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with username and password`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -87,11 +76,9 @@ export default function () {
             const expected = 'mongodb://euber:secret@localhost:27017';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with srv`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -101,11 +88,9 @@ export default function () {
             const expected = 'mongodb+srv://localhost:27017';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with authentication database`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -115,11 +100,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017/?authSource=users';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with authentication mechanism`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -129,11 +112,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017/?authMechanism=PLAIN';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with authentication database`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -143,11 +124,9 @@ export default function () {
             const expected = 'mongodb://localhost:27017/?authSource=users';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
 
         it(`Should return a uri with both authentication database and mechanism`, async function () {
-
             const options: ConnectionOptions = {
                 host: 'localhost',
                 port: 27017,
@@ -158,9 +137,6 @@ export default function () {
             const expected = 'mongodb://localhost:27017/?authSource=users&authMechanism=PLAIN';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
-
         });
-
     });
-
 }
