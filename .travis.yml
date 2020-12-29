@@ -12,6 +12,4 @@ before_script:
 script:
  - npm run lint
  - npm run db:populate
- - npm run nyc
-after_script:
- - npm run cover
+ - npm run test

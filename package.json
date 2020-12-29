@@ -30,9 +30,6 @@
     "db:populate": "npm run db:clean && npm run db:restore",
     "test": "mocha dist/test --reporter spec",
     "nyc": "nyc --extension=ts --reporter=html --reporter=text --reporter=lcov npm test",
-    "cover:coveralls": "nyc report --extension=ts --reporter=text-lcov | coveralls",
-    "cover:codecov": "nyc report --extension=ts --reporter=text-lcov > coverage.lcov && codecov",
-    "cover": "npm run cover:coveralls && npm run cover:codecov",
     "docs:tree": "dree parse . --dest docs/tree --name tree --options docs/tree/dree.config.json",
     "commit": "git-cz",
     "prepublishOnly": "npm run bundle"
