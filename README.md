@@ -1,3 +1,6 @@
+![Test](https://github.com/euberdeveloper/mongoback/workflows/Test/badge.svg)
+![Lint](https://github.com/euberdeveloper/mongoback/workflows/Lint/badge.svg)
+![Build](https://github.com/euberdeveloper/mongoback/workflows/Build/badge.svg)
 [![Build Status](https://travis-ci.org/euberdeveloper/mongoback.svg?branch=master)](https://travis-ci.org/euberdeveloper/mongoback)
 [![Coverage Status](https://coveralls.io/repos/github/euberdeveloper/mongoback/badge.svg?branch=master)](https://coveralls.io/github/euberdeveloper/mongoback?branch=master)
 [![Codecov Status](https://codecov.io/gh/euberdeveloper/mongoback/branch/master/graph/badge.svg)](https://codecov.io/gh/euberdeveloper/mongoback)
