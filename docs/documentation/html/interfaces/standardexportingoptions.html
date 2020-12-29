@@ -1,0 +1,551 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>StandardExportingOptions | mongoback - v2.0.8</title>
+	<meta name="description" content="Documentation for mongoback - v2.0.8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">mongoback - v2.0.8</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">mongoback - v2.0.8</a>
+				</li>
+				<li>
+					<a href="standardexportingoptions.html">StandardExportingOptions</a>
+				</li>
+			</ul>
+			<h1>Interface StandardExportingOptions</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The exporting options regarding the mongoexport command.</p>
+					</div>
+					<p>Most of the properties are exactly the same of the mongoexport options. Some are
+						slightly modified to allow a more confortable usage, without changing what will
+						be passed as a mongoexport option. The default value of the option does not corrispond
+						with the mongoexport one. When there is a value set to false or undefined, it means that
+						the option is not added to the mongoexport command, not that it is the default value of
+					mongoexport.</p>
+					<p>To support the old versions of mongoexport, there are also the deprecated options.</p>
+					<p>See the mongoexport official documentation to further information.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="https://docs.mongodb.com/manual/reference/program/mongoexport/" class="external">https://docs.mongodb.com/manual/reference/program/mongoexport/</a> to further
+							information on the mongoexport options.</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">StandardExportingOptions</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#fieldfile" class="tsd-kind-icon">field<wbr>File</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#fields" class="tsd-kind-icon">fields</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#forcetablescan" class="tsd-kind-icon">force<wbr>Table<wbr>Scan</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#jsonarray" class="tsd-kind-icon">json<wbr>Array</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#jsonformat" class="tsd-kind-icon">json<wbr>Format</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#limit" class="tsd-kind-icon">limit</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#noheaderline" class="tsd-kind-icon">no<wbr>Header<wbr>Line</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#pretty" class="tsd-kind-icon">pretty</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#query" class="tsd-kind-icon">query</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#quiet" class="tsd-kind-icon">quiet</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#skip" class="tsd-kind-icon">skip</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#sort" class="tsd-kind-icon">sort</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="standardexportingoptions.html#verbose" class="tsd-kind-icon">verbose</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fieldfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> field<wbr>File</h3>
+					<div class="tsd-signature tsd-kind-icon">field<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An alternative to --fields. The --fieldFile option allows you to specify
+								in a file the field or fields to include in the export and is only valid
+								with the --type option with value csv. The file must have only one field
+							per line, and the line(s) must end with the LF character (0x0A).</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fields" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> fields</h3>
+					<div class="tsd-signature tsd-kind-icon">fields<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies a field or fields to include in the export. Use a comma
+								separated list of fields to specify multiple fields. If any of your field
+								names include white space, use quotation marks to enclose the field list.
+								For example, if you wished to export two fields, phone and user number, you
+								would specify --fields &quot;phone,user number&quot;. For csv output formats,
+								mongoexport includes only the specified field(s), and the specified
+								field(s) can be a field within a sub-document. For JSON output formats,
+								mongoexport includes only the specified field(s) and the _id field, and
+								if the specified field(s) is a field within a sub-document, the mongoexport
+								includes the sub-document with all its fields, not just the specified field
+							within the document.</p>
+						</div>
+						<p>You can pass either a string ora an array of strings. The fields are automatically
+						included in quotes to support whitespaces.</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="forcetablescan" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> force<wbr>Table<wbr>Scan</h3>
+					<div class="tsd-signature tsd-kind-icon">force<wbr>Table<wbr>Scan<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Forces mongoexport to scan the data store directly instead of traversing the
+							_id field index. Use --forceTableScan to skip the index.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="jsonarray" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> json<wbr>Array</h3>
+					<div class="tsd-signature tsd-kind-icon">json<wbr>Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modifies the output of mongoexport to write the entire contents of the export
+								as a single JSON array. By default mongoexport writes data using one JSON
+							document for every MongoDB document.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="jsonformat" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> json<wbr>Format</h3>
+					<div class="tsd-signature tsd-kind-icon">json<wbr>Format<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;realaxed&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;canonical&quot;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modifies the output to use either canonical or relaxed mode of the MongoDB
+							Extended JSON (v2) format.</p>
+						</div>
+						<p>Default: undefined;</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="limit" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> limit</h3>
+					<div class="tsd-signature tsd-kind-icon">limit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies a maximum number of documents to include in the export.
+							See limit() for information about the underlying operation.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="noheaderline" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> no<wbr>Header<wbr>Line</h3>
+					<div class="tsd-signature tsd-kind-icon">no<wbr>Header<wbr>Line<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>By default, mongoexport includes the exported field names as the first
+								line in a CSV output. --noHeaderLine directs mongoexport to export the
+								data without the list of field names. --noHeaderLine is only valid with
+							the --type option with value csv.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pretty" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> pretty</h3>
+					<div class="tsd-signature tsd-kind-icon">pretty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Outputs documents in a pretty-printed format JSON.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="query" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> query</h3>
+					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provides a query as a JSON document (enclosed in quotes) to return matching
+								documents in the export. You must enclose the query document in single
+								quotes (&#39;{ ... }&#39;) to ensure that it does not interact with your
+								shell environment. Starting in MongoDB 4.2, the query must be in
+								Extended JSON v2 format (either relaxed or canonical/strict mode),
+							including enclosing the field names and operators in quotes.</p>
+						</div>
+						<p>You can pass the argument either as a string (it will automatically be included
+						in apixes) or as an object.</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="quiet" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> quiet</h3>
+					<div class="tsd-signature tsd-kind-icon">quiet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Runs mongoexport in a quiet mode that attempts to limit the amount of output.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="skip" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> skip</h3>
+					<div class="tsd-signature tsd-kind-icon">skip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Use --skip to control where mongoexport begins exporting documents.
+							See skip() for information about the underlying operation.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sort" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sort</h3>
+					<div class="tsd-signature tsd-kind-icon">sort<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies an ordering for exported results. If an index does
+								not exist that can support the sort operation, the results
+							must be less than 32 megabytes.</p>
+						</div>
+						<p>You can pass the argument either as a string (it will automatically be included
+						in apixes) or as an object.</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;json&quot;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">&quot;csv&quot;</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the file type to export. Specify csv for CSV format or json for JSON format.
+								If you specify csv, then you must also use either the --fields or the
+							--fieldFile option to declare the fields to export from the collection.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="verbose" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> verbose</h3>
+					<div class="tsd-signature tsd-kind-icon">verbose<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Increases the amount of internal reporting returned on standard output or in
+								log files. Increase the verbosity with the -v form by including the option
+							multiple times, (e.g. -vvvvv.)</p>
+						</div>
+						<p>If the value is true, the option &#39;--verbose&#39; will be added. If it is a number,
+						it will be the number of v that will be put in the command. (e.g. 3 gives -vvv).</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/authenticationmechanism.html" class="tsd-kind-icon">Authentication<wbr>Mechanism</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/exportresultcode.html" class="tsd-kind-icon">Export<wbr>Result<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/databaseerror.html" class="tsd-kind-icon">Database<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/exportingerror.html" class="tsd-kind-icon">Exporting<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mongobackerror.html" class="tsd-kind-icon">Mongo<wbr>Back<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="../classes/mongoexportnotinstallederror.html" class="tsd-kind-icon">Mongoexport<wbr>Not<wbr>Installed<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="connectionoptions.html" class="tsd-kind-icon">Connection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="detailedexportschema.html" class="tsd-kind-icon">Detailed<wbr>Export<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="exportresult.html" class="tsd-kind-icon">Export<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="exportschema.html" class="tsd-kind-icon">Export<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="exportedoptions.html" class="tsd-kind-icon">Exported<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="extendedexportingoptions.html" class="tsd-kind-icon">Extended<wbr>Exporting<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="logoptions.html" class="tsd-kind-icon">Log<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="outoptions.html" class="tsd-kind-icon">Out<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="replicaset.html" class="tsd-kind-icon">Replica<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="specificcollections.html" class="tsd-kind-icon">Specific<wbr>Collections</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
+						<a href="standardexportingoptions.html" class="tsd-kind-icon">Standard<wbr>Exporting<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#fieldfile" class="tsd-kind-icon">field<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#fields" class="tsd-kind-icon">fields</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#forcetablescan" class="tsd-kind-icon">force<wbr>Table<wbr>Scan</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#jsonarray" class="tsd-kind-icon">json<wbr>Array</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#jsonformat" class="tsd-kind-icon">json<wbr>Format</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#limit" class="tsd-kind-icon">limit</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#noheaderline" class="tsd-kind-icon">no<wbr>Header<wbr>Line</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#pretty" class="tsd-kind-icon">pretty</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#query" class="tsd-kind-icon">query</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#quiet" class="tsd-kind-icon">quiet</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#skip" class="tsd-kind-icon">skip</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#sort" class="tsd-kind-icon">sort</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="standardexportingoptions.html#verbose" class="tsd-kind-icon">verbose</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#collection" class="tsd-kind-icon">Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#collections" class="tsd-kind-icon">Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#database" class="tsd-kind-icon">Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#databases" class="tsd-kind-icon">Databases</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#detailedcollection" class="tsd-kind-icon">Detailed<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#detaileddatabase" class="tsd-kind-icon">Detailed<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#detailedgeneralcollections" class="tsd-kind-icon">Detailed<wbr>General<wbr>Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#exportingcollection" class="tsd-kind-icon">Exporting<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#exportingfilename" class="tsd-kind-icon">Exporting<wbr>File<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#exportingfilepath" class="tsd-kind-icon">Exporting<wbr>File<wbr>Path</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#exportingoptions" class="tsd-kind-icon">Exporting<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#generalcollection" class="tsd-kind-icon">General<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#generalcollections" class="tsd-kind-icon">General<wbr>Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#lambdacollection" class="tsd-kind-icon">Lambda<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#lambdadatabase" class="tsd-kind-icon">Lambda<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#logtype" class="tsd-kind-icon">Log<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#logtypes" class="tsd-kind-icon">Log<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="../modules.html#options" class="tsd-kind-icon">Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#instanceofgeneralcollection" class="tsd-kind-icon">instance<wbr>OfGeneral<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#instanceoflambdadatabase" class="tsd-kind-icon">instance<wbr>OfLambda<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#instanceoflambdacollection" class="tsd-kind-icon">instanceof<wbr>Lambda<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#mongoexport" class="tsd-kind-icon">mongo<wbr>Export</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

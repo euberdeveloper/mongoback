@@ -1,0 +1,1036 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>mongoback - v2.0.8</title>
+	<meta name="description" content="Documentation for mongoback - v2.0.8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">mongoback - v2.0.8</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>Project mongoback - v2.0.8</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="https://github.com/euberdeveloper/mongoback/workflows/Test/badge.svg" alt="Test">
+					<img src="https://github.com/euberdeveloper/mongoback/workflows/Lint/badge.svg" alt="Lint">
+					<img src="https://github.com/euberdeveloper/mongoback/workflows/Build/badge.svg" alt="Build">
+					<a href="https://travis-ci.org/euberdeveloper/mongoback"><img src="https://travis-ci.org/euberdeveloper/mongoback.svg?branch=master" alt="Build Status"></a>
+					<a href="https://coveralls.io/github/euberdeveloper/mongoback?branch=master"><img src="https://coveralls.io/repos/github/euberdeveloper/mongoback/badge.svg?branch=master" alt="Coverage Status"></a>
+					<a href="https://codecov.io/gh/euberdeveloper/mongoback"><img src="https://codecov.io/gh/euberdeveloper/mongoback/branch/master/graph/badge.svg" alt="Codecov Status"></a>
+					<a href="https://www.npmjs.com/package/mongoback"><img src="https://img.shields.io/npm/types/mongoback.svg" alt="Types"></a>
+					<a href="https://snyk.io/test/github/euberdeveloper/mongoback?targetFile=package.json"><img src="https://snyk.io/test/github/euberdeveloper/mongoback/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a>
+					<a href="https://david-dm.org/euberdeveloper/mongoback"><img src="https://david-dm.org/euberdeveloper/mongoback/status.svg" alt="dependencies Status"></a>
+					<a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a>
+					<a href="https://github.com/euberdeveloper/mongoback/issues"><img src="https://img.shields.io/github/issues/euberdeveloper/mongoback.svg" alt="GitHub issues"></a>
+					<a href="https://github.com/euberdeveloper/mongoback/raw/master/LICENSE"><img src="https://img.shields.io/npm/l/mongoback.svg?color=blue" alt="License"></a>
+					<a href="https://github.com/euberdeveloper/mongoback/stargazers"><img src="https://img.shields.io/github/stars/euberdeveloper/mongoback.svg" alt="GitHub stars"></a>
+					<img src="https://img.shields.io/npm/v/mongoback.svg" alt="npm">
+				<a href="https://codeclimate.com/github/euberdeveloper/mongoback/test_coverage"><img src="https://api.codeclimate.com/v1/badges/dc2555e4e7efdcf8bfe4/test_coverage" alt="Test Coverage"></a></p>
+				<a href="#mongoback" id="mongoback" style="color: inherit; text-decoration: none;">
+					<h1>mongoback</h1>
+				</a>
+				<p>The most powerful npm module to export your MongoDB.</p>
+				<p>This is a wrapper of the <strong>mongoexport</strong> tool and comes because of the annoy of typing
+				everything in the command line, repeating the task for every collection to export.</p>
+				<p>This module allows to call it in a more comfortable way and to export <strong>multiple</strong> collections at a time. It allows you to select collections in a powerful way and saves the exported files in an organized and customizable directory.</p>
+				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+					<h2>Install</h2>
+				</a>
+				<p>Before installing mongoback, you need the <code>mongoexport</code> installed and its path added to the envinronments variables. This should automatically happen when installing <strong>MongoDB</strong>.</p>
+				<p>To install mongoback as a local module:</p>
+				<pre><code class="language-bash">$ npm install mongoback</code></pre>
+				<a href="#usage-local-module" id="usage-local-module" style="color: inherit; text-decoration: none;">
+					<h2>Usage (local module)</h2>
+				</a>
+				<a href="#a-first-example" id="a-first-example" style="color: inherit; text-decoration: none;">
+					<h3>A first example</h3>
+				</a>
+				<p>This tiny code (main.js):</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> };</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>Will result in this:</p>
+				<p align="center">
+					<img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_base_log.gif">
+				</p>
+				<p>And the created exported directory will be like this:</p>
+				<pre><code><span style="color: #001080">exported</span>
+<span style="color: #000000"> ├─&gt; </span><span style="color: #098658">12345</span>
+<span style="color: #000000"> │   ├── </span><span style="color: #001080">first</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> │   └── </span><span style="color: #001080">second</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> └─&gt; </span><span style="color: #001080">animals</span>
+<span style="color: #000000">     ├── </span><span style="color: #001080">cats</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000">     ├── </span><span style="color: #001080">dogs</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000">     ├── </span><span style="color: #001080">horses</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000">     ├── </span><span style="color: #001080">lions</span><span style="color: #000000">.</span><span style="color: #001080">csv</span>
+<span style="color: #000000">     ├── </span><span style="color: #001080">pinguins</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000">     └── </span><span style="color: #001080">tigers</span><span style="color: #000000">.</span><span style="color: #001080">csv</span>
+</code></pre>
+				<a href="#usage-global-module" id="usage-global-module" style="color: inherit; text-decoration: none;">
+					<h2>Usage (global module)</h2>
+				</a>
+				<p>Executing the command:</p>
+				<p><code>$ mongoback export</code></p>
+				<p align="center">
+					<img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_cli.gif">
+				</p>
+				<p>Execute the help command for more informaition:</p>
+				<p><code>$ mongoback --help</code></p>
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h3>Features</h3>
+				</a>
+				<p>The module allows you to:</p>
+				<ul>
+					<li>Specify all the mongodb <strong>connection</strong> uri and options</li>
+					<li>Specify in a powerful way the <strong>collections</strong> to export</li>
+					<li>By using <strong>RegExp</strong> and <strong>functions</strong>, export collections you do not know they exist</li>
+					<li>Specify in a powerful way all the <strong>mongoexport options</strong> for each collection</li>
+					<li>Specify in a powerful way in which <strong>path</strong> end with which <strong>file name</strong> will every collection be saved</li>
+					<li>Specify the output <strong>directory</strong> and its <strong>structure</strong></li>
+					<li>Specify if and how show the function <strong>logs</strong></li>
+					<li>Specify if an <strong>error</strong> will be thrown in case not all collections can be fetched/exported</li>
+				</ul>
+				<a href="#how-it-works" id="how-it-works" style="color: inherit; text-decoration: none;">
+					<h3>How it works</h3>
+				</a>
+				<p>The module:</p>
+				<ul>
+					<li>Checks if mongoexport is installed</li>
+					<li>Parses the options and, connecting to the mongodb, gets all the name of the collections that you want to export</li>
+					<li>By calling mongoexport, exports the collections and saves them in a directory structure customizable by the options</li>
+					<li>Returns an object containing information about what has been exported</li>
+				</ul>
+				<p>To learn well to use the module, it is suggested to see the examples below before reading the API.</p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<a href="#specify-the-mongodb-connection" id="specify-the-mongodb-connection" style="color: inherit; text-decoration: none;">
+					<h3>Specify the mongodb connection</h3>
+				</a>
+				<a href="#this-will-export-all-the-collections-in-mongodbmyhost27017" id="this-will-export-all-the-collections-in-mongodbmyhost27017" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections in <code>mongodb://myhost:27017</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">uri:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;mongodb://user:secret@myhost:27017&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-in-mongodbmyhost8080" id="this-will-export-all-the-collections-in-mongodbmyhost8080" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections in <code>mongodb://myhost:8080</code></h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-add-username-and-password" id="this-will-add-username-and-password" style="color: inherit; text-decoration: none;">
+					<h4>This will add username and password:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">username:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;me&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">password:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;secret&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">auhenticationDatabase:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;administrator&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-add-srv-mongodbsrvmyhost8080" id="this-will-add-srv-mongodbsrvmyhost8080" style="color: inherit; text-decoration: none;">
+					<h4>This will add srv (<code>mongodb+srv//myhost:8080</code>):</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">srv:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-use-a-replica-set-connection" id="this-will-use-a-replica-set-connection" style="color: inherit; text-decoration: none;">
+					<h4>This will use a replica set connection:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        { </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;localhost&#039;</span><span style="color: #000000">, </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">27017</span><span style="color: #000000"> },</span>
+<span style="color: #000000">        { </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">: </span><span style="color: #001080">port</span><span style="color: #000000">: </span><span style="color: #098658">23023</span><span style="color: #000000"> }</span>
+<span style="color: #000000">    ],</span>
+<span style="color: #000000">    </span><span style="color: #001080">replicaSetName:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;replicas&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#specify-what-is-to-be-exported" id="specify-what-is-to-be-exported" style="color: inherit; text-decoration: none;">
+					<h3>Specify what is to be exported</h3>
+				</a>
+				<a href="#this-will-export-all-the-collections-in-mongodblocalhost27017" id="this-will-export-all-the-collections-in-mongodblocalhost27017" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections in <code>mongodb://localhost:27017</code>:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> };</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-of-database-animals" id="this-will-export-all-the-collections-of-database-animals" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of database <code>animals</code>:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;animals&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-databases-beginning-with-test" id="this-will-export-all-the-databases-beginning-with-test" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the databases beginning with <code>test</code>:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">test/</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-animals-database-and-the-ones-beginning-with-test" id="this-will-export-the-animals-database-and-the-ones-beginning-with-test" style="color: inherit; text-decoration: none;">
+					<h4>This will export the <code>animals</code> database and the ones beginning with <code>test</code>:</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">,</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">test/</span><span style="color: #000000">]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-databases-beginning-with-test-every-exported-collection-will-have-also-the---jsonarray-mongoexport-option" id="this-will-export-all-the-databases-beginning-with-test-every-exported-collection-will-have-also-the---jsonarray-mongoexport-option" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the databases beginning with <code>test</code>. Every exported collection will have also the <code>--jsonArray</code> mongoexport option.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> { </span>
+<span style="color: #000000">        </span><span style="color: #001080">match:</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">test/</span><span style="color: #000000">, </span>
+<span style="color: #000000">        </span><span style="color: #001080">jsonArray:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> </span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-animals-database-and-the-ones-beginning-with-test-all-collections-exported-by-the-animals-database-will-have-also-the---jsonarray-mongoexport-option" id="this-will-export-the-animals-database-and-the-ones-beginning-with-test-all-collections-exported-by-the-animals-database-will-have-also-the---jsonarray-mongoexport-option" style="color: inherit; text-decoration: none;">
+					<h4>This will export the <code>animals</code> database and the ones beginning with <code>test</code>. All collections exported by the animals database will have also the <code>--jsonArray</code> mongoexport option.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">test/</span><span style="color: #000000">,</span>
+<span style="color: #000000">        { </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">, </span><span style="color: #001080">jsonArray:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-database-animals-and-all-the-databases-whose-length-is-4" id="this-will-export-the-database-animals-and-all-the-databases-whose-length-is-4" style="color: inherit; text-decoration: none;">
+					<h4>This will export the database <code>animals</code> and all the databases whose length is <code>4</code></h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        </span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        (</span><span style="color: #001080">db</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> === </span><span style="color: #098658">4</span><span style="color: #000000">)</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-databases-whose-length-is-4-adding-the---pretty-and---limit5-mongoexport-options-to-each-of-them" id="this-will-export-all-the-databases-whose-length-is-4-adding-the---pretty-and---limit5-mongoexport-options-to-each-of-them" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the databases whose length is <code>4</code>, adding the <code>--pretty</code> and <code>--limit=5</code> mongoexport options to each of them.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #795E26">databases</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000">(</span><span style="color: #001080">db</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> === </span><span style="color: #098658">4</span><span style="color: #000000">) {</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #001080">limit:</span><span style="color: #000000"> </span><span style="color: #098658">5</span>
+<span style="color: #000000">            };</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-the-ones-of-the-database-animals-will-be-the-only-one-to-be-of-type-json-this-is-because-the-exporting-options-specified-inside-databases-overwrite-the-general-ones" id="this-will-export-all-the-collections-the-ones-of-the-database-animals-will-be-the-only-one-to-be-of-type-json-this-is-because-the-exporting-options-specified-inside-databases-overwrite-the-general-ones" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. The ones of the database <code>animals</code> will be the only one to be of type <code>json</code>. This is because the exporting options specified inside databases overwrite the general ones.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">type:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;csv&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">fields:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;timestamp&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;name&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">type:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;json&#039;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-in-any-database-whose-name-is-kebab" id="this-will-export-all-the-collections-in-any-database-whose-name-is-kebab" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections (in any database) whose name is <code>kebab</code></h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;kebab&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-in-any-database-whose-name-is-kebab-or-that-begin-with-test" id="this-will-export-all-the-collections-in-any-database-whose-name-is-kebab-or-that-begin-with-test" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections (in any database) whose name is <code>kebab</code> or that begin with <code>test</code></h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;kebab&#039;</span><span style="color: #000000">,</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">test/</span><span style="color: #000000">]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-whose-database-begins-with-a-and-whose-name-is-of-length-greater-than-5-all-these-collections-will-have-also-the---pretty-mongoexport-option" id="this-will-export-all-the-collections-whose-database-begins-with-a-and-whose-name-is-of-length-greater-than-5-all-these-collections-will-have-also-the---pretty-mongoexport-option" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections whose database begins with <code>a</code> and whose name is of length greater than <code>5</code>. All these collections will have also the <code>--pretty</code> mongoexport option.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #795E26">collections</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000">(</span><span style="color: #001080">db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">) {</span>
+<span style="color: #000000">        </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] === </span><span style="color: #A31515">&#039;a&#039;</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">collection</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &gt; </span><span style="color: #098658">5</span><span style="color: #000000">) {</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">return</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">            };</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-in-database-animals-and-all-the-collections-beginning-with-a-or-b-all-the-collections-have-the---pretty-option-the-collections-of-database-animals-will-have-the---jsonformatcanonical-option-the-collections-beginning-with-a-will-have-the---jsonformatrelaxed-option-even-if-they-are-in-the-database-animals-this-is-because-the-collections-exporting-options-overwrite-the-database-ones" id="this-will-export-all-the-collections-in-database-animals-and-all-the-collections-beginning-with-a-or-b-all-the-collections-have-the---pretty-option-the-collections-of-database-animals-will-have-the---jsonformatcanonical-option-the-collections-beginning-with-a-will-have-the---jsonformatrelaxed-option-even-if-they-are-in-the-database-animals-this-is-because-the-collections-exporting-options-overwrite-the-database-ones" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections in database <code>animals</code> and all the collections beginning with <code>a</code> or <code>b</code>. All the collections have the <code>--pretty</code> option. The collections of database <code>animals</code> will have the <code>--jsonFormat=canonical</code> option. The collections beginning with <code>a</code> will have the <code>--jsonFormat=relaxed</code> option, even if they are in the database animals. This is because the collections exporting options overwrite the database ones.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">jsonFormat:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;canonical&#039;</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">match:</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">a/</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">jsonFormat:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;relaxed&#039;</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">        </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">b/</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-collections-tiger-and-the-ones-beginning-with-c-or-c-of-the-database-animals-the-collections-students-and-teachers-of-the-database-people-and-the-collection-valdagno-of-the-database-cities" id="this-will-export-the-collections-tiger-and-the-ones-beginning-with-c-or-c-of-the-database-animals-the-collections-students-and-teachers-of-the-database-people-and-the-collection-valdagno-of-the-database-cities" style="color: inherit; text-decoration: none;">
+					<h4>This will export the collections <code>tiger</code> and the ones beginning with <code>c</code> or <code>C</code> of the database <code>animals</code>, the collections <code>students</code> and <code>teachers</code> of the database <code>people</code> and the collection <code>valdagno</code> of the database <code>cities</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;tiger&#039;</span><span style="color: #000000">,</span><span style="color: #811F3F"> /</span><span style="color: #EE0000">^</span><span style="color: #811F3F">c/</span><span style="color: #0000FF">i</span><span style="color: #000000">],</span>
+<span style="color: #000000">        </span><span style="color: #001080">people:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;sutdents&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;teachers&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">        </span><span style="color: #001080">cities:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;valdagno&#039;</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-collections-wombats-and-the-ones-whose-name-length-is-lower-than-5-of-the-database-animals" id="this-will-export-the-collections-wombats-and-the-ones-whose-name-length-is-lower-than-5-of-the-database-animals" style="color: inherit; text-decoration: none;">
+					<h4>This will export the collections <code>wombats</code> and the ones whose name length is lower than <code>5</code> of the database <code>animals</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">            </span><span style="color: #A31515">&#039;wombats&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">            (</span><span style="color: #001080">_db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">collection</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &lt; </span><span style="color: #098658">5</span>
+<span style="color: #000000">        ]</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-collections-tigers-pinguins-and-bears-of-the-database-animals-and-the-collection-students-of-the-database-people-almost-all-collections-will-have-the---prettyoption-all-the-collections-ofanimalswill-not-have-the--jsonarrayoption-all-the-collections-ofanimalswill-have-the--prettyoption-except-forbears-this-is-because-the-exporting-options-specified-in-a-collection-overwrite-the-ones-specified-in-a-database-that-overwrite-the-ones-specified-in-the-options" id="this-will-export-the-collections-tigers-pinguins-and-bears-of-the-database-animals-and-the-collection-students-of-the-database-people-almost-all-collections-will-have-the---prettyoption-all-the-collections-ofanimalswill-not-have-the--jsonarrayoption-all-the-collections-ofanimalswill-have-the--prettyoption-except-forbears-this-is-because-the-exporting-options-specified-in-a-collection-overwrite-the-ones-specified-in-a-database-that-overwrite-the-ones-specified-in-the-options" style="color: inherit; text-decoration: none;">
+					<h4>This will export the collections <code>tigers</code>, <code>pinguins</code> and <code>bears</code> of the database <code>animals</code> and the collection <code>students</code> of the database <code>people</code>. Almost all collections will have the ``--pretty<code>option. All the collections of</code>animals<code>will not have the</code>--jsonArray<code>option. All the collections of</code>animals<code>will have the</code>--pretty<code>option, except for</code>bears`. This is because the exporting options specified in a collection overwrite the ones specified in a database that overwrite the ones specified in the options.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">                </span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #A31515">&#039;pinguins&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                {</span>
+<span style="color: #000000">                    </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;bears&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">                }</span>
+<span style="color: #000000">            ],</span>
+<span style="color: #000000">            </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">false</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">jsonArray:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-of-the-database-animals-all-the-collections-will-have-the---jsonarray-options-except-for-the-tigers-and-pinguins-that-will-have-the---pretty-option-instead" id="this-will-export-all-the-collections-of-the-database-animals-all-the-collections-will-have-the---jsonarray-options-except-for-the-tigers-and-pinguins-that-will-have-the---pretty-option-instead" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of the database <code>animals</code>. All the collections will have the <code>--jsonArray</code> options, except for the <code>tigers</code> and <code>pinguins</code> that will have the <code>--pretty</code> option instead.</h4>
+				</a>
+				<p>This is because order of which the collections are exported is:</p>
+				<ul>
+					<li>collections bound to a database</li>
+					<li>collections bound to no database</li>
+					<li>databases</li>
+					<li>all</li>
+				</ul>
+				<p>If, as in this case, the collections <code>tigers</code> and <code>pinguins</code> are matched by the <code>databases</code> option but are already matched by the <code>collections</code> one, they are ignored and the exporting options in <code>databases</code> will not worth for them. </p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;animals&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        </span><span style="color: #001080">jsonArray:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">collections:</span><span style="color: #000000">  [</span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;pinguins&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">            </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    }</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-the-collections-tigers-and-lions-of-the-database-animals-the-collection-students-and-all-the-collections-beginning-with-p-or-s-of-the-database-people-and-all-the-collections-whose-database-name-length-is-greater-than-6-and-whose-name-begins-with-t-all-the-collections-beginning-with-p-or-s-of-the-database-people-will-be-exported-as-csv-and-the-students-one-will-also-have-the---noheaderline-option-all-the-collections-whose-database-name-length-is-greater-than-5-and-whose-collection-name-begins-with-t-will-have-the---skip20-option-except-for-tigers-that-is-already-exported-without-that-option" id="this-will-export-the-collections-tigers-and-lions-of-the-database-animals-the-collection-students-and-all-the-collections-beginning-with-p-or-s-of-the-database-people-and-all-the-collections-whose-database-name-length-is-greater-than-6-and-whose-name-begins-with-t-all-the-collections-beginning-with-p-or-s-of-the-database-people-will-be-exported-as-csv-and-the-students-one-will-also-have-the---noheaderline-option-all-the-collections-whose-database-name-length-is-greater-than-5-and-whose-collection-name-begins-with-t-will-have-the---skip20-option-except-for-tigers-that-is-already-exported-without-that-option" style="color: inherit; text-decoration: none;">
+					<h4>This will export the collections <code>tigers</code> and <code>lions</code> of the database <code>animals</code>, the collection <code>students</code> and all the collections beginning with <code>p</code> or <code>s</code> of the database <code>people</code> and all the collections whose database name length is greater than <code>6</code> and whose name begins with <code>t</code>. All the collections beginning with <code>p</code> or <code>s</code> of the database <code>people</code> will be exported as csv and the <code>students</code> one will also have the <code>--noHeaderLine</code> option. All the collections whose database name length is greater than <code>5</code> and whose collection name begins with <code>t</code> will have the <code>--skip=20</code> option, except for <code>tigers</code> that is already exported without that option.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">animals:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;lions&#039;</span><span style="color: #000000">], </span>
+<span style="color: #000000">            </span><span style="color: #001080">people:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">                    {</span>
+<span style="color: #000000">                        </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;students&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                        </span><span style="color: #001080">noHeaderLine:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">                    },</span>
+<span style="color: #000000">                    </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">p/</span><span style="color: #000000">, </span>
+<span style="color: #000000">                    </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">s/</span>
+<span style="color: #000000">                ],</span>
+<span style="color: #000000">                </span><span style="color: #001080">type:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;csv&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #001080">fields:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;timestamp&#039;</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">        (</span><span style="color: #001080">db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &gt; </span><span style="color: #098658">6</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">collection</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] === </span><span style="color: #A31515">&#039;t&#039;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">                </span><span style="color: #AF00DB">return</span><span style="color: #000000"> { </span><span style="color: #001080">skip:</span><span style="color: #000000"> </span><span style="color: #098658">20</span><span style="color: #000000"> };</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-seems-exactly-the-same-example-of-the-one-directly-above-but-its-result-is-actually-different-in-this-example-the-collection-students-of-the-database-people-will-not-have-the---noheaderline-option-this-is-because-the-order-of-the-elements-of-an-array-matters-for-the-mongoexport-function-i-this-case-the-object-containing-noheaderline-and-bound-to-the-collection-students-of-the-database-people-comes-after-the-regexp-s-matching-that-regexp-students-will-be-already-exported-when-the-object-containing-noheaderline-will-be-considered-hence-the-object-will-be-ignored" id="this-seems-exactly-the-same-example-of-the-one-directly-above-but-its-result-is-actually-different-in-this-example-the-collection-students-of-the-database-people-will-not-have-the---noheaderline-option-this-is-because-the-order-of-the-elements-of-an-array-matters-for-the-mongoexport-function-i-this-case-the-object-containing-noheaderline-and-bound-to-the-collection-students-of-the-database-people-comes-after-the-regexp-s-matching-that-regexp-students-will-be-already-exported-when-the-object-containing-noheaderline-will-be-considered-hence-the-object-will-be-ignored" style="color: inherit; text-decoration: none;">
+					<h4>This seems exactly the same example of the one directly above, but its result is actually different. In this example, the collection <code>students</code> of the database <code>people</code> will not have the <code>--noHeaderLine</code> option. This is because the order of the elements of an array matters for the <code>mongoExport</code> function. I this case, the object containing <code>noHeaderLine</code> and bound to the collection <code>students</code> of the database <code>people</code> comes after the RegExp <code>/^s/</code>. Matching that RegExp, <code>students</code> will be already exported when the object containing <code>noHeaderLine</code> will be considered, hence the object will be ignored.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">host:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;myhost&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">port:</span><span style="color: #000000"> </span><span style="color: #098658">8080</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">pretty:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">        {</span>
+<span style="color: #000000">            </span><span style="color: #001080">animals:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;lions&#039;</span><span style="color: #000000">], </span>
+<span style="color: #000000">            </span><span style="color: #001080">people:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">                </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">                    </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">p/</span><span style="color: #000000">, </span>
+<span style="color: #000000">                    </span><span style="color: #811F3F">/</span><span style="color: #EE0000">^</span><span style="color: #811F3F">s/</span><span style="color: #000000">,</span>
+<span style="color: #000000">                    {</span>
+<span style="color: #000000">                        </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;students&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                        </span><span style="color: #001080">noHeaderLine:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">                    }</span>
+<span style="color: #000000">                ],</span>
+<span style="color: #000000">                </span><span style="color: #001080">type:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;csv&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #001080">fields:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;timestamp&#039;</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">        (</span><span style="color: #001080">db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &gt; </span><span style="color: #098658">5</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">collection</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] === </span><span style="color: #A31515">&#039;t&#039;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">                </span><span style="color: #AF00DB">return</span><span style="color: #000000"> { </span><span style="color: #001080">skip:</span><span style="color: #000000"> </span><span style="color: #098658">20</span><span style="color: #000000"> };</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    ]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-including-even-the-system-collections" id="this-will-export-all-the-collections-including-even-the-system-collections" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections, including even the system collections.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">systemCollections:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#specify-errors-and-warning-options" id="specify-errors-and-warning-options" style="color: inherit; text-decoration: none;">
+					<h3>Specify errors and warning options</h3>
+				</a>
+				<a href="#this-will-export-all-the-collections-an-error-will-be-thrown-wether-it-was-not-possible-probably-for-lack-of-permissions-to-list-the-databases-or-the-collections-of-a-database-usually-when-this-happens-those-collections-are-ignored-and-all-what-could-be-fetched-are-exported" id="this-will-export-all-the-collections-an-error-will-be-thrown-wether-it-was-not-possible-probably-for-lack-of-permissions-to-list-the-databases-or-the-collections-of-a-database-usually-when-this-happens-those-collections-are-ignored-and-all-what-could-be-fetched-are-exported" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. An error will be thrown wether it was not possible (probably for lack of permissions) to list the databases or the collections of a database. Usually, when this happens, those collections are ignored and all what could be fetched are exported.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">throwIfLackOfPermissions:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-an-error-will-be-thrown-wether-there-was-an-error-in-one-of-the-mongoexport-executions-usually-when-this-happens-the-error-is-ignored-and-the-result-code-will-be-partial-1-instead-of-total-0" id="this-will-export-all-the-collections-an-error-will-be-thrown-wether-there-was-an-error-in-one-of-the-mongoexport-executions-usually-when-this-happens-the-error-is-ignored-and-the-result-code-will-be-partial-1-instead-of-total-0" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. An error will be thrown wether there was an error in one of the mongoexport executions. Usually, when this happens, the error is ignored and the result code will be PARTIAL (1) instead of TOTAL (0).</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">throwIfOneFails:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-a-warning-message-is-logged-wether-there-was-a-lack-of-permissions-error-or-a-mongoexport-error" id="this-will-export-all-the-collections-a-warning-message-is-logged-wether-there-was-a-lack-of-permissions-error-or-a-mongoexport-error" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. A warning message is logged wether there was a lack of permissions error or a mongoexport error.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">warnIfLackOfPermissions:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">warnIfOneFails:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#specifying-were-will-the-files-be-saved" id="specifying-were-will-the-files-be-saved" style="color: inherit; text-decoration: none;">
+					<h3>Specifying were will the files be saved</h3>
+				</a>
+				<a href="#this-will-export-all-the-collections-the-result-files-will-be-saved-in-the-directory-backup-and-not-in-the-path-exported-as-per-default-per-default-a-folder-will-be-created-for-each-database-and-for-every-exported-collection-the-file-name-will-be-the-collection-name-and-location-in-the-folder-bound-to-its-database-name" id="this-will-export-all-the-collections-the-result-files-will-be-saved-in-the-directory-backup-and-not-in-the-path-exported-as-per-default-per-default-a-folder-will-be-created-for-each-database-and-for-every-exported-collection-the-file-name-will-be-the-collection-name-and-location-in-the-folder-bound-to-its-database-name" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. The result files will be saved in the directory <code>./backup</code> and not in the path <code>./exported</code> as per default. Per default, a folder will be created for each database and for every exported collection the file name will be the collection name and location in the folder bound to its database name.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">outDir:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./backup&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-instead-of-creating-a-folder-for-each-database-the-collections-files-will-be-saved-directly-in-the-backup-folder-and-the-file-name-will-be-database_collectionextension" id="this-will-export-all-the-collections-instead-of-creating-a-folder-for-each-database-the-collections-files-will-be-saved-directly-in-the-backup-folder-and-the-file-name-will-be-database_collectionextension" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections. Instead of creating a folder for each database, the collections files will be saved directly in the <code>backup</code> folder and the file name will be <code>database_collection.extension</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">outType:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;flat&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">outDir:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./backup&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-of-animals-and-people-the-files-of-the-collections-students-and-teacher-of-the-database-people-will-be-prepended-by-the-database-name-the-file-of-the-tigers-collection-of-the-database-animals-will-be-tigrijson-the-file-of-the-pinguins-collection-of-the-database-animals-will-be-pinguinsanimalsjson" id="this-will-export-all-the-collections-of-animals-and-people-the-files-of-the-collections-students-and-teacher-of-the-database-people-will-be-prepended-by-the-database-name-the-file-of-the-tigers-collection-of-the-database-animals-will-be-tigrijson-the-file-of-the-pinguins-collection-of-the-database-animals-will-be-pinguinsanimalsjson" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of <code>animals</code> and <code>people</code>. The files of the collections <code>students</code> and <code>teacher</code> of the database <code>people</code> will be prepended by the database name. The file of the <code>tigers</code> collection of the database <code>animals</code> will be <code>tigri.json</code>. The file of the <code>pinguins</code> collection of the database <code>animals</code> will be <code>pinguins.animals.json</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> [</span><span style="color: #A31515">`animals`</span><span style="color: #000000">, </span><span style="color: #A31515">`people`</span><span style="color: #000000">],</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">            {</span>
+<span style="color: #000000">                </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #001080">fileName:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;tigri&#039;</span>
+<span style="color: #000000">            },</span>
+<span style="color: #000000">            {</span>
+<span style="color: #000000">                </span><span style="color: #001080">match:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;pinguins&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">                </span><span style="color: #795E26">fileName</span><span style="color: #001080">:</span><span style="color: #000000"> (</span><span style="color: #001080">db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">, </span><span style="color: #001080">type</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">collection</span><span style="color: #0000FF">}</span><span style="color: #A31515">.</span><span style="color: #0000FF">${</span><span style="color: #001080">db</span><span style="color: #0000FF">}</span><span style="color: #A31515">.</span><span style="color: #0000FF">${</span><span style="color: #001080">type</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        ],</span>
+<span style="color: #000000">        </span><span style="color: #001080">people:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;students&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;teachers&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">            </span><span style="color: #001080">prependDbName:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">    </span><span style="color: #001080">outDir:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./backup&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#this-will-export-all-the-collections-of-animals-and-people-the-files-of-the-collections-students-and-teacher-of-database-people-will-be-in-a-path-databasecollectioncollectionjson-relative-to-the-outdir-folder-the-file-of-the-tigers-collection-of-the-database-animals-will-be-saved-in-the-desktop" id="this-will-export-all-the-collections-of-animals-and-people-the-files-of-the-collections-students-and-teacher-of-database-people-will-be-in-a-path-databasecollectioncollectionjson-relative-to-the-outdir-folder-the-file-of-the-tigers-collection-of-the-database-animals-will-be-saved-in-the-desktop" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of <code>animals</code> and <code>people</code>. The files of the collections <code>students</code> and <code>teacher</code> of database <code>people</code> will be in a path <code>./database/collection/collection.json</code>, relative to the <code>outDir</code> folder. The file of the <code>tigers</code> collection of the database <code>animals</code> will be saved in the <code>Desktop</code>.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">databases:</span><span style="color: #000000"> [</span><span style="color: #A31515">`animals`</span><span style="color: #000000">, </span><span style="color: #A31515">`people`</span><span style="color: #000000">],</span>
+<span style="color: #000000">    </span><span style="color: #001080">collections:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">        </span><span style="color: #001080">animals:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">collections:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;tigers&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">filePath:</span><span style="color: #000000"> </span><span style="color: #A31515">`/home/user/Desktop/tigers.json`</span><span style="color: #000000">,</span>
+<span style="color: #000000">            </span><span style="color: #001080">absoultePath:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">        </span><span style="color: #001080">people:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">            </span><span style="color: #001080">collections:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;students&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;teachers&#039;</span><span style="color: #000000">],</span>
+<span style="color: #000000">            </span><span style="color: #795E26">filePath</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000">(</span><span style="color: #001080">db</span><span style="color: #000000">, </span><span style="color: #001080">collection</span><span style="color: #000000">, </span><span style="color: #001080">type</span><span style="color: #000000">) {</span>
+<span style="color: #000000">                </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">`</span><span style="color: #0000FF">${</span><span style="color: #001080">db</span><span style="color: #0000FF">}</span><span style="color: #A31515">/</span><span style="color: #0000FF">${</span><span style="color: #001080">collection</span><span style="color: #0000FF">}</span><span style="color: #A31515">/</span><span style="color: #0000FF">${</span><span style="color: #001080">collection</span><span style="color: #0000FF">}</span><span style="color: #A31515">.</span><span style="color: #0000FF">${</span><span style="color: #001080">type</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">;</span>
+<span style="color: #000000">            }</span>
+<span style="color: #000000">        }</span>
+<span style="color: #000000">    },</span>
+<span style="color: #000000">    </span><span style="color: #001080">outDir:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./backup&#039;</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<a href="#specifying-what-is-to-be-logged-by-the-function" id="specifying-what-is-to-be-logged-by-the-function" style="color: inherit; text-decoration: none;">
+					<h3>Specifying what is to be logged by the function</h3>
+				</a>
+				<a href="#this-will-export-all-the-collections-of-the-database-instead-of-the-default-base-log-the-mongoexport-commands-and-the-mongoexport-logs-will-be-logged" id="this-will-export-all-the-collections-of-the-database-instead-of-the-default-base-log-the-mongoexport-commands-and-the-mongoexport-logs-will-be-logged" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of the database. Instead of the default <code>base</code> log, the mongoexport commands and the mongoexport logs will be logged.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">logs:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;commands&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;mongoexport&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>The log will be similar to this:</p>
+				<p align="center">
+					<img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_mongoexport_log.gif">
+				</p>
+				<a href="#this-will-export-all-the-collections-of-the-database-instead-of-the-default-base-log-the-fetched-collections-and-the-correctly-exported-collections-are-logged" id="this-will-export-all-the-collections-of-the-database-instead-of-the-default-base-log-the-fetched-collections-and-the-correctly-exported-collections-are-logged" style="color: inherit; text-decoration: none;">
+					<h4>This will export all the collections of the database. Instead of the default <code>base</code> log, the fetched collections and the correctly exported collections are logged.</h4>
+				</a>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">mongoExport</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;mongoback&#039;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span>
+<span style="color: #000000">    </span><span style="color: #001080">all:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">,</span>
+<span style="color: #000000">    </span><span style="color: #001080">logs:</span><span style="color: #000000"> [</span><span style="color: #A31515">&#039;expectedCollections&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;actualCollections&#039;</span><span style="color: #000000">]</span>
+<span style="color: #000000">};</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">mongoExport</span><span style="color: #000000">(</span><span style="color: #001080">options</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>The log will be similar to this:</p>
+				<p align="center">
+					<img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_exported_log.gif">
+				</p>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h2>API</h2>
+				</a>
+				<a href="#mongoexport" id="mongoexport" style="color: inherit; text-decoration: none;">
+					<h3>mongoExport</h3>
+				</a>
+				<p><strong>Syntax:</strong></p>
+				<p><code>mongoback.mongoExport(options)</code></p>
+				<p><strong>Description:</strong></p>
+				<p>The function to export collections from a mongodb. You can specify the mongodb collection, the collections that will be exported, how they will be exported and where. To understand well how to use it, it is recommended reading the <strong>Examples</strong> above.</p>
+				<p><strong>Parameters</strong>:</p>
+				<ul>
+					<li><strong>options</strong>: The options object of the mongoExport function.</li>
+				</ul>
+				<p><strong>Options parameters:</strong></p>
+				<p>The Options object is the merge of other more-specific options objects, defined below.</p>
+				<p><strong>ConnectionOptions parameters:</strong></p>
+				<p>The MongoDB connection options. They will define both the options of the mongoexport command and the uri/MongoClientOptions of the connection used to list databases and collections. Most of the properties are exactly the same of the mongoexport options. Some are  slightly modified to allow a more confortable usage, without changing what will be passed as a mongoexport option. The default value of the option does not corrispond with the mongoexport one. When there is a value set to false or undefined, it means that the option is not added to the mongoexport command, not that it is the default value of mongoexport. To support the old versions of mongoexport, there are also the deprecated options.</p>
+				<ul>
+					<li><strong>uri</strong>: Default value: <code>undefined</code>. The uri of the MongoDB connection. If it is specified, the options host, port, password, username, srv, authenticationMechanism, authenticationDatabase will be set to undefined and ignored.</li>
+					<li><strong>host</strong>: Default value: <code>localhost</code>. The host of the MongoDB connection. It can be a string or an array of ReplicaSet, objects with host and port keys. The property differs from the mongoexport one in which also an array of replica sets can be passed.</li>
+					<li><strong>port</strong>: Default value: <code>27017</code>. The port of the MongoDB connection.</li>
+					<li><strong>username</strong>: Default value: <code>undefined</code>. The username of the MongoDB connection.</li>
+					<li><strong>password</strong>: Default value: <code>undefined</code>. The password of the MongoDB connection.</li>
+					<li><strong>authenticationDatabase</strong>: Default value: <code>undefined</code>. The authenticationDatabase of the MongoDB connection.</li>
+					<li><strong>authenticationMechanism</strong>: Default value: <code>undefined</code>. The authenticationMechanism of the MongoDB connection.</li>
+					<li><strong>srv</strong>: Default value: <code>false</code>. If the connection  If the MongoDB connection uri is an srv. This property is not  present in the mongoexport options, where the &quot;+srv&quot; can be added manually in the host option.</li>
+					<li><strong>replicaSetName</strong>: Default value: <code>undefined</code>. The replicaSetName of the MongoDB connection. This property is not present in the mongoexport options, where the replica set name is passed in the uri options or in the host option.</li>
+					<li><strong>ssl</strong>: Default value: <code>false</code>. If the MongoDB connection uses ssl or tls.</li>
+					<li><strong>sslCAFile</strong>: Default value: <code>undefined</code>. Specifies the .pem file that contains both the TLS/SSL certificate and key.</li>
+					<li><strong>sslPEMKeyFile</strong>: Default value: <code>undefined</code>. Specify the file name of the .pem file using relative or absolute paths.</li>
+					<li><strong>sslPEMKeyPassword</strong>: Default value: <code>undefined</code>. Specifies the password to de-crypt the certificate-key file (i.e. --sslPEMKeyFile). Use the --sslPEMKeyPassword option only if the certificate-key file is encrypted. In all cases, the mongoexport will redact the password from all logging and reporting output.</li>
+					<li><strong>sslCRLFile</strong>: Default value: <code>undefined</code>. Specifies the .pem file that contains the Certificate Revocation List. Specify the file name of the .pem file using relative or absolute paths.</li>
+					<li><strong>sslFIPSMode</strong>: Default value: <code>false</code>. Directs the mongoexport to use the FIPS mode of the installed OpenSSL library. Your system must have a FIPS compliant OpenSSL library to use the --sslFIPSMode option. NB: Deprecated option of mongoexport.</li>
+					<li><strong>sslAllowInvalidCertificates</strong>: Default value: <code>false</code>. Bypasses the validation checks for server certificates and allows the use of invalid certificates. When using the allowInvalidCertificates setting, MongoDB logs as a warning the use of the invalid certificate.</li>
+					<li><strong>sslAllowInvalidHostnames</strong>: Default value: <code>false</code>. Disables the validation of the hostnames in TLS/SSL certificates. Allows mongoexport to connect to MongoDB instances even if the hostname in their certificates do not match the specified hostname.</li>
+					<li><strong>gssapiServiceName</strong>: Default value: <code>undefined</code>. Specify the name of the service using GSSAPI/Kerberos. Only required if the service does not use the default name of mongodb.</li>
+					<li><strong>gssapiHostName</strong>: Default value: <code>undefined</code>. Specify the hostname of a service using GSSAPI/Kerberos. Only required  if the hostname of a machine does not match the hostname resolved by DNS.</li>
+					<li><strong>slaveOk</strong>: Default value: <code>false</code>. Sets the Read Preference to nearest, allowing mongoexport to read data from secondary replica set members. NB: Deprecated option of mongoexport</li>
+					<li><strong>readPreference</strong>: Default value: <code>undefined</code>. Specify the read preference for mongoexport. It can be a string such as &#39;primary&#39; or &#39;secondary&#39; or an object. If you want to pass the json object as a string, you must manually include it in apixes.</li>
+					<li><strong>journal</strong>: Default value: <code>false</code>. Allows mongoexport operations to access the durability journal to ensure that the export is in a valid state. This option is only relevant when specifying the --dbpath option. NB: Deprecated option of mongoexport</li>
+					<li><strong>ipv6</strong>: Default value: <code>false</code>. Enables IPv6 support that allows mongoexport to connect to the MongoDB instance using an IPv6 network. All MongoDB programs and processes, including mongoexport, disable IPv6 support by default. NB: Deprecated option of mongoexport</li>
+					<li><strong>dbpath</strong>: Default value: <code>undefined</code>. Specifies the directory of the MongoDB data files. If used, the --dbpath option enables mongoexport to attach directly to local data files and insert the data without the mongod. To run with --dbpath, mongoexport needs to lock access to the data directory: as a result, no mongod can access the same path while the process runs. NB: Deprecated option of mongoexport</li>
+					<li><strong>directoryperdb</strong>: Default value: <code>false</code>. Use the --directoryperdb in conjunction with the corresponding option to mongod, which allows mongoexport to export data from MongoDB instances that have every database’s files saved in discrete directories on the disk. This option is only relevant when specifying the --dbpath option. NB: Deprecated option of mongoexport.</li>
+				</ul>
+				<p><strong>ExportedOptions parameters:</strong></p>
+				<p>The exported options interface. It contains the options about what should be exported and what to do if it is not exported correctly.</p>
+				<ul>
+					<li><strong>all</strong>: Default value: <code>false</code>. If all the collections of every database will be exported.</li>
+					<li><strong>databases</strong>: Default value: <code>[]</code>. The databases that will be exported. All the collections of a database will be exported. Eventual exporting options passed to this option will overwrite the default ones.</li>
+					<li><strong>collections</strong>: Default value: <code>[]</code>. The collections that will be exported. Eventual exporting options passed to this option will overwrite the default ones and the ones in the &quot;database&quot; option.</li>
+					<li><strong>systemCollections</strong>: Default value: <code>false</code>. If also system collections will be exported.</li>
+					<li><strong>throwIfLackOfPermissions</strong>: Default value: <code>false</code>. If for permissions causes there is an error while listing databases or collections of the MongoDB, an error will be thrown. If the value is false, the databases and collections that cannot be listed will be ignored and not be exported. NB: Actually all the errors that happen while listing databases or collections, not only the permission ones, will be thrown.</li>
+					<li><strong>warnIfLackOfPermissions</strong>: Default value: <code>false</code>. If for permissions causes there is an error while listing databases or collections of the MongoDB, a warning message will be logged. NB: Actually all the errors that happen while listing databases or collections, not only the permission ones, will be warned.</li>
+					<li><strong>throwIfOneFails</strong>: Default value: <code>false</code>. If the mongoexport of a collection fails, an error will be thrown. If the  value is false, the result of the function will have code PARTIAL(= 1), specifying that not all the expected collections were exported.</li>
+					<li><strong>warnIfOneFails</strong>: Default value: <code>false</code>. If the mongoexport of a collection fails, a warning will be logged.</li>
+				</ul>
+				<p><strong>ExportingOptions parameters:</strong></p>
+				<p>The options about how the collections will be exported. They will define both the options of the mongoexport command and others not regarding it. See the mongoexport official documentation to further information. It is divided in <code>ExtendedExportingOptions</code> (not regarding mongoexport) and <code>StandardExportingOptions</code> (regarding mongoexport).</p>
+				<p><strong>ExtendedExportingOptions parameters</strong></p>
+				<p>Options that specify how will the options be exported and are not about the mongoexport options.</p>
+				<ul>
+					<li><strong>prependDbName</strong>: Default value: <code>undefined</code>. If the file name will be prepended by the database of the collection. The format is: &quot;database_filename.extension&quot;. When undefined, if the outType is &#39;deep&#39; the file name is not prepended while if the outType is &#39;flat&#39; it is prepended</li>
+					<li><strong>fileName</strong>: Default value: <code>undefined</code>. A string or a function returning the name of the file of the exported collection.</li>
+					<li><strong>filePath</strong>: Default value: <code>undefined</code>. A string or a function returning the path of the file of the exported collection.</li>
+					<li><strong>absolutePath</strong>: Default value: <code>false</code>. If the filePath value is absolute and not relative to the outDir option.</li>
+				</ul>
+				<p><strong>StandardExportingOptions parameters</strong></p>
+				<p>The exporting options regarding the mongoexport command. Most of the properties are exactly the same of the mongoexport options. Some are   slightly modified to allow a more confortable usage, without changing what will  be passed as a mongoexport option. The default value of the option does not corrispond with the mongoexport one. When there is a value set to false or undefined, it means that  the option is not added to the mongoexport command, not that it is the default value of  mongoexport.    To support the old versions of mongoexport, there are also the deprecated options. See the mongoexport official documentation to further information.</p>
+				<ul>
+					<li><strong>quiet</strong>: Default value: <code>false</code>. Runs mongoexport in a quiet mode that attempts to limit the amount of output.</li>
+					<li><strong>verbose</strong>: Default value: <code>false</code>. Increases the amount of internal reporting returned on standard output or in  log files. Increase the verbosity with the -v form by including the option  multiple times, (e.g. -vvvvv.) If the value is true, the option &#39;--verbose&#39; will be added. If it is a number, it will be the number of v that will be put in the command. (e.g. 3 gives -vvv).</li>
+					<li><strong>type</strong>: Default value: <code>undefined</code>. Accepted values: <code>&quot;json&quot;</code> or <code>&quot;csv&quot;</code>. Specifies the file type to export. Specify csv for CSV format or json for JSON format. If you specify csv, then you must also use either the --fields or the  --fieldFile option to declare the fields to export from the collection.</li>
+					<li><strong>jsonFormat</strong>: Default value: <code>undefined</code>. Accepted values: <code>&quot;realaxed&quot;</code> or <code>&quot;canonical&quot;</code>. Modifies the output to use either canonical or relaxed mode of the MongoDB Extended JSON (v2) format.</li>
+					<li><strong>jsonArray</strong>: Default value: <code>false</code>. Modifies the output of mongoexport to write the entire contents of the export  as a single JSON array. By default mongoexport writes data using one JSON  document for every MongoDB document.</li>
+					<li><strong>pretty</strong>: Default value: <code>false</code>. Outputs documents in a pretty-printed format JSON.</li>
+					<li><strong>query</strong>: Default value: <code>undefined</code>. Provides a query as a JSON document (enclosed in quotes) to return matching documents in the export. You must enclose the query document in single  quotes (&#39;{ ... }&#39;) to ensure that it does not interact with your shell environment. Starting in MongoDB 4.2, the query must be in Extended JSON v2 format (either relaxed or canonical/strict mode), including enclosing the field names and operators in quotes. You can pass the argument either as a string (it will automatically be included in apixes) or as an object.</li>
+					<li><strong>fields</strong>: Default value: <code>undefined</code>. Specifies a field or fields to include in the export. Use a comma separated list of fields to specify multiple fields. If any of your field names include white space, use quotation marks to enclose the field list. For example, if you wished to export two fields, phone and user number, you would specify --fields &quot;phone,user number&quot;. For csv output formats, mongoexport includes only the specified field(s), and the specified field(s) can be a field within a sub-document. For JSON output formats, mongoexport includes only the specified field(s) and the _id field, and if the specified field(s) is a field within a sub-document, the mongoexport includes the sub-document with all its fields, not just the specified field within the document. You can pass either a string ora an array of strings. The fields are automatically included in quotes to support whitespaces.</li>
+					<li><strong>fieldFile</strong>: Default value: <code>undefined</code>. An alternative to --fields. The --fieldFile option allows you to specify   in a file the field or fields to include in the export and is only valid   with the --type option with value csv. The file must have only one field per line, and the line(s) must end with the LF character (0x0A).</li>
+					<li><strong>noHeaderLine</strong>: Default value: <code>false</code>. By default, mongoexport includes the exported field names as the first line in a CSV output. --noHeaderLine directs mongoexport to export the data without the list of field names. --noHeaderLine is only valid with the --type option with value csv.</li>
+					<li><strong>skip</strong>: Default value: <code>undefined</code>. Use --skip to control where mongoexport begins exporting documents. See skip() for information about the underlying operation.</li>
+					<li><strong>limit</strong>: Default value: <code>undefined</code>. Specifies a maximum number of documents to include in the export. See limit() for information about the underlying operation.</li>
+					<li><strong>sort</strong>: Default value: <code>undefined</code>. Specifies an ordering for exported results. If an index does  not exist that can support the sort operation, the results  must be less than 32 megabytes.  You can pass the argument either as a string (it will automatically be included in apixes) or as an object.</li>
+					<li><strong>forceTableScan</strong>: Default value: <code>false</code>. Forces mongoexport to scan the data store directly instead of traversing the _id field index. Use --forceTableScan to skip the index.</li>
+				</ul>
+				<p><strong>LogOptions parameters:</strong></p>
+				<p>The options about what will be logged during the function execution</p>
+				<ul>
+					<li><strong>silent</strong>: Default value: <code>false</code>. If nothing will be logged.</li>
+					<li><strong>log</strong>: Default value: <code>[&#39;base&#39;]</code>. The log modes. If there is more than a mode, they must be specified in an array.Possible values: <code>base</code>: During exporting, the databases and collections are shown with a spinner, <code>command</code>: Logs the mongoexport command, <code>mongoexport</code>: Logs the mongoexport log, <code>expectedCollections</code>: Logs the object containing the collections expected to be exported, <code>actualCollections</code>: Logs the object containing the collections that have actually been exported</li>
+				</ul>
+				<p><strong>OutOptions parameters:</strong></p>
+				<p>The options about the output location and the result of the function</p>
+				<ul>
+					<li><strong>outDir</strong>: Default value: <code>&#39;./exported&#39;</code>. The path were the exported collections will be saved.</li>
+					<li><strong>outType</strong>: Default value: <code>&#39;deep&#39;</code>. The type of the saving location. It can be: &#39;deep&#39;: A folder will be created for each database. Each folder contains the  exported collections of that database with the collection name as file name &#39;flat&#39;: No folder will be created for each database. A file whose name is the  exported collection name prepended by its database name (if prependDBName is not false)  will be created for each exported collection</li>
+					<li><strong>detailedResult</strong>: Default value: <code>false</code>. If the result will contain also the exporting options of the expected/actual collections.</li>
+				</ul>
+				<a href="#project-structure" id="project-structure" style="color: inherit; text-decoration: none;">
+					<h2>Project structure</h2>
+				</a>
+				<p>Made with <strong><a href="https://www.npmjs.com/package/dree">dree</a></strong>.</p>
+				<pre><code><span style="color: #001080">mongoback</span>
+<span style="color: #000000"> ├─&gt; </span><span style="color: #001080">source</span>
+<span style="color: #000000"> │ ├─&gt; </span><span style="color: #001080">bin</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">lib</span>
+<span style="color: #000000"> │   │   ├─&gt; </span><span style="color: #001080">errors</span>
+<span style="color: #000000"> │   │   ├── </span><span style="color: #001080">index</span><span style="color: #000000">.</span><span style="color: #001080">ts</span>
+<span style="color: #000000"> │   │   ├─&gt; </span><span style="color: #001080">interfaces</span>
+<span style="color: #000000"> │   │   └─&gt; </span><span style="color: #001080">utils</span>
+<span style="color: #000000"> │   └── </span><span style="color: #001080">tsconfig</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> ├─&gt; </span><span style="color: #001080">test</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">complete</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">getCommand</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">getMongoConnection</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">mock</span>
+<span style="color: #000000"> │   ├── </span><span style="color: #001080">test</span><span style="color: #000000">.</span><span style="color: #001080">ts</span>
+<span style="color: #000000"> │   ├── </span><span style="color: #001080">tsconfig</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> │   └─&gt; </span><span style="color: #001080">utils</span>
+<span style="color: #000000"> ├─&gt; </span><span style="color: #001080">dist</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">source</span>
+<span style="color: #000000"> │   └─&gt; </span><span style="color: #001080">test</span>
+<span style="color: #000000"> ├─&gt; </span><span style="color: #001080">docs</span>
+<span style="color: #000000"> │   ├─&gt; </span><span style="color: #001080">assets</span>
+<span style="color: #000000"> │   └─&gt; </span><span style="color: #001080">tree</span>
+<span style="color: #000000"> │       ├── </span><span style="color: #001080">dree</span><span style="color: #000000">.</span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> │       └── </span><span style="color: #001080">tree</span><span style="color: #000000">.</span><span style="color: #001080">txt</span>
+<span style="color: #000000"> ├── </span><span style="color: #AF00DB">package</span><span style="color: #000000">-</span><span style="color: #001080">lock</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> ├── </span><span style="color: #001080">package</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+<span style="color: #000000"> └── </span><span style="color: #001080">tslint</span><span style="color: #000000">.</span><span style="color: #001080">json</span>
+</code></pre>
+				<a href="#build" id="build" style="color: inherit; text-decoration: none;">
+					<h2>Build</h2>
+				</a>
+				<p>To build the module make sure you have Typescript installed or install the dev dependencies. After this, run:</p>
+				<pre><code class="language-bash">$ npm run transpile</code></pre>
+				<p>The <code>source</code> folder will be compiled in the <code>dist</code> folder.</p>
+				<a href="#dev" id="dev" style="color: inherit; text-decoration: none;">
+					<h2>Dev</h2>
+				</a>
+				<p>Make sure you have the dev dependencies installed.</p>
+				<p>To lint the code go to the package root in your CLI and run</p>
+				<pre><code class="language-bash">$ npm run lint</code></pre>
+				<p>To run tests go to the package root in your CLI and run</p>
+				<pre><code class="language-bash">$ npm run db:populate
+$ npm test</code></pre>
+				<p><strong>Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it.</strong></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/authenticationmechanism.html" class="tsd-kind-icon">Authentication<wbr>Mechanism</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/exportresultcode.html" class="tsd-kind-icon">Export<wbr>Result<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/databaseerror.html" class="tsd-kind-icon">Database<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/exportingerror.html" class="tsd-kind-icon">Exporting<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongobackerror.html" class="tsd-kind-icon">Mongo<wbr>Back<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mongoexportnotinstallederror.html" class="tsd-kind-icon">Mongoexport<wbr>Not<wbr>Installed<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/connectionoptions.html" class="tsd-kind-icon">Connection<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/detailedexportschema.html" class="tsd-kind-icon">Detailed<wbr>Export<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/exportresult.html" class="tsd-kind-icon">Export<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/exportschema.html" class="tsd-kind-icon">Export<wbr>Schema</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/exportedoptions.html" class="tsd-kind-icon">Exported<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/extendedexportingoptions.html" class="tsd-kind-icon">Extended<wbr>Exporting<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/logoptions.html" class="tsd-kind-icon">Log<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/outoptions.html" class="tsd-kind-icon">Out<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/replicaset.html" class="tsd-kind-icon">Replica<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/specificcollections.html" class="tsd-kind-icon">Specific<wbr>Collections</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/standardexportingoptions.html" class="tsd-kind-icon">Standard<wbr>Exporting<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#collection" class="tsd-kind-icon">Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#collections" class="tsd-kind-icon">Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#database" class="tsd-kind-icon">Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#databases" class="tsd-kind-icon">Databases</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#detailedcollection" class="tsd-kind-icon">Detailed<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#detaileddatabase" class="tsd-kind-icon">Detailed<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#detailedgeneralcollections" class="tsd-kind-icon">Detailed<wbr>General<wbr>Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#exportingcollection" class="tsd-kind-icon">Exporting<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#exportingfilename" class="tsd-kind-icon">Exporting<wbr>File<wbr>Name</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#exportingfilepath" class="tsd-kind-icon">Exporting<wbr>File<wbr>Path</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#exportingoptions" class="tsd-kind-icon">Exporting<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#generalcollection" class="tsd-kind-icon">General<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#generalcollections" class="tsd-kind-icon">General<wbr>Collections</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#lambdacollection" class="tsd-kind-icon">Lambda<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#lambdadatabase" class="tsd-kind-icon">Lambda<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#logtype" class="tsd-kind-icon">Log<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#logtypes" class="tsd-kind-icon">Log<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#options" class="tsd-kind-icon">Options</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#instanceofgeneralcollection" class="tsd-kind-icon">instance<wbr>OfGeneral<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#instanceoflambdadatabase" class="tsd-kind-icon">instance<wbr>OfLambda<wbr>Database</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#instanceoflambdacollection" class="tsd-kind-icon">instanceof<wbr>Lambda<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#mongoexport" class="tsd-kind-icon">mongo<wbr>Export</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

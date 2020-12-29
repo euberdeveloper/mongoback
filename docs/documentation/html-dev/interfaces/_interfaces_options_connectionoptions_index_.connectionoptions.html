@@ -1,0 +1,731 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ConnectionOptions | mongoback - DEV - v2.0.8</title>
+	<meta name="description" content="Documentation for mongoback - DEV - v2.0.8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">mongoback - DEV - v2.0.8</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_interfaces_options_connectionoptions_index_.html">&quot;interfaces/options/connectionOptions/index&quot;</a>
+				</li>
+				<li>
+					<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html">ConnectionOptions</a>
+				</li>
+			</ul>
+			<h1>Interface ConnectionOptions</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The MongoDB connection options. They will define both the options of the mongoexport
+							command and the uri/MongoClientOptions of the connection used to list databases and
+						collections.</p>
+					</div>
+					<p>Most of the properties are exactly the same of the mongoexport options. Some are
+						slightly modified to allow a more confortable usage, without changing what will
+						be passed as a mongoexport option. The default value of the option does not corrispond
+						with the mongoexport one. When there is a value set to false or undefined, it means that
+						the option is not added to the mongoexport command, not that it is the default value of
+					mongoexport.</p>
+					<p>To support the old versions of mongoexport, there are also the deprecated options.</p>
+					<p>See the mongoexport official documentation to further information.</p>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="https://docs.mongodb.com/manual/reference/program/mongoexport/" class="external">https://docs.mongodb.com/manual/reference/program/mongoexport/</a> to further
+							information on the mongoexport options.</p>
+						</dd>
+					</dl>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ConnectionOptions</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#authenticationdatabase" class="tsd-kind-icon">authentication<wbr>Database</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#authenticationmechanism" class="tsd-kind-icon">authentication<wbr>Mechanism</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#dbpath" class="tsd-kind-icon">dbpath</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#directoryperdb" class="tsd-kind-icon">directoryperdb</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#gssapihostname" class="tsd-kind-icon">gssapi<wbr>Host<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#gssapiservicename" class="tsd-kind-icon">gssapi<wbr>Service<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#host" class="tsd-kind-icon">host</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#ipv6" class="tsd-kind-icon">ipv6</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#journal" class="tsd-kind-icon">journal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#password" class="tsd-kind-icon">password</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#port" class="tsd-kind-icon">port</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#readpreference" class="tsd-kind-icon">read<wbr>Preference</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#replicasetname" class="tsd-kind-icon">replica<wbr>Set<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#slaveok" class="tsd-kind-icon">slave<wbr>Ok</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#srv" class="tsd-kind-icon">srv</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#ssl" class="tsd-kind-icon">ssl</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslallowinvalidcertificates" class="tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Certificates</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslallowinvalidhostnames" class="tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Hostnames</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslcafile" class="tsd-kind-icon">sslCAFile</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslcrlfile" class="tsd-kind-icon">sslCRLFile</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslfipsmode" class="tsd-kind-icon">sslFIPSMode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslpemkeyfile" class="tsd-kind-icon">sslPEMKey<wbr>File</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslpemkeypassword" class="tsd-kind-icon">sslPEMKey<wbr>Password</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#uri" class="tsd-kind-icon">uri</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#username" class="tsd-kind-icon">username</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="authenticationdatabase" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authentication<wbr>Database</h3>
+					<div class="tsd-signature tsd-kind-icon">authentication<wbr>Database<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L95">source/interfaces/options/connectionOptions/index.ts:95</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The authentication database of the MongoDB connection.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="authenticationmechanism" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> authentication<wbr>Mechanism</h3>
+					<div class="tsd-signature tsd-kind-icon">authentication<wbr>Mechanism<span class="tsd-signature-symbol">:</span> <a href="../enums/_interfaces_options_connectionoptions_index_.authenticationmechanism.html" class="tsd-signature-type">AuthenticationMechanism</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L101">source/interfaces/options/connectionOptions/index.ts:101</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The authentication mechanism of the MongoDB connection.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="dbpath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> dbpath</h3>
+					<div class="tsd-signature tsd-kind-icon">dbpath<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L243">source/interfaces/options/connectionOptions/index.ts:243</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the directory of the MongoDB data files. If used, the --dbpath
+								option enables mongoexport to attach directly to local data files and insert
+								the data without the mongod. To run with --dbpath, mongoexport needs to lock
+								access to the data directory: as a result, no mongod can access the same path
+							while the process runs.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="directoryperdb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> directoryperdb</h3>
+					<div class="tsd-signature tsd-kind-icon">directoryperdb<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L254">source/interfaces/options/connectionOptions/index.ts:254</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Use the --directoryperdb in conjunction with the corresponding option to
+								mongod, which allows mongoexport to export data from MongoDB instances
+								that have every database’s files saved in discrete directories on the
+							disk. This option is only relevant when specifying the --dbpath option.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="gssapihostname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> gssapi<wbr>Host<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">gssapi<wbr>Host<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L193">source/interfaces/options/connectionOptions/index.ts:193</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specify the hostname of a service using GSSAPI/Kerberos. Only required
+							if the hostname of a machine does not match the hostname resolved by DNS.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="gssapiservicename" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> gssapi<wbr>Service<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">gssapi<wbr>Service<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L186">source/interfaces/options/connectionOptions/index.ts:186</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specify the name of the service using GSSAPI/Kerberos. Only required
+							if the service does not use the default name of mongodb.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="host" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> host</h3>
+					<div class="tsd-signature tsd-kind-icon">host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_interfaces_options_connectionoptions_index_.replicaset.html" class="tsd-signature-type">ReplicaSet</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L71">source/interfaces/options/connectionOptions/index.ts:71</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The host of the MongoDB connection.
+							It can be a string or an array of <a href="_interfaces_options_connectionoptions_index_.replicaset.html">ReplicaSet</a>.</p>
+						</div>
+						<p>The property differs from the mongoexport one in which also an
+						array of replica sets can be passed.</p>
+						<p>Default: &#39;localhost&#39;</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ipv6" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ipv6</h3>
+					<div class="tsd-signature tsd-kind-icon">ipv6<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L231">source/interfaces/options/connectionOptions/index.ts:231</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Enables IPv6 support that allows mongoexport to connect to the MongoDB
+								instance using an IPv6 network. All MongoDB programs and processes,
+							including mongoexport, disable IPv6 support by default.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="journal" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> journal</h3>
+					<div class="tsd-signature tsd-kind-icon">journal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L221">source/interfaces/options/connectionOptions/index.ts:221</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allows mongoexport operations to access the durability journal to ensure that
+								the export is in a valid state. This option is only relevant when specifying
+							the --dbpath option.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="password" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
+					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L89">source/interfaces/options/connectionOptions/index.ts:89</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The password of the MongoDB connection.</p>
+						</div>
+						<p>Default: undefined.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="port" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> port</h3>
+					<div class="tsd-signature tsd-kind-icon">port<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L77">source/interfaces/options/connectionOptions/index.ts:77</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The port of the MongoDB connection.</p>
+						</div>
+						<p>Default: 27017</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="readpreference" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> read<wbr>Preference</h3>
+					<div class="tsd-signature tsd-kind-icon">read<wbr>Preference<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L211">source/interfaces/options/connectionOptions/index.ts:211</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specify the read preference for mongoexport.</p>
+						</div>
+						<p>It can be a string such as &#39;primary&#39; or &#39;secondary&#39; or an object. If you want
+						to pass the json object as a string, you must manually include it in apixes.</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="replicasetname" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> replica<wbr>Set<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">replica<wbr>Set<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L119">source/interfaces/options/connectionOptions/index.ts:119</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The replicaSetName of the MongoDB connection.</p>
+						</div>
+						<p>This property is not present in the mongoexport options, where
+						the replica set name is passed in the uri options or in the host option.</p>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="slaveok" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> slave<wbr>Ok</h3>
+					<div class="tsd-signature tsd-kind-icon">slave<wbr>Ok<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L202">source/interfaces/options/connectionOptions/index.ts:202</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Sets the Read Preference to nearest, allowing mongoexport to read data
+							from secondary replica set members.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="srv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> srv</h3>
+					<div class="tsd-signature tsd-kind-icon">srv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L110">source/interfaces/options/connectionOptions/index.ts:110</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the MongoDB connection uri is an srv.</p>
+						</div>
+						<p>This property is not present in the mongoexport options, where
+						the &quot;+srv&quot; can be added manually in the host option.</p>
+						<p>Default: false;</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ssl" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ssl</h3>
+					<div class="tsd-signature tsd-kind-icon">ssl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L125">source/interfaces/options/connectionOptions/index.ts:125</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the MongoDB connection uses ssl or tls.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslallowinvalidcertificates" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ssl<wbr>Allow<wbr>Invalid<wbr>Certificates</h3>
+					<div class="tsd-signature tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Certificates<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L171">source/interfaces/options/connectionOptions/index.ts:171</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Bypasses the validation checks for server certificates and allows the
+								use of invalid certificates. When using the allowInvalidCertificates
+							setting, MongoDB logs as a warning the use of the invalid certificate.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslallowinvalidhostnames" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> ssl<wbr>Allow<wbr>Invalid<wbr>Hostnames</h3>
+					<div class="tsd-signature tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Hostnames<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L179">source/interfaces/options/connectionOptions/index.ts:179</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Disables the validation of the hostnames in TLS/SSL certificates. Allows
+								mongoexport to connect to MongoDB instances even if the hostname in their
+							certificates do not match the specified hostname.</p>
+						</div>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslcafile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sslCAFile</h3>
+					<div class="tsd-signature tsd-kind-icon">sslCAFile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L131">source/interfaces/options/connectionOptions/index.ts:131</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the .pem file that contains both the TLS/SSL certificate and key.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslcrlfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sslCRLFile</h3>
+					<div class="tsd-signature tsd-kind-icon">sslCRLFile<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L153">source/interfaces/options/connectionOptions/index.ts:153</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the .pem file that contains the Certificate Revocation List.
+							Specify the file name of the .pem file using relative or absolute paths.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslfipsmode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sslFIPSMode</h3>
+					<div class="tsd-signature tsd-kind-icon">sslFIPSMode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L163">source/interfaces/options/connectionOptions/index.ts:163</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Directs the mongoexport to use the FIPS mode of the installed OpenSSL library.
+								Your system must have a FIPS compliant OpenSSL library to use the
+							--sslFIPSMode option.</p>
+						</div>
+						<p>NB: Deprecated option of mongoexport</p>
+						<p>Default: false</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslpemkeyfile" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sslPEMKey<wbr>File</h3>
+					<div class="tsd-signature tsd-kind-icon">sslPEMKey<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L137">source/interfaces/options/connectionOptions/index.ts:137</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specify the file name of the .pem file using relative or absolute paths.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="sslpemkeypassword" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> sslPEMKey<wbr>Password</h3>
+					<div class="tsd-signature tsd-kind-icon">sslPEMKey<wbr>Password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L146">source/interfaces/options/connectionOptions/index.ts:146</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies the password to de-crypt the certificate-key file (i.e. --sslPEMKeyFile).
+								Use the --sslPEMKeyPassword option only if the certificate-key file is
+								encrypted. In all cases, the mongoexport will redact the password
+							from all logging and reporting output.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="uri" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> uri</h3>
+					<div class="tsd-signature tsd-kind-icon">uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L61">source/interfaces/options/connectionOptions/index.ts:61</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The uri of the MongoDB connection.
+							If it is specified, the options</p>
+							<ul>
+								<li>host</li>
+								<li>port</li>
+								<li>password</li>
+								<li>username</li>
+								<li>srv</li>
+								<li>authenticationMechanism</li>
+								<li>authenticationDatabase
+								will be set to undefined and ignored.</li>
+							</ul>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="username" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/euberdeveloper/mongoback/blob/d5d66ac/source/interfaces/options/connectionOptions/index.ts#L83">source/interfaces/options/connectionOptions/index.ts:83</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The username of the MongoDB connection.</p>
+						</div>
+						<p>Default: undefined</p>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_interfaces_options_connectionoptions_index_.html">&quot;interfaces/options/connection<wbr>Options/index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_interfaces_options_connectionoptions_index_.authenticationmechanism.html" class="tsd-kind-icon">Authentication<wbr>Mechanism</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html" class="tsd-kind-icon">Connection<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#authenticationdatabase" class="tsd-kind-icon">authentication<wbr>Database</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#authenticationmechanism" class="tsd-kind-icon">authentication<wbr>Mechanism</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#dbpath" class="tsd-kind-icon">dbpath</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#directoryperdb" class="tsd-kind-icon">directoryperdb</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#gssapihostname" class="tsd-kind-icon">gssapi<wbr>Host<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#gssapiservicename" class="tsd-kind-icon">gssapi<wbr>Service<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#host" class="tsd-kind-icon">host</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#ipv6" class="tsd-kind-icon">ipv6</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#journal" class="tsd-kind-icon">journal</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#password" class="tsd-kind-icon">password</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#port" class="tsd-kind-icon">port</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#readpreference" class="tsd-kind-icon">read<wbr>Preference</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#replicasetname" class="tsd-kind-icon">replica<wbr>Set<wbr>Name</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#slaveok" class="tsd-kind-icon">slave<wbr>Ok</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#srv" class="tsd-kind-icon">srv</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#ssl" class="tsd-kind-icon">ssl</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslallowinvalidcertificates" class="tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Certificates</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslallowinvalidhostnames" class="tsd-kind-icon">ssl<wbr>Allow<wbr>Invalid<wbr>Hostnames</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslcafile" class="tsd-kind-icon">sslCAFile</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslcrlfile" class="tsd-kind-icon">sslCRLFile</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslfipsmode" class="tsd-kind-icon">sslFIPSMode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslpemkeyfile" class="tsd-kind-icon">sslPEMKey<wbr>File</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#sslpemkeypassword" class="tsd-kind-icon">sslPEMKey<wbr>Password</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#uri" class="tsd-kind-icon">uri</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_options_connectionoptions_index_.connectionoptions.html#username" class="tsd-kind-icon">username</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_interfaces_options_connectionoptions_index_.replicaset.html" class="tsd-kind-icon">Replica<wbr>Set</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

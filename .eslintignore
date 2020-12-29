@@ -1,2 +1,4 @@
 .eslintrc.js
+typedoc.js
+typedoc.dev.js
 webpack.config.js

@@ -1,28 +1,272 @@
 mongoback
- ├─> source
+ ├── LICENSE
+ ├── README.md
+ ├─> bundled
  │   ├─> bin
+ │   │   └── index.js
  │   ├─> lib
- │   │   ├─> errors
+ │   │   ├── index.d.ts
+ │   │   └── index.js
+ │   └─> utils
+ │       └── utils.js
+ ├─> dist
+ │   ├─> errors
+ │   │   ├── databaseError.d.ts
+ │   │   ├── exportingError.d.ts
+ │   │   ├── index.d.ts
+ │   │   ├── mongoBackError.d.ts
+ │   │   └── mongoexportNotInstalledError.d.ts
+ │   ├── index.bin.d.ts
+ │   ├── index.d.ts
+ │   ├─> interfaces
+ │   │   ├─> bin
+ │   │   │   └── index.d.ts
+ │   │   ├─> connection
+ │   │   │   └── index.d.ts
+ │   │   ├─> exportCollections
+ │   │   │   └── index.d.ts
+ │   │   ├─> options
+ │   │   │   ├─> connectionOptions
+ │   │   │   │   └── index.d.ts
+ │   │   │   ├─> exportedOptions
+ │   │   │   │   ├── collectionsOptions.d.ts
+ │   │   │   │   ├── databasesOptions.d.ts
+ │   │   │   │   └── index.d.ts
+ │   │   │   ├─> exportingOptions
+ │   │   │   │   ├── extendedExportingOptions.d.ts
+ │   │   │   │   ├── index.d.ts
+ │   │   │   │   └── standardExportingOptions.d.ts
+ │   │   │   ├── index.d.ts
+ │   │   │   ├─> logOptions
+ │   │   │   │   └── index.d.ts
+ │   │   │   └─> outOptions
+ │   │   │       └── index.d.ts
+ │   │   └─> result
+ │   │       └── index.d.ts
+ │   ├─> utils
+ │   │   ├─> bin
+ │   │   │   ├── askCollections.d.ts
+ │   │   │   ├── askDestination.d.ts
+ │   │   │   ├── askUri.d.ts
+ │   │   │   └── index.d.ts
+ │   │   ├─> checkMongoexportInstalled
+ │   │   │   └── index.d.ts
+ │   │   ├─> connection
+ │   │   │   └── index.d.ts
+ │   │   ├─> exportCollections
+ │   │   │   ├── getCommand.d.ts
+ │   │   │   ├── getPath.d.ts
+ │   │   │   └── index.d.ts
+ │   │   ├─> getParsedCollections
+ │   │   │   ├── index.d.ts
+ │   │   │   ├── parseAll.d.ts
+ │   │   │   ├── parseCollection.d.ts
+ │   │   │   ├── parseDatabases.d.ts
+ │   │   │   ├── parseGeneralCollections.d.ts
+ │   │   │   ├── parseSpecificCollections.d.ts
+ │   │   │   └── purgeExportingOptions.d.ts
+ │   │   ├─> logger
+ │   │   │   └── index.d.ts
+ │   │   └─> options
+ │   │       ├── defaultOptions.d.ts
+ │   │       ├── index.d.ts
+ │   │       └── mergeOptions.d.ts
+ │   └── utils.helper.d.ts
+ ├─> docs
+ │   ├─> assets
+ │   ├─> documentation
+ │   │   ├─> html
+ │   │   │   ├─> assets
+ │   │   │   │   ├─> css
+ │   │   │   │   │   └── main.css
+ │   │   │   │   ├─> images
+ │   │   │   │   │   ├── icons.png
+ │   │   │   │   │   ├── icons@2x.png
+ │   │   │   │   │   ├── widgets.png
+ │   │   │   │   │   └── widgets@2x.png
+ │   │   │   │   └─> js
+ │   │   │   │       ├── main.js
+ │   │   │   │       └── search.js
+ │   │   │   ├─> classes
+ │   │   │   │   ├── databaseerror.html
+ │   │   │   │   ├── exportingerror.html
+ │   │   │   │   ├── mongobackerror.html
+ │   │   │   │   └── mongoexportnotinstallederror.html
+ │   │   │   ├─> enums
+ │   │   │   │   ├── authenticationmechanism.html
+ │   │   │   │   └── exportresultcode.html
+ │   │   │   ├── index.html
+ │   │   │   ├─> interfaces
+ │   │   │   │   ├── connectionoptions.html
+ │   │   │   │   ├── detailedexportschema.html
+ │   │   │   │   ├── exportedoptions.html
+ │   │   │   │   ├── exportresult.html
+ │   │   │   │   ├── exportschema.html
+ │   │   │   │   ├── extendedexportingoptions.html
+ │   │   │   │   ├── logoptions.html
+ │   │   │   │   ├── outoptions.html
+ │   │   │   │   ├── replicaset.html
+ │   │   │   │   ├── specificcollections.html
+ │   │   │   │   └── standardexportingoptions.html
+ │   │   │   └── modules.html
+ │   │   └─> html-dev
+ │   │       ├─> assets
+ │   │       │   ├─> css
+ │   │       │   │   └── main.css
+ │   │       │   ├─> images
+ │   │       │   │   ├── icons.png
+ │   │       │   │   ├── icons@2x.png
+ │   │       │   │   ├── widgets.png
+ │   │       │   │   └── widgets@2x.png
+ │   │       │   └─> js
+ │   │       │       ├── main.js
+ │   │       │       └── search.json
+ │   │       ├─> classes
+ │   │       │   ├── _errors_databaseerror_.databaseerror.html
+ │   │       │   ├── _errors_exportingerror_.exportingerror.html
+ │   │       │   ├── _errors_mongobackerror_.mongobackerror.html
+ │   │       │   ├── _errors_mongoexportnotinstallederror_.mongoexportnotinstallederror.html
+ │   │       │   └── _utils_logger_index_.logger.html
+ │   │       ├─> enums
+ │   │       │   ├── _interfaces_options_connectionoptions_index_.authenticationmechanism.html
+ │   │       │   └── _interfaces_result_index_.exportresultcode.html
+ │   │       ├── globals.html
+ │   │       ├── index.html
+ │   │       ├─> interfaces
+ │   │       │   ├── _interfaces_bin_index_.clioptions.html
+ │   │       │   ├── _interfaces_connection_index_.connectionparameters.html
+ │   │       │   ├── _interfaces_exportcollections_index_.commandresult.html
+ │   │       │   ├── _interfaces_options_connectionoptions_index_.connectionoptions.html
+ │   │       │   ├── _interfaces_options_connectionoptions_index_.replicaset.html
+ │   │       │   ├── _interfaces_options_exportedoptions_collectionsoptions_.specificcollections.html
+ │   │       │   ├── _interfaces_options_exportedoptions_index_.exportedoptions.html
+ │   │       │   ├── _interfaces_options_exportingoptions_extendedexportingoptions_.extendedexportingoptions.html
+ │   │       │   ├── _interfaces_options_exportingoptions_standardexportingoptions_.standardexportingoptions.html
+ │   │       │   ├── _interfaces_options_logoptions_index_.logoptions.html
+ │   │       │   ├── _interfaces_options_outoptions_index_.outoptions.html
+ │   │       │   ├── _interfaces_result_index_.detailedexportschema.html
+ │   │       │   ├── _interfaces_result_index_.exportresult.html
+ │   │       │   └── _interfaces_result_index_.exportschema.html
+ │   │       └─> modules
+ │   │           ├── _errors_databaseerror_.html
+ │   │           ├── _errors_exportingerror_.html
+ │   │           ├── _errors_index_.html
+ │   │           ├── _errors_mongobackerror_.html
+ │   │           ├── _errors_mongoexportnotinstallederror_.html
+ │   │           ├── _index_.html
+ │   │           ├── _index_bin_.html
+ │   │           ├── _interfaces_bin_index_.html
+ │   │           ├── _interfaces_connection_index_.html
+ │   │           ├── _interfaces_exportcollections_index_.html
+ │   │           ├── _interfaces_options_connectionoptions_index_.html
+ │   │           ├── _interfaces_options_exportedoptions_collectionsoptions_.html
+ │   │           ├── _interfaces_options_exportedoptions_databasesoptions_.html
+ │   │           ├── _interfaces_options_exportedoptions_index_.html
+ │   │           ├── _interfaces_options_exportingoptions_extendedexportingoptions_.html
+ │   │           ├── _interfaces_options_exportingoptions_index_.html
+ │   │           ├── _interfaces_options_exportingoptions_standardexportingoptions_.html
+ │   │           ├── _interfaces_options_index_.html
+ │   │           ├── _interfaces_options_logoptions_index_.html
+ │   │           ├── _interfaces_options_outoptions_index_.html
+ │   │           ├── _interfaces_result_index_.html
+ │   │           ├── _utils_bin_askcollections_.html
+ │   │           ├── _utils_bin_askdestination_.html
+ │   │           ├── _utils_bin_askuri_.html
+ │   │           ├── _utils_bin_index_.html
+ │   │           ├── _utils_checkmongoexportinstalled_index_.html
+ │   │           ├── _utils_connection_index_.html
+ │   │           ├── _utils_exportcollections_getcommand_.html
+ │   │           ├── _utils_exportcollections_getpath_.html
+ │   │           ├── _utils_exportcollections_index_.html
+ │   │           ├── _utils_getparsedcollections_index_.html
+ │   │           ├── _utils_getparsedcollections_parseall_.html
+ │   │           ├── _utils_getparsedcollections_parsecollection_.html
+ │   │           ├── _utils_getparsedcollections_parsedatabases_.html
+ │   │           ├── _utils_getparsedcollections_parsegeneralcollections_.html
+ │   │           ├── _utils_getparsedcollections_parsespecificcollections_.html
+ │   │           ├── _utils_getparsedcollections_purgeexportingoptions_.html
+ │   │           ├── _utils_helper_.html
+ │   │           ├── _utils_logger_index_.html
+ │   │           ├── _utils_options_defaultoptions_.html
+ │   │           ├── _utils_options_index_.html
+ │   │           └── _utils_options_mergeoptions_.html
+ │   └─> tree
+ │       ├── dree.config.json
+ │       └── tree.txt
+ ├── package-lock.json
+ ├── package.json
+ ├─> source
+ │   ├─> errors
+ │   │   ├── databaseError.ts
+ │   │   ├── exportingError.ts
  │   │   ├── index.ts
- │   │   ├─> interfaces
- │   │   └─> utils
- │   └── tsconfig.json
+ │   │   ├── mongoBackError.ts
+ │   │   └── mongoexportNotInstalledError.ts
+ │   ├── index.bin.ts
+ │   ├── index.ts
+ │   ├─> interfaces
+ │   │   ├─> bin
+ │   │   │   └── index.ts
+ │   │   ├─> connection
+ │   │   │   └── index.ts
+ │   │   ├─> exportCollections
+ │   │   │   └── index.ts
+ │   │   ├─> options
+ │   │   │   ├─> connectionOptions
+ │   │   │   │   └── index.ts
+ │   │   │   ├─> exportedOptions
+ │   │   │   │   ├── collectionsOptions.ts
+ │   │   │   │   ├── databasesOptions.ts
+ │   │   │   │   └── index.ts
+ │   │   │   ├─> exportingOptions
+ │   │   │   │   ├── extendedExportingOptions.ts
+ │   │   │   │   ├── index.ts
+ │   │   │   │   └── standardExportingOptions.ts
+ │   │   │   ├── index.ts
+ │   │   │   ├─> logOptions
+ │   │   │   │   └── index.ts
+ │   │   │   └─> outOptions
+ │   │   │       └── index.ts
+ │   │   └─> result
+ │   │       └── index.ts
+ │   ├── tsconfig.json
+ │   ├─> utils
+ │   │   ├─> bin
+ │   │   │   ├── askCollections.ts
+ │   │   │   ├── askDestination.ts
+ │   │   │   ├── askUri.ts
+ │   │   │   └── index.ts
+ │   │   ├─> checkMongoexportInstalled
+ │   │   │   └── index.ts
+ │   │   ├─> connection
+ │   │   │   └── index.ts
+ │   │   ├─> exportCollections
+ │   │   │   ├── getCommand.ts
+ │   │   │   ├── getPath.ts
+ │   │   │   └── index.ts
+ │   │   ├─> getParsedCollections
+ │   │   │   ├── index.ts
+ │   │   │   ├── parseAll.ts
+ │   │   │   ├── parseCollection.ts
+ │   │   │   ├── parseDatabases.ts
+ │   │   │   ├── parseGeneralCollections.ts
+ │   │   │   ├── parseSpecificCollections.ts
+ │   │   │   └── purgeExportingOptions.ts
+ │   │   ├─> logger
+ │   │   │   └── index.ts
+ │   │   └─> options
+ │   │       ├── defaultOptions.ts
+ │   │       ├── index.ts
+ │   │       └── mergeOptions.ts
+ │   └── utils.helper.ts
  ├─> test
  │   ├─> complete
  │   ├─> getCommand
  │   ├─> getMongoConnection
  │   ├─> mock
  │   ├── test.ts
- │   ├── tsconfig.json
  │   └─> utils
- ├─> dist
- │   ├─> source
- │   └─> test
- ├─> docs
- │   ├─> assets
- │   └─> tree
- │       ├── dree.config.json
- │       └── tree.txt
- ├── package-lock.json
- ├── package.json
- └── tslint.json
+ ├── tsconfig.json
+ ├── typedoc.dev.js
+ ├── typedoc.js
+ └── webpack.config.js
