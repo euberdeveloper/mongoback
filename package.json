@@ -1,6 +1,6 @@
 {
   "name": "mongoback",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "The most powerful npm module to export your MongoDB",
   "main": "bundled/lib/index.js",
   "bin": "bundled/bin/index.js",
@@ -46,7 +46,7 @@
   "bugs": {
     "url": "https://github.com/euberdeveloper/mongoback/issues"
   },
-  "homepage": "https://github.com/euberdeveloper/mongoback",
+  "homepage": "https://mongoback.vercel.app",
   "keywords": [
     "mongoback",
     "mongo",
