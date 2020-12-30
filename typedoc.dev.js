@@ -1,7 +1,8 @@
 module.exports = {
-    mode: 'modules',
+    entryPoints: [
+        './source'
+    ],
     name: 'mongoback - DEV',
-    entryPoint: 'source/index.ts',
     includeVersion: true,
     tsconfig: 'source/tsconfig.json',
     gaID: process.env.GA_TOKEN,

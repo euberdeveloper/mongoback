@@ -120,76 +120,110 @@ mongoback
  │   │       │   │   └── widgets@2x.png
  │   │       │   └─> js
  │   │       │       ├── main.js
- │   │       │       └── search.json
+ │   │       │       └── search.js
  │   │       ├─> classes
- │   │       │   ├── _errors_databaseerror_.databaseerror.html
- │   │       │   ├── _errors_exportingerror_.exportingerror.html
- │   │       │   ├── _errors_mongobackerror_.mongobackerror.html
- │   │       │   ├── _errors_mongoexportnotinstallederror_.mongoexportnotinstallederror.html
- │   │       │   └── _utils_logger_index_.logger.html
+ │   │       │   ├── errors.databaseerror.html
+ │   │       │   ├── errors.exportingerror.html
+ │   │       │   ├── errors.mongobackerror.html
+ │   │       │   ├── errors.mongoexportnotinstallederror.html
+ │   │       │   ├── errors_databaseerror.databaseerror.html
+ │   │       │   ├── errors_exportingerror.exportingerror.html
+ │   │       │   ├── errors_mongobackerror.mongobackerror.html
+ │   │       │   ├── errors_mongoexportnotinstallederror.mongoexportnotinstallederror.html
+ │   │       │   ├── index.databaseerror.html
+ │   │       │   ├── index.exportingerror.html
+ │   │       │   ├── index.mongobackerror.html
+ │   │       │   ├── index.mongoexportnotinstallederror.html
+ │   │       │   ├── utils_helper.logger.html
+ │   │       │   └── utils_logger.logger.html
  │   │       ├─> enums
- │   │       │   ├── _interfaces_options_connectionoptions_index_.authenticationmechanism.html
- │   │       │   └── _interfaces_result_index_.exportresultcode.html
- │   │       ├── globals.html
+ │   │       │   ├── index.authenticationmechanism.html
+ │   │       │   ├── index.exportresultcode.html
+ │   │       │   ├── interfaces_options.authenticationmechanism.html
+ │   │       │   ├── interfaces_options_connectionoptions.authenticationmechanism.html
+ │   │       │   └── interfaces_result.exportresultcode.html
  │   │       ├── index.html
  │   │       ├─> interfaces
- │   │       │   ├── _interfaces_bin_index_.clioptions.html
- │   │       │   ├── _interfaces_connection_index_.connectionparameters.html
- │   │       │   ├── _interfaces_exportcollections_index_.commandresult.html
- │   │       │   ├── _interfaces_options_connectionoptions_index_.connectionoptions.html
- │   │       │   ├── _interfaces_options_connectionoptions_index_.replicaset.html
- │   │       │   ├── _interfaces_options_exportedoptions_collectionsoptions_.specificcollections.html
- │   │       │   ├── _interfaces_options_exportedoptions_index_.exportedoptions.html
- │   │       │   ├── _interfaces_options_exportingoptions_extendedexportingoptions_.extendedexportingoptions.html
- │   │       │   ├── _interfaces_options_exportingoptions_standardexportingoptions_.standardexportingoptions.html
- │   │       │   ├── _interfaces_options_logoptions_index_.logoptions.html
- │   │       │   ├── _interfaces_options_outoptions_index_.outoptions.html
- │   │       │   ├── _interfaces_result_index_.detailedexportschema.html
- │   │       │   ├── _interfaces_result_index_.exportresult.html
- │   │       │   └── _interfaces_result_index_.exportschema.html
- │   │       └─> modules
- │   │           ├── _errors_databaseerror_.html
- │   │           ├── _errors_exportingerror_.html
- │   │           ├── _errors_index_.html
- │   │           ├── _errors_mongobackerror_.html
- │   │           ├── _errors_mongoexportnotinstallederror_.html
- │   │           ├── _index_.html
- │   │           ├── _index_bin_.html
- │   │           ├── _interfaces_bin_index_.html
- │   │           ├── _interfaces_connection_index_.html
- │   │           ├── _interfaces_exportcollections_index_.html
- │   │           ├── _interfaces_options_connectionoptions_index_.html
- │   │           ├── _interfaces_options_exportedoptions_collectionsoptions_.html
- │   │           ├── _interfaces_options_exportedoptions_databasesoptions_.html
- │   │           ├── _interfaces_options_exportedoptions_index_.html
- │   │           ├── _interfaces_options_exportingoptions_extendedexportingoptions_.html
- │   │           ├── _interfaces_options_exportingoptions_index_.html
- │   │           ├── _interfaces_options_exportingoptions_standardexportingoptions_.html
- │   │           ├── _interfaces_options_index_.html
- │   │           ├── _interfaces_options_logoptions_index_.html
- │   │           ├── _interfaces_options_outoptions_index_.html
- │   │           ├── _interfaces_result_index_.html
- │   │           ├── _utils_bin_askcollections_.html
- │   │           ├── _utils_bin_askdestination_.html
- │   │           ├── _utils_bin_askuri_.html
- │   │           ├── _utils_bin_index_.html
- │   │           ├── _utils_checkmongoexportinstalled_index_.html
- │   │           ├── _utils_connection_index_.html
- │   │           ├── _utils_exportcollections_getcommand_.html
- │   │           ├── _utils_exportcollections_getpath_.html
- │   │           ├── _utils_exportcollections_index_.html
- │   │           ├── _utils_getparsedcollections_index_.html
- │   │           ├── _utils_getparsedcollections_parseall_.html
- │   │           ├── _utils_getparsedcollections_parsecollection_.html
- │   │           ├── _utils_getparsedcollections_parsedatabases_.html
- │   │           ├── _utils_getparsedcollections_parsegeneralcollections_.html
- │   │           ├── _utils_getparsedcollections_parsespecificcollections_.html
- │   │           ├── _utils_getparsedcollections_purgeexportingoptions_.html
- │   │           ├── _utils_helper_.html
- │   │           ├── _utils_logger_index_.html
- │   │           ├── _utils_options_defaultoptions_.html
- │   │           ├── _utils_options_index_.html
- │   │           └── _utils_options_mergeoptions_.html
+ │   │       │   ├── index.connectionoptions.html
+ │   │       │   ├── index.detailedexportschema.html
+ │   │       │   ├── index.exportedoptions.html
+ │   │       │   ├── index.exportresult.html
+ │   │       │   ├── index.exportschema.html
+ │   │       │   ├── index.extendedexportingoptions.html
+ │   │       │   ├── index.logoptions.html
+ │   │       │   ├── index.outoptions.html
+ │   │       │   ├── index.replicaset.html
+ │   │       │   ├── index.specificcollections.html
+ │   │       │   ├── index.standardexportingoptions.html
+ │   │       │   ├── interfaces_bin.clioptions.html
+ │   │       │   ├── interfaces_connection.connectionparameters.html
+ │   │       │   ├── interfaces_exportcollections.commandresult.html
+ │   │       │   ├── interfaces_options.connectionoptions.html
+ │   │       │   ├── interfaces_options.exportedoptions.html
+ │   │       │   ├── interfaces_options.extendedexportingoptions.html
+ │   │       │   ├── interfaces_options.logoptions.html
+ │   │       │   ├── interfaces_options.outoptions.html
+ │   │       │   ├── interfaces_options.replicaset.html
+ │   │       │   ├── interfaces_options.specificcollections.html
+ │   │       │   ├── interfaces_options.standardexportingoptions.html
+ │   │       │   ├── interfaces_options_connectionoptions.connectionoptions.html
+ │   │       │   ├── interfaces_options_connectionoptions.replicaset.html
+ │   │       │   ├── interfaces_options_exportedoptions.exportedoptions.html
+ │   │       │   ├── interfaces_options_exportedoptions.specificcollections.html
+ │   │       │   ├── interfaces_options_exportedoptions_collectionsoptions.specificcollections.html
+ │   │       │   ├── interfaces_options_exportingoptions.extendedexportingoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions.standardexportingoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions_extendedexportingoptions.extendedexportingoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions_standardexportingoptions.standardexportingoptions.html
+ │   │       │   ├── interfaces_options_logoptions.logoptions.html
+ │   │       │   ├── interfaces_options_outoptions.outoptions.html
+ │   │       │   ├── interfaces_result.detailedexportschema.html
+ │   │       │   ├── interfaces_result.exportresult.html
+ │   │       │   └── interfaces_result.exportschema.html
+ │   │       ├─> modules
+ │   │       │   ├── errors.html
+ │   │       │   ├── errors_databaseerror.html
+ │   │       │   ├── errors_exportingerror.html
+ │   │       │   ├── errors_mongobackerror.html
+ │   │       │   ├── errors_mongoexportnotinstallederror.html
+ │   │       │   ├── index.html
+ │   │       │   ├── index_bin.html
+ │   │       │   ├── interfaces_bin.html
+ │   │       │   ├── interfaces_connection.html
+ │   │       │   ├── interfaces_exportcollections.html
+ │   │       │   ├── interfaces_options.html
+ │   │       │   ├── interfaces_options_connectionoptions.html
+ │   │       │   ├── interfaces_options_exportedoptions.html
+ │   │       │   ├── interfaces_options_exportedoptions_collectionsoptions.html
+ │   │       │   ├── interfaces_options_exportedoptions_databasesoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions_extendedexportingoptions.html
+ │   │       │   ├── interfaces_options_exportingoptions_standardexportingoptions.html
+ │   │       │   ├── interfaces_options_logoptions.html
+ │   │       │   ├── interfaces_options_outoptions.html
+ │   │       │   ├── interfaces_result.html
+ │   │       │   ├── utils_bin.html
+ │   │       │   ├── utils_bin_askcollections.html
+ │   │       │   ├── utils_bin_askdestination.html
+ │   │       │   ├── utils_bin_askuri.html
+ │   │       │   ├── utils_checkmongoexportinstalled.html
+ │   │       │   ├── utils_connection.html
+ │   │       │   ├── utils_exportcollections.html
+ │   │       │   ├── utils_exportcollections_getcommand.html
+ │   │       │   ├── utils_exportcollections_getpath.html
+ │   │       │   ├── utils_getparsedcollections.html
+ │   │       │   ├── utils_getparsedcollections_parseall.html
+ │   │       │   ├── utils_getparsedcollections_parsecollection.html
+ │   │       │   ├── utils_getparsedcollections_parsedatabases.html
+ │   │       │   ├── utils_getparsedcollections_parsegeneralcollections.html
+ │   │       │   ├── utils_getparsedcollections_parsespecificcollections.html
+ │   │       │   ├── utils_getparsedcollections_purgeexportingoptions.html
+ │   │       │   ├── utils_helper.html
+ │   │       │   ├── utils_logger.html
+ │   │       │   ├── utils_options.html
+ │   │       │   ├── utils_options_defaultoptions.html
+ │   │       │   └── utils_options_mergeoptions.html
+ │   │       └── modules.html
  │   └─> tree
  │       ├── dree.config.json
  │       └── tree.txt
