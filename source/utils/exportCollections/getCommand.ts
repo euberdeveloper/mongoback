@@ -1,6 +1,32 @@
 import { ExportingCollection } from '@/interfaces/result';
 import { ConnectionOptions, ExportingOptions } from '@/interfaces/options';
 
+function parseGenericBoolean(options: ConnectionOptions | ExportingOptions, param: string): string {
+    return options[param] ? ` --${param}` : '';
+}
+function parseGenericString(options: ConnectionOptions | ExportingOptions, param: string): string {
+    const value: string = options[param];
+    return value ? ` --${param}=${value}` : '';
+}
+function parseGenericJsonString(
+    options: ConnectionOptions | ExportingOptions,
+    param: string,
+    useApixes: boolean
+): string {
+    let result = '';
+
+    if (options[param]) {
+        if (typeof options[param] === 'string') {
+            const value: string = options[param];
+            const stringValue = useApixes ? `'${value}'` : value;
+            result = ` --${param}=${stringValue}`;
+        } else {
+            result = ` --${param}='${JSON.stringify(options[param])}'`;
+        }
+    }
+
+    return result;
+}
 function parseUri(options: ConnectionOptions, db: string): string {
     let result = '';
 
@@ -34,56 +60,6 @@ function parseHost(options: ConnectionOptions): string {
 
     return result;
 }
-function parsePort(options: ConnectionOptions): string {
-    return options.port ? ` --port=${options.port}` : '';
-}
-function parseUsername(options: ConnectionOptions): string {
-    return options.username ? ` --username=${options.username}` : '';
-}
-function parsePassword(options: ConnectionOptions): string {
-    return options.password ? ` --password=${options.password}` : '';
-}
-function parseSslCAFile(options: ConnectionOptions): string {
-    return options.sslCAFile ? ` --sslCAFile=${options.sslCAFile}` : '';
-}
-function parseSslPEMKeyFile(options: ConnectionOptions): string {
-    return options.sslPEMKeyFile ? ` --sslPEMKeyFile=${options.sslPEMKeyFile}` : '';
-}
-function parseSslPEMKeyPassword(options: ConnectionOptions): string {
-    return options.sslPEMKeyPassword ? ` --sslPEMKeyPassword=${options.sslPEMKeyPassword}` : '';
-}
-function parseSslCRLFile(options: ConnectionOptions): string {
-    return options.sslCRLFile ? ` --sslCRLFile=${options.sslCRLFile}` : '';
-}
-function parseAuthenticationDatabase(options: ConnectionOptions): string {
-    return options.authenticationDatabase ? ` --authenticationDatabase=${options.authenticationDatabase}` : '';
-}
-function parseAuthenticationMechanism(options: ConnectionOptions): string {
-    return options.authenticationMechanism ? ` --authenticationMechanism=${options.authenticationMechanism}` : '';
-}
-function parseGssapiServiceName(options: ConnectionOptions): string {
-    return options.gssapiServiceName ? ` --gssapiServiceName=${options.gssapiServiceName}` : '';
-}
-function parseGssapiHostName(options: ConnectionOptions): string {
-    return options.gssapiHostName ? ` --gssapiHostName=${options.gssapiHostName}` : '';
-}
-function parseReadPreference(options: ConnectionOptions): string {
-    let result = '';
-
-    if (options.readPreference) {
-        if (typeof options.readPreference === 'string') {
-            result = ` --readPreference=${options.readPreference}`;
-        } else {
-            result = ` --readPreference='${JSON.stringify(options.readPreference)}'`;
-        }
-    }
-
-    return result;
-}
-function parseDbPath(options: ConnectionOptions): string {
-    return options.dbpath ? ` --dbpath=${options.dbpath}` : '';
-}
-
 function parseVerbose(options: ExportingOptions): string {
     let result = '';
 
@@ -116,47 +92,6 @@ function parseFields(options: ExportingOptions): string {
 
     return result;
 }
-function parseFieldFile(options: ExportingOptions): string {
-    return options.fieldFile ? ` --fieldFile=${options.fieldFile}` : '';
-}
-function parseQuery(options: ExportingOptions): string {
-    let result = '';
-
-    if (options.query) {
-        if (typeof options.query === 'string') {
-            result = ` --query='${options.query}'`;
-        } else {
-            result = ` --query='${JSON.stringify(options.query)}'`;
-        }
-    }
-
-    return result;
-}
-function parseType(options: ExportingOptions): string {
-    return options.type ? ` --type=${options.type}` : '';
-}
-function parseJsonFormat(options: ExportingOptions): string {
-    return options.jsonFormat ? ` --jsonFormat=${options.jsonFormat}` : '';
-}
-function parseSkip(options: ExportingOptions): string {
-    return options.skip ? ` --skip=${options.skip}` : '';
-}
-function parseLimit(options: ExportingOptions): string {
-    return options.limit ? ` --limit=${options.limit}` : '';
-}
-function parseSort(options: ExportingOptions): string {
-    let result = '';
-
-    if (options.sort) {
-        if (typeof options.sort === 'string') {
-            result = ` --sort='${options.sort}'`;
-        } else {
-            result = ` --sort='${JSON.stringify(options.sort)}'`;
-        }
-    }
-
-    return result;
-}
 
 export function getCommand(
     database: string,
@@ -169,42 +104,42 @@ export function getCommand(
 
     const uri = parseUri(options, database);
     const host = parseHost(options);
-    const port = parsePort(options);
-    const username = parseUsername(options);
-    const password = parsePassword(options);
+    const port = parseGenericString(options, 'port');
+    const username = parseGenericString(options, 'username');
+    const password = parseGenericString(options, 'password');
 
-    const ssl = options.ssl ? ' --ssl' : '';
-    const sslCAFile = parseSslCAFile(options);
-    const sslPEMKeyFile = parseSslPEMKeyFile(options);
-    const sslPEMKeyPassword = parseSslPEMKeyPassword(options);
-    const sslCRLFile = parseSslCRLFile(options);
-    const sslAllowInvalidCertificates = options.sslAllowInvalidCertificates ? ' --sslAllowInvalidCertificates' : '';
-    const sslAllowInvalidHostnames = options.sslAllowInvalidHostnames ? ' --sslAllowInvalidHostnames' : '';
-    const sslFIPSMode = options.sslFIPSMode ? ' --sslFIPSMode' : '';
-    const authenticationDatabase = parseAuthenticationDatabase(options);
-    const authenticationMechanism = parseAuthenticationMechanism(options);
-    const gssapiServiceName = parseGssapiServiceName(options);
-    const gssapiHostName = parseGssapiHostName(options);
-    const readPreference = parseReadPreference(options);
-    const ipv6 = options.ipv6 ? ' --ipv6' : '';
-    const slaveOk = options.slaveOk ? ' --slaveOk' : '';
-    const directoryperdb = options.directoryperdb ? ' --directoryperdb' : '';
-    const dbpath = parseDbPath(options);
+    const ssl = parseGenericBoolean(options, 'ssl');
+    const sslCAFile = parseGenericString(options, 'sslCAFile');
+    const sslPEMKeyFile = parseGenericString(options, 'sslPEMKeyFile');
+    const sslPEMKeyPassword = parseGenericString(options, 'sslPEMKeyPassword');
+    const sslCRLFile = parseGenericString(options, 'sslCRLFile');
+    const sslAllowInvalidCertificates = parseGenericBoolean(options, 'sslAllowInvalidCertificates');
+    const sslAllowInvalidHostnames = parseGenericBoolean(options, 'sslAllowInvalidHostnames');
+    const sslFIPSMode = parseGenericBoolean(options, 'sslFIPSMode');
+    const authenticationDatabase = parseGenericString(options, 'authenticationDatabase');
+    const authenticationMechanism = parseGenericString(options, 'authenticationMechanism');
+    const gssapiServiceName = parseGenericString(options, 'gssapiServiceName');
+    const gssapiHostName = parseGenericString(options, 'gssapiHostName');
+    const readPreference = parseGenericJsonString(options, 'readPreference', false);
+    const ipv6 = parseGenericBoolean(options, 'ipv6');
+    const slaveOk = parseGenericBoolean(options, 'slaveOk');
+    const directoryperdb = parseGenericBoolean(options, 'directoryperdb');
+    const dbpath = parseGenericString(options, 'dbpath');
 
     const verbose = parseVerbose(parsedCollection);
-    const quiet = parsedCollection.quiet ? ' --quiet' : '';
+    const quiet = parseGenericBoolean(parsedCollection, 'quiet');
     const fields = parseFields(parsedCollection);
-    const fieldFile = parseFieldFile(parsedCollection);
-    const query = parseQuery(parsedCollection);
-    const type = parseType(parsedCollection);
-    const jsonFormat = parseJsonFormat(parsedCollection);
-    const jsonArray = parsedCollection.jsonArray ? ' --jsonArray' : '';
-    const pretty = parsedCollection.pretty ? ' --pretty' : '';
-    const noHeaderLine = parsedCollection.noHeaderLine ? ' --noHeaderLine' : '';
-    const forceTableScan = parsedCollection.forceTableScan ? ' --forceTableScan' : '';
-    const skip = parseSkip(parsedCollection);
-    const limit = parseLimit(parsedCollection);
-    const sort = parseSort(parsedCollection);
+    const fieldFile = parseGenericString(parsedCollection, 'fieldFile');
+    const query = parseGenericJsonString(parsedCollection, 'query', true);
+    const type = parseGenericString(parsedCollection, 'type');
+    const jsonFormat = parseGenericString(parsedCollection, 'jsonFormat');
+    const jsonArray = parseGenericBoolean(parsedCollection, 'jsonArray');
+    const pretty = parseGenericBoolean(parsedCollection, 'pretty');
+    const noHeaderLine = parseGenericBoolean(parsedCollection, 'noHeaderLine');
+    const forceTableScan = parseGenericBoolean(parsedCollection, 'forceTableScan');
+    const skip = parseGenericString(parsedCollection, 'skip');
+    const limit = parseGenericString(parsedCollection, 'limit');
+    const sort = parseGenericJsonString(parsedCollection, 'sort', true);
 
     const out = ` --out=${outPath}`;
 
