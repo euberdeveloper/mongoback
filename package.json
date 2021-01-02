@@ -114,6 +114,6 @@
     }
   },
   "nyc": {
-    "exclude": "**/*.bin.ts"
+    "exclude": "**/*.bin.ts test"
   }
 }
