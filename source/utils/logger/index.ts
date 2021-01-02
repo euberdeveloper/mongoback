@@ -25,6 +25,14 @@ export class Logger {
         }
     }
 
+    private printCollectionsHelper(schema: ExportSchema, shouldPrint: boolean, tagText: string): void {
+        if (shouldPrint) {
+            const tag = chalk.keyword('yellow')(`[${tagText}]`);
+            const text = JSON.stringify(schema, null, 2);
+            console.log(`${tag}\n${text}`);
+        }
+    }
+
     public exportingDatabase(db: string): void {
         if (this.base) {
             console.log(chalk.white(db));
@@ -70,19 +78,11 @@ export class Logger {
     }
 
     public printExpectedCollections(expected: ExportSchema): void {
-        if (this.expectedCollections) {
-            const tag = chalk.keyword('yellow')('[COLLECTIONS TO EXPORT]');
-            const text = JSON.stringify(expected, null, 2);
-            console.log(`${tag}\n${text}`);
-        }
+        this.printCollectionsHelper(expected, this.expectedCollections, 'COLLECTIONS TO EXPORT');
     }
 
     public printExportedCollections(actual: ExportSchema): void {
-        if (this.actualCollections) {
-            const tag = chalk.keyword('yellow')('[COLLECTIONS EXPORTED]');
-            const text = JSON.stringify(actual, null, 2);
-            console.log(`${tag}\n${text}`);
-        }
+        this.printCollectionsHelper(actual, this.actualCollections, 'COLLECTIONS EXPORTED');
     }
 
     public warn(message: string, error: any): void {
