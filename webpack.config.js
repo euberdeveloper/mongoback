@@ -21,7 +21,7 @@ const utilsConfig = {
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
@@ -60,7 +60,7 @@ const libConfig = {
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
@@ -146,7 +146,7 @@ const binConfig = {
     module: {
         rules: [
             {
-                test: /\.ts?$/,
+                test: /\.ts$/,
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
