@@ -9,7 +9,7 @@ const utilsConfig = {
     mode: 'production',
     // devtool: 'source-map',
     entry: {
-        index: './source/utils.helper.ts',
+        index: './source/utils.helper.ts'
     },
     resolve: {
         extensions: ['.ts', '.js'],
