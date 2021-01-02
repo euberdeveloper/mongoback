@@ -35,6 +35,7 @@
     "docs:tree": "dree parse . --dest docs/tree --name tree --options docs/tree/dree.config.json",
     "docs": "npm run docs:html && npm run docs:html-dev && npm run docs:tree",
     "commit": "git-cz",
+    "commit:sign": "git-cz -S",
     "prepublishOnly": "npm run bundle"
   },
   "author": "Eugenio Vinicio Berretta <euberdeveloper@gmail.com>",
