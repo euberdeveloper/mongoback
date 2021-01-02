@@ -12,6 +12,7 @@
 [![License](https://img.shields.io/npm/l/mongoback.svg?color=blue)](https://github.com/euberdeveloper/mongoback/raw/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/euberdeveloper/mongoback.svg)](https://github.com/euberdeveloper/mongoback/stargazers)
 ![npm](https://img.shields.io/npm/v/mongoback.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dc2555e4e7efdcf8bfe4/maintainability)](https://codeclimate.com/github/euberdeveloper/mongoback/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dc2555e4e7efdcf8bfe4/test_coverage)](https://codeclimate.com/github/euberdeveloper/mongoback/test_coverage)
 
 # mongoback
