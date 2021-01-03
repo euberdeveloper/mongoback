@@ -10,7 +10,7 @@ export class MongoexportNotInstalledError extends MongoBackError {
      */
     public triggerError: Error | null;
 
-    public constructor(message?: string, triggerError?: Error) {
+    constructor(message?: string, triggerError?: Error) {
         super(message ?? MongoexportNotInstalledError.DEFAULT_MESSAGE);
         this.name = 'MongoBackMongoexportNotInstalledError';
         this.triggerError = triggerError ?? null;

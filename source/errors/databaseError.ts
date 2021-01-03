@@ -11,7 +11,7 @@ export class DatabaseError extends MongoBackError {
      */
     public triggerError: MongoScannerError | null;
 
-    public constructor(message?: string, triggerError?: MongoScannerError) {
+    constructor(message?: string, triggerError?: MongoScannerError) {
         super(message ?? triggerError?.message ?? DatabaseError.DEFAULT_MESSAGE);
         this.name = 'MongoBackDatabaseError';
         this.triggerError = triggerError ?? null;

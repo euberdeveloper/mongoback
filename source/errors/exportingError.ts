@@ -26,7 +26,7 @@ export class ExportingError extends MongoBackError {
      */
     public triggerError: Error | null;
 
-    public constructor(
+    constructor(
         message?: string,
         db?: string,
         collection?: string,

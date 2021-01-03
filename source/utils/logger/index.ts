@@ -12,7 +12,7 @@ export class Logger {
     private readonly actualCollections: boolean;
     private spinners = {};
 
-    public constructor(options: LogOptions) {
+    constructor(options: LogOptions) {
         if (!options.silent && options.log) {
             if (typeof options.log === 'string') {
                 options.log = [options.log];
