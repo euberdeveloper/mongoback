@@ -5,7 +5,7 @@
  */
 export class MongoBackError extends Error {
     __proto__: Error;
-    
+
     public constructor(message?: string) {
         // This includes a trick in order to make the instanceof properly work
         const trueProto = new.target.prototype;
