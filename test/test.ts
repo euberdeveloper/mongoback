@@ -5,7 +5,9 @@ moduleAlias.addAlias('@test', path.join(process.cwd(), 'dist', 'test'));
 
 import * as chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
+import sionnChai from 'sinon-chai';
 chai.use(chaiAsPromised);
+chai.use(sionnChai);
 
 import complete from '@test/complete/complete.test';
 import errors from '@test/errors/errors.test';
