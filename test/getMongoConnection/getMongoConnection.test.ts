@@ -1,7 +1,6 @@
 import { ConnectionOptions, AuthenticationMechanism } from '@/index';
 import { getMongoConnectionFromOptions } from '@/utils/connection/index';
 
-
 import { expect } from 'chai';
 
 export default function (): void {

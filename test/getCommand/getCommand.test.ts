@@ -1,7 +1,6 @@
 import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '@/index';
 import { getCommand } from '@/utils/exportCollections/getCommand';
 
-
 import { expect } from 'chai';
 
 export default function (): void {
