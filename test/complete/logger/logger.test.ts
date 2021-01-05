@@ -39,7 +39,7 @@ export default function (): void {
             };
             await mongoExport(options);
 
-            expect(console.log).to.have.not.been.called;
+            expect(stubConsoleLog).to.have.not.been.called;
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log nothing (log: [])`, async function () {
@@ -52,7 +52,7 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.not.been.called;
+            expect(stubConsoleLog).to.have.not.been.called;
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log nothing (log: null)`, async function () {
@@ -66,7 +66,7 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.not.been.called;
+            expect(stubConsoleLog).to.have.not.been.called;
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log commands`, async function () {
@@ -77,8 +77,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.been.calledThrice;
-            expect(console.log).to.have.been.calledWithExactly(sinon.match(/COMMAND/));
+            expect(stubConsoleLog).to.have.been.calledThrice;
+            expect(stubConsoleLog).to.have.been.calledWithExactly(sinon.match(/COMMAND/));
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log mongoexports (success)`, async function () {
@@ -89,8 +89,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.been.calledThrice;
-            expect(console.log).to.have.been.calledWithExactly(sinon.match(/SUCCESS/));
+            expect(stubConsoleLog).to.have.been.calledThrice;
+            expect(stubConsoleLog).to.have.been.calledWithExactly(sinon.match(/SUCCESS/));
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log mongoexports (error)`, async function () {
@@ -102,8 +102,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.been.calledThrice;
-            expect(console.log).to.have.been.calledWithExactly(sinon.match(/ERROR/));
+            expect(stubConsoleLog).to.have.been.calledThrice;
+            expect(stubConsoleLog).to.have.been.calledWithExactly(sinon.match(/ERROR/));
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log both mongoexport and command`, async function () {
@@ -114,8 +114,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.callCount(6);
-            expect(console.log).to.have.been.calledWithExactly(sinon.match(/SUCCESS|COMMAND/));
+            expect(stubConsoleLog).to.have.callCount(6);
+            expect(stubConsoleLog).to.have.been.calledWithExactly(sinon.match(/SUCCESS|COMMAND/));
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and log expected and actual collections`, async function () {
@@ -126,8 +126,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.log).to.have.been.calledTwice;
-            expect(console.log).to.have.been.calledWithExactly(sinon.match(/TO EXPORT|EXPORTED/));
+            expect(stubConsoleLog).to.have.been.calledTwice;
+            expect(stubConsoleLog).to.have.been.calledWithExactly(sinon.match(/TO EXPORT|EXPORTED/));
         });
 
         it(`Should export the "dogs", "tigers", "lions" collections and warn when they fail`, async function () {
@@ -139,8 +139,8 @@ export default function (): void {
             };
 
             await mongoExport(options);
-            expect(console.warn).to.have.been.calledThrice;
-            expect(console.warn).to.have.been.calledWithExactly(sinon.match.string, sinon.match.any);
+            expect(stubConsoleWarn).to.have.been.calledThrice;
+            expect(stubConsoleWarn).to.have.been.calledWithExactly(sinon.match.string, sinon.match.any);
         });
     });
 }
