@@ -1,11 +1,7 @@
 import { mongoExport, Options } from '@/index';
 
 import * as path from 'path';
-import * as chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
 import sinon from 'sinon';
-
-chai.use(chaiAsPromised);
 import { expect } from 'chai';
 import { removeExported } from '@test/utils';
 declare const console: {

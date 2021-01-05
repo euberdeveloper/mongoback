@@ -1,10 +1,7 @@
 import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '@/index';
 import { getCommand } from '@/utils/exportCollections/getCommand';
 
-import * as chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
 
-chai.use(chaiAsPromised);
 import { expect } from 'chai';
 
 export default function (): void {

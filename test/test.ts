@@ -3,6 +3,10 @@ import * as path from 'path';
 moduleAlias.addAlias('@', path.join(process.cwd(), 'dist', 'source'));
 moduleAlias.addAlias('@test', path.join(process.cwd(), 'dist', 'test'));
 
+import * as chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+chai.use(chaiAsPromised);
+
 import complete from '@test/complete/complete.test';
 import errors from '@test/errors/errors.test';
 import getCommand from '@test/getCommand/getCommand.test';
