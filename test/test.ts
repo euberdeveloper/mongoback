@@ -13,10 +13,12 @@ import complete from '@test/complete/complete.test';
 import errors from '@test/errors/errors.test';
 import getCommand from '@test/getCommand/getCommand.test';
 import getMongoConnection from '@test/getMongoConnection/getMongoConnection.test';
+import checkMongoexportInstalled from '@test/checkMongoexportInstalled/checkMongoexportInstalled.test';
 
 describe('MongoBack module tests', function () {
-    complete();
-    errors();
-    getCommand();
-    getMongoConnection();
+    // complete();
+    // errors();
+    // getCommand();
+    // getMongoConnection();
+    checkMongoexportInstalled();
 });
