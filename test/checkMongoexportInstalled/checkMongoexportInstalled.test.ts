@@ -3,7 +3,7 @@ import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
 
 import { expect } from 'chai';
 import * as sinon from 'sinon';
-import proxyquire from 'proxyquire';
+import * as proxyquire from 'proxyquire';
 
 export default function (): void {
     describe('Test: checkMongoexportInstalled auxiliary function', function () {

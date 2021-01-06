@@ -1,11 +1,11 @@
-import moduleAlias from 'module-alias';
+import * as moduleAlias from 'module-alias';
 import * as path from 'path';
 moduleAlias.addAlias('@', path.join(process.cwd(), 'dist', 'source'));
 moduleAlias.addAlias('@test', path.join(process.cwd(), 'dist', 'test'));
 
 import * as chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-import sionnChai from 'sinon-chai';
+import * as chaiAsPromised from 'chai-as-promised';
+import * as sionnChai from 'sinon-chai';
 chai.use(chaiAsPromised);
 chai.use(sionnChai);
 

@@ -1,4 +1,4 @@
-import enquirer from 'enquirer';
+import * as enquirer from 'enquirer';
 import { OutOptions } from '@/interfaces/options';
 
 export async function askDestination(options: OutOptions, askDestination: boolean): Promise<void> {

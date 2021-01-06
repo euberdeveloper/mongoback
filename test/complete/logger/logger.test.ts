@@ -1,7 +1,8 @@
 import { mongoExport, Options } from '@/index';
 
 import * as path from 'path';
-import sinon, { SinonSandbox, SinonStub } from 'sinon';
+import * as sinon from 'sinon';
+import { SinonSandbox, SinonStub } from 'sinon';
 import { expect } from 'chai';
 import { removeExported } from '@test/utils';
 

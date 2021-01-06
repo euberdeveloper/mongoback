@@ -1,4 +1,4 @@
-import enquirer from 'enquirer';
+import * as enquirer from 'enquirer';
 import { ScanOptions, MongoScanner, ListDatabasesError, ListCollectionsError } from 'mongo-scanner';
 
 import { ExportedOptions } from '@/interfaces/options';

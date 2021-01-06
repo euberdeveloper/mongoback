@@ -1,5 +1,5 @@
-import ora from 'ora';
-import chalk from 'chalk';
+import * as ora from 'ora';
+import * as chalk from 'chalk';
 
 import { LogOptions } from '@/interfaces/options';
 import { ExportSchema } from '@/interfaces/result';

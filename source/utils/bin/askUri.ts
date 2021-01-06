@@ -1,4 +1,4 @@
-import enquirer from 'enquirer';
+import * as enquirer from 'enquirer';
 import { ConnectionOptions } from '@/interfaces/options';
 
 export async function askUri(options: ConnectionOptions, defaultUri: string, askUri: boolean): Promise<string> {
