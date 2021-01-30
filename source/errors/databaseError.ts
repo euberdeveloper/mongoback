@@ -1,5 +1,4 @@
 import { MongoBackError } from './mongoBackError';
-import { MongoScannerError } from 'mongo-scanner';
 
 /**
  * The MongoBackError that happens because of an operation with MongoDB
@@ -9,9 +8,9 @@ export class DatabaseError extends MongoBackError {
     /**
      * The error that triggered the problem
      */
-    public triggerError: MongoScannerError | null;
+    public triggerError: Error | null;
 
-    constructor(message?: string, triggerError?: MongoScannerError) {
+    constructor(message?: string, triggerError?: Error) {
         super(message ?? triggerError?.message ?? DatabaseError.DEFAULT_MESSAGE);
         this.name = 'MongoBackDatabaseError';
         this.triggerError = triggerError ?? null;
