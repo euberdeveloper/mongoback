@@ -704,6 +704,18 @@ The log will be similar to this:
   <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_mongoexport_log.gif">
 </p>
 
+#### This will export all the collections of the database. Instead of showing the mongoexport logs in the end, it will be logged in realtime.
+
+```js
+const { mongoExport } = require('mongoback');
+const options = { 
+    all: true,
+    logs: ['commands', 'mongoexport'],
+    realtimeLog: true
+};
+
+await mongoExport(options);
+```
 
 #### This will export all the collections of the database. Instead of the default `base` log, the fetched collections and the correctly exported collections are logged.
 
