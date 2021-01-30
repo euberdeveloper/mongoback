@@ -56,19 +56,21 @@ export async function askCollections(
         for (const db of selectedDatabases) {
             const initialCollections = defaultCollections[db] ? defaultCollections[db] : [];
             const allCollections = (await mongoScanner.listCollections(db)).sort((x, y) => x.localeCompare(y));
-            const collectionResult: any = await enquirer.prompt({
-                type: 'autocomplete',
-                name: 'collections',
-                message: `Select the collections of ${db} that you want to export`,
-                choices: allCollections,
-                initial: initialCollections.map(collection => collection.name),
-                multiple: true
-            } as any);
-            const selectedCollections: string[] = collectionResult.collections;
+            if (allCollections?.length) {
+                const collectionResult: any = await enquirer.prompt({
+                    type: 'autocomplete',
+                    name: 'collections',
+                    message: `Select the collections of ${db} that you want to export`,
+                    choices: allCollections,
+                    initial: initialCollections.map(collection => collection.name),
+                    multiple: true
+                } as any);
+                const selectedCollections: string[] = collectionResult.collections;
 
-            result[db] = selectedCollections.map(
-                name => initialCollections.find(collection => collection.name === name) ?? { name, ...rootOptions }
-            );
+                result[db] = selectedCollections.map(
+                    name => initialCollections.find(collection => collection.name === name) ?? { name, ...rootOptions }
+                );
+            }
         }
 
         return result;
