@@ -19,9 +19,9 @@ function addExported(exportedCollections: DetailedExportSchema, db: string, coll
     }
 }
 
-async function execAsync(command: string): Promise<CommandResult> {
+async function execAsync(command: string, silent: boolean): Promise<CommandResult> {
     return new Promise<CommandResult>((resolve, _reject) => {
-        exec(command, { silent: true }, (code, stdout, stderr) => {
+        exec(command, { silent }, (code, stdout, stderr) => {
             resolve({ code, stdout, stderr });
         });
     });
@@ -40,7 +40,7 @@ async function exportCollection(
     const command = getCommand(db, collection, options, outPath);
     logger.printCommand(command);
     logger.exportingCollectionStart(db, collection.name);
-    const commandResult = await execAsync(command);
+    const commandResult = await execAsync(command, !!options.silent || !options.realtimeLog);
     const success = commandResult.code === 0;
     logger.exportingCollectionStop(db, collection.name, success);
     logger.printMongoexport(commandResult.stderr, success);

@@ -69,6 +69,7 @@ yargs
                 absolutePath: args.absolutePath,
                 silent: args.silent,
                 log: args.log,
+                realtimeLog: args.realtimeLog,
                 outDir: args.outDir,
                 outType: args.outType
             };
@@ -454,6 +455,12 @@ yargs
             choices: ['base', 'command', 'mongoexport', 'expectedCollections', 'actualCollections'],
             describe: 'The log modes. If there is more than a mode, they must be specified in an array.',
             type: 'array',
+            group: 'Log options'
+        },
+        realtimeLog: {
+            default: false,
+            describe: 'If the mongoexport logs should be shown during the exporting operations or not',
+            type: 'boolean',
             group: 'Log options'
         },
         // Out options

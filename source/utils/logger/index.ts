@@ -5,6 +5,7 @@ import { LogOptions } from '@/interfaces/options';
 import { ExportSchema } from '@/interfaces/result';
 
 export class Logger {
+    private readonly realtime: boolean;
     private readonly base: boolean;
     private readonly command: boolean;
     private readonly mongoexport: boolean;
@@ -17,6 +18,7 @@ export class Logger {
             if (typeof options.log === 'string') {
                 options.log = [options.log];
             }
+            this.realtime = !!options.realtimeLog;
             this.base = options.log.includes('base');
             this.command = options.log.includes('command');
             this.mongoexport = options.log.includes('mongoexport');
@@ -72,7 +74,10 @@ export class Logger {
     public printMongoexport(log: string, success: boolean): void {
         if (this.mongoexport) {
             const tag = success ? chalk.keyword('limegreen')('[SUCCESS]') : chalk.keyword('orange')('[ERROR]');
-            const text = chalk.white(log);
+            const resultMessage = success
+                ? 'Collections exported successfully!!!'
+                : 'There was an error during the process';
+            const text = chalk.white(this.realtime ? resultMessage : log);
             console.log(`${tag}\n${text}`);
         }
     }

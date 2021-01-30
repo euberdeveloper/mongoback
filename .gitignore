@@ -6,3 +6,4 @@ config.ts
 exported.json
 .nyc_output
 coverage
+exported

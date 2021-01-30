@@ -67,7 +67,8 @@ const DEFAULT_EXPORTED_OPTIONS: ExportedOptions = {
 
 const DEFAULT_LOG_OPTIONS: LogOptions = {
     silent: false,
-    log: 'base'
+    log: 'base',
+    realtimeLog: false
 };
 
 const DEFAULT_OUT_OPTIONS: OutOptions = {
