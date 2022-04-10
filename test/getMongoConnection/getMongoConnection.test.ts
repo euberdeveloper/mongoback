@@ -134,5 +134,29 @@ export default function (): void {
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
         });
+
+        it(`Should return a uri and correct ssl configuration`, async function () {
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27017,
+                authenticationDatabase: 'users',
+                authenticationMechanism: AuthenticationMechanism.PLAIN,
+                ssl: true,
+                sslCAFile: './cert/ca.pem',
+                sslAllowInvalidCertificates: true,
+                sslAllowInvalidHostnames: true
+            };
+
+            const expected = 'mongodb://localhost:27017/?authSource=users&authMechanism=PLAIN';
+            const expectedOptions = {
+                ssl: true,
+                tlsAllowInvalidCertificates: true,
+                tlsAllowInvalidHostnames: true,
+                tlsCAFile: './cert/ca.pem'
+            };
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+            expect(result.options).to.deep.equal(expectedOptions);
+        });
     });
 }
