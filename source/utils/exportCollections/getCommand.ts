@@ -35,7 +35,7 @@ function parseUri(options: ConnectionOptions, db: string): string {
         const protocolSlash = options.uri.indexOf('//') + 1;
         const dbSlash = lastSlash > protocolSlash ? lastSlash : -1;
         if (dbSlash === -1) {
-            result = ` --uri=${options.uri}/${db}`;
+            result = ` --uri="${options.uri}/${db}"`;
         } else {
             const pre = options.uri.slice(0, dbSlash);
             const optionsIndex = options.uri.indexOf('?');
