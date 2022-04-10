@@ -15,7 +15,7 @@ export default function (): void {
             };
             const outPath = './exported';
 
-            const expected = 'mongoexport --uri=mongodb://localhost:27017/cars --collection=Ferrari --out=./exported';
+            const expected = 'mongoexport --uri="mongodb://localhost:27017/cars" --collection=Ferrari --out=./exported';
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
         });
@@ -30,7 +30,7 @@ export default function (): void {
             };
             const outPath = './exported';
 
-            const expected = 'mongoexport --uri=mongodb://localhost:27017/cars --collection=Ferrari --out=./exported';
+            const expected = 'mongoexport --uri="mongodb://localhost:27017/cars" --collection=Ferrari --out=./exported';
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
         });
@@ -46,7 +46,24 @@ export default function (): void {
             const outPath = './exported';
 
             const expected =
-                'mongoexport --uri=mongodb://localhost:27017/cars?connectTimeoutMS=300000 --collection=Ferrari --out=./exported';
+                'mongoexport --uri="mongodb://localhost:27017/cars?connectTimeoutMS=300000" --collection=Ferrari --out=./exported';
+            const result = getCommand(database, collection, options, outPath);
+            expect(result).to.equal(expected);
+        });
+
+        it(`Should return a command with a correctly parsed uri with additional parameters and slash paths`, function () {
+            const database = 'cars';
+            const collection: ExportingCollection = {
+                name: 'Ferrari'
+            };
+            const options: ConnectionOptions = {
+                uri:
+                    'mongodb://localhost:27017/computers?connectTimeoutMS=300000&authSource=admin&tls=true&tlsCAFile=./secret/ca.txt'
+            };
+            const outPath = './exported';
+
+            const expected =
+                'mongoexport --uri="mongodb://localhost:27017/cars?connectTimeoutMS=300000&authSource=admin&tls=true&tlsCAFile=./secret/ca.txt" --collection=Ferrari --out=./exported';
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
         });
