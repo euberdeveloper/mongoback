@@ -2,6 +2,7 @@ import { Options } from '@/interfaces/options';
 import { CliOptions } from '@/interfaces/bin';
 
 import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
+import { checkMongodumpInstalled } from '../checkMongodumpInstalled';
 import { mergeOptions } from '@/utils/options';
 import { Logger } from '@/utils/logger';
 import { getMongoConnectionFromOptions } from '@/utils/connection';
@@ -13,8 +14,12 @@ import { askDestination } from './askDestination';
 import { askCollections } from './askCollections';
 
 export async function mongoExportCli(options: Options, cliOptions: CliOptions): Promise<void> {
-    // Check that mongoexport is installed
-    checkMongoexportInstalled();
+    // Check that mongoexport/mongodump is installed
+    if (options.method === 'mongodump') {
+        checkMongodumpInstalled();
+    } else {
+        checkMongoexportInstalled();
+    }
     // Get purged options
     options = mergeOptions(options);
     // Instantiate logger util

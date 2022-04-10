@@ -4,6 +4,7 @@ export * from './exportingOptions';
 export * from './logOptions';
 export * from './outOptions';
 
+import { ConfigOptions } from './configOptions';
 import { ConnectionOptions } from './connectionOptions';
 import { ExportedOptions } from './exportedOptions';
 import { ExportingOptions } from './exportingOptions';
@@ -27,4 +28,4 @@ import { OutOptions } from './outOptions';
  * @see {@link https://docs.mongodb.com/manual/reference/program/mongoexport/} to further
  * information on the mongoexport options.
  */
-export type Options = ConnectionOptions & ExportedOptions & ExportingOptions & LogOptions & OutOptions;
+export type Options = ConnectionOptions & ExportedOptions & ExportingOptions & LogOptions & OutOptions & ConfigOptions;

@@ -85,6 +85,12 @@ const libConfig = {
             commonjs: '../utils/utils',
             commonjs2: '../utils/utils'
         },
+        '@/utils/checkMongodumpInstalled': {
+            amd: '../utils/utils',
+            root: 'mongoback',
+            commonjs: '../utils/utils',
+            commonjs2: '../utils/utils'
+        },
         '@/utils/logger': {
             amd: '../utils/utils',
             root: 'mongoback',
@@ -162,6 +168,12 @@ const binConfig = {
     },
     externals: [{
         '@/utils/checkMongoexportInstalled': {
+            amd: '../utils/utils',
+            root: 'mongoback',
+            commonjs: '../utils/utils',
+            commonjs2: '../utils/utils'
+        },
+        '@/utils/checkMongodumpInstalled': {
             amd: '../utils/utils',
             root: 'mongoback',
             commonjs: '../utils/utils',

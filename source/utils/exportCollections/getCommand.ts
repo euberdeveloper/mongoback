@@ -1,5 +1,5 @@
 import { ExportingCollection } from '@/interfaces/result';
-import { ConnectionOptions, ExportingOptions } from '@/interfaces/options';
+import { ConnectionOptions, ExportingOptions, Options } from '@/interfaces/options';
 
 function parseGenericBoolean(options: ConnectionOptions | ExportingOptions, param: string): string {
     return options[param] ? ` --${param}` : '';
@@ -96,9 +96,11 @@ function parseFields(options: ExportingOptions): string {
 export function getCommand(
     database: string,
     parsedCollection: ExportingCollection,
-    options: ConnectionOptions,
+    options: Options,
     outPath: string
 ): string {
+    const method = options.method ?? 'mongoexport';
+
     const db = options.uri ? '' : ` --db=${database}`;
     const collection = ` --collection=${parsedCollection.name}`;
 
@@ -143,6 +145,6 @@ export function getCommand(
 
     const out = ` --out=${outPath}`;
 
-    let command = `mongoexport${uri}${host}${port}${username}${password}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${sslFIPSMode}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${dbpath}${directoryperdb}${forceTableScan}${skip}${limit}${sort}${out}`;
+    let command = `${method}${uri}${host}${port}${username}${password}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${sslFIPSMode}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${dbpath}${directoryperdb}${forceTableScan}${skip}${limit}${sort}${out}`;
     return command;
 }

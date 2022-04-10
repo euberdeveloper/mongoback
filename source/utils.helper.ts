@@ -1,4 +1,5 @@
 export * from '@/utils/checkMongoexportInstalled';
+export * from '@/utils/checkMongodumpInstalled';
 export * from '@/utils/connection';
 export * from '@/utils/exportCollections';
 export * from '@/utils/getParsedCollections';
