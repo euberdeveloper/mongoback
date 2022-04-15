@@ -1,6 +1,6 @@
 {
   "name": "mongoback",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "The most powerful npm module to export your MongoDB",
   "main": "bundled/lib/index.js",
   "bin": "bundled/bin/index.js",
@@ -59,13 +59,13 @@
     "mongodb-backup"
   ],
   "dependencies": {
-    "chalk": "^4.1.0",
+    "chalk": "^4.1.2",
     "command-exists": "^1.2.9",
     "enquirer": "^2.3.6",
-    "mongo-scanner": "^2.0.11",
-    "ora": "^5.3.0",
-    "shelljs": "^0.8.4",
-    "yargs": "^16.2.0"
+    "mongo-scanner": "^3.0.0",
+    "ora": "^5.4.1",
+    "shelljs": "^0.8.5",
+    "yargs": "^17.4.1"
   },
   "devDependencies": {
     "@euberdeveloper/eslint-plugin": "^2.3.0",
@@ -104,11 +104,6 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "nyc": {
     "exclude": "**/*.bin.ts test"
