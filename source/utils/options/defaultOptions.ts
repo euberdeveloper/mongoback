@@ -6,6 +6,7 @@ import {
     LogOptions,
     OutOptions
 } from '@/interfaces/options';
+import { ConfigOptions } from '@/interfaces/options/configOptions';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,
@@ -77,10 +78,15 @@ const DEFAULT_OUT_OPTIONS: OutOptions = {
     detailedResult: false
 };
 
+const DEFAULT_CONFIG_OPTIONS: ConfigOptions = {
+    method: 'mongoexport'
+};
+
 export const DEFAULT_OPTIONS: Options = {
     ...DEFAULT_CONNECTION_OPTIONS,
     ...DEFAULT_EXPORTING_OPTIONS,
     ...DEFAULT_EXPORTED_OPTIONS,
     ...DEFAULT_LOG_OPTIONS,
-    ...DEFAULT_OUT_OPTIONS
+    ...DEFAULT_OUT_OPTIONS,
+    ...DEFAULT_CONFIG_OPTIONS
 };

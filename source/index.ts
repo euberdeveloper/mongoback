@@ -11,6 +11,7 @@ import { mergeOptions } from '@/utils/options';
 import { getParsedCollections, removeSchemaDetails } from '@/utils/getParsedCollections';
 import { exportCollections } from '@/utils/exportCollections';
 import { getMongoConnectionFromOptions } from '@/utils/connection';
+import { checkMongodumpInstalled } from './utils/checkMongodumpInstalled';
 
 /**
  * The function to export collections from a mongodb. You can specify the mongodb collection,
@@ -18,8 +19,12 @@ import { getMongoConnectionFromOptions } from '@/utils/connection';
  * @param options The options to specify how, where and what will be exported.
  */
 export async function mongoExport(options?: Options): Promise<ExportResult> {
-    // Check that mongoexport is installed
-    checkMongoexportInstalled();
+    // Check that mongoexport/mongodump is installed
+    if (options?.method === 'mongodump') {
+        checkMongodumpInstalled();
+    } else {
+        checkMongoexportInstalled();
+    }
     // Get purged options
     options = mergeOptions(options);
     // Instantiate logger util
