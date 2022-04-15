@@ -1,5 +1,10 @@
 import * as enquirer from 'enquirer';
-import { ScanOptions, MongoScanner, ListDatabasesError, ListCollectionsError } from 'mongo-scanner';
+import {
+    ScanOptions,
+    MongoScanner,
+    MongoScannerListDatabasesError,
+    MongoScannerListCollectionsError
+} from 'mongo-scanner';
 
 import { ExportedOptions } from '@/interfaces/options';
 import { DetailedExportSchema } from '@/interfaces/result';
@@ -10,9 +15,9 @@ import { purgeExportingOptions } from '@/utils/getParsedCollections/purgeExporti
 
 function getWarnMessage(options: ExportedOptions, logger: Logger) {
     return options.warnIfLackOfPermissions
-        ? (db: string, error: ListDatabasesError | ListCollectionsError) => {
+        ? (db: string, error: MongoScannerListDatabasesError | MongoScannerListCollectionsError) => {
               let message =
-                  error instanceof ListCollectionsError
+                  error instanceof MongoScannerListCollectionsError
                       ? `MongoBack: cannot list collections of ${db}`
                       : 'MongoBack: cannot list databases';
               logger.warn(message, error);
