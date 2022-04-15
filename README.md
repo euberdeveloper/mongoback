@@ -882,7 +882,7 @@ mongoback
  │       └── tree.txt
  ├── package-lock.json
  ├── package.json
- └── tslint.json
+ └── .eslintrc.js
 ```
 
 ## Build
