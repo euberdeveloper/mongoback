@@ -32,7 +32,7 @@ function parseRegExpCollection(
     result: DetailedExportSchema
 ): void {
     const colls = actualCollections.filter(coll => collection.test(coll));
-    colls.forEach(coll => parseCollection(rootOptions, db, coll, result));
+    for (const coll of colls) parseCollection(rootOptions, db, coll, result);
 }
 
 function parseDetailedCollection(

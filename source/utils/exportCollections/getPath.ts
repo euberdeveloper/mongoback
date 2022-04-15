@@ -26,11 +26,10 @@ export function getPath(db: string, collection: ExportingCollection, options: Op
             const filePath = collection.filePath(db, collection.name, extension, outDir);
             if (collection.fileName) {
                 let fileName = '';
-                if (typeof collection.fileName === 'string') {
-                    fileName = collection.fileName;
-                } else {
-                    fileName = collection.fileName(db, collection.name, extension);
-                }
+                fileName =
+                    typeof collection.fileName === 'string'
+                        ? collection.fileName
+                        : collection.fileName(db, collection.name, extension);
                 result = collection.absolutePath ? join(filePath, fileName) : join(outDir, filePath, fileName);
             } else {
                 result = collection.absolutePath ? join(filePath) : join(outDir, filePath);
@@ -44,11 +43,10 @@ export function getPath(db: string, collection: ExportingCollection, options: Op
             result = join(result, filename);
         }
     } else {
-        if (collection.prependDbName || (options.outType === 'flat' && collection.prependDbName !== false)) {
-            result = join(result, `${db}_${collection.name}`);
-        } else {
-            result = join(result, collection.name);
-        }
+        result =
+            collection.prependDbName || (options.outType === 'flat' && collection.prependDbName !== false)
+                ? join(result, `${db}_${collection.name}`)
+                : join(result, collection.name);
         result += `.${extension}`;
     }
 

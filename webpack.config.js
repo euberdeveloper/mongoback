@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
-const DtsBundleWebpack = require('dts-bundle-webpack');
+const BundleDeclarationsWebpackPlugin = require('bundle-declarations-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const utilsConfig = {
@@ -72,10 +72,9 @@ const libConfig = {
         ]
     },
     plugins: [
-        new DtsBundleWebpack({
-            name: 'mongoback',
-            main: 'dist/index.d.ts',
-            out: '../bundled/lib/index.d.ts'
+        new BundleDeclarationsWebpackPlugin({
+            entry: "./source/index.ts",
+            outFile: "./index.d.ts"
         })
     ],
     externals: [{

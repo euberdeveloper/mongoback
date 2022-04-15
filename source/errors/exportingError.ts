@@ -3,7 +3,7 @@ import { MongoBackError } from './mongoBackError';
 /**
  * The MongoBackError that happens because of an error with mongoexport
  */
-export class ExportingError extends MongoBackError {
+export class MongoBackExportingError extends MongoBackError {
     private static readonly DEFAULT_MESSAGE = 'Error in exporting collection';
     /**
      * The database whose collection should have been exported
@@ -34,7 +34,7 @@ export class ExportingError extends MongoBackError {
         log?: string,
         triggerError?: Error
     ) {
-        super(message ?? ExportingError.DEFAULT_MESSAGE);
+        super(message ?? MongoBackExportingError.DEFAULT_MESSAGE);
         this.name = 'MongoBackExportingError';
         this.db = db ?? null;
         this.collection = collection ?? null;

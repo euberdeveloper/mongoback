@@ -57,8 +57,7 @@ export default function (): void {
                 name: 'Ferrari'
             };
             const options: ConnectionOptions = {
-                uri:
-                    'mongodb://localhost:27017/computers?connectTimeoutMS=300000&authSource=admin&tls=true&tlsCAFile=./secret/ca.txt'
+                uri: 'mongodb://localhost:27017/computers?connectTimeoutMS=300000&authSource=admin&tls=true&tlsCAFile=./secret/ca.txt'
             };
             const outPath = './exported';
 
@@ -75,7 +74,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -94,7 +93,7 @@ export default function (): void {
                 host: [
                     {
                         host: 'localhost',
-                        port: 27017
+                        port: 27_017
                     },
                     {
                         host: 'localhost',
@@ -122,7 +121,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 username: 'euber',
                 password: 'burundu'
             };
@@ -141,7 +140,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 ssl: true,
                 sslCAFile: 'path',
                 sslCRLFile: 'path',
@@ -166,7 +165,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 ssl: true,
                 sslCAFile: 'path',
                 sslCRLFile: 'path',
@@ -191,7 +190,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationMechanism: AuthenticationMechanism.MONGODB_X509,
                 authenticationDatabase: 'administrator'
             };
@@ -210,7 +209,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 gssapiHostName: 'host',
                 gssapiServiceName: 'service'
             };
@@ -229,7 +228,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 readPreference: 'secondary'
             };
             const outPath = './exported';
@@ -247,7 +246,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 readPreference: { mode: 'secondary', tagSets: [{ region: 'east' }], maxStalenessSeconds: 120 }
             };
             const outPath = './exported';
@@ -265,7 +264,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -282,7 +281,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -299,7 +298,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -316,7 +315,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -333,7 +332,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -350,7 +349,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -367,7 +366,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 ipv6: true
             };
             const outPath = './exported';
@@ -385,7 +384,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -402,7 +401,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -419,7 +418,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -437,7 +436,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -454,7 +453,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -471,7 +470,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -488,7 +487,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -508,7 +507,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 slaveOk: true
             };
             const outPath = './exported';
@@ -526,7 +525,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -543,7 +542,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -560,7 +559,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
             const outPath = './exported';
 
@@ -576,7 +575,7 @@ export default function (): void {
             };
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 dbpath: 'path',
                 directoryperdb: true
             };

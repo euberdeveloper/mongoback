@@ -55,7 +55,7 @@ export default function (): void {
         it(`Should export collections of 12345 containing only numbers as json or beginning with 'o' as csv, collection "third" of _12345 as csv, "database/collection" as json and "database/collection'n'" as csv`, async function () {
             const options: Options = {
                 collections: {
-                    12345: {
+                    12_345: {
                         collections: [
                             {
                                 match: /^\d+$/,
@@ -73,7 +73,7 @@ export default function (): void {
                     database: [
                         'collection',
                         {
-                            match: /collection[\d]/,
+                            match: /collection\d/,
                             type: 'csv',
                             fields: ['timestamp', 'domain']
                         }

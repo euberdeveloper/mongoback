@@ -10,7 +10,7 @@ import {
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,
     host: 'localhost',
-    port: 27017,
+    port: 27_017,
     username: undefined,
     password: undefined,
     authenticationDatabase: undefined,

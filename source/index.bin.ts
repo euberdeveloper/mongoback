@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-misused-promises, @typescript-eslint/no-floating-promises */
 import * as yargs from 'yargs';
 import { Options } from '@/index';
 import { mongoExportCli } from '@/utils/bin';
@@ -122,7 +121,7 @@ yargs
             group: 'Main connection options'
         },
         port: {
-            default: 27017,
+            default: 27_017,
             describe: 'The port of the MongoDB connection.',
             type: 'number',
             group: 'Main connection options'

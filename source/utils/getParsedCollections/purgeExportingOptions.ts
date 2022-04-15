@@ -1,6 +1,6 @@
 import { ExportingOptions } from '@/interfaces/options';
 
-const KEYS = [
+const KEYS = new Set([
     'quiet',
     'verbose',
     'type',
@@ -19,13 +19,13 @@ const KEYS = [
     'fileName',
     'filePath',
     'absolutePath'
-];
+]);
 
 export function purgeExportingOptions(obj: any): ExportingOptions {
     const purged = { ...obj };
 
     for (const key in purged) {
-        if (!KEYS.includes(key)) {
+        if (!KEYS.has(key)) {
             delete purged[key];
         }
     }

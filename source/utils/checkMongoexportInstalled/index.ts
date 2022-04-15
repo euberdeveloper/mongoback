@@ -1,5 +1,5 @@
 import { sync as commandExists } from 'command-exists';
-import { MongoexportNotInstalledError } from '@/errors';
+import { MongoBackMongoexportNotInstalledError } from '@/errors';
 
 function mongoexportInstalled(): boolean {
     return commandExists('mongoexport');
@@ -7,6 +7,6 @@ function mongoexportInstalled(): boolean {
 
 export function checkMongoexportInstalled(): void {
     if (!mongoexportInstalled()) {
-        throw new MongoexportNotInstalledError();
+        throw new MongoBackMongoexportNotInstalledError();
     }
 }

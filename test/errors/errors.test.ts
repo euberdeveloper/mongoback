@@ -1,4 +1,9 @@
-import { DatabaseError, ExportingError, MongoBackError, MongoexportNotInstalledError } from '@/errors';
+import {
+    MongoBackDatabaseError,
+    MongoBackExportingError,
+    MongoBackError,
+    MongoBackMongoexportNotInstalledError
+} from '@/errors';
 
 import { expect } from 'chai';
 
@@ -20,37 +25,37 @@ export default function (): void {
             expect(error.message).to.equals('MESSAGE');
         });
 
-        it(`Should properly create a default DatabaseError`, function () {
-            const error = new DatabaseError();
+        it(`Should properly create a default MongoBackDatabaseError`, function () {
+            const error = new MongoBackDatabaseError();
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(DatabaseError);
+            expect(error).to.be.instanceOf(MongoBackDatabaseError);
             expect(error.name).to.equals('MongoBackDatabaseError');
         });
-        it(`Should properly create a custom DatabaseError`, function () {
+        it(`Should properly create a custom MongoBackDatabaseError`, function () {
             const triggerError = new Error();
-            const error = new DatabaseError('MESSAGE', triggerError);
+            const error = new MongoBackDatabaseError('MESSAGE', triggerError);
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(DatabaseError);
+            expect(error).to.be.instanceOf(MongoBackDatabaseError);
             expect(error.name).to.equals('MongoBackDatabaseError');
             expect(error.message).to.equals('MESSAGE');
             expect(error.triggerError).to.equals(triggerError);
         });
 
         it(`Should properly create a default ExportingError`, function () {
-            const error = new ExportingError();
+            const error = new MongoBackExportingError();
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(ExportingError);
+            expect(error).to.be.instanceOf(MongoBackExportingError);
             expect(error.name).to.equals('MongoBackExportingError');
         });
         it(`Should properly create a custom ExportingError`, function () {
             const triggerError = new Error();
-            const error = new ExportingError('MESSAGE', 'db', 'collection', 'command', 'log', triggerError);
+            const error = new MongoBackExportingError('MESSAGE', 'db', 'collection', 'command', 'log', triggerError);
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(ExportingError);
+            expect(error).to.be.instanceOf(MongoBackExportingError);
             expect(error.name).to.equals('MongoBackExportingError');
             expect(error.message).to.equals('MESSAGE');
 
@@ -61,19 +66,19 @@ export default function (): void {
             expect(error.triggerError).to.equals(triggerError);
         });
 
-        it(`Should properly create a default MongoexportNotInstalledError`, function () {
-            const error = new MongoexportNotInstalledError();
+        it(`Should properly create a default MongoBackMongoexportNotInstalledError`, function () {
+            const error = new MongoBackMongoexportNotInstalledError();
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(MongoexportNotInstalledError);
+            expect(error).to.be.instanceOf(MongoBackMongoexportNotInstalledError);
             expect(error.name).to.equals('MongoBackMongoexportNotInstalledError');
         });
-        it(`Should properly create a custom MongoexportNotInstalledError`, function () {
+        it(`Should properly create a custom MongoBackMongoexportNotInstalledError`, function () {
             const triggerError = new Error();
-            const error = new MongoexportNotInstalledError('MESSAGE', triggerError);
+            const error = new MongoBackMongoexportNotInstalledError('MESSAGE', triggerError);
 
             expect(error).to.be.instanceOf(Error);
-            expect(error).to.be.instanceOf(MongoexportNotInstalledError);
+            expect(error).to.be.instanceOf(MongoBackMongoexportNotInstalledError);
             expect(error.name).to.equals('MongoBackMongoexportNotInstalledError');
             expect(error.message).to.equals('MESSAGE');
             expect(error.triggerError).to.equals(triggerError);

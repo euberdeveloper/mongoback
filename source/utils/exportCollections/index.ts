@@ -1,6 +1,6 @@
 import { exec } from 'shelljs';
 
-import { ExportingError } from '@/errors';
+import { MongoBackExportingError } from '@/errors';
 import { DetailedExportSchema, ExportingCollection } from '@/interfaces/result';
 import { Options } from '@/interfaces/options';
 import { CommandResult } from '@/interfaces/exportCollections';
@@ -50,7 +50,13 @@ async function exportCollection(
         addExported(exportedCollections, db, collection);
     } else {
         total = false;
-        const exportingError = new ExportingError(undefined, db, collection.name, command, commandResult.stderr);
+        const exportingError = new MongoBackExportingError(
+            undefined,
+            db,
+            collection.name,
+            command,
+            commandResult.stderr
+        );
         if (options.warnIfOneFails) {
             logger.warn(
                 `MongoBack: error in exporting collection ${collection.name} of db ${db}`,

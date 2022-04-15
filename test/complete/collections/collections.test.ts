@@ -88,7 +88,7 @@ export default function (): void {
 
         it(`Should export all collections whose third letter is "o" or beginning with a number`, async function () {
             const options: Options = {
-                collections: [/^[0-9]/, (_db, collection) => collection[2] === 'o'],
+                collections: [/^\d/, (_db, collection) => collection[2] === 'o'],
                 outDir: EXPORTED_PATH,
                 silent: true
             };
@@ -210,7 +210,7 @@ export default function (): void {
         it(`Should export collections ending with "_n" prepending the db name and appending .kebab after their name`, async function () {
             const options: Options = {
                 collections: {
-                    match: /_[\d]$/,
+                    match: /_\d$/,
                     prependDbName: true,
                     fileName: (_db, collection, type) => `${collection}.kebab.${type}`
                 },

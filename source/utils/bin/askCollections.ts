@@ -9,17 +9,15 @@ import { Logger } from '@/utils/logger';
 import { purgeExportingOptions } from '@/utils/getParsedCollections/purgeExportingOptions';
 
 function getWarnMessage(options: ExportedOptions, logger: Logger) {
-    if (options.warnIfLackOfPermissions) {
-        return (db: string, error: ListDatabasesError | ListCollectionsError) => {
-            let message =
-                error instanceof ListCollectionsError
-                    ? `MongoBack: cannot list collections of ${db}`
-                    : 'MongoBack: cannot list databases';
-            logger.warn(message, error);
-        };
-    } else {
-        return undefined;
-    }
+    return options.warnIfLackOfPermissions
+        ? (db: string, error: ListDatabasesError | ListCollectionsError) => {
+              let message =
+                  error instanceof ListCollectionsError
+                      ? `MongoBack: cannot list collections of ${db}`
+                      : 'MongoBack: cannot list databases';
+              logger.warn(message, error);
+          }
+        : undefined;
 }
 
 export async function askCollections(

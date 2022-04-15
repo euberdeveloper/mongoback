@@ -3,7 +3,7 @@ import { MongoScanner, ScanOptions, MongoScannerError, ListDatabasesError, ListC
 import { Options } from '@/interfaces/options';
 import { ConnectionParameters } from '@/interfaces/connection';
 import { ExportSchema, DetailedExportSchema } from '@/interfaces/result';
-import { DatabaseError } from '@/errors';
+import { MongoBackDatabaseError } from '@/errors';
 
 import { Logger } from '@/utils/logger';
 
@@ -15,17 +15,15 @@ import { parseDatabases } from './parseDatabases';
 import { parseAll } from './parseAll';
 
 function getWarnMessage(options: Options, logger: Logger) {
-    if (options.warnIfLackOfPermissions) {
-        return (db: string, error: ListDatabasesError | ListCollectionsError) => {
-            let message =
-                error instanceof ListCollectionsError
-                    ? `MongoBack: cannot list collections of ${db}`
-                    : 'MongoBack: cannot list databases';
-            logger.warn(message, error);
-        };
-    } else {
-        return undefined;
-    }
+    return options.warnIfLackOfPermissions
+        ? (db: string, error: ListDatabasesError | ListCollectionsError) => {
+              let message =
+                  error instanceof ListCollectionsError
+                      ? `MongoBack: cannot list collections of ${db}`
+                      : 'MongoBack: cannot list databases';
+              logger.warn(message, error);
+          }
+        : undefined;
 }
 
 export async function getParsedCollections(
@@ -56,11 +54,8 @@ export async function getParsedCollections(
         await parseAll(rootOptions, all as any, result, mongoScanner);
         await mongoScanner.endConnection();
     } catch (error) {
-        if (error instanceof MongoScannerError) {
-            throw new DatabaseError(undefined, error);
-        } else {
-            throw error;
-        }
+        const error_ = error instanceof MongoScannerError ? new MongoBackDatabaseError(undefined, error) : error;
+        throw error_;
     }
 
     return result;

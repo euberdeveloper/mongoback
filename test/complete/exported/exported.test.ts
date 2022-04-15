@@ -67,7 +67,7 @@ export default function (): void {
                             fields: ['timestamp'],
                             prependDbName: true
                         },
-                        12345: [
+                        12_345: [
                             (_db, collection) =>
                                 +collection > 323
                                     ? {

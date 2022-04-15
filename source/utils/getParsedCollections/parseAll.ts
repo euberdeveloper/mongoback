@@ -17,7 +17,7 @@ export async function parseAll(
         for (const db of databases) {
             const collections = await dbSchema.listCollections(db);
 
-            collections.forEach(collection => parseCollection(rootOptions, db, collection, result));
+            for (const collection of collections) parseCollection(rootOptions, db, collection, result);
         }
     }
 }

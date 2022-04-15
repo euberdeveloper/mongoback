@@ -20,9 +20,9 @@ async function parseDb(
 ): Promise<void> {
     const collections = await mongoScanner.listCollections(db);
 
-    collections.forEach(collection => {
+    for (const collection of collections) {
         parseCollection(rootOptions, db, collection, result);
-    });
+    }
 }
 
 async function parseStringDatabase(
@@ -62,11 +62,9 @@ async function parseDetailedDatabase(
     const exportingOptions = { ...rootOptions, ...dbOptions };
 
     const databases = db.match;
-    if (typeof databases === 'string') {
-        await parseStringDatabase(exportingOptions, databases, actualDatabases, result, mongoScanner);
-    } else {
-        await parseRegExpDatabase(exportingOptions, databases, actualDatabases, result, mongoScanner);
-    }
+    await (typeof databases === 'string'
+        ? parseStringDatabase(exportingOptions, databases, actualDatabases, result, mongoScanner)
+        : parseRegExpDatabase(exportingOptions, databases, actualDatabases, result, mongoScanner));
 }
 
 async function parseLambdaDatabase(

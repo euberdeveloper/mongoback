@@ -1,5 +1,5 @@
 import { ConnectionOptions, AuthenticationMechanism } from '@/index';
-import { getMongoConnectionFromOptions } from '@/utils/connection/index';
+import { getMongoConnectionFromOptions } from '@/utils/connection';
 
 import { expect } from 'chai';
 
@@ -18,7 +18,7 @@ export default function (): void {
         it(`Should return a simple uri with host and port`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017
+                port: 27_017
             };
 
             const expected = 'mongodb://localhost:27017';
@@ -31,7 +31,7 @@ export default function (): void {
                 host: [
                     {
                         host: 'localhost',
-                        port: 27017
+                        port: 27_017
                     },
                     {
                         host: 'localhost',
@@ -52,7 +52,7 @@ export default function (): void {
         it(`Should return a uri with username`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 username: 'euber'
             };
 
@@ -64,7 +64,7 @@ export default function (): void {
         it(`Should return a uri with username and password`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 username: 'euber',
                 password: 'secret'
             };
@@ -77,7 +77,7 @@ export default function (): void {
         it(`Should return a uri with srv`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 srv: true
             };
 
@@ -89,7 +89,7 @@ export default function (): void {
         it(`Should return a uri with authentication database`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationDatabase: 'users'
             };
 
@@ -101,7 +101,7 @@ export default function (): void {
         it(`Should return a uri with authentication mechanism`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationMechanism: AuthenticationMechanism.PLAIN
             };
 
@@ -113,7 +113,7 @@ export default function (): void {
         it(`Should return a uri with authentication database`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationDatabase: 'users'
             };
 
@@ -125,7 +125,7 @@ export default function (): void {
         it(`Should return a uri with both authentication database and mechanism`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationDatabase: 'users',
                 authenticationMechanism: AuthenticationMechanism.PLAIN
             };
@@ -138,7 +138,7 @@ export default function (): void {
         it(`Should return a uri and correct ssl configuration`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
-                port: 27017,
+                port: 27_017,
                 authenticationDatabase: 'users',
                 authenticationMechanism: AuthenticationMechanism.PLAIN,
                 ssl: true,

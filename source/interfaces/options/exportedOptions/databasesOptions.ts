@@ -46,14 +46,14 @@ export type Database = string | RegExp | DetailedDatabase | LambdaDatabase;
  */
 export type Databases = Database | Database[];
 
+function isFunction(obj: any): boolean {
+    return obj && {}.toString.call(obj) === '[object Function]';
+}
+
 /**
  * A function to determine if a [[Database]] instance is of type [[LambdaDatabase]]
  * @param obj The [[Database]] instance whose type will be checked.
  */
 export function instanceOfLambdaDatabase(obj: Database): obj is LambdaDatabase {
-    function isFunction(obj: any): boolean {
-        return obj && {}.toString.call(obj) === '[object Function]';
-    }
-
     return isFunction(obj);
 }

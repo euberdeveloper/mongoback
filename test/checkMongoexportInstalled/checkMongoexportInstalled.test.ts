@@ -1,4 +1,4 @@
-import { MongoexportNotInstalledError } from '@/errors';
+import { MongoBackMongoexportNotInstalledError } from '@/errors';
 import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
 
 import { expect } from 'chai';
@@ -31,7 +31,7 @@ export default function (): void {
             });
             const mockedCheckMongoexportInstalled: typeof checkMongoexportInstalled =
                 proxyedModule.checkMongoexportInstalled;
-            expect(mockedCheckMongoexportInstalled).to.throw(MongoexportNotInstalledError);
+            expect(mockedCheckMongoexportInstalled).to.throw(MongoBackMongoexportNotInstalledError);
             expect(fakeChecker).to.have.been.calledOnceWithExactly('mongoexport');
         });
     });

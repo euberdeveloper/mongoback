@@ -8,9 +8,8 @@ export class MongoBackError extends Error {
 
     constructor(message?: string) {
         // This includes a trick in order to make the instanceof properly work
-        const trueProto = new.target.prototype;
         super(message);
-        this.__proto__ = trueProto;
+        Object.setPrototypeOf(this, new.target.prototype);
 
         this.name = 'MongoBackError';
     }
