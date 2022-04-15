@@ -31,16 +31,16 @@ function parseUri(options: ConnectionOptions, db: string): string {
     let result = '';
 
     if (options.uri) {
-        const lastSlash = options.uri.lastIndexOf('/');
+        const lastSlash = options.uri.split('?')[0].lastIndexOf('/');
         const protocolSlash = options.uri.indexOf('//') + 1;
         const dbSlash = lastSlash > protocolSlash ? lastSlash : -1;
         if (dbSlash === -1) {
-            result = ` --uri=${options.uri}/${db}`;
+            result = ` --uri="${options.uri}/${db}"`;
         } else {
             const pre = options.uri.slice(0, dbSlash);
             const optionsIndex = options.uri.indexOf('?');
             const post = optionsIndex === -1 ? '' : options.uri.slice(optionsIndex);
-            result = ` --uri=${pre}/${db}${post}`;
+            result = ` --uri="${pre}/${db}${post}"`;
         }
     }
 

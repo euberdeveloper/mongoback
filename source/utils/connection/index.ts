@@ -12,6 +12,21 @@ async function getMongoConnectionOptions(options: ConnectionOptions): Promise<Mo
     if (options.ssl) {
         result.ssl = options.ssl;
     }
+    if (options.sslCAFile) {
+        result.tlsCAFile = options.sslCAFile;
+    }
+    if (options.sslAllowInvalidCertificates) {
+        result.tlsAllowInvalidCertificates = options.sslAllowInvalidCertificates;
+    }
+    if (options.sslAllowInvalidHostnames) {
+        result.tlsAllowInvalidHostnames = options.sslAllowInvalidHostnames;
+    }
+    if (options.sslPEMKeyPassword) {
+        result.tlsCertificateKeyFilePassword = options.sslPEMKeyPassword;
+    }
+    if (options.sslPEMKeyFile) {
+        result.tlsCertificateKeyFile = options.sslPEMKeyFile;
+    }
 
     return result;
 }
