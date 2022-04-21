@@ -1,6 +1,6 @@
 {
   "name": "mongoback",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "The most powerful npm module to export your MongoDB",
   "main": "bundled/lib/index.js",
   "bin": "bundled/bin/index.js",
@@ -62,10 +62,13 @@
     "chalk": "^4.1.2",
     "command-exists": "^1.2.9",
     "enquirer": "^2.3.6",
-    "mongo-scanner": "^3.0.0",
+    "mongo-scanner": "^3.0.5",
     "ora": "^5.4.1",
     "shelljs": "^0.8.5",
     "yargs": "^17.4.1"
+  },
+  "nyc": {
+    "exclude": "**/*.bin.ts test"
   },
   "devDependencies": {
     "@euberdeveloper/eslint-plugin": "^2.3.0",
@@ -84,10 +87,10 @@
     "bundle-declarations-webpack-plugin": "^3.0.1",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.1",
-    "dree": "^3.3.6",
+    "dree": "^3.3.7",
     "mocha": "^9.2.2",
     "module-alias": "^2.2.2",
-    "mongo-cleaner": "^3.3.6",
+    "mongo-cleaner": "^3.3.10",
     "nyc": "^15.1.0",
     "proxyquire": "^2.1.3",
     "rimraf": "^3.0.2",
@@ -97,15 +100,10 @@
     "sinon-chai": "^3.7.0",
     "ts-loader": "^9.2.8",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
-    "ttypescript": "^1.5.13",
     "typedoc": "^0.22.15",
     "typescript": "^4.6.3",
-    "typescript-transform-paths": "^3.3.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
-  },
-  "nyc": {
-    "exclude": "**/*.bin.ts test"
   }
 }

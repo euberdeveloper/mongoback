@@ -25,8 +25,7 @@ const utilsConfig = {
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
-                        loader: 'ts-loader',
-                        options: { compiler: 'ttypescript' }
+                        loader: 'ts-loader'
                     }
                 ]
             }
@@ -64,8 +63,7 @@ const libConfig = {
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
-                        loader: 'ts-loader',
-                        options: { compiler: 'ttypescript' }
+                        loader: 'ts-loader'
                     }
                 ]
             }
@@ -149,8 +147,7 @@ const binConfig = {
                 include: path.resolve(__dirname, 'source'),
                 use: [
                     {
-                        loader: 'ts-loader',
-                        options: { compiler: 'ttypescript' }
+                        loader: 'ts-loader'
                     },
                     {
                         loader: 'shebang-loader'
