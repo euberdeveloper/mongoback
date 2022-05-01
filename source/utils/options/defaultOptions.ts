@@ -27,6 +27,8 @@ const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     authenticationMechanism: undefined,
     gssapiServiceName: undefined,
     gssapiHostName: undefined,
+    awsSessionToken: undefined,
+    sslFIPSMode: undefined,
     slaveOk: false,
     readPreference: undefined,
     dbpath: undefined,

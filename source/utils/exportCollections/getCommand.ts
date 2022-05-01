@@ -122,6 +122,7 @@ export function getCommand(
     const authenticationMechanism = parseGenericString(options, 'authenticationMechanism');
     const gssapiServiceName = parseGenericString(options, 'gssapiServiceName');
     const gssapiHostName = parseGenericString(options, 'gssapiHostName');
+    const awsSessionToken = parseGenericString(options, 'awsSessionToken');
     const readPreference = parseGenericJsonString(options, 'readPreference', false);
     const ipv6 = parseGenericBoolean(options, 'ipv6');
     const slaveOk = parseGenericBoolean(options, 'slaveOk');
@@ -145,6 +146,8 @@ export function getCommand(
 
     const out = ` --out=${outPath}`;
 
-    let command = `${method}${uri}${host}${port}${username}${password}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${sslFIPSMode}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${dbpath}${directoryperdb}${forceTableScan}${skip}${limit}${sort}${out}`;
+    let command = `${
+        method as string
+    }${uri}${host}${port}${username}${password}${db}${collection}${ssl}${sslCAFile}${sslPEMKeyFile}${sslPEMKeyPassword}${sslCRLFile}${sslAllowInvalidCertificates}${sslAllowInvalidHostnames}${sslFIPSMode}${authenticationMechanism}${gssapiServiceName}${gssapiHostName}${awsSessionToken}${authenticationDatabase}${readPreference}${verbose}${quiet}${ipv6}${fields}${fieldFile}${query}${type}${jsonFormat}${jsonArray}${pretty}${noHeaderLine}${slaveOk}${dbpath}${directoryperdb}${forceTableScan}${skip}${limit}${sort}${out}`;
     return command;
 }

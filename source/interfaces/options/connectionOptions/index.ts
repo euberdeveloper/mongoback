@@ -196,6 +196,14 @@ export interface ConnectionOptions {
      */
     gssapiHostName?: string;
     /**
+     * If connecting to a MongoDB Atlas cluster using the MONGODB-AWS authentication
+     * mechanism, using session tokens in addition to your AWS access key ID and secret
+     * access key, you can specify your AWS session token
+     *
+     * Default: undefined
+     */
+    awsSessionToken?: string;
+    /**
      * Sets the Read Preference to nearest, allowing mongoexport to read data
      * from secondary replica set members.
      *

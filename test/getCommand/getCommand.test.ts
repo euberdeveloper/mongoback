@@ -221,6 +221,24 @@ export default function (): void {
             expect(result).to.equal(expected);
         });
 
+        it(`Should return a command with aws session token parameter`, function () {
+            const database = 'cars';
+            const collection: ExportingCollection = {
+                name: 'Ferrari'
+            };
+            const options: ConnectionOptions = {
+                host: 'localhost',
+                port: 27_017,
+                awsSessionToken: 'tochen'
+            };
+            const outPath = './exported';
+
+            const expected =
+                'mongoexport --host=localhost --port=27017 --db=cars --collection=Ferrari --awsSessionToken=tochen --out=./exported';
+            const result = getCommand(database, collection, options, outPath);
+            expect(result).to.equal(expected);
+        });
+
         it(`Should return a command with readPreference (secondary)`, function () {
             const database = 'cars';
             const collection: ExportingCollection = {
