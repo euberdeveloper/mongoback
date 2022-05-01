@@ -1,7 +1,7 @@
 /**
  * The various log modes
  */
-export type LogType = 'base' | 'command' | 'mongoexport' | 'expectedCollections' | 'actualCollections';
+export type LogType = 'base' | 'command' | 'mongo' | 'expectedCollections' | 'actualCollections';
 /**
  * An array of [[LogType]]
  */
@@ -22,8 +22,8 @@ export interface LogOptions {
      *
      * Possible values:
      * - 'base': During exporting, the databases and collections are shown with a spinner.
-     * - 'command': Logs the mongoexport command
-     * - 'mongoexport': Logs the mongoexport log
+     * - 'command': Logs the mongoexport/mongodump command
+     * - 'mongo': Logs the mongoexport/mongodump log
      * - 'expectedCollections': Logs the object containing the collections expected to be exported
      * - 'actualCollections': Logs the object containing the collections that have actually been exported
      *

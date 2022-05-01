@@ -86,7 +86,7 @@ export default function (): void {
             const options: Options = {
                 collections: ['dogs', 'tigers', 'lions'],
                 outDir: EXPORTED_PATH,
-                log: ['mongoexport']
+                log: ['mongo']
             };
 
             await mongoExport(options);
@@ -97,7 +97,7 @@ export default function (): void {
         it(`Should export the "dogs", "tigers", "lions" collections and log mongoexports (error)`, async function () {
             const options: Options = {
                 collections: ['dogs', 'tigers', 'lions'],
-                log: ['mongoexport'],
+                log: ['mongo'],
                 type: 'csv',
                 outDir: EXPORTED_PATH
             };
@@ -110,7 +110,7 @@ export default function (): void {
         it(`Should export the "dogs", "tigers", "lions" collections and log both mongoexport and command`, async function () {
             const options: Options = {
                 collections: ['dogs', 'tigers', 'lions'],
-                log: ['command', 'mongoexport'],
+                log: ['command', 'mongo'],
                 outDir: EXPORTED_PATH
             };
 

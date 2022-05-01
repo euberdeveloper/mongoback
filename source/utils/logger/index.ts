@@ -21,7 +21,7 @@ export class Logger {
             this.realtime = !!options.realtimeLog;
             this.base = options.log.includes('base');
             this.command = options.log.includes('command');
-            this.mongoexport = options.log.includes('mongoexport');
+            this.mongoexport = options.log.includes('mongo');
             this.expectedCollections = options.log.includes('expectedCollections');
             this.actualCollections = options.log.includes('actualCollections');
         }
