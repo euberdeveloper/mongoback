@@ -1,4 +1,4 @@
-import { ExportingOptions } from '../options';
+import { MongoExportExportingOptions } from '../options';
 
 /**
  * An interface that represents MongoDB collections with their database.
@@ -15,7 +15,7 @@ export interface ExportSchema {
  * The name property is the string name of the collection, the other properties
  * are the [[ExportingOptions]] of the collection.
  */
-export type ExportingCollection = { name: string } & ExportingOptions;
+export type ExportingCollection = { name: string } & MongoExportExportingOptions;
 /**
  * An interface that represents MongoDB collections with their database.
  * The keys are the databases and the values of those keys is an array of all the

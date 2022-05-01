@@ -1,12 +1,12 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '@/types/options';
+import { MongoExportExportingOptions } from '@/types/options';
 import { DetailedExportSchema } from '@/types/result';
 
 import { parseCollection } from './parseCollection';
 
 export async function parseAll(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     all: boolean,
     result: DetailedExportSchema,
     dbSchema: MongoScanner

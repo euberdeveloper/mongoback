@@ -1,6 +1,6 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '@/types/options/exportingOptions';
+import { MongoExportExportingOptions } from '@/types/options/exportingOptions';
 import { Database, instanceOfLambdaDatabase, LambdaDatabase, DetailedDatabase } from '@/types/options/exportedOptions';
 import { DetailedExportSchema } from '@/types/result';
 
@@ -8,7 +8,7 @@ import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseCollection } from './parseCollection';
 
 async function parseDb(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     result: DetailedExportSchema,
     mongoScanner: MongoScanner
@@ -21,7 +21,7 @@ async function parseDb(
 }
 
 async function parseStringDatabase(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     actualDatabases: string[],
     result: DetailedExportSchema,
@@ -33,7 +33,7 @@ async function parseStringDatabase(
 }
 
 async function parseRegExpDatabase(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: RegExp,
     actualDatabases: string[],
     result: DetailedExportSchema,
@@ -47,7 +47,7 @@ async function parseRegExpDatabase(
 }
 
 async function parseDetailedDatabase(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: DetailedDatabase,
     actualDatabases: string[],
     result: DetailedExportSchema,
@@ -63,7 +63,7 @@ async function parseDetailedDatabase(
 }
 
 async function parseLambdaDatabase(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     lambda: LambdaDatabase,
     actualDatabases: string[],
     result: DetailedExportSchema,
@@ -90,7 +90,7 @@ async function parseLambdaDatabase(
 }
 
 async function parseDatabase(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: Database,
     actualDatabases: string[],
     result: DetailedExportSchema,
@@ -108,7 +108,7 @@ async function parseDatabase(
 }
 
 export async function parseDatabases(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     databases: Database[],
     result: DetailedExportSchema,
     mongoScanner: MongoScanner

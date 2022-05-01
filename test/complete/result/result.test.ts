@@ -1,4 +1,4 @@
-import { mongoExport, Options, ExportResultCode, ExportResult, ExportingOptions } from '@/index';
+import { mongoExport, Options, ExportResultCode, ExportResult, MongoExportExportingOptions } from '@/index';
 
 import * as path from 'path';
 
@@ -74,7 +74,7 @@ export default function (): void {
             };
             const result = await mongoExport(options);
 
-            const exportingOptions: ExportingOptions = {
+            const exportingOptions: MongoExportExportingOptions = {
                 fieldFile: undefined,
                 fields: undefined,
                 fileName: undefined,

@@ -1,23 +1,23 @@
-import { ExportingOptions } from '../exportingOptions';
+import { MongoExportExportingOptions } from '../exportingOptions';
 
 /**
  * A callback type whose instances can be in the "collections" option.
  * All the databases and collections will be passed to this callback and if true or an
- * [[ExportingOptions]] object with further options are returned, the collection will
+ * [[MongoExportExportingOptions]] object with further options are returned, the collection will
  * be exported.
  * @param db The database token in consideration
  * @param collections The collection token in consideration
  * @returns If true the collection will be exported with default exporting options. If
- * an [[ExportingOptions]] object with further options the collection will be exported with that options.
+ * an [[MongoExportExportingOptions]] object with further options the collection will be exported with that options.
  * If false, null or undefined the collection will not be exported.
  */
-export type LambdaCollection = (db: string, collection: string) => boolean | ExportingOptions;
+export type LambdaCollection = (db: string, collection: string) => boolean | MongoExportExportingOptions;
 
 /**
  * An object whose instances can be in the "collections" option.
  * The property "match" must be specified. If it is a string, all collections equals to
  * that string will be exported. If it is a RegExp, all collections matching that RegExp
- * will be exported. The other properties are the [[ExportingOptions]] exporting options
+ * will be exported. The other properties are the [[MongoExportExportingOptions]] exporting options
  * that overwrite the default ones.
  */
 export type DetailedCollection = {
@@ -25,7 +25,7 @@ export type DetailedCollection = {
      * The collections to export as a string or RegExp.
      */
     match: string | RegExp;
-} & ExportingOptions;
+} & MongoExportExportingOptions;
 
 /**
  * A type whose instances can be in the "collections" option.
@@ -33,9 +33,9 @@ export type DetailedCollection = {
  * If it is a string, all collections equals to that string will be exported.
  * If it is a RegExp, all collections matching that RegExp will be exported.
  * If it is an [[DetailedCollection]], all collections matching its "collections" property
- * will be exported with the object [[ExportingOptions]] overwriting the derault ones.
+ * will be exported with the object [[MongoExportExportingOptions]] overwriting the derault ones.
  * If it is a [[LambdaCollection]], all collections that passed to that function return
- * a truthy value will be exported, with the eventual [[ExportingOptions]] returned
+ * a truthy value will be exported, with the eventual [[MongoExportExportingOptions]] returned
  * overwriting the default ones.
  */
 export type GeneralCollection = string | RegExp | DetailedCollection | LambdaCollection;
@@ -51,14 +51,14 @@ export type GeneralCollections = GeneralCollection | GeneralCollection[];
  * The type whose instances can be values of the [[SpecificCollections]] keys.
  * It is an object with a property "collections", which is an array of [[GeneralCollection]]
  * that defines which collections of the database will be exported. The other properties are
- * [[ExportingOptions]] that will overwrite the default ones for these collections.
+ * [[MongoExportExportingOptions]] that will overwrite the default ones for these collections.
  */
 export type DetailedGeneralCollections = {
     /**
      * The collections to export as an array of [[GeneralCollection]]
      */
     collections: GeneralCollection[];
-} & ExportingOptions;
+} & MongoExportExportingOptions;
 
 /**
  * A type whose instances can be in the "collections" option.
@@ -67,7 +67,7 @@ export type DetailedGeneralCollections = {
  * The [[GeneralCollections]] instances will export all the collections whose database
  * is the database-key and that match the instance.
  * The [[DetailedGeneralCollections]] is an object having an array of [[GeneralCollection]]
- * as "collections" property and additional [[ExportingOptions]] properties that overwrite
+ * as "collections" property and additional [[MongoExportExportingOptions]] properties that overwrite
  * the default ones.
  */
 export interface SpecificCollections {

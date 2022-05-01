@@ -1,4 +1,4 @@
-import { ExportingOptions } from '@/types/options/exportingOptions';
+import { MongoExportExportingOptions } from '@/types/options/exportingOptions';
 import {
     Collection,
     SpecificCollections,
@@ -24,7 +24,7 @@ export function divideCollections(collections: Collection[]): {
 }
 
 export function parseCollection(
-    exportingOptions: ExportingOptions,
+    exportingOptions: MongoExportExportingOptions,
     db: string,
     name: string,
     parsed: DetailedExportSchema

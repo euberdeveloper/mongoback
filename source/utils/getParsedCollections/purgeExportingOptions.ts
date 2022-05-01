@@ -1,4 +1,4 @@
-import { ExportingOptions } from '@/types/options';
+import { MongoExportExportingOptions } from '@/types/options';
 
 const KEYS = new Set([
     'quiet',
@@ -21,7 +21,7 @@ const KEYS = new Set([
     'absolutePath'
 ]);
 
-export function purgeExportingOptions(obj: any): ExportingOptions {
+export function purgeExportingOptions(obj: any): MongoExportExportingOptions {
     const purged = { ...obj };
 
     for (const key in purged) {

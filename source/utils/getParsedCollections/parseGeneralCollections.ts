@@ -1,6 +1,6 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '@/types/options/exportingOptions';
+import { MongoExportExportingOptions } from '@/types/options/exportingOptions';
 import {
     GeneralCollection,
     instanceofLambdaCollection,
@@ -13,7 +13,7 @@ import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseCollection } from './parseCollection';
 
 function parseStringCollection(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     collection: string,
     actualCollections: string[],
@@ -25,7 +25,7 @@ function parseStringCollection(
 }
 
 function parseRegExpCollection(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     collection: RegExp,
     actualCollections: string[],
@@ -36,7 +36,7 @@ function parseRegExpCollection(
 }
 
 function parseDetailedCollection(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     collection: DetailedCollection,
     actualCollections: string[],
@@ -54,7 +54,7 @@ function parseDetailedCollection(
 }
 
 function parseLambdaCollection(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     lambda: LambdaCollection,
     actualCollections: string[],
@@ -81,7 +81,7 @@ function parseLambdaCollection(
 }
 
 export async function parseGeneralCollection(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     collection: GeneralCollection,
     result: DetailedExportSchema,
@@ -101,7 +101,7 @@ export async function parseGeneralCollection(
 }
 
 export async function parseGeneralCollections(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     collections: GeneralCollection[],
     result: DetailedExportSchema,
     mongoScanner: MongoScanner

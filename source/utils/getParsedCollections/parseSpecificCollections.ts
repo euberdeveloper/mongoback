@@ -1,6 +1,6 @@
 import { MongoScanner } from 'mongo-scanner';
 
-import { ExportingOptions } from '@/types/options/exportingOptions';
+import { MongoExportExportingOptions } from '@/types/options/exportingOptions';
 import { SpecificCollections, instanceOfGeneralCollection, GeneralCollection } from '@/types/options/exportedOptions';
 import { DetailedExportSchema } from '@/types/result';
 
@@ -8,7 +8,7 @@ import { purgeExportingOptions } from './purgeExportingOptions';
 import { parseGeneralCollection } from './parseGeneralCollections';
 
 async function parseGeneralCollectionsInDb(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     db: string,
     collections: GeneralCollection[],
     result: DetailedExportSchema,
@@ -20,14 +20,14 @@ async function parseGeneralCollectionsInDb(
 }
 
 export async function parseSpecificCollections(
-    rootOptions: ExportingOptions,
+    rootOptions: MongoExportExportingOptions,
     specific: SpecificCollections[],
     result: DetailedExportSchema,
     mongoScanner: MongoScanner
 ): Promise<void> {
     for (const collections of specific) {
         for (const db in collections) {
-            let dbOptions: ExportingOptions = {};
+            let dbOptions: MongoExportExportingOptions = {};
             let colls: GeneralCollection[];
 
             const dbInfo: any = collections[db];
@@ -39,7 +39,7 @@ export async function parseSpecificCollections(
                 dbOptions = purgeExportingOptions(dbInfo);
                 colls = dbInfo.collections;
             }
-            const exportingOptions: ExportingOptions = { ...rootOptions, ...dbOptions };
+            const exportingOptions: MongoExportExportingOptions = { ...rootOptions, ...dbOptions };
 
             await parseGeneralCollectionsInDb(exportingOptions, db, colls, result, mongoScanner);
         }

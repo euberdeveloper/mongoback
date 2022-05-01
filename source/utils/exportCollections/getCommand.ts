@@ -1,15 +1,15 @@
 import { ExportingCollection } from '@/types/result';
-import { ConnectionOptions, ExportingOptions, Options } from '@/types/options';
+import { ConnectionOptions, MongoExportExportingOptions, Options } from '@/types/options';
 
-function parseGenericBoolean(options: ConnectionOptions | ExportingOptions, param: string): string {
+function parseGenericBoolean(options: ConnectionOptions | MongoExportExportingOptions, param: string): string {
     return options[param] ? ` --${param}` : '';
 }
-function parseGenericString(options: ConnectionOptions | ExportingOptions, param: string): string {
+function parseGenericString(options: ConnectionOptions | MongoExportExportingOptions, param: string): string {
     const value: string = options[param];
     return value ? ` --${param}=${value}` : '';
 }
 function parseGenericJsonString(
-    options: ConnectionOptions | ExportingOptions,
+    options: ConnectionOptions | MongoExportExportingOptions,
     param: string,
     useApixes: boolean
 ): string {
@@ -60,7 +60,7 @@ function parseHost(options: ConnectionOptions): string {
 
     return result;
 }
-function parseVerbose(options: ExportingOptions): string {
+function parseVerbose(options: MongoExportExportingOptions): string {
     let result = '';
 
     if (options.verbose) {
@@ -79,7 +79,7 @@ function parseVerbose(options: ExportingOptions): string {
 
     return result;
 }
-function parseFields(options: ExportingOptions): string {
+function parseFields(options: MongoExportExportingOptions): string {
     let result = '';
 
     if (options.fields) {

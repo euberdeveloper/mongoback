@@ -7,7 +7,7 @@ export * from './outOptions';
 import { ConfigOptions } from './configOptions';
 import { ConnectionOptions } from './connectionOptions';
 import { ExportedOptions } from './exportedOptions';
-import { ExportingOptions } from './exportingOptions';
+import { MongoExportExportingOptions } from './exportingOptions';
 import { LogOptions } from './logOptions';
 import { OutOptions } from './outOptions';
 
@@ -28,4 +28,9 @@ import { OutOptions } from './outOptions';
  * @see {@link https://www.mongodb.com/docs/database-tools} to further
  * information on the mongoexport/mongodump options.
  */
-export type Options = ConnectionOptions & ExportedOptions & ExportingOptions & LogOptions & OutOptions & ConfigOptions;
+export type Options = ConnectionOptions &
+    ExportedOptions &
+    MongoExportExportingOptions &
+    LogOptions &
+    OutOptions &
+    ConfigOptions;

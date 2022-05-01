@@ -1,4 +1,11 @@
-import { Options, ConnectionOptions, ExportingOptions, ExportedOptions, LogOptions, OutOptions } from '@/types/options';
+import {
+    Options,
+    ConnectionOptions,
+    MongoExportExportingOptions,
+    ExportedOptions,
+    LogOptions,
+    OutOptions
+} from '@/types/options';
 import { ConfigOptions } from '@/types/options/configOptions';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
@@ -30,7 +37,7 @@ const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     ipv6: false
 };
 
-const DEFAULT_EXPORTING_OPTIONS: ExportingOptions = {
+const DEFAULT_EXPORTING_OPTIONS: MongoExportExportingOptions = {
     quiet: false,
     verbose: false,
     type: undefined,

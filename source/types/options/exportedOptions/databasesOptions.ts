@@ -1,22 +1,22 @@
-import { ExportingOptions } from '../exportingOptions';
+import { MongoExportExportingOptions } from '../exportingOptions';
 
 /**
  * A callback type whose instances can be in the "databases" option.
  * All the databases will be passed to this callback and if true or an
- * [[ExportingOptions]] object with further options are returned, the database will
+ * [[MongoExportExportingOptions]] object with further options are returned, the database will
  * be exported.
  * @param db The database token in consideration
  * @returns If true the database will be exported with default exporting options. If
- * an [[ExportingOptions]] object with further options the database will be exported with that options.
+ * an [[MongoExportExportingOptions]] object with further options the database will be exported with that options.
  * If false, null or undefined the database will not be exported.
  */
-export type LambdaDatabase = (db: string) => boolean | ExportingOptions;
+export type LambdaDatabase = (db: string) => boolean | MongoExportExportingOptions;
 
 /**
  * An object whose instances can be in the "databases" option.
  * The property "match" must be specified. If it is a string, all databases equals to
  * that string will be exported. If it is a RegExp, all databases matching that RegExp
- * will be exported. The other properties are the [[ExportingOptions]] exporting options
+ * will be exported. The other properties are the [[MongoExportExportingOptions]] exporting options
  * that overwrite the default ones.
  */
 export type DetailedDatabase = {
@@ -24,7 +24,7 @@ export type DetailedDatabase = {
      * The databases to export as a string or RegExp.
      */
     match: string | RegExp;
-} & ExportingOptions;
+} & MongoExportExportingOptions;
 
 /**
  * A type whose instances can be in the "databases" option.
@@ -32,9 +32,9 @@ export type DetailedDatabase = {
  * If it is a string, all databases equals to that string will be exported.
  * If it is a RegExp, all databases matching that RegExp will be exported.
  * If it is an [[DetailedDatabase]], all databases matching its "databases" property
- * will be exported with the object [[ExportingOptions]] overwriting the derault ones.
+ * will be exported with the object [[MongoExportExportingOptions]] overwriting the derault ones.
  * If it is a [[LambdaDatabase]], all databases that passed to that function return
- * a truthy value will be exported, with the eventual [[ExportingOptions]] returned
+ * a truthy value will be exported, with the eventual [[MongoExportExportingOptions]] returned
  * overwriting the default ones.
  */
 export type Database = string | RegExp | DetailedDatabase | LambdaDatabase;

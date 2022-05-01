@@ -1,5 +1,7 @@
+import { StandardCommonExportingOptions } from './common';
+
 /**
- * The exporting options regarding the mongoexport command.
+ * The exporting options regarding the mongoexport commands.
  *
  * Most of the properties are exactly the same of the mongoexport options. Some are
  * slightly modified to allow a more confortable usage, without changing what will
@@ -13,26 +15,9 @@
  * See the mongoexport official documentation to further information.
  *
  * @see {@link https://www.mongodb.com/docs/database-tools} to further
- * information on the mongoexport/mongodump options.
+ * information on the mongoexport options.
  */
-export interface StandardExportingOptions {
-    /**
-     * Runs mongoexport in a quiet mode that attempts to limit the amount of output.
-     *
-     * Default: false
-     */
-    quiet?: boolean;
-    /**
-     * Increases the amount of internal reporting returned on standard output or in
-     * log files. Increase the verbosity with the -v form by including the option
-     * multiple times, (e.g. -vvvvv.)
-     *
-     * If the value is true, the option '--verbose' will be added. If it is a number,
-     * it will be the number of v that will be put in the command. (e.g. 3 gives -vvv).
-     *
-     * Default: false
-     */
-    verbose?: boolean | number;
+export interface StandardMongoExportExportingOptions extends StandardCommonExportingOptions {
     /**
      * Specifies the file type to export. Specify csv for CSV format or json for JSON format.
      * If you specify csv, then you must also use either the --fields or the
@@ -62,20 +47,6 @@ export interface StandardExportingOptions {
      * Default: false
      */
     pretty?: boolean;
-    /**
-     * Provides a query as a JSON document (enclosed in quotes) to return matching
-     * documents in the export. You must enclose the query document in single
-     * quotes ('{ ... }') to ensure that it does not interact with your
-     * shell environment. Starting in MongoDB 4.2, the query must be in
-     * Extended JSON v2 format (either relaxed or canonical/strict mode),
-     * including enclosing the field names and operators in quotes.
-     *
-     * You can pass the argument either as a string (it will automatically be included
-     * in apixes) or as an object.
-     *
-     * Default: undefined
-     */
-    query?: string | any;
     /**
      * Specifies a field or fields to include in the export. Use a comma
      * separated list of fields to specify multiple fields. If any of your field
@@ -141,6 +112,9 @@ export interface StandardExportingOptions {
     /**
      * Forces mongoexport to scan the data store directly instead of traversing the
      * _id field index. Use --forceTableScan to skip the index.
+     *
+     * @deprecated
+     * Note: this option is a deprecated option of mongoexport
      *
      * Default: false
      */
