@@ -5,8 +5,10 @@ export enum AuthenticationMechanism {
     SCRAM_SHA_1 = 'SCRAM-SHA-1',
     SCRAM_SHA_256 = 'SCRAM-SHA-256',
     MONGODB_X509 = 'MONGODB-X509',
+    MONGODB_AWS = 'MONGODB-AWS',
     GSSAPI = 'GSSAPI',
     PLAIN = 'PLAIN',
+    /** @deprecated */
     MONGODB_CR = 'MONGODB-CR'
 }
 
@@ -156,7 +158,9 @@ export interface ConnectionOptions {
      * Your system must have a FIPS compliant OpenSSL library to use the
      * --sslFIPSMode option.
      *
+     *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: false
      */
@@ -196,6 +200,7 @@ export interface ConnectionOptions {
      * from secondary replica set members.
      *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: false
      */
@@ -215,6 +220,7 @@ export interface ConnectionOptions {
      * the --dbpath option.
      *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: false
      */
@@ -225,6 +231,7 @@ export interface ConnectionOptions {
      * including mongoexport, disable IPv6 support by default.
      *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: false
      */
@@ -237,6 +244,7 @@ export interface ConnectionOptions {
      * while the process runs.
      *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: undefined
      */
@@ -248,6 +256,7 @@ export interface ConnectionOptions {
      * disk. This option is only relevant when specifying the --dbpath option.
      *
      * NB: Deprecated option of mongoexport
+     * @deprecated
      *
      * Default: false
      */
