@@ -10,7 +10,7 @@ import { ExtendedExportingOptions } from './extendedExportingOptions';
  *
  * See the mongoexport official documentation to further information.
  *
- * @see {@link https://docs.mongodb.com/manual/reference/program/mongoexport/} to further
- * information on the mongoexport options.
+ * @see {@link https://www.mongodb.com/docs/database-tools} to further
+ * information on the mongoexport/mongodump options.
  */
 export type ExportingOptions = StandardExportingOptions & ExtendedExportingOptions;
