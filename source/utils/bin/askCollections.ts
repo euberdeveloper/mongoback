@@ -6,9 +6,9 @@ import {
     MongoScannerListCollectionsError
 } from 'mongo-scanner';
 
-import { ExportedOptions } from '@/interfaces/options';
-import { DetailedExportSchema } from '@/interfaces/result';
-import { ConnectionParameters } from '@/interfaces/connection';
+import { ExportedOptions } from '@/types/options';
+import { DetailedExportSchema } from '@/types/result';
+import { ConnectionParameters } from '@/types/connection';
 
 import { Logger } from '@/utils/logger';
 import { purgeExportingOptions } from '@/utils/getParsedCollections/purgeExportingOptions';

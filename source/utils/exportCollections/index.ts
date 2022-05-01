@@ -1,10 +1,10 @@
 import { exec } from 'shelljs';
 
 import { MongoBackExportingError } from '@/errors';
-import { DetailedExportSchema, ExportingCollection } from '@/interfaces/result';
-import { Options } from '@/interfaces/options';
-import { CommandResult } from '@/interfaces/exportCollections';
-import { ExportResultCode } from '@/interfaces/result';
+import { DetailedExportSchema, ExportingCollection } from '@/types/result';
+import { Options } from '@/types/options';
+import { CommandResult } from '@/types/exportCollections';
+import { ExportResultCode } from '@/types/result';
 
 import { Logger } from '@/utils/logger';
 

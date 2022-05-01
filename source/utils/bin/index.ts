@@ -1,5 +1,5 @@
-import { Options } from '@/interfaces/options';
-import { CliOptions } from '@/interfaces/bin';
+import { Options } from '@/types/options';
+import { CliOptions } from '@/types/bin';
 
 import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
 import { checkMongodumpInstalled } from '../checkMongodumpInstalled';

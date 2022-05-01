@@ -1,4 +1,4 @@
-import { ExportingOptions } from '@/interfaces/options';
+import { ExportingOptions } from '@/types/options';
 
 const KEYS = new Set([
     'quiet',

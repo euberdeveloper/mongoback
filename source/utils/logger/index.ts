@@ -1,8 +1,8 @@
 import * as ora from 'ora';
 import * as chalk from 'chalk';
 
-import { LogOptions } from '@/interfaces/options';
-import { ExportSchema } from '@/interfaces/result';
+import { LogOptions } from '@/types/options';
+import { ExportSchema } from '@/types/result';
 
 export class Logger {
     private readonly realtime: boolean;

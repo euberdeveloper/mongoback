@@ -1,9 +1,9 @@
 export * from '@/errors';
-export * from '@/interfaces/options';
-export * from '@/interfaces/result';
+export * from '@/types/options';
+export * from '@/types/result';
 
-import { Options } from '@/interfaces/options';
-import { ExportResult } from '@/interfaces/result';
+import { Options } from '@/types/options';
+import { ExportResult } from '@/types/result';
 
 import { checkMongoexportInstalled } from '@/utils/checkMongoexportInstalled';
 import { Logger } from '@/utils/logger';

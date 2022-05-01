@@ -1,5 +1,5 @@
-import { ExportingCollection } from '@/interfaces/result';
-import { ConnectionOptions, ExportingOptions, Options } from '@/interfaces/options';
+import { ExportingCollection } from '@/types/result';
+import { ConnectionOptions, ExportingOptions, Options } from '@/types/options';
 
 function parseGenericBoolean(options: ConnectionOptions | ExportingOptions, param: string): string {
     return options[param] ? ` --${param}` : '';

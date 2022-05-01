@@ -1,12 +1,5 @@
-import {
-    Options,
-    ConnectionOptions,
-    ExportingOptions,
-    ExportedOptions,
-    LogOptions,
-    OutOptions
-} from '@/interfaces/options';
-import { ConfigOptions } from '@/interfaces/options/configOptions';
+import { Options, ConnectionOptions, ExportingOptions, ExportedOptions, LogOptions, OutOptions } from '@/types/options';
+import { ConfigOptions } from '@/types/options/configOptions';
 
 const DEFAULT_CONNECTION_OPTIONS: ConnectionOptions = {
     uri: undefined,

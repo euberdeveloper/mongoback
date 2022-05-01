@@ -1,5 +1,5 @@
 import * as enquirer from 'enquirer';
-import { OutOptions } from '@/interfaces/options';
+import { OutOptions } from '@/types/options';
 
 export async function askDestination(options: OutOptions, askDestination: boolean): Promise<void> {
     if (askDestination) {

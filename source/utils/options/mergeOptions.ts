@@ -1,4 +1,4 @@
-import { Options } from '@/interfaces/options';
+import { Options } from '@/types/options';
 import { DEFAULT_OPTIONS } from './defaultOptions';
 
 export function mergeOptions(options: Options = {}): Options {
