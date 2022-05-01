@@ -27,20 +27,20 @@ export interface ReplicaSet {
 }
 
 /**
- * The MongoDB connection options. They will define both the options of the mongoexport
- * command and the uri/MongoClientOptions of the connection used to list databases and
+ * The MongoDB connection options. They will define both the options of the mongo-tools
+ * commands and the uri/MongoClientOptions of the connection used to list databases and
  * collections.
  *
- * Most of the properties are exactly the same of the mongoexport options. Some are
+ * Most of the properties are exactly the same of the mongo-tools options. Some are
  * slightly modified to allow a more confortable usage, without changing what will
- * be passed as a mongoexport option. The default value of the option does not corrispond
- * with the mongoexport one. When there is a value set to false or undefined, it means that
- * the option is not added to the mongoexport command, not that it is the default value of
- * mongoexport.
+ * be passed as a mongo-tools option. The default value of the option does not corrispond
+ * with the mongo-tools one. When there is a value set to false or undefined, it means that
+ * the option is not added to the mongo-tools command and not that it is the default value of
+ * mongo-tools.
  *
- * To support the old versions of mongoexport, there are also the deprecated options.
+ * To support the old versions of mongo-tools, there are also the deprecated options.
  *
- * See the mongoexport official documentation to further information.
+ * See the mongo-tools official documentation to further information.
  *
  * @see {@link https://www.mongodb.com/docs/database-tools} to further
  * information on the mongoexport/mongodump options.
@@ -65,7 +65,7 @@ export interface ConnectionOptions {
      * The host of the MongoDB connection.
      * It can be a string or an array of [[ReplicaSet]].
      *
-     * The property differs from the mongoexport one in which also an
+     * The property differs from the mongoexport/mongodump one in which also an
      * array of replica sets can be passed.
      *
      * Default: 'localhost'
@@ -104,7 +104,7 @@ export interface ConnectionOptions {
     /**
      * If the MongoDB connection uri is an srv.
      *
-     * This property is not present in the mongoexport options, where
+     * This property is not present in the mongoexport/mongodump options, where
      * the "+srv" can be added manually in the host option.
      *
      * Default: false;
@@ -113,7 +113,7 @@ export interface ConnectionOptions {
     /**
      * The replicaSetName of the MongoDB connection.
      *
-     * This property is not present in the mongoexport options, where
+     * This property is not present in the mongoexport/mongodump options, where
      * the replica set name is passed in the uri options or in the host option.
      *
      * Default: undefined
@@ -140,7 +140,7 @@ export interface ConnectionOptions {
     /**
      * Specifies the password to de-crypt the certificate-key file (i.e. --sslPEMKeyFile).
      * Use the --sslPEMKeyPassword option only if the certificate-key file is
-     * encrypted. In all cases, the mongoexport will redact the password
+     * encrypted. In all cases, the mongo command will redact the password
      * from all logging and reporting output.
      *
      * Default: undefined
@@ -175,7 +175,7 @@ export interface ConnectionOptions {
     sslAllowInvalidCertificates?: boolean;
     /**
      * Disables the validation of the hostnames in TLS/SSL certificates. Allows
-     * mongoexport to connect to MongoDB instances even if the hostname in their
+     * mongoexport/mongodump to connect to MongoDB instances even if the hostname in their
      * certificates do not match the specified hostname.
      *
      * Default: false
@@ -214,7 +214,7 @@ export interface ConnectionOptions {
      */
     slaveOk?: boolean;
     /**
-     * Specify the read preference for mongoexport.
+     * Specify the read preference for mongoexport/mongodump.
      *
      * It can be a string such as 'primary' or 'secondary' or an object. If you want
      * to pass the json object as a string, you must manually include it in apixes.
