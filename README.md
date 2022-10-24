@@ -48,7 +48,7 @@ Will result in this:
 
 
 <p align="center">
-  <img src="https://github.com/euberdeveloper/mongoback/raw/master/docs/assets/mongoback_base_log.gif">
+  <img src="https://github.com/euberdeveloper/mongoback/raw/main/docs/assets/mongoback_base_log.gif">
 </p>
 
 
@@ -911,4 +911,4 @@ $ npm run db:populate
 $ npm test
 ```
 
-**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it**
+**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it**a
