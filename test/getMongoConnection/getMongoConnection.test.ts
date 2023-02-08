@@ -77,11 +77,22 @@ export default function (): void {
         it(`Should return a uri with srv`, async function () {
             const options: ConnectionOptions = {
                 host: 'localhost',
+                srv: true
+            };
+
+            const expected = 'mongodb+srv://localhost';
+            const result = await getMongoConnectionFromOptions(options);
+            expect(result.uri).to.equal(expected);
+        });
+
+        it(`Should return a uri with srv, correct even with specified port`, async function () {
+            const options: ConnectionOptions = {
+                host: 'localhost',
                 port: 27_017,
                 srv: true
             };
 
-            const expected = 'mongodb+srv://localhost:27017';
+            const expected = 'mongodb+srv://localhost';
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
         });
