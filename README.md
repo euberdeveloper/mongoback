@@ -150,13 +150,12 @@ const options = {
 await mongoExport(options);
 ```
 
-#### This will add srv (`mongodb+srv//myhost:8080`):
+#### This will add srv (`mongodb+srv//myhost`):
 
 ```js
 const { mongoExport } = require('mongoback');
 const options = { 
     host: 'myhost',
-    port: 8080,
     srv: true,
     all: true 
 };
