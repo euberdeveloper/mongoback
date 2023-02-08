@@ -911,4 +911,4 @@ $ npm run db:populate
 $ npm test
 ```
 
-**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it**a
+**Note: Running tests will delete permanently your MongoDB data. Do not do it if you have important data on it**
