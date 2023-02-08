@@ -50,10 +50,10 @@ function getMongoConnectionUri(options: ConnectionOptions): string {
     if (!uri) {
         const protocol = options.srv ? 'mongodb+srv' : 'mongodb';
         const host = Array.isArray(options.host)
-            ? `${options.host.map(({ host, port }) => (options.srv ? `${host}:${port}` : host), '').join(',')}`
+            ? `${options.host.map(({ host, port }) => (options.srv ? host : `${host}:${port}`), '').join(',')}`
             : options.srv
-            ? `${options.host ?? ''}:${options.port ?? ''}`
-            : `${options.host ?? ''}`;
+            ? `${options.host ?? ''}`
+            : `${options.host ?? ''}:${options.port ?? ''}`;
         const auth = options.username
             ? options.password
                 ? `${options.username}:${options.password}@`
