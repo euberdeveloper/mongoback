@@ -1,5 +1,7 @@
-import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '@/index';
-import { getCommand } from '@/utils/exportCollections/getCommand';
+import { ExportingCollection, ConnectionOptions, AuthenticationMechanism } from '@src/index';
+
+import { adjustOptionsForSrv } from '@src/utils/connection';
+import { getCommand } from '@src/utils/exportCollections/getCommand';
 
 import { expect } from 'chai';
 
@@ -586,18 +588,18 @@ export default function (): void {
             expect(result).to.equal(expected);
         });
 
-        it(`Should return a command with with srv`, function () {
+        it(`Should return a command with with srv`, async function () {
             const database = 'cars';
             const collection: ExportingCollection = {
                 name: 'Ferrari'
             };
-            const options: ConnectionOptions = {
+            const options: ConnectionOptions = await adjustOptionsForSrv({
                 srv: true,
                 host: 'chien.hao.mongodb.net',
                 port: 27_017,
                 username: 'gabibbo',
                 password: 'alteutting'
-            };
+            });
             const outPath = './exported';
 
             const expected = `mongoexport --uri=mongodb+srv://gabibbo:alteutting@chien.hao.mongodb.net/cars --db=cars --collection=Ferrari --out=./exported`;
