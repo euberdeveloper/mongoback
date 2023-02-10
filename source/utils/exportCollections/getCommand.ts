@@ -53,7 +53,7 @@ function parseHost(options: ConnectionOptions): string {
         if (typeof options.host === 'string') {
             result = ` --host=${options.host}`;
         } else {
-            const hosts = options.host.map(h => `${h.host}:${h.port}`).join(',');
+            const hosts = options.host.map(h => (options.srv ? h.host : `${h.host}:${h.port}`)).join(',');
             result = ` --host=${options.replicaSetName ?? ''}/${hosts}`;
         }
     }
