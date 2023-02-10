@@ -1,6 +1,6 @@
 import { MongoClientOptions } from 'mongodb';
 
-import { ConnectionOptions } from '@/interfaces/options';
+import { ConnectionOptions, Options } from '@/interfaces/options';
 import { ConnectionParameters } from '@/interfaces/connection';
 
 async function getMongoConnectionOptions(options: ConnectionOptions): Promise<MongoClientOptions> {
@@ -71,4 +71,16 @@ export async function getMongoConnectionFromOptions(options: ConnectionOptions):
         uri: getMongoConnectionUri(options),
         options: await getMongoConnectionOptions(options)
     };
+}
+
+export async function adjustOptionsForSrv(options: Options): Promise<Options> {
+    if (options.srv) {
+        const { uri } = await getMongoConnectionFromOptions(options);
+        options.uri = uri;
+        options.host = undefined;
+        options.port = undefined;
+        options.username = undefined;
+        options.password = undefined;
+    }
+    return options;
 }

@@ -53,7 +53,7 @@ function parseHost(options: ConnectionOptions): string {
         if (typeof options.host === 'string') {
             result = ` --host=${options.host}`;
         } else {
-            const hosts = options.host.map(h => (options.srv ? h.host : `${h.host}:${h.port}`)).join(',');
+            const hosts = options.host.map(h => `${h.host}:${h.port}`).join(',');
             result = ` --host=${options.replicaSetName ?? ''}/${hosts}`;
         }
     }
@@ -104,7 +104,7 @@ export function getCommand(
 
     const uri = parseUri(options, database);
     const host = parseHost(options);
-    const port = options.srv ? '' : parseGenericString(options, 'port');
+    const port = parseGenericString(options, 'port');
     const username = parseGenericString(options, 'username');
     const password = parseGenericString(options, 'password');
 

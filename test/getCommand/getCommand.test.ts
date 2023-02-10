@@ -586,52 +586,21 @@ export default function (): void {
             expect(result).to.equal(expected);
         });
 
-        it(`Should return a command with host (replicaset) and srv, hence without the port`, function () {
+        it(`Should return a command with with srv`, function () {
             const database = 'cars';
             const collection: ExportingCollection = {
                 name: 'Ferrari'
             };
             const options: ConnectionOptions = {
                 srv: true,
-                host: [
-                    {
-                        host: 'localhost',
-                        port: 27_017
-                    },
-                    {
-                        host: 'localhost',
-                        port: 8080
-                    },
-                    {
-                        host: 'euber',
-                        port: 2323
-                    }
-                ],
-                replicaSetName: 'replicas'
-            };
-            const outPath = './exported';
-
-            const expected =
-                'mongoexport --host=replicas/localhost,localhost,euber --db=cars --collection=Ferrari --out=./exported';
-            const result = getCommand(database, collection, options, outPath);
-            expect(result).to.equal(expected);
-        });
-
-        it(`Should return a command with dbpath and directoryperdb, with srv, so without port`, function () {
-            const database = 'cars';
-            const collection: ExportingCollection = {
-                name: 'Ferrari'
-            };
-            const options: ConnectionOptions = {
-                srv: true,
-                host: 'localhost',
+                host: 'chien.hao.mongodb.net',
                 port: 27_017,
-                dbpath: 'path',
-                directoryperdb: true
+                username: 'gabibbo',
+                password: 'alteutting'
             };
             const outPath = './exported';
 
-            const expected = `mongoexport --host=localhost --db=cars --collection=Ferrari --dbpath=path --directoryperdb --out=./exported`;
+            const expected = `mongoexport --uri=mongodb+srv://gabibbo:alteutting@chien.hao.mongodb.net/cars --db=cars --collection=Ferrari --out=./exported`;
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
         });

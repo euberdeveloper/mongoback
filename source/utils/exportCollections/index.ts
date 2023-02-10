@@ -7,6 +7,7 @@ import { CommandResult } from '@/interfaces/exportCollections';
 import { ExportResultCode } from '@/interfaces/result';
 
 import { Logger } from '@/utils/logger';
+import { adjustOptionsForSrv } from '@/utils/connection';
 
 import { getCommand } from './getCommand';
 import { getPath } from './getPath';
@@ -93,6 +94,7 @@ export async function exportCollections(
     options: Options,
     logger: Logger
 ): Promise<{ exportedCollections: DetailedExportSchema; code: ExportResultCode }> {
+    options = await adjustOptionsForSrv(options);
     const exportedCollections: DetailedExportSchema = {};
     let code = ExportResultCode.TOTAL;
 
