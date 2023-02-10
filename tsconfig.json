@@ -13,6 +13,7 @@
         "downlevelIteration": true,
         "allowJs": true,
         "baseUrl": ".",
+        "skipLibCheck": true,
         "paths": {
             "@/*": [
                 "./source/*"
