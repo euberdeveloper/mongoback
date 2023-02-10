@@ -1,5 +1,5 @@
 import { ConnectionOptions, AuthenticationMechanism } from '@/index';
-import { getMongoConnectionFromOptions } from '@/utils/connection';
+import { getMongoConnectionFromOptions, adjustOptionsForSrv } from '@/utils/connection';
 
 import { expect } from 'chai';
 
@@ -168,6 +168,49 @@ export default function (): void {
             const result = await getMongoConnectionFromOptions(options);
             expect(result.uri).to.equal(expected);
             expect(result.options).to.deep.equal(expectedOptions);
+        });
+    });
+
+    describe('Test: adjustOptionsForSrv auxiliary function', function () {
+        it(`Should add the uri and remove some elements because of srv`, async function () {
+            const options: ConnectionOptions = {
+                srv: true,
+                host: 'chien.hao.mongodb.net',
+                port: 27_017,
+                username: 'gabibbo',
+                password: 'alteutting'
+            };
+
+            const expected: ConnectionOptions = {
+                srv: true,
+                uri: 'mongodb+srv://gabibbo:alteutting@chien.hao.mongodb.net',
+                host: undefined,
+                port: undefined,
+                username: undefined,
+                password: undefined
+            };
+            const result = await adjustOptionsForSrv(options);
+            expect(result).to.deep.equal(expected);
+        });
+
+        it(`Should do nothing because of no srv`, async function () {
+            const options: ConnectionOptions = {
+                srv: false,
+                host: 'chien.hao.mongodb.net',
+                port: 27_017,
+                username: 'gabibbo',
+                password: 'alteutting'
+            };
+
+            const expected: ConnectionOptions = {
+                srv: false,
+                host: 'chien.hao.mongodb.net',
+                port: 27_017,
+                username: 'gabibbo',
+                password: 'alteutting'
+            };
+            const result = await adjustOptionsForSrv(options);
+            expect(result).to.deep.equal(expected);
         });
     });
 }

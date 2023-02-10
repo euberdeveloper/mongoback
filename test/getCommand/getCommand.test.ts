@@ -602,7 +602,7 @@ export default function (): void {
             });
             const outPath = './exported';
 
-            const expected = `mongoexport --uri="mongodb+srv://gabibbo:alteutting@chien.hao.mongodb.net/cars" --db=cars --collection=Ferrari --out=./exported`;
+            const expected = `mongoexport --uri="mongodb+srv://gabibbo:alteutting@chien.hao.mongodb.net/cars" --collection=Ferrari --out=./exported`;
             const result = getCommand(database, collection, options, outPath);
             expect(result).to.equal(expected);
         });
