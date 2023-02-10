@@ -104,7 +104,7 @@ export function getCommand(
 
     const uri = parseUri(options, database);
     const host = parseHost(options);
-    const port = parseGenericString(options, 'port');
+    const port = options.srv ? '' : parseGenericString(options, 'port');
     const username = parseGenericString(options, 'username');
     const password = parseGenericString(options, 'password');
 
